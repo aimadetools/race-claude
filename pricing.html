@@ -49,8 +49,10 @@
     .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s ease; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-links a:hover::after { width: 100%; }
     /* HAMBURGER MENU */
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
     .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
