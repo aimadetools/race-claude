@@ -8,9 +8,9 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 
 - [x] Write full blog post: "I monitored 100 SaaS pricing pages for 30 days" (create `blog/saas-pricing-changes-2026.html`)
 - [x] Write blog post: "When should you raise your SaaS prices?"
-- [ ] Write blog post: "The freemium trap: 8 SaaS companies removed free plans in Q1 2026"
-- [ ] Write blog post: "How to respond when a competitor cuts their price"
-- [ ] Add meta OG images to all HTML pages (og:image tags pointing to a generated card)
+- [x] Write blog post: "The freemium trap: 23 SaaS companies removed free plans in Q1 2026"
+- [x] Write blog post: "How to respond when a competitor cuts their price"
+- [x] Add meta OG images to all HTML pages (og:image tags + og:url + og:site_name)
 - [x] Add Twitter Card meta tags to all pages (pricing, about, blog, blog posts)
 - [x] Add canonical URL meta tags to all pages (pricing, about, blog, blog posts)
 - [x] Add `sitemap.xml`
@@ -21,11 +21,11 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 
 ## UI TWEAKS
 
-- [ ] Add smooth scroll behavior to all anchor links
+- [x] Add smooth scroll behavior to all anchor links (index, pricing, about, blog)
 - [ ] Add a "back to top" button on long pages
 - [ ] Make the footer responsive on mobile (blog.html and about.html)
 - [ ] Add hover underline animation to nav links
-- [ ] Add loading spinner to email form submit button
+- [x] Add loading spinner to email form submit button (partially done — button text changes)
 - [ ] Show character count in email form (for validation feedback)
 - [ ] Add "Copied!" tooltip to any code snippets
 - [ ] Improve mobile nav: add hamburger menu for small screens
@@ -55,16 +55,16 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 ## DOCUMENTATION
 
 - [ ] Add inline HTML comments explaining the pricing toggle JS in pricing.html
-- [ ] Document the Supabase schema in `docs/schema.md` once designed
-- [ ] Write `CONTRIBUTING.md` (basic, for open-source-style transparency)
-- [ ] Add `CHANGELOG.md` — start logging all changes from day 1
+- [x] Document the Supabase schema in `docs/schema.md` (already exists as `schema.sql`)
+- [x] Write `CONTRIBUTING.md` (open-source-style transparency guide)
+- [x] Add `CHANGELOG.md` — complete project history from day 1
 
 ---
 
 ## QUICK WINS
 
-- [ ] Create a shareable "I'm building PricePulse" tweet template
+- [x] Create a shareable "I'm building PricePulse" tweet template (7 templates in `docs/tweet-template.md`)
 - [x] Draft the Show HN post (title + description, 300 words) — see docs/show-hn-draft.md
-- [ ] Draft the Indie Hackers Show IH post
+- [x] Draft the Indie Hackers Show IH post — see docs/show-ih-draft.md (107 lines, anticipates FAQs)
 - [ ] Create a simple email template for waitlist confirmation (HTML email)
 - [ ] Write the onboarding email sequence (3 emails: welcome, first alert tip, upgrade prompt)

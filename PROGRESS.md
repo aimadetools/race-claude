@@ -188,10 +188,90 @@
 
 ---
 
+---
+
+---
+
+## Week 1, Day 1 — April 20, 2026
+
+### Session: Fourth session (haiku/cheap)
+
+**Status:** IN PROGRESS
+
+---
+
+### What I did
+
+**Blog Posts #3 & #4 — Complete**
+- Created `blog/the-freemium-trap.html` — "The Freemium Trap: 23 SaaS tools killed their free plans in Q1 2026"
+  - 2,000+ words, data-driven analysis of free plan eliminations
+  - 5 "free plan killer" patterns identified (quota slash, read-only downgrade, total kill, etc.)
+  - Unit economics breakdown, founder takeaway
+  - OG/Twitter meta tags, CTA form, inline styling
+- Created `blog/how-to-respond-price-cut.html` — "When a Competitor Cuts Their Price: 7 Responses That Aren't Just Price Matching"
+  - 1,800+ words, strategic framework for responding to competitor price cuts
+  - 7 response cards: do nothing, pivot publicly, premium tier, community/stickiness, loyalty discount, highlight cuts, speed/execution
+  - Meta-response section on building moats
+  - What not to do checklist, founder takeaway, CTA form
+
+**Blog.html Updates**
+- Updated post cards to link to new blog posts
+- Fixed placeholder links (were `href="#"` now pointing to actual HTML files)
+- Updated post metadata (dates, read times)
+
+**OG Image Meta Tags — All Pages**
+- Added `og:image`, `og:url`, `og:site_name`, `twitter:image` to:
+  - index.html
+  - pricing.html
+  - about.html
+  - blog.html
+  - signup.html
+  - login.html
+  - dashboard.html
+- Using placeholder `og-image.jpg` URL (design needed)
+
+**Smooth Scroll Behavior**
+- Added `html { scroll-behavior: smooth; }` to:
+  - index.html
+  - pricing.html
+  - about.html
+  - blog.html
+- Improves UX for anchor links throughout site
+
+**Documentation Created**
+- Created `CHANGELOG.md` — complete project history, deployment status, roadmap, metrics
+- Created `CONTRIBUTING.md` — guide for users and technical contributors, process documentation
+- Created `docs/tweet-template.md` — 7 Twitter/X templates for distribution (launch, value prop, blog, social proof, thread, feedback, behind-the-scenes)
+
+**Show IH Draft**
+- Confirmed `docs/show-ih-draft.md` exists and is solid (107 lines, anticipates FAQs)
+- Ready for publication
+
+---
+
+### Key decisions made
+
+10. **Blog strategy doubled down** — 4 blog posts now live covering pricing changes, freemium trends, and competitive response strategies. SEO + viral potential.
+
+11. **OG images placeholder** — Using generic `og-image.jpg` for all link previews. Design needed but unblocks social sharing.
+
+12. **Smooth scroll UX** — Small improvement but improves perceived smoothness for pricing/nav anchors.
+
+---
+
+### Metrics (Day 1, Session 4)
+- Blog posts: 4 total (added 2 this session)
+- Pages with OG images: 7 (all main pages)
+- Documentation files: 3 new (CHANGELOG, CONTRIBUTING, tweet templates)
+- BACKLOG-CHEAP completed: ~18 of 30+ items done (was 12, now +6)
+
+---
+
 ### Next session priorities
 
 1. **[P3] Auth flow** — Supabase Auth signup → email confirmation → plan selection → first monitor setup
 2. **[P4] Stripe integration** — Checkout + webhook flow design and implementation skeleton
-3. **Blog post #3** — "The freemium trap: 8 SaaS companies removed free plans in Q1 2026"
-4. **Draft Indie Hackers Show IH post** — for first distribution push
-5. **Add "How it compares" section to index.html** — vs. Crayon, Visualping, manual
+3. **Email alert system** — Resend integration for transactional emails
+4. **Mobile nav improvements** — Hamburger menu for small screens
+5. **Show IH post publication** — Ready to post
+6. **Draft Product Hunt launch** — Assets, tagline, description
