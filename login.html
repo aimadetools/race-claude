@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in — PricePulse</title>
+  <meta name="description" content="Sign in to your PricePulse account and check your competitor pricing alerts." />
+  <meta property="og:title" content="Sign in — PricePulse" />
+  <meta property="og:description" content="Sign in to monitor competitor pricing pages and get instant alerts when prices change." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0, 229, 160, 0.15);
+      --warning: #f59e0b;
+      --red: #ef4444;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+    .logo:hover { text-decoration: none; }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-family: var(--font);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0f;
+    }
+    .btn-primary:hover {
+      background: #00ffb3;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0, 229, 160, 0.35);
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      padding-top: 64px;
+    }
+
+    /* LEFT — FORM */
+    .form-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .form-box {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .form-heading {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .label-row label { margin-bottom: 0; }
+
+    .forgot-link {
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .forgot-link:hover { color: var(--accent); text-decoration: none; }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"],
+    input[type="url"],
+    select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: var(--font);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    input::placeholder { color: var(--muted); }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.85rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .form-error {
+      display: none;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: #fca5a5;
+      margin-bottom: 1rem;
+    }
+
+    .form-error.visible { display: block; }
+
+    .form-success {
+      display: none;
+      background: rgba(0, 229, 160, 0.08);
+      border: 1px solid rgba(0, 229, 160, 0.3);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .form-success.visible { display: block; }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .form-footer a { font-weight: 600; }
+
+    /* RESET PASSWORD PANEL */
+    .reset-panel {
+      display: none;
+    }
+    .reset-panel.visible { display: block; }
+    .main-form.hidden { display: none; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font);
+      padding: 0;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* RIGHT — ACTIVITY FEED */
+    .benefits-panel {
+      background: var(--bg2);
+      border-left: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefits-panel::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 229, 160, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .benefits-inner {
+      max-width: 380px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .benefits-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .benefits-heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    /* ALERT FEED */
+    .alert-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .alert-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .alert-card.up { border-color: rgba(239, 68, 68, 0.25); background: rgba(239, 68, 68, 0.05); }
+    .alert-card.down { border-color: rgba(0, 229, 160, 0.25); background: rgba(0, 229, 160, 0.05); }
+    .alert-card.new { border-color: rgba(245, 158, 11, 0.25); background: rgba(245, 158, 11, 0.05); }
+
+    .alert-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .alert-card.up .alert-dot { background: var(--red); }
+    .alert-card.down .alert-dot { background: var(--accent); }
+    .alert-card.new .alert-dot { background: var(--warning); }
+
+    .alert-body { flex: 1; min-width: 0; }
+
+    .alert-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .alert-detail {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .alert-time {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .feed-caption {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+
+    .live-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 6px var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-panel {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding: 2.5rem 1.5rem;
+      }
+
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .form-panel { padding: 2rem 1.25rem; }
+      .form-heading { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <span class="logo-dot"></span>
+    PricePulse
+  </a>
+  <div style="display:flex;gap:0.75rem">
+    <a href="login.html" class="btn btn-outline">Sign in</a>
+    <a href="signup.html" class="btn btn-primary">Start free</a>
+  </div>
+</nav>
+
+<main>
+  <!-- LEFT: FORM -->
+  <div class="form-panel">
+    <div class="form-box">
+
+      <!-- MAIN LOGIN FORM -->
+      <div class="main-form" id="mainForm">
+        <h1 class="form-heading">Welcome back</h1>
+        <p class="form-sub">Sign in to see your competitor alerts.</p>
+
+        <div class="form-error" id="formError"></div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@yourstartup.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <button type="button" class="forgot-link" onclick="showReset()">Forgot password?</button>
+            </div>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Your password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+            Sign in →
+          </button>
+        </form>
+
+        <p class="form-footer">
+          Don't have an account? <a href="signup.html">Start free</a>
+        </p>
+      </div>
+
+      <!-- RESET PASSWORD PANEL -->
+      <div class="reset-panel" id="resetPanel">
+        <button class="back-link" onclick="showLogin()">← Back to sign in</button>
+        <h2 class="form-heading" style="font-size:1.5rem">Reset your password</h2>
+        <p class="form-sub">Enter your email and we'll send you a reset link.</p>
+
+        <div class="form-error" id="resetError"></div>
+        <div class="form-success" id="resetSuccess"></div>
+
+        <form id="resetForm" onsubmit="handleReset(event)">
+          <div class="form-group">
+            <label for="resetEmail">Email</label>
+            <input
+              type="email"
+              id="resetEmail"
+              name="email"
+              placeholder="you@yourstartup.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit" id="resetBtn">
+            Send reset link →
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT: LIVE ALERT FEED -->
+  <div class="benefits-panel">
+    <div class="benefits-inner">
+      <span class="benefits-tag">Live feed</span>
+      <p class="benefits-heading">What your competitors did in the last 24h</p>
+
+      <div class="alert-feed">
+        <div class="alert-card up">
+          <div class="alert-dot"></div>
+          <div class="alert-body">
+            <div class="alert-title">Acme SaaS raised Starter plan</div>
+            <div class="alert-detail">$29/mo → $39/mo · pricing.acmesaas.com</div>
+          </div>
+          <div class="alert-time">2h ago</div>
+        </div>
+
+        <div class="alert-card new">
+          <div class="alert-dot"></div>
+          <div class="alert-body">
+            <div class="alert-title">Rival.io added Enterprise tier</div>
+            <div class="alert-detail">New "Custom pricing" plan added</div>
+          </div>
+          <div class="alert-time">6h ago</div>
+        </div>
+
+        <div class="alert-card down">
+          <div class="alert-dot"></div>
+          <div class="alert-body">
+            <div class="alert-title">CompetitorX increased annual discount</div>
+            <div class="alert-detail">Save 33% → Save 40% with annual billing</div>
+          </div>
+          <div class="alert-time">11h ago</div>
+        </div>
+
+        <div class="alert-card up">
+          <div class="alert-dot"></div>
+          <div class="alert-body">
+            <div class="alert-title">BuildKit raised Pro plan</div>
+            <div class="alert-detail">$49/mo → $59/mo · buildkit.io/pricing</div>
+          </div>
+          <div class="alert-time">18h ago</div>
+        </div>
+      </div>
+
+      <div class="feed-caption">
+        <span class="live-dot"></span>
+        847 pages monitored · 12 changes caught today
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">📡 PricePulse</div>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="mailto:hello@pricepulse.app">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 PricePulse. Built in public.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL = 'SUPABASE_URL_PLACEHOLDER';
+  const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY_PLACEHOLDER';
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function showError(id, msg) {
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.classList.add('visible');
+  }
+
+  function hideError(id) {
+    document.getElementById(id).classList.remove('visible');
+  }
+
+  function showSuccess(id, msg) {
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.classList.add('visible');
+  }
+
+  function showReset() {
+    document.getElementById('mainForm').classList.add('hidden');
+    document.getElementById('resetPanel').classList.add('visible');
+  }
+
+  function showLogin() {
+    document.getElementById('mainForm').classList.remove('hidden');
+    document.getElementById('resetPanel').classList.remove('visible');
+    hideError('resetError');
+    document.getElementById('resetSuccess').classList.remove('visible');
+  }
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    hideError('formError');
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const btn = document.getElementById('submitBtn');
+
+    btn.disabled = true;
+    btn.textContent = 'Signing in…';
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        showError('formError', error.message || 'Invalid email or password.');
+        return;
+      }
+
+      // Redirect to dashboard on success
+      window.location.href = 'dashboard.html';
+
+    } catch (err) {
+      showError('formError', 'Network error. Please check your connection and try again.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Sign in →';
+    }
+  }
+
+  async function handleReset(e) {
+    e.preventDefault();
+    hideError('resetError');
+    document.getElementById('resetSuccess').classList.remove('visible');
+
+    const email = document.getElementById('resetEmail').value.trim();
+    const btn = document.getElementById('resetBtn');
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '/reset-password.html'
+      });
+
+      if (error) {
+        showError('resetError', error.message || 'Could not send reset email. Please try again.');
+        return;
+      }
+
+      showSuccess('resetSuccess', 'Reset link sent! Check your inbox (and spam folder).');
+      document.getElementById('resetForm').style.display = 'none';
+
+    } catch (err) {
+      showError('resetError', 'Network error. Please try again.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send reset link →';
+    }
+  }
+</script>
+</body>
+</html>

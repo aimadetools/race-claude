@@ -726,6 +726,89 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+
+    /* COMPARE TABLE */
+    .compare-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .compare-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+      background: var(--bg2);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .compare-table thead th {
+      padding: 0.9rem 1.1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .compare-table thead th:first-child {
+      text-align: left;
+      color: var(--text);
+    }
+
+    .compare-table thead th.col-pp {
+      color: var(--accent);
+      background: rgba(0, 229, 160, 0.08);
+      border-left: 1px solid rgba(0, 229, 160, 0.25);
+      border-right: 1px solid rgba(0, 229, 160, 0.25);
+    }
+
+    .compare-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .compare-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .compare-table tbody tr:nth-child(odd) {
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .compare-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .compare-table tbody td {
+      padding: 0.85rem 1.1rem;
+      font-size: 0.9rem;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .compare-table tbody td:first-child {
+      text-align: left;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .compare-table tbody td.col-pp {
+      background: rgba(0, 229, 160, 0.06);
+      border-left: 1px solid rgba(0, 229, 160, 0.2);
+      border-right: 1px solid rgba(0, 229, 160, 0.2);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cmp-yes { color: var(--accent); font-size: 1rem; }
+    .cmp-no  { color: var(--red);    font-size: 1rem; }
+    .cmp-partial { color: var(--muted); font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -743,8 +826,8 @@
     <li><a href="blog.html">Blog</a></li>
   </ul>
   <div style="display:flex;gap:0.75rem">
-    <a href="#waitlist" class="btn btn-outline">Sign in</a>
-    <a href="#waitlist" class="btn btn-primary">Start free</a>
+    <a href="login.html" class="btn btn-outline">Sign in</a>
+    <a href="signup.html" class="btn btn-primary">Start free</a>
   </div>
 </nav>
 
@@ -758,7 +841,7 @@
     <h1>Know when competitors<br/><span>change their pricing.</span></h1>
     <p>PricePulse monitors competitor pricing pages 24/7 and alerts you the moment anything changes — before your customers notice.</p>
     <div class="hero-cta">
-      <a href="#waitlist" class="btn btn-primary btn-lg">Start monitoring free →</a>
+      <a href="signup.html" class="btn btn-primary btn-lg">Start monitoring free →</a>
       <a href="#how-it-works" class="btn btn-outline btn-lg">See how it works</a>
     </div>
     <p class="hero-social-proof">
@@ -929,7 +1012,7 @@
         <li class="disabled"><span class="check">—</span> Hourly checks</li>
         <li class="disabled"><span class="check">—</span> Webhooks</li>
       </ul>
-      <a href="#waitlist" class="btn btn-outline" style="width:100%;justify-content:center">Get started free</a>
+      <a href="signup.html" class="btn btn-outline" style="width:100%;justify-content:center">Get started free</a>
     </div>
 
     <!-- Starter -->
@@ -947,7 +1030,7 @@
         <li class="disabled"><span class="check">—</span> Webhook</li>
         <li class="disabled"><span class="check">—</span> API access</li>
       </ul>
-      <a href="#waitlist" class="btn btn-primary" style="width:100%;justify-content:center">Start 7-day free trial</a>
+      <a href="signup.html" class="btn btn-primary" style="width:100%;justify-content:center">Start 7-day free trial</a>
     </div>
 
     <!-- Pro -->
@@ -964,13 +1047,80 @@
         <li><span class="check">✓</span> Zapier integration</li>
         <li><span class="check">✓</span> Priority support</li>
       </ul>
-      <a href="#waitlist" class="btn btn-outline" style="width:100%;justify-content:center">Start 7-day free trial</a>
+      <a href="signup.html" class="btn btn-outline" style="width:100%;justify-content:center">Start 7-day free trial</a>
     </div>
   </div>
 
   <p style="text-align:center;margin-top:1.5rem;font-size:0.85rem;color:var(--muted)">
     Save 2 months with annual billing · <a href="pricing.html">See full comparison →</a>
   </p>
+</section>
+
+<hr class="sep" />
+
+<!-- COMPARE -->
+<section id="compare">
+  <span class="section-tag">Comparison</span>
+  <h2 class="section-title">The only tool built for SaaS pricing intelligence</h2>
+  <p class="section-sub">Crayon costs $500+/mo. Visualping wasn't built for pricing. Manual checks don't scale. PricePulse is the obvious choice.</p>
+
+  <div class="compare-wrapper">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Manual</th>
+          <th>Visualping</th>
+          <th>Crayon</th>
+          <th class="col-pp">PricePulse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pricing-aware diffs</td>
+          <td><span class="cmp-no">✗</span></td>
+          <td><span class="cmp-no">✗</span></td>
+          <td><span class="cmp-yes">✓</span></td>
+          <td class="col-pp"><span class="cmp-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>SaaS-specific filters</td>
+          <td><span class="cmp-no">✗</span></td>
+          <td><span class="cmp-no">✗</span></td>
+          <td><span class="cmp-yes">✓</span></td>
+          <td class="col-pp"><span class="cmp-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Instant alerts</td>
+          <td><span class="cmp-no">✗</span></td>
+          <td><span class="cmp-yes">✓</span></td>
+          <td><span class="cmp-yes">✓</span></td>
+          <td class="col-pp"><span class="cmp-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Slack integration</td>
+          <td><span class="cmp-no">✗</span></td>
+          <td><span class="cmp-partial">paid</span></td>
+          <td><span class="cmp-yes">✓</span></td>
+          <td class="col-pp"><span class="cmp-yes">✓</span> <span style="font-size:0.75rem;color:var(--muted);font-weight:400">starter</span></td>
+        </tr>
+        <tr>
+          <td>Free tier</td>
+          <td><span class="cmp-yes">✓</span></td>
+          <td><span class="cmp-partial">limited</span></td>
+          <td><span class="cmp-no">✗</span></td>
+          <td class="col-pp"><span class="cmp-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td><span style="color:var(--text)">$0</span></td>
+          <td><span style="color:var(--text)">$10–40/mo</span></td>
+          <td><span style="color:var(--text)">$500+/mo</span></td>
+          <td class="col-pp" style="color:var(--accent)">from $19/mo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <hr class="sep" />
