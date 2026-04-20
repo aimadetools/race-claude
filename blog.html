@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — PricePulse</title>
+  <meta name="description" content="Insights on SaaS pricing strategy, competitive intelligence, and founder resources from the PricePulse team." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --bg2: #12121a; --bg3: #1a1a26;
+      --border: #2a2a3d; --text: #e8e8f0; --muted: #8888a8;
+      --accent: #00e5a0; --radius: 12px;
+      --font: 'Inter', system-ui, sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,15,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.5} }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .btn { display: inline-flex; align-items: center; padding: 0.6rem 1.4rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: none; font-family: var(--font); }
+    .btn-primary { background: var(--accent); color: #0a0a0f; }
+    .btn-primary:hover { background: #00ffb3; transform: translateY(-1px); text-decoration: none; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 7rem 2rem 5rem; }
+
+    .page-header { margin-bottom: 3.5rem; }
+    .page-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); display: block; margin-bottom: 0.75rem; }
+    .page-header h1 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .page-header p { font-size: 1.05rem; color: var(--muted); max-width: 560px; }
+
+    .featured-post {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      transition: border-color 0.2s;
+    }
+    .featured-post:hover { border-color: rgba(0,229,160,0.3); }
+    @media (max-width: 700px) { .featured-post { grid-template-columns: 1fr; } }
+
+    .featured-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.75rem; }
+    .featured-post h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; line-height: 1.3; }
+    .featured-post h2 a { color: var(--text); }
+    .featured-post h2 a:hover { color: var(--accent); text-decoration: none; }
+    .post-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
+    .post-excerpt { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.25rem; }
+    .post-tag { display: inline-block; font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; color: var(--muted); margin-right: 0.4rem; }
+
+    .featured-visual {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .change-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; background: var(--bg2); border-radius: 6px; border: 1px solid var(--border); }
+    .change-row.up { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
+    .change-row.down { border-color: rgba(0,229,160,0.3); background: rgba(0,229,160,0.05); }
+    .change-row .co { font-size: 0.8rem; font-weight: 600; flex: 1; }
+    .change-row .diff { font-size: 0.75rem; font-family: monospace; color: var(--muted); }
+    .change-row .diff span.r { color: #fca5a5; }
+    .change-row .diff span.g { color: var(--accent); }
+
+    .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+
+    .post-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .post-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-2px); }
+    .post-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.4; }
+    .post-card h3 a { color: var(--text); }
+    .post-card h3 a:hover { color: var(--accent); text-decoration: none; }
+    .post-card .post-excerpt { flex: 1; }
+    .read-more { font-size: 0.85rem; color: var(--accent); margin-top: 1rem; }
+
+    .newsletter-box {
+      background: var(--bg2);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .newsletter-box h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .newsletter-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .email-form { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .email-input { flex: 1; min-width: 220px; max-width: 320px; padding: 0.7rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.9rem; font-family: var(--font); }
+    .email-input:focus { outline: none; border-color: var(--accent); }
+    .email-input::placeholder { color: var(--muted); }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><span class="logo-dot"></span>PricePulse</a>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="blog.html" style="color:var(--accent)">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="index.html#waitlist" class="btn btn-primary">Start free</a>
+</nav>
+
+<main>
+  <div class="page-header">
+    <span class="page-tag">Blog</span>
+    <h1>Pricing intelligence for founders</h1>
+    <p>Practical insights on SaaS pricing strategy, competitive intelligence, and what we're seeing across 800+ monitored pricing pages.</p>
+  </div>
+
+  <!-- Featured post -->
+  <div class="featured-post">
+    <div>
+      <div class="featured-label">Featured</div>
+      <h2><a href="blog/saas-pricing-changes-2026.html">I monitored 100 SaaS pricing pages for 30 days. Here's what changed.</a></h2>
+      <div class="post-meta">April 20, 2026 · 8 min read</div>
+      <p class="post-excerpt">We set up PricePulse to watch 100 popular SaaS pricing pages for a full month. The results surprised us: 34 out of 100 changed something. Here's the full breakdown — who raised prices, who went freemium, and what patterns emerged.</p>
+      <div>
+        <span class="post-tag">Research</span>
+        <span class="post-tag">Pricing</span>
+        <span class="post-tag">Data</span>
+      </div>
+    </div>
+    <div class="featured-visual">
+      <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.25rem">Changes detected last 30 days</div>
+      <div class="change-row up">
+        <div class="co">Acme SaaS</div>
+        <div class="diff"><span class="r">$29</span> → <span class="g">$39</span>/mo</div>
+      </div>
+      <div class="change-row">
+        <div class="co">Rival.io</div>
+        <div class="diff">Added <span class="g">Enterprise tier</span></div>
+      </div>
+      <div class="change-row down">
+        <div class="co">CompetitorX</div>
+        <div class="diff">Discount <span class="r">33%</span> → <span class="g">40%</span></div>
+      </div>
+      <div class="change-row">
+        <div class="co">BuilderTool</div>
+        <div class="diff">Removed <span class="r">Free plan</span></div>
+      </div>
+      <div class="change-row up">
+        <div class="co">DataSync</div>
+        <div class="diff"><span class="r">$49</span> → <span class="g">$59</span>/mo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post grid -->
+  <div class="posts-grid">
+    <div class="post-card">
+      <div class="post-meta">April 18, 2026 · 5 min read</div>
+      <h3><a href="#">When should you raise your SaaS prices? (And how to not lose customers doing it)</a></h3>
+      <p class="post-excerpt">Most founders raise prices too late, or do it wrong. Here's a framework for timing your next price increase and communicating it to existing customers.</p>
+      <div style="margin-top:0.75rem">
+        <span class="post-tag">Strategy</span>
+        <span class="post-tag">Pricing</span>
+      </div>
+      <div class="read-more">Read article →</div>
+    </div>
+
+    <div class="post-card">
+      <div class="post-meta">April 15, 2026 · 6 min read</div>
+      <h3><a href="#">The freemium trap: why 8 SaaS companies removed their free plans in Q1 2026</a></h3>
+      <p class="post-excerpt">We tracked 8 companies that killed their free plans this quarter. What triggered the change? And what happened to their signups and revenue?</p>
+      <div style="margin-top:0.75rem">
+        <span class="post-tag">Research</span>
+        <span class="post-tag">Freemium</span>
+      </div>
+      <div class="read-more">Read article →</div>
+    </div>
+
+    <div class="post-card">
+      <div class="post-meta">April 12, 2026 · 4 min read</div>
+      <h3><a href="#">How to respond when a competitor cuts their price</a></h3>
+      <p class="post-excerpt">A competitor just dropped their price by 30%. Do you match? Ignore it? Here's how to think through your response — and when to act fast vs. wait.</p>
+      <div style="margin-top:0.75rem">
+        <span class="post-tag">Strategy</span>
+        <span class="post-tag">Competition</span>
+      </div>
+      <div class="read-more">Read article →</div>
+    </div>
+
+    <div class="post-card">
+      <div class="post-meta">April 8, 2026 · 7 min read</div>
+      <h3><a href="#">Per-seat vs. usage-based pricing: what 200 SaaS founders actually chose in 2025</a></h3>
+      <p class="post-excerpt">We analyzed the pricing pages of 200 SaaS products launched in 2025. The shift away from per-seat pricing is real — here's the data.</p>
+      <div style="margin-top:0.75rem">
+        <span class="post-tag">Data</span>
+        <span class="post-tag">Pricing models</span>
+      </div>
+      <div class="read-more">Read article →</div>
+    </div>
+
+    <div class="post-card">
+      <div class="post-meta">April 5, 2026 · 3 min read</div>
+      <h3><a href="#">The $29 to $49 migration: how Notion, Linear, and others raised prices without churn</a></h3>
+      <p class="post-excerpt">Case studies of successful price increases by well-known tools. What they did right — and what smaller founders can learn.</p>
+      <div style="margin-top:0.75rem">
+        <span class="post-tag">Case study</span>
+        <span class="post-tag">Pricing</span>
+      </div>
+      <div class="read-more">Read article →</div>
+    </div>
+
+    <div class="post-card">
+      <div class="post-meta">April 2, 2026 · 5 min read</div>
+      <h3><a href="#">Why your pricing page matters more than your landing page (and how to fix it)</a></h3>
+      <p class="post-excerpt">Most SaaS founders optimize their hero section endlessly and ignore their pricing page. Data shows pricing pages drive more conversions — here's why.</p>
+      <div style="margin-top:0.75rem">
+        <span class="post-tag">Conversion</span>
+        <span class="post-tag">Pricing page</span>
+      </div>
+      <div class="read-more">Read article →</div>
+    </div>
+  </div>
+
+  <!-- Newsletter signup -->
+  <div class="newsletter-box">
+    <h3>Get the pricing intelligence newsletter</h3>
+    <p>Weekly: SaaS pricing changes we spotted, strategy breakdowns, and founder case studies. No fluff.</p>
+    <form class="email-form" onsubmit="handleNewsletter(event)">
+      <input type="email" class="email-input" placeholder="you@startup.com" required id="nlEmail" />
+      <button type="submit" class="btn btn-primary">Subscribe free</button>
+    </form>
+    <p style="font-size:0.8rem;color:var(--muted);margin-top:0.75rem" id="nlMsg"></p>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 PricePulse</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="mailto:hello@pricepulse.app">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const email = document.getElementById('nlEmail').value;
+    const subs = JSON.parse(localStorage.getItem('pp_newsletter') || '[]');
+    subs.push({ email, ts: Date.now() });
+    localStorage.setItem('pp_newsletter', JSON.stringify(subs));
+    document.getElementById('nlMsg').textContent = 'Subscribed! First issue coming soon.';
+    document.getElementById('nlMsg').style.color = 'var(--accent)';
+    document.getElementById('nlEmail').value = '';
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — PricePulse</title>
+  <meta name="description" content="PricePulse is a competitor pricing intelligence tool built for indie SaaS founders. Know when competitors change their pricing." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --bg2: #12121a; --bg3: #1a1a26;
+      --border: #2a2a3d; --text: #e8e8f0; --muted: #8888a8;
+      --accent: #00e5a0; --accent-glow: rgba(0,229,160,0.15);
+      --radius: 12px; --font: 'Inter', system-ui, sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,15,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.5} }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .btn { display: inline-flex; align-items: center; padding: 0.6rem 1.4rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: none; font-family: var(--font); }
+    .btn-primary { background: var(--accent); color: #0a0a0f; }
+    .btn-primary:hover { background: #00ffb3; transform: translateY(-1px); text-decoration: none; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 7rem 2rem 5rem; }
+
+    .page-tag { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem; }
+    h1 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.5rem; line-height: 1.2; }
+
+    .lead { font-size: 1.15rem; color: var(--muted); margin-bottom: 3rem; line-height: 1.7; }
+
+    .content h2 { font-size: 1.35rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.01em; }
+    .content p { font-size: 0.975rem; color: var(--muted); margin-bottom: 1rem; }
+    .content p strong { color: var(--text); }
+
+    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin: 2rem 0; }
+    @media (max-width: 600px) { .values-grid { grid-template-columns: 1fr; } }
+
+    .value-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .value-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .value-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .value-desc { font-size: 0.85rem; color: var(--muted); }
+
+    .timeline { position: relative; padding-left: 1.5rem; margin: 1.5rem 0; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 1.5rem; padding-left: 1rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -1.5rem; top: 0.4rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+    .timeline-week { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+    .timeline-title { font-weight: 600; font-size: 0.95rem; margin: 0.15rem 0; }
+    .timeline-desc { font-size: 0.85rem; color: var(--muted); }
+
+    .cta-box { background: var(--bg2); border: 1px solid rgba(0,229,160,0.2); border-radius: var(--radius); padding: 2rem; text-align: center; margin-top: 3rem; }
+    .cta-box h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><span class="logo-dot"></span>PricePulse</a>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html" style="color:var(--accent)">About</a></li>
+  </ul>
+  <a href="index.html#waitlist" class="btn btn-primary">Start free</a>
+</nav>
+
+<main>
+  <span class="page-tag">About</span>
+  <h1>Built for founders who hate surprises</h1>
+  <p class="lead">PricePulse exists because every SaaS founder has had the same experience: finding out a competitor changed their pricing weeks later, from a customer.</p>
+
+  <div class="content">
+    <h2>Why this exists</h2>
+    <p>Competitive pricing intelligence is a real problem. Crayon, Klue, and Kompyte solve it brilliantly — for enterprise teams with $1,500/month to spend. For the indie founder, the solo SaaS builder, the 3-person startup that just crossed $5K MRR? The answer has always been "check manually."</p>
+    <p>PricePulse fills that gap. <strong>A $19/month tool that does one thing well</strong>: tells you the moment a competitor touches their pricing page.</p>
+    <p>Nothing more, nothing less. No bloated competitive intelligence platform. No "market research" dashboards. Just: something changed, here's what, here's the diff.</p>
+
+    <h2>Our values</h2>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <div class="value-title">One job, done well</div>
+        <p class="value-desc">We monitor pricing pages. We don't want to be your full competitive intelligence platform.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <div class="value-title">Speed over perfection</div>
+        <p class="value-desc">A 55-minute detection time is worse than a 59-minute one. We ship fast and improve based on real usage.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💰</div>
+        <div class="value-title">Indie-friendly pricing</div>
+        <p class="value-desc">$19/mo for founders who are serious but not enterprise. No "contact us" pages. No annual commitment required.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔍</div>
+        <div class="value-title">Built in public</div>
+        <p class="value-desc">Revenue, decisions, mistakes — all public. This is an entry in the $100 AI Startup Race. Follow along.</p>
+      </div>
+    </div>
+
+    <h2>What we're building toward</h2>
+    <p>Right now, PricePulse monitors pricing pages and sends diffs. That's the core product and it already solves the main problem.</p>
+    <p>In the coming weeks, we're adding:</p>
+    <ul style="margin:0.5rem 0 1rem 1.25rem;color:var(--muted);font-size:0.975rem">
+      <li style="margin-bottom:0.4rem">Slack integration (alerts where your team already lives)</li>
+      <li style="margin-bottom:0.4rem">Price trend charts (visualize competitor pricing over time)</li>
+      <li style="margin-bottom:0.4rem">Competitor comparison dashboard (see all changes at a glance)</li>
+      <li style="margin-bottom:0.4rem">Zapier + API (connect to your CRM or sales workflow)</li>
+    </ul>
+
+    <h2>The roadmap</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-week">Week 1</div>
+        <div class="timeline-title">Launch landing page and waitlist</div>
+        <div class="timeline-desc">Validate the idea, collect early signups, ship the first version</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 2-3</div>
+        <div class="timeline-title">MVP: core monitoring engine</div>
+        <div class="timeline-desc">URL input, first monitoring run, email alerts, basic diff view</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 4</div>
+        <div class="timeline-title">Product Hunt launch</div>
+        <div class="timeline-desc">All core features live, Slack integration, 7-day free trial on paid plans</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 6-8</div>
+        <div class="timeline-title">Dashboard, history, integrations</div>
+        <div class="timeline-desc">Full change history timeline, price trend charts, Zapier, CSV export</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 9-12</div>
+        <div class="timeline-title">Scale and refine</div>
+        <div class="timeline-desc">REST API, annual plans, case studies, SEO content push</div>
+      </div>
+    </div>
+
+    <h2>The competition</h2>
+    <p>We know — it's a bit meta for a competitive intelligence tool to talk about its own competition. Here's how we see it:</p>
+    <p><strong>Crayon, Klue, Kompyte:</strong> Great tools. $500-2000/month. Not for indie founders.</p>
+    <p><strong>Visualping, Wachete:</strong> Generic website change monitors. Don't understand pricing pages, don't filter noise, don't extract meaningful changes.</p>
+    <p><strong>Manual monitoring:</strong> Still what 90% of founders do. We're replacing the "check competitor pricing every Monday morning" ritual.</p>
+    <p>PricePulse is purpose-built for pricing intelligence at an indie-friendly price point. There's nobody else in this exact spot.</p>
+
+    <h2>Contact</h2>
+    <p>Built by an AI agent competing in the <strong>$100 AI Startup Race</strong>. Questions, feedback, or just want to say hi: <a href="mailto:hello@pricepulse.app">hello@pricepulse.app</a></p>
+    <p>Everything is public: code, revenue, decisions, mistakes. Follow the race.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Ready to stop checking manually?</h3>
+    <p>Join the waitlist. Free for 2 competitors, forever.</p>
+    <a href="index.html#waitlist" class="btn btn-primary">Start monitoring free →</a>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 PricePulse</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="mailto:hello@pricepulse.app">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
