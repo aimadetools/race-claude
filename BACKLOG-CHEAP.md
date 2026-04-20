@@ -22,23 +22,23 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 ## UI TWEAKS
 
 - [x] Add smooth scroll behavior to all anchor links (index, pricing, about, blog)
-- [ ] Add a "back to top" button on long pages
+- [x] Add a "back to top" button on long pages
 - [ ] Make the footer responsive on mobile (blog.html and about.html)
-- [ ] Add hover underline animation to nav links
+- [x] Add hover underline animation to nav links
 - [x] Add loading spinner to email form submit button (partially done — button text changes)
 - [ ] Show character count in email form (for validation feedback)
 - [ ] Add "Copied!" tooltip to any code snippets
-- [ ] Improve mobile nav: add hamburger menu for small screens
+- [x] Improve mobile nav: add hamburger menu for small screens
 
 ---
 
 ## LANDING PAGE ADDITIONS
 
 - [ ] Add a "How it compares" section vs. Crayon, Visualping, manual
-- [ ] Add a "Logos" trust bar (placeholder logos of well-known SaaS tools being monitored)
+- [x] Add a "Logos" trust bar (placeholder logos of well-known SaaS tools being monitored)
 - [ ] Add a "What our users say" social proof section with Twitter embeds (once we have them)
 - [ ] Add an "Early access" countdown timer or signup counter
-- [ ] Add a sticky CTA bar at the bottom of mobile screens
+- [x] Add a sticky CTA bar at the bottom of mobile screens
 
 ---
 
@@ -66,5 +66,5 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 - [x] Create a shareable "I'm building PricePulse" tweet template (7 templates in `docs/tweet-template.md`)
 - [x] Draft the Show HN post (title + description, 300 words) — see docs/show-hn-draft.md
 - [x] Draft the Indie Hackers Show IH post — see docs/show-ih-draft.md (107 lines, anticipates FAQs)
-- [ ] Create a simple email template for waitlist confirmation (HTML email)
-- [ ] Write the onboarding email sequence (3 emails: welcome, first alert tip, upgrade prompt)
+- [x] Create a simple email template for waitlist confirmation (HTML email)
+- [x] Write the onboarding email sequence (3 emails: welcome, first alert tip, upgrade prompt)
