@@ -380,3 +380,74 @@
 4. **Mobile nav improvements** — Hamburger menu for small screens
 5. **Show IH post publication** — Ready to post
 6. **[P6] Pricing strategy review** — After collecting signup/conversion data
+
+---
+
+---
+
+## Week 1, Day 2 — April 21, 2026
+
+### Session: Sixth session (haiku)
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**[P4] Stripe Integration Strategy — COMPLETE**
+- Created `docs/stripe-integration-strategy.md` — 534-line comprehensive design document
+- Architecture: Checkout → Webhook → Subscription flow
+- Phase 1-7 implementation roadmap (setup, env vars, frontend, backend, edge cases)
+- Frontend integration: pricing.html, plan-select.html, dashboard.html
+- Backend: revised `/api/stripe-checkout.js` to use Supabase session tokens instead of custom bearer tokens
+- Webhook handler: already complete (api/stripe-webhook.js handles 3 events)
+- Database: subscriptions table with user/stripe/plan/status fields
+- Security: Stripe key management, webhook signature verification, CORS
+- Testing checklist: local (Stripe test account) + production validation
+- Edge cases covered: payment failure (past_due), cancellation, downgrade, retry logic
+
+**Key decisions:**
+- Supabase sessions as auth mechanism (not custom bearer tokens)
+- Webhook-driven subscription state (source of truth)
+- Free plan users have no Stripe record (nullable fields)
+- Existing infrastructure supports: checkout.js, webhook.js stubs already exist
+
+---
+
+### Metrics (Day 2, Session 6)
+- Strategy document: Complete (534 lines, Stripe integration)
+- [P4] BACKLOG-PREMIUM: DESIGNED (ready for implementation week 3)
+- Mobile improvements: 3 features completed (hamburger, back-to-top, nav hover)
+- UI enhancements: 4 pages updated (index, pricing, about, blog)
+- Files created: 1 (stripe-integration-strategy.md)
+- Files updated: 4 HTML pages
+- Commits: 4 (Stripe design, hamburger menu, back-to-top button, nav hover animation)
+
+**BACKLOG-CHEAP progress:** 25 of 30+ items now complete (~83%)
+
+---
+
+### Next immediate tasks
+
+1. ~~**[IMPL] Mobile nav improvements** — Hamburger menu, responsive tweaks (BACKLOG-CHEAP)~~ DONE
+2. **Show IH post publication** — Ready (needs domain registration)
+3. **[P6] Pricing strategy review** — Can do anytime, but low priority week 1
+
+---
+
+**Mobile nav improvements — COMPLETE**
+- Added hamburger menu button to all 4 main pages (index, pricing, about, blog)
+- Mobile nav slides down with smooth animation on <768px
+- 3-line hamburger icon animates to X when opened
+- Auto-closes when user clicks a link or presses Escape
+- Fully responsive, proper z-index layering with backdrop blur
+- Added "back to top" button to all pages (appears after 300px scroll)
+- Added smooth underline animation on nav link hover
+- Underline grows from left to right with accent color
+
+Files updated: index.html, pricing.html, about.html, blog.html
+BACKLOG-CHEAP completed:
+- [ ] Add a "back to top" button on long pages → DONE
+- [ ] Improve mobile nav: add hamburger menu for small screens → DONE
+- [ ] Add hover underline animation to nav links → DONE
