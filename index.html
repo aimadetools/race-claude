@@ -99,6 +99,77 @@
 
     .nav-links a:hover { color: var(--text); text-decoration: none; }
 
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      margin-right: -0.5rem;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 1rem 0;
+      gap: 0;
+      z-index: 99;
+      animation: slideDown 0.2s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      padding: 0.75rem 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-nav a:last-child { border-bottom: none; }
+
+    .mobile-nav a:hover {
+      color: var(--text);
+      text-decoration: none;
+      background: var(--bg2);
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -744,7 +815,9 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
       .nav-links { display: none; }
+      .hamburger { display: flex; }
       .stats-grid { grid-template-columns: 1fr; }
       .step-number { margin: 0 auto 0.75rem; }
       footer { flex-direction: column; text-align: center; }
@@ -858,6 +931,20 @@
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="blog.html">Blog</a></li>
   </ul>
+  <button class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV (hidden by default, shown on mobile) -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#features" onclick="closeMobileNav()">Features</a>
+  <a href="#how-it-works" onclick="closeMobileNav()">How it works</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="blog.html">Blog</a>
+</div>
   <div style="display:flex;gap:0.75rem">
     <a href="login.html" class="btn btn-outline">Sign in</a>
     <a href="signup.html" class="btn btn-primary">Start free</a>
@@ -1329,6 +1416,26 @@
       btn.textContent = 'Get early access →';
     }
   }
+
+  // ─── HAMBURGER MENU ──────────────────────────────────────────────────────────
+  function toggleMobileNav() {
+    const menu = document.getElementById('mobileNav');
+    const btn = document.querySelector('.hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
+  function closeMobileNav() {
+    const menu = document.getElementById('mobileNav');
+    const btn = document.querySelector('.hamburger');
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+  }
+
+  // Close mobile nav when clicking on a link or escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
 </script>
 
 </body>
