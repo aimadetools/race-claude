@@ -783,15 +783,15 @@
       </div>
       <div class="form-group">
         <label for="monitorFreq">Check frequency</label>
-        <select id="monitorFreq" name="frequency">
-          <option value="daily">Daily — Free plan</option>
-          <option value="hourly" disabled>Hourly — Starter plan required</option>
-          <option value="30min" disabled>Every 30 minutes — Pro plan required</option>
+        <select id="monitorFreq" name="frequency" onchange="updateFrequencyNote()">
+          <option value="daily">Every 24 hours (Free plan)</option>
+          <option value="hourly" id="freq-hourly" disabled>Every hour (Starter plan)</option>
+          <option value="30min" id="freq-30min" disabled>Every 30 minutes (Pro plan)</option>
         </select>
       </div>
 
-      <div class="modal-note">
-        The API connection is coming soon — your monitor will be queued and checking will begin within the hour once live.
+      <div class="modal-note" id="frequencyNote">
+        ⚡ Free plan: checks run every 24 hours
       </div>
 
       <div class="modal-actions">
@@ -811,39 +811,10 @@
 
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // ─── MOCK DATA ───────────────────────────────────────────────────────────────
-  const MOCK_MONITORS = [
-    {
-      id: 1,
-      label: 'Acme SaaS',
-      url: 'https://acmesaas.com/pricing',
-      frequency: 'Daily',
-      lastChecked: '23 minutes ago',
-      lastChange: '2 days ago',
-      status: 'active',
-      hasNewChange: true,
-    },
-    {
-      id: 2,
-      label: 'Rival.io',
-      url: 'https://rival.io/pricing',
-      frequency: 'Daily',
-      lastChecked: '23 minutes ago',
-      lastChange: '6 hours ago',
-      status: 'active',
-      hasNewChange: true,
-    },
-    {
-      id: 3,
-      label: 'CompetitorX',
-      url: 'https://competitorx.com/pricing',
-      frequency: 'Daily',
-      lastChecked: '23 minutes ago',
-      lastChange: '12 days ago',
-      status: 'paused',
-      hasNewChange: false,
-    },
-  ];
+  // ─── GLOBAL STATE ─────────────────────────────────────────────────────────────
+  let currentUser = null;
+  let currentPlan = 'free';
+  let monitors = [];
 
   // ─── AUTH GUARD ──────────────────────────────────────────────────────────────
   async function init() {
@@ -855,22 +826,129 @@
         return;
       }
 
-      // Render the page
+      currentUser = session.user;
+      const userId = currentUser.id;
+
+      // Set user email in nav
+      document.getElementById('navUserEmail').textContent = currentUser.email || '';
+
+      // Load user's plan
+      const { data: sub, error: subError } = await supabase
+        .from('subscriptions')
+        .select('plan')
+        .eq('user_id', userId)
+        .single();
+
+      if (sub) {
+        currentPlan = sub.plan;
+      }
+
+      // Load monitors from database
+      const { data: dbMonitors, error: monitorsError } = await supabase
+        .from('monitors')
+        .select('*')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false });
+
+      if (monitorsError) {
+        console.warn('Could not load monitors:', monitorsError);
+        monitors = [];
+      } else if (dbMonitors) {
+        monitors = dbMonitors.map(m => ({
+          id: m.id,
+          label: m.name,
+          url: m.url,
+          frequency: formatFrequency(m.frequency),
+          lastChecked: formatTime(m.next_check),
+          lastChange: 'Never',
+          status: m.status === 'active' ? 'active' : 'paused',
+          hasNewChange: false,
+        }));
+      }
+
+      // Update plan banner
+      updatePlanBanner();
+
+      // Show content, hide loading
       document.getElementById('loadingScreen').style.display = 'none';
       const appContent = document.getElementById('appContent');
       appContent.style.display = 'flex';
 
-      // Set user email in nav
-      const email = session.user.email || '';
-      document.getElementById('navUserEmail').textContent = email;
-
-      // Render monitor list with mock data
-      renderMonitors(MOCK_MONITORS);
+      // Render monitor list
+      renderMonitors(monitors);
 
     } catch (err) {
-      console.error('Auth check failed:', err);
+      console.error('Initialization error:', err);
       window.location.href = 'login.html';
     }
+  }
+
+  function formatFrequency(freq) {
+    const map = { daily: 'Daily', hourly: 'Hourly', '30min': 'Every 30 min' };
+    return map[freq] || 'Daily';
+  }
+
+  function formatTime(isoDate) {
+    if (!isoDate) return 'Never';
+    const date = new Date(isoDate);
+    const now = new Date();
+    const diff = now - date;
+    const mins = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+
+    if (mins < 1) return 'Just now';
+    if (mins < 60) return `${mins}m ago`;
+    if (hours < 24) return `${hours}h ago`;
+    if (days < 7) return `${days}d ago`;
+    return date.toLocaleDateString();
+  }
+
+  function updatePlanBanner() {
+    const planBadge = document.getElementById('planBadge');
+    const limits = { free: 2, starter: 10, pro: '∞' };
+    const maxMonitors = limits[currentPlan] || 2;
+    const planLabel = currentPlan.charAt(0).toUpperCase() + currentPlan.slice(1);
+
+    planBadge.textContent = planLabel;
+    planBadge.className = `plan-badge plan-${currentPlan}`;
+
+    const planDesc = document.querySelector('.plan-desc');
+    const used = monitors.length;
+    if (maxMonitors === '∞') {
+      planDesc.innerHTML = `<strong>Unlimited monitors.</strong> You're on the ${planLabel} plan.`;
+    } else {
+      planDesc.innerHTML = `<strong>${used} of ${maxMonitors} monitors used.</strong> ${used >= maxMonitors ? 'Upgrade to track more competitors.' : 'Upgrade for more monitors and faster checks.'}`;
+    }
+  }
+
+  function updateFrequencyNote() {
+    const freqSelect = document.getElementById('monitorFreq');
+    const freq = freqSelect.value;
+    const notes = {
+      daily: '⚡ Free plan: checks run every 24 hours',
+      hourly: '⚡ Starter plan: checks run every hour (real-time monitoring)',
+      '30min': '⚡ Pro plan: checks run every 30 minutes (maximum detection speed)',
+    };
+    document.getElementById('frequencyNote').textContent = notes[freq] || notes['daily'];
+  }
+
+  function enableFrequencyOptions() {
+    const freqHourly = document.getElementById('freq-hourly');
+    const freq30min = document.getElementById('freq-30min');
+
+    freqHourly.disabled = currentPlan === 'free';
+    freq30min.disabled = currentPlan !== 'pro';
+
+    // Reset to available option if needed
+    const select = document.getElementById('monitorFreq');
+    if (currentPlan === 'free') {
+      select.value = 'daily';
+    } else if (currentPlan === 'starter') {
+      select.value = 'hourly';
+    }
+
+    updateFrequencyNote();
   }
 
   // ─── RENDER MONITORS ─────────────────────────────────────────────────────────
@@ -945,23 +1023,74 @@
       .replace(/"/g, '&quot;');
   }
 
-  // ─── MONITOR ACTIONS (MOCK) ───────────────────────────────────────────────────
-  function togglePause(id) {
-    const monitor = MOCK_MONITORS.find(m => m.id === id);
+  // ─── MONITOR ACTIONS ──────────────────────────────────────────────────────────
+  async function togglePause(id) {
+    if (!currentUser) return;
+
+    const monitor = monitors.find(m => m.id === id);
     if (!monitor) return;
-    monitor.status = monitor.status === 'active' ? 'paused' : 'active';
-    renderMonitors(MOCK_MONITORS);
+
+    const newStatus = monitor.status === 'active' ? 'paused' : 'active';
+
+    try {
+      const { error } = await supabase
+        .from('monitors')
+        .update({ status: newStatus })
+        .eq('id', id)
+        .eq('user_id', currentUser.id);
+
+      if (error) {
+        alert('Could not update monitor status.');
+        return;
+      }
+
+      monitor.status = newStatus;
+      renderMonitors(monitors);
+
+    } catch (err) {
+      console.error('Toggle pause error:', err);
+      alert('Could not update monitor.');
+    }
   }
 
-  function deleteMonitor(id) {
+  async function deleteMonitor(id) {
     if (!confirm('Remove this monitor? This cannot be undone.')) return;
-    const idx = MOCK_MONITORS.findIndex(m => m.id === id);
-    if (idx > -1) MOCK_MONITORS.splice(idx, 1);
-    renderMonitors(MOCK_MONITORS);
+
+    if (!currentUser) return;
+
+    try {
+      const { error } = await supabase
+        .from('monitors')
+        .delete()
+        .eq('id', id)
+        .eq('user_id', currentUser.id);
+
+      if (error) {
+        alert('Could not delete monitor.');
+        return;
+      }
+
+      monitors = monitors.filter(m => m.id !== id);
+      renderMonitors(monitors);
+      updatePlanBanner();
+
+    } catch (err) {
+      console.error('Delete monitor error:', err);
+      alert('Could not delete monitor.');
+    }
   }
 
   // ─── MODAL ────────────────────────────────────────────────────────────────────
   function openModal() {
+    // Check plan limits
+    const limits = { free: 2, starter: 10, pro: Infinity };
+    const maxMonitors = limits[currentPlan] || 2;
+    if (monitors.length >= maxMonitors) {
+      alert(`You've reached your plan limit (${maxMonitors} monitors). Please upgrade to add more.`);
+      return;
+    }
+
+    enableFrequencyOptions();
     document.getElementById('modalOverlay').classList.add('open');
     document.getElementById('monitorUrl').focus();
     document.body.style.overflow = 'hidden';
@@ -988,6 +1117,11 @@
   async function handleAddMonitor(e) {
     e.preventDefault();
 
+    if (!currentUser) {
+      window.location.href = 'login.html';
+      return;
+    }
+
     const url = document.getElementById('monitorUrl').value.trim();
     const label = document.getElementById('monitorLabel').value.trim();
     const frequency = document.getElementById('monitorFreq').value;
@@ -1000,9 +1134,6 @@
     btn.disabled = true;
     btn.textContent = 'Adding…';
 
-    // Simulate API call (no real endpoint yet)
-    await new Promise(r => setTimeout(r, 900));
-
     // Validate URL format
     try {
       new URL(url);
@@ -1014,27 +1145,74 @@
       return;
     }
 
-    // Add to mock list
-    const freqLabel = { daily: 'Daily', hourly: 'Hourly', '30min': 'Every 30 min' }[frequency] || 'Daily';
-    MOCK_MONITORS.push({
-      id: Date.now(),
-      label: label || new URL(url).hostname,
-      url,
-      frequency: freqLabel,
-      lastChecked: 'Just now',
-      lastChange: 'Never',
-      status: 'active',
-      hasNewChange: false,
-    });
+    // Check plan limits
+    const limits = { free: 2, starter: 10, pro: Infinity };
+    const maxMonitors = limits[currentPlan] || 2;
+    if (monitors.length >= maxMonitors) {
+      errEl.textContent = `You've reached your plan limit (${maxMonitors} monitors). Upgrade to add more.`;
+      errEl.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = 'Add monitor →';
+      return;
+    }
 
-    successEl.textContent = 'Monitor added! Checking will begin within the hour.';
-    successEl.classList.add('visible');
+    try {
+      const monitorName = label || new URL(url).hostname;
 
-    // Close modal and refresh list after a beat
-    setTimeout(() => {
-      closeModal();
-      renderMonitors(MOCK_MONITORS);
-    }, 1800);
+      // Create monitor in database
+      const { data: newMonitor, error } = await supabase
+        .from('monitors')
+        .insert({
+          user_id: currentUser.id,
+          name: monitorName,
+          url: url,
+          frequency: frequency,
+          status: 'active',
+          next_check: new Date().toISOString(),
+          alert_email: currentUser.email,
+          created_at: new Date().toISOString(),
+        })
+        .select()
+        .single();
+
+      if (error) {
+        console.error('Insert error:', error);
+        errEl.textContent = 'Could not create monitor. Please try again.';
+        errEl.classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = 'Add monitor →';
+        return;
+      }
+
+      // Add to local list
+      monitors.push({
+        id: newMonitor.id,
+        label: monitorName,
+        url: url,
+        frequency: formatFrequency(frequency),
+        lastChecked: 'Just now',
+        lastChange: 'Never',
+        status: 'active',
+        hasNewChange: false,
+      });
+
+      successEl.textContent = 'Monitor added! We\'ll check it within the hour.';
+      successEl.classList.add('visible');
+
+      // Close modal and refresh list after a beat
+      setTimeout(() => {
+        closeModal();
+        renderMonitors(monitors);
+        updatePlanBanner();
+      }, 1500);
+
+    } catch (err) {
+      console.error('Add monitor error:', err);
+      errEl.textContent = 'Network error. Please try again.';
+      errEl.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = 'Add monitor →';
+    }
   }
 
   // ─── SIGN OUT ─────────────────────────────────────────────────────────────────
