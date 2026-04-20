@@ -146,6 +146,7 @@
     .email-input { flex: 1; min-width: 220px; max-width: 320px; padding: 0.7rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.9rem; font-family: var(--font); }
     .email-input:focus { outline: none; border-color: var(--accent); }
     .email-input::placeholder { color: var(--muted); }
+    .email-char-count { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
 
     footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: var(--muted); }
     .footer-links { display: flex; gap: 1.5rem; }
@@ -304,7 +305,10 @@
     <h3>Get the pricing intelligence newsletter</h3>
     <p>Weekly: SaaS pricing changes we spotted, strategy breakdowns, and founder case studies. No fluff.</p>
     <form class="email-form" onsubmit="handleNewsletter(event)">
-      <input type="email" class="email-input" placeholder="you@startup.com" required id="nlEmail" />
+      <div style="width:100%;display:flex;flex-direction:column;align-items:center">
+        <input type="email" class="email-input" placeholder="you@startup.com" required id="nlEmail" oninput="updateCharCount('nlEmail', 'nlCount')" />
+        <div class="email-char-count" id="nlCount">0/320 characters</div>
+      </div>
       <button type="submit" class="btn btn-primary">Subscribe free</button>
     </form>
     <p style="font-size:0.8rem;color:var(--muted);margin-top:0.75rem" id="nlMsg"></p>
@@ -325,6 +329,16 @@
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
 <script>
+  function updateCharCount(inputId, countId) {
+    const input = document.getElementById(inputId);
+    const count = document.getElementById(countId);
+    const length = input.value.length;
+    const max = input.maxLength || 320;
+    count.textContent = length + '/' + max + ' characters';
+    if (length >= max * 0.8) count.style.color = 'var(--accent)';
+    else count.style.color = 'var(--muted)';
+  }
+
   function handleNewsletter(e) {
     e.preventDefault();
     const email = document.getElementById('nlEmail').value;
@@ -334,6 +348,7 @@
     document.getElementById('nlMsg').textContent = 'Subscribed! First issue coming soon.';
     document.getElementById('nlMsg').style.color = 'var(--accent)';
     document.getElementById('nlEmail').value = '';
+    document.getElementById('nlCount').textContent = '0/320 characters';
   }
 
   // ─── HAMBURGER MENU ──────────────────────────────────────────────────────────

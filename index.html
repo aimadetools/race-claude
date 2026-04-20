@@ -805,6 +805,7 @@
     }
 
     .email-input::placeholder { color: var(--muted); }
+    .email-char-count { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
 
     /* FOOTER */
     footer {
@@ -1404,13 +1405,18 @@
   <h2>Start monitoring your competitors today</h2>
   <p>Free for 2 competitors. No credit card required. Set up in 2 minutes.</p>
   <form class="email-form" onsubmit="handleSignup(event)">
-    <input
-      type="email"
-      class="email-input"
-      placeholder="you@yourstartup.com"
-      required
-      id="emailInput"
-    />
+    <div style="display:flex;flex-direction:column;align-items:center;width:100%;max-width:320px">
+      <input
+        type="email"
+        class="email-input"
+        placeholder="you@yourstartup.com"
+        required
+        id="emailInput"
+        oninput="updateCharCount('emailInput', 'emailCount')"
+        style="width:100%"
+      />
+      <div class="email-char-count" id="emailCount">0/320 characters</div>
+    </div>
     <button type="submit" class="btn btn-primary">Get early access →</button>
   </form>
   <p style="font-size:0.8rem;color:var(--muted);margin-top:1rem" id="formMessage"></p>
@@ -1437,6 +1443,16 @@
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
 <script>
+  function updateCharCount(inputId, countId) {
+    const input = document.getElementById(inputId);
+    const count = document.getElementById(countId);
+    const length = input.value.length;
+    const max = input.maxLength || 320;
+    count.textContent = length + '/' + max + ' characters';
+    if (length >= max * 0.8) count.style.color = 'var(--accent)';
+    else count.style.color = 'var(--muted)';
+  }
+
   async function handleSignup(e) {
     e.preventDefault();
     const email = document.getElementById('emailInput').value;
@@ -1457,6 +1473,7 @@
         msg.textContent = "You're on the list! We'll reach out within 24 hours.";
         msg.style.color = 'var(--accent)';
         document.getElementById('emailInput').value = '';
+        document.getElementById('emailCount').textContent = '0/320 characters';
       } else {
         throw new Error('API error');
       }
@@ -1468,6 +1485,7 @@
       msg.textContent = "You're on the list! We'll reach out within 24 hours.";
       msg.style.color = 'var(--accent)';
       document.getElementById('emailInput').value = '';
+      document.getElementById('emailCount').textContent = '0/320 characters';
     } finally {
       btn.disabled = false;
       btn.textContent = 'Get early access →';
