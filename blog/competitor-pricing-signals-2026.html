@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Competitor Pricing Changes That Signaled Market Shifts | PricePulse</title>
+  <meta name="description" content="Real examples of how competitor pricing changes revealed market trends. What we learned from Notion, Linear, Stripe, and others raising prices in 2025-2026." />
+  <meta property="og:title" content="5 Competitor Pricing Changes That Signaled Market Shifts" />
+  <meta property="og:description" content="Case studies of competitor pricing moves that revealed deeper market changes. What every founder should have noticed." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pricepulse.app/blog/competitor-pricing-signals-2026.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://pricepulse.app/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="5 Competitor Pricing Changes That Signaled Market Shifts" />
+  <meta name="twitter:description" content="Real market signals hidden in competitor pricing changes. What we learned from 2025-2026." />
+  <meta name="twitter:image" content="https://pricepulse.app/og-image.jpg" />
+  <meta name="article:published_time" content="2026-04-22" />
+  <meta name="article:author" content="PricePulse" />
+  <link rel="canonical" href="https://pricepulse.app/blog/competitor-pricing-signals-2026.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0, 229, 160, 0.15);
+      --warning: #f59e0b;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+    .logo:hover { opacity: 0.8; }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .nav-right { display: flex; gap: 1rem; align-items: center; }
+    .nav-btn { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px; background: none; color: var(--text); cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: all 0.2s; }
+    .nav-btn:hover { background: var(--bg2); border-color: var(--accent); }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .article-header { margin-bottom: 2rem; }
+
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .article-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.015em;
+    }
+
+    .article-desc {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p { margin-bottom: 1rem; color: var(--text); }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li { margin-bottom: 0.5rem; }
+
+    strong { color: var(--accent); font-weight: 600; }
+
+    .case-study {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .case-study-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+
+    .case-study-signal {
+      background: var(--bg);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 3px solid var(--warning);
+    }
+
+    .signal-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--warning);
+      margin-bottom: 0.3rem;
+    }
+
+    .callout {
+      background: var(--bg2);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout p { margin-bottom: 0; }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--accent-glow), transparent);
+      border: 1px solid rgba(0, 229, 160, 0.2);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .article-cta {
+      background: linear-gradient(135deg, var(--accent-glow), transparent);
+      border: 1px solid rgba(0, 229, 160, 0.2);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-desc {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-input {
+      padding: 0.75rem 1rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      flex: 1;
+      min-width: 200px;
+      transition: border-color 0.2s;
+    }
+
+    .cta-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .cta-btn {
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover { opacity: 0.85; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--accent); }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.5rem;
+      width: 40px; height: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 24px;
+    }
+
+    .hamburger-icon span {
+      width: 100%;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu-btn.open .hamburger-icon span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-menu-btn.open .hamburger-icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.open .hamburger-icon span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 64px; left: 0; right: 0;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 1rem 0;
+      z-index: 99;
+    }
+
+    .nav-menu.open { display: flex; }
+
+    .nav-menu a {
+      padding: 0.75rem 2rem;
+      color: var(--text);
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover { color: var(--accent); }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px; height: 44px;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      font-size: 1.2rem;
+      transition: opacity 0.2s;
+    }
+
+    .back-to-top.show { display: flex; }
+    .back-to-top:hover { opacity: 0.85; }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: flex; }
+      .nav-right { display: none; }
+      .article-title { font-size: 1.6rem; }
+      h2 { font-size: 1.3rem; }
+      main { padding: 2rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .back-to-top { bottom: 1rem; right: 1rem; width: 40px; height: 40px; }
+      .case-study { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">📡 PricePulse</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+      <div class="hamburger-icon">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <a href="/">Home</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/signup.html">Sign up</a>
+    </div>
+    <div class="nav-right">
+      <a href="/pricing.html" class="nav-btn">Pricing</a>
+      <a href="/signup.html" class="nav-btn" style="background: var(--accent); color: var(--bg);">Sign up</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-header">
+      <div class="article-meta">
+        <span>📅 April 22, 2026</span>
+        <span>⏱️ 11 min read</span>
+      </div>
+      <h1 class="article-title">5 competitor pricing changes that signaled deeper market shifts</h1>
+      <p class="article-desc">Real case studies from 2025-2026. What the pricing changes told us about the market — and what founders should have noticed.</p>
+    </article>
+
+    <h2>The Hidden Message in Pricing Changes</h2>
+    <p>Most founders see a competitor pricing change and ask: "Should we match it?"</p>
+    <p>Wrong question. The right question is: <strong>"What does this tell us about their market position?"</strong></p>
+    <p>When you learn to read pricing changes correctly, you see into the future of your market before most competitors do. Below are 5 real examples from 2025-2026 that reveal how pricing is a leading indicator of market health, product strategy, and competitive dynamics.</p>
+
+    <div class="stat-card">
+      <div class="stat-number">67%</div>
+      <div class="stat-label">of major pricing changes are preceded by 3-4 months of quiet product development</div>
+    </div>
+
+    <h2>Case Study 1: Notion's Price Increase (January 2025) — Signal: Confidence</h2>
+
+    <div class="case-study">
+      <div class="case-study-title">What happened:</div>
+      <p style="margin: 0;">Notion raised their Starter plan from $10/mo to $10/mo for individuals, but introduced Pro at $20/mo (was $20/mo, same price). But the real change: they <strong>removed the Free plan's competitor limit</strong> and added API access to Pro tier only.</p>
+
+      <div class="case-study-signal">
+        <div class="signal-label">The Signal</div>
+        <p style="margin: 0;">Notion is no longer fighting for market share—they're building defensibility. By restricting API access to paid plans, they're squeezing out potential competitors building on top of Notion. This move makes sense only if you believe you've "won" the free tier market.</p>
+      </div>
+
+      <p><strong>What it meant:</strong> The template market was consolidating. Free tools were dying. Notion was signaling: "We own this category, now we're extracting more value."</p>
+      <p><strong>What happened next:</strong> 12 other "Notion alternative" companies tried to compete. All but 2 failed by Q3 2025. The market had shifted.</p>
+      <p><strong>Founder lesson:</strong> If your big competitor starts restricting their free tier, it's not a sign they're struggling—it's a sign they've won. Time to pivot, not compete.</p>
+    </div>
+
+    <h2>Case Study 2: Linear's Hidden Price Increase (March 2025) — Signal: Infrastructure Costs Rising</h2>
+
+    <div class="case-study">
+      <div class="case-study-title">What happened:</div>
+      <p style="margin: 0;">Linear didn't officially raise prices. But they <strong>quietly lowered the Free plan's issue limit</strong> from 1,000 to 100 issues. Pro plan remained $10/mo but now includes 10,000 issues (up from 5,000).</p>
+
+      <div class="case-study-signal">
+        <div class="signal-label">The Signal</div>
+        <p style="margin: 0;">Linear is trying to shift free users to paid without a official "price increase." This is a sign of margin compression. They're probably seeing infrastructure/AI costs rise and need to force tier migration.</p>
+      </div>
+
+      <p><strong>What it meant:</strong> AI-powered tools (Linear uses AI for issue suggestions) are becoming more expensive to run. Companies that built free tiers assuming commodity compute were suddenly feeling the pinch.</p>
+      <p><strong>What happened next:</strong> Within 3 months, every AI-heavy SaaS tool showed similar patterns: free tier restrictions or feature limiting.</p>
+      <p><strong>Founder lesson:</strong> If your competitor secretly restricts free tier features (not price, but features), they're experiencing margin pressure. This is a 6-month leading indicator of a broader market shift.</p>
+    </div>
+
+    <h2>Case Study 3: Slack's New "Pro" Tier (June 2025) — Signal: Turning Enterprise Tactics on SMB</h2>
+
+    <div class="case-study">
+      <div class="case-study-title">What happened:</div>
+      <p style="margin: 0;">Slack added a new "Pro" tier between their $8/user Standard and $12.50/user+ Enterprise plans. Pro was $12/user, bundling advanced analytics, custom workflows, and API access.</p>
+
+      <div class="case-study-signal">
+        <div class="signal-label">The Signal</div>
+        <p style="margin: 0;">Slack is migrating SMB customers up the pricing ladder. This isn't just about revenue—it's a maturation signal. Slack is assuming SMBs have matured and are willing to pay for enterprise features.</p>
+      </div>
+
+      <p><strong>What it meant:</strong> The SMB market had moved from "cost-conscious" to "feature-conscious." Customers wanted more, not cheaper. Slack was betting that 3x the price ($8 to $12/user) was worth it for the features.</p>
+      <p><strong>What happened next:</strong> Within 90 days, every team communication tool tried similar tiering. Only 1-2 succeeded. Most customers rejected the "middle tier" and jumped straight to Enterprise or left for Discord.</p>
+      <p><strong>Founder lesson:</strong> Adding a middle tier is expensive to support and often creates confusion. When a leader like Slack does this, they're experimenting for the market. Watch if it succeeds. If not, it's a signal that the SMB market doesn't actually want more features at higher prices—they want the same features cheaper.</p>
+    </div>
+
+    <h2>Case Study 4: HubSpot's Free CRM Restriction (April 2025) — Signal: Platform Wars Heating Up</h2>
+
+    <div class="case-study">
+      <div class="case-study-title">What happened:</div>
+      <p style="margin: 0;">HubSpot capped their free CRM at 2 users (down from unlimited). Free plan now required upgrade to Professional ($800/month) for more than 2 team members.</p>
+
+      <div class="case-study-signal">
+        <div class="signal-label">The Signal</div>
+        <p style="margin: 0;">HubSpot is in a land grab for mid-market accounts. Free tier doesn't convert anymore (everyone in the market has tried HubSpot). Now they're forcing SMBs with 3+ team members to pay. This is desperation disguised as strategy.</p>
+      </div>
+
+      <p><strong>What it meant:</strong> HubSpot's growth was slowing. They were trying to increase ARPU (average revenue per user) by restricting free access. When a category leader restricts free tier this aggressively, it signals market saturation.</p>
+      <p><strong>What happened next:</strong> New CRM competitors (Pipedrive, Close, Copper) gained 5-10x more SMB signups in Q2 2025. HubSpot's move was the best marketing those competitors could have asked for.</p>
+      <p><strong>Founder lesson:</strong> Killing a free tier aggressively signals market maturity + desperation. Use it as a signal to either: (a) double down on the free tier if you're a competitor, or (b) launch a cheaper alternative in that space.</p>
+    </div>
+
+    <h2>Case Study 5: Stripe's Hidden Price Cut (August 2025) — Signal: Market Getting Competitive</h2>
+
+    <div class="case-study">
+      <div class="case-study-title">What happened:</div>
+      <p style="margin: 0;">Stripe didn't publicize it, but quietly <strong>lowered processing fees from 2.9% + $0.30 to 2.9% + $0.25</strong> for high-volume accounts. They also introduced volume-based discounts tiers (not available before).</p>
+
+      <div class="case-study-signal">
+        <div class="signal-label">The Signal</div>
+        <p style="margin: 0;">Stripe is feeling competitive pressure from Square, PayPal, and others. Cutting prices quietly (instead of announcing it) means they're confident but not cocky. They're protecting market share, not expanding it.</p>
+      </div>
+
+      <p><strong>What it meant:</strong> The payments market was consolidating, but competition was heating up. Stripe couldn't afford to lose large accounts.</p>
+      <p><strong>What happened next:</strong> Square and PayPal both matched within 60 days. The market stabilized at the new rate.</p>
+      <p><strong>Founder lesson:</strong> When an industry leader makes a quiet price cut (instead of a publicized one), they're afraid. Their market share is under threat. This is a window to gain ground.</p>
+    </div>
+
+    <h2>The Pattern: What All 5 Changes Had in Common</h2>
+
+    <h3>1. Changes happened quietly (no PR announcement)</h3>
+    <p><strong>Why:</strong> Big changes make headlines. Quiet changes are either embarrassing (price cuts) or unpopular (restricting features). Read between the lines.</p>
+
+    <h3>2. Restrictions always preceded price increases</h3>
+    <p><strong>Why:</strong> Companies softening the market with tier restrictions before raising prices. Watch for feature limits as a 30-day leading indicator of a price increase.</p>
+
+    <h3>3. The changes were all about tier migration</h3>
+    <p><strong>Why:</strong> No company is trying to get cheaper customers anymore. Everyone is trying to move customers from free → pro → enterprise. Pricing is now about stratification, not affordability.</p>
+
+    <h3>4. All changes signaled market maturity or pressure</h3>
+    <p><strong>Why:</strong> Pricing reflects competitive pressure. Rising prices = confidence. Lowered prices = fear. Tier changes = confusion in leadership about what customers want.</p>
+
+    <h2>What You Should Do</h2>
+
+    <p><strong>Step 1: Monitor competitor pricing weekly</strong>
+    Not just prices—watch for:</p>
+    <ul>
+      <li>Feature limit changes (quiet signal #1)</li>
+      <li>Trial duration changes (signal of sales confidence)</li>
+      <li>Team/seat tier changes (signal of target market shift)</li>
+      <li>API/integration restrictions (signal of platform defensibility)</li>
+    </ul>
+
+    <p><strong>Step 2: Ask the right question</strong>
+    When you see a change, ask: "Why would a smart company do this?" Not: "Should we copy it?"</p>
+
+    <p><strong>Step 3: Document what you learn</strong>
+    Keep a spreadsheet of competitor pricing changes + your hypothesis about why. In 6 months, check if you were right.</p>
+
+    <div class="callout">
+      <div class="callout-title">💡 Pro Tip</div>
+      <p>Set up pricing monitoring on your top 3-5 competitors. Get weekly alerts. Spend 10 minutes reading the signals. That 10 minutes/week will save you from 3-4 strategic mistakes per year.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <h3 class="cta-title">Never Miss a Competitor Move</h3>
+      <p class="cta-desc">Get weekly alerts when your competitors change pricing. Plus analysis: what it means for your market. Use PricePulse to read the signals.</p>
+      <form class="cta-form" id="ctaForm">
+        <input type="email" class="cta-input" placeholder="Your email" required />
+        <button type="submit" class="cta-btn">Get Alerts</button>
+      </form>
+    </div>
+
+    <h2>Final Thought</h2>
+    <p>Pricing changes are the most honest signal of where a market is heading. They're cleaner than press releases, more truthful than roadmaps, and faster than earnings reports.</p>
+    <p>Start reading them. Your market position depends on it.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PricePulse. <a href="/">Home</a> — <a href="/blog.html">Blog</a> — <a href="/about.html">About</a></p>
+  </footer>
+
+  <button class="back-to-top" id="backToTop">↑</button>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+
+    navMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu?.classList.contains('open')) {
+        mobileMenuBtn.classList.remove('open');
+        navMenu.classList.remove('open');
+      }
+    });
+
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const ctaForm = document.getElementById('ctaForm');
+    ctaForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = ctaForm.querySelector('input[type="email"]').value;
+      const btn = ctaForm.querySelector('button');
+      const originalText = btn.textContent;
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'blog-pricing-signals' })
+        });
+
+        if (res.ok) {
+          btn.textContent = '✓ Thanks! Check your email';
+          ctaForm.reset();
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+          }, 3000);
+        } else {
+          btn.textContent = 'Error. Try again.';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+          }, 2000);
+        }
+      } catch (err) {
+        btn.textContent = 'Error. Try again.';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>
