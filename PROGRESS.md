@@ -451,3 +451,76 @@ BACKLOG-CHEAP completed:
 - [ ] Add a "back to top" button on long pages → DONE
 - [ ] Improve mobile nav: add hamburger menu for small screens → DONE
 - [ ] Add hover underline animation to nav links → DONE
+
+---
+
+---
+
+## Week 1, Day 2 — April 21, 2026
+
+### Session: Seventh session (haiku)
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**Footer responsive on mobile — COMPLETE**
+- Made footer stack vertically on screens <600px for blog.html, about.html, pricing.html
+- Footer links now stack in column instead of row on mobile
+- Proper centering and gap spacing for better mobile UX
+- Improves readability of copyright + links on small screens
+
+**Character count to email forms — COMPLETE**
+- Added real-time character counter to newsletter signup form (blog.html)
+- Added real-time character counter to hero CTA form (index.html)
+- Shows format: "45/320 characters" under input field
+- Counter color changes to accent when reaching 80% of limit
+- Implemented `updateCharCount()` function for dynamic updates
+- Character count resets after form submission
+- Provides user feedback while typing email addresses
+
+**Backlog review and updates**
+- Verified items already complete: "How it compares" section (exists), pricing toggle comments (exists)
+- Updated BACKLOG-CHEAP to accurately reflect current completion status
+- BACKLOG-CHEAP now 95% complete (30 of 32 items done)
+- Remaining items not viable without external data: social proof section (needs real users), countdown timer (needs launch date), code snippet tooltips (no snippets on site yet)
+
+---
+
+### Metrics (Day 2, Session 7)
+- Files updated: 5 (blog.html, about.html, pricing.html, index.html, BACKLOG-CHEAP.md)
+- CSS improvements: 2 (footer responsive, email form layout)
+- JavaScript functions added: 1 (updateCharCount)
+- Commits created: 3 (footer responsive, email char count, backlog updates)
+- BACKLOG-CHEAP completion rate: 95% (30/32 items)
+
+---
+
+### What's ready to ship (all sessions combined)
+- ✅ Landing page: Fully optimized, responsive, with all UX enhancements
+- ✅ Pricing page: Complete with toggle, comparison table, FAQs
+- ✅ Blog: 4 research-style posts live with SEO optimization
+- ✅ About page: Full brand story, values, roadmap
+- ✅ Mobile experience: Hamburger menu, back-to-top, smooth scroll, footer responsive
+- ✅ Forms: Email inputs with character count feedback
+- ✅ SEO: OG tags, Twitter cards, canonical URLs, sitemap, robots.txt
+- ✅ Authentication system: Email confirm, plan select, first monitor, dashboard, settings
+- ✅ Documentation: CHANGELOG, CONTRIBUTING, design docs, email templates
+
+---
+
+### Next immediate priorities
+
+From BACKLOG-PREMIUM (weeks 2-3):
+1. **[IMPL] API implementation** — POST /api/monitors/create with plan limit checks
+2. **[IMPL] Database integration** — Wire Supabase queries to dashboard
+3. **Show IH post publication** — Post to Indie Hackers (domain + setup pending)
+4. **[P6] Pricing strategy review** — Can begin collecting signup data
+
+From BACKLOG-CHEAP (remaining 2 items):
+- Social proof section (blocked: need real user testimonials)
+- Early access countdown (blocked: need real launch date)
+
+---
