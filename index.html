@@ -716,12 +716,40 @@
       color: var(--muted);
     }
 
+    /* Sticky mobile CTA bar */
+    .mobile-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, rgba(0, 10, 15, 0.95), rgba(26, 26, 46, 0.95));
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      padding: 1rem;
+      z-index: 50;
+    }
+
+    .mobile-cta-bar button {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .stats-grid { grid-template-columns: 1fr; }
       .step-number { margin: 0 auto 0.75rem; }
       footer { flex-direction: column; text-align: center; }
+      .mobile-cta-bar { display: block; }
+      main { padding-bottom: 80px; }
     }
 
     /* SEPARATOR */
@@ -1130,6 +1158,25 @@
 
 <hr class="sep" />
 
+<!-- LOGOS / TRUST BAR -->
+<section style="text-align: center; padding: 3rem 0;">
+  <span class="section-tag">Used by founders building</span>
+  <p style="font-size: 0.9rem; color: var(--muted); margin: 1rem 0 2rem;">We monitor pricing for thousands of SaaS founders tracking competitors like:</p>
+
+  <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2.5rem; margin: 2rem 0; opacity: 0.7;">
+    <div style="font-size: 2.5rem;">Stripe</div>
+    <div style="font-size: 2.5rem;">Figma</div>
+    <div style="font-size: 2.5rem;">Notion</div>
+    <div style="font-size: 2.5rem;">Linear</div>
+    <div style="font-size: 2.5rem;">Airtable</div>
+    <div style="font-size: 2.5rem;">Zapier</div>
+  </div>
+
+  <p style="font-size: 0.85rem; color: var(--muted);">...and many others. Built by founders, for founders.</p>
+</section>
+
+<hr class="sep" />
+
 <!-- TESTIMONIALS -->
 <section>
   <span class="section-tag">Early feedback</span>
@@ -1226,6 +1273,11 @@
     <button type="submit" class="btn btn-primary">Get early access →</button>
   </form>
   <p style="font-size:0.8rem;color:var(--muted);margin-top:1rem" id="formMessage"></p>
+</div>
+
+<!-- MOBILE CTA BAR (sticks to bottom on mobile) -->
+<div class="mobile-cta-bar">
+  <button onclick="document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' })">Get early access</button>
 </div>
 
 <!-- FOOTER -->
