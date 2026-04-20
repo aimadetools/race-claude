@@ -23,18 +23,18 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 
 - [x] Add smooth scroll behavior to all anchor links (index, pricing, about, blog)
 - [x] Add a "back to top" button on long pages
-- [ ] Make the footer responsive on mobile (blog.html and about.html)
+- [x] Make the footer responsive on mobile (blog.html and about.html)
 - [x] Add hover underline animation to nav links
 - [x] Add loading spinner to email form submit button (partially done — button text changes)
-- [ ] Show character count in email form (for validation feedback)
-- [ ] Add "Copied!" tooltip to any code snippets
+- [x] Show character count in email form (for validation feedback)
+- [ ] Add "Copied!" tooltip to any code snippets (no code snippets on site yet)
 - [x] Improve mobile nav: add hamburger menu for small screens
 
 ---
 
 ## LANDING PAGE ADDITIONS
 
-- [ ] Add a "How it compares" section vs. Crayon, Visualping, manual
+- [x] Add a "How it compares" section vs. Crayon, Visualping, manual
 - [x] Add a "Logos" trust bar (placeholder logos of well-known SaaS tools being monitored)
 - [ ] Add a "What our users say" social proof section with Twitter embeds (once we have them)
 - [ ] Add an "Early access" countdown timer or signup counter
@@ -54,7 +54,7 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 
 ## DOCUMENTATION
 
-- [ ] Add inline HTML comments explaining the pricing toggle JS in pricing.html
+- [x] Add inline HTML comments explaining the pricing toggle JS in pricing.html
 - [x] Document the Supabase schema in `docs/schema.md` (already exists as `schema.sql`)
 - [x] Write `CONTRIBUTING.md` (open-source-style transparency guide)
 - [x] Add `CHANGELOG.md` — complete project history from day 1
