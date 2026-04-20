@@ -1,34 +1,305 @@
 #!/usr/bin/env node
 // scripts/monitor-run.js
-// Main monitoring loop — run by GitHub Actions every hour
+// Main monitoring loop — run by GitHub Actions every hour.
 // Fetches active monitors from Supabase, checks each URL for changes,
-// stores snapshots, and sends alerts on diffs.
-//
-// STATUS: Skeleton — full implementation tracked in BACKLOG-PREMIUM [P1]
+// stores snapshots, and queues alerts on diffs.
 
 import { createClient } from '@supabase/supabase-js';
+import fetch from 'node-fetch';
+import crypto from 'crypto';
+import { extractPricingContent, computeDiff, scoreDiff } from './noise-filter.js';
 
 const DRY_RUN = process.env.DRY_RUN === 'true';
+const BATCH_SIZE = 20;       // URLs to check per run (stay within Actions 6-min limit)
+const FETCH_TIMEOUT_MS = 15_000;
+const MIN_SIGNIFICANCE = 0.3; // Diffs below this score are silently discarded
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_KEY
 );
 
+// ──────────────────────────────────────────────────────────────
+// Entry point
+// ──────────────────────────────────────────────────────────────
 async function main() {
-  console.log(`[monitor-run] Starting — ${new Date().toISOString()} dry_run=${DRY_RUN}`);
+  const startedAt = new Date();
+  console.log(`[monitor-run] Starting — ${startedAt.toISOString()} dry_run=${DRY_RUN}`);
 
-  // TODO [P1]: fetch active monitors from supabase
-  // const { data: monitors } = await supabase.from('monitors').select('*').eq('active', true);
+  const monitors = await fetchDueMonitors();
+  console.log(`[monitor-run] ${monitors.length} monitors due for checking`);
 
-  // TODO [P1]: for each monitor, fetch the URL and compare to last snapshot
-  // TODO [P1]: if diff detected, store new snapshot and trigger alert
-  // TODO [P5]: apply noise-filtering to avoid false positives
+  let checked = 0, changed = 0, errors = 0;
 
-  console.log('[monitor-run] Skeleton run complete — no monitors configured yet');
-  process.exit(0);
+  for (const monitor of monitors) {
+    try {
+      const didChange = await checkMonitor(monitor);
+      checked++;
+      if (didChange) changed++;
+    } catch (err) {
+      errors++;
+      console.error(`[monitor-run] Error on monitor ${monitor.id} (${monitor.url}):`, err.message);
+      await recordMonitorError(monitor.id, monitor.consecutive_errors + 1);
+    }
+  }
+
+  console.log(`[monitor-run] Done — checked=${checked} changed=${changed} errors=${errors} elapsed=${Date.now() - startedAt}ms`);
 }
 
+// ──────────────────────────────────────────────────────────────
+// Fetch monitors that are due for a check
+// ──────────────────────────────────────────────────────────────
+async function fetchDueMonitors() {
+  const now = new Date().toISOString();
+
+  const { data, error } = await supabase
+    .from('monitors')
+    .select('id, url, label, check_interval_minutes, last_checked_at, consecutive_errors')
+    .eq('active', true)
+    .or(`last_checked_at.is.null,last_checked_at.lt.${getCheckThreshold()}`)
+    .order('last_checked_at', { ascending: true, nullsFirst: true })
+    .limit(BATCH_SIZE);
+
+  if (error) throw new Error(`Failed to fetch monitors: ${error.message}`);
+  return data ?? [];
+}
+
+function getCheckThreshold() {
+  // Return ISO timestamp for "earliest a monitor needs to be checked"
+  // We use 55 minutes as threshold so hourly checks don't drift.
+  const d = new Date();
+  d.setMinutes(d.getMinutes() - 55);
+  return d.toISOString();
+}
+
+// ──────────────────────────────────────────────────────────────
+// Check one monitor
+// ──────────────────────────────────────────────────────────────
+async function checkMonitor(monitor) {
+  const { id, url } = monitor;
+  console.log(`[check] ${url}`);
+
+  // 1. Fetch page
+  const html = await fetchPage(url);
+
+  // 2. Extract pricing content and compute hash
+  const contentText = extractPricingContent(html, url);
+  const contentHash = sha256(contentText);
+
+  // 3. Load last snapshot
+  const lastSnapshot = await getLastSnapshot(id);
+
+  let changed = false;
+
+  if (!lastSnapshot) {
+    // First check — just store baseline, no alert
+    console.log(`[check] First snapshot for ${url}`);
+    if (!DRY_RUN) {
+      await storeSnapshot(id, contentHash, contentText);
+      await markChecked(id);
+    }
+  } else if (lastSnapshot.content_hash !== contentHash) {
+    // Content changed — compute diff and score it
+    const diffLines = computeDiff(lastSnapshot.content_text, contentText);
+    const score = scoreDiff(diffLines);
+
+    console.log(`[check] Change detected at ${url} — significance=${score.toFixed(2)} diff_lines=${diffLines.length}`);
+
+    if (score >= MIN_SIGNIFICANCE) {
+      changed = true;
+      if (!DRY_RUN) {
+        const newSnapshot = await storeSnapshot(id, contentHash, contentText);
+        await storeDiff(id, lastSnapshot.id, newSnapshot.id, diffLines, score);
+        await markChanged(id);
+        await queueAlerts(id);
+      } else {
+        console.log('[dry-run] Would store diff and queue alerts');
+        console.log('[dry-run] Changed lines:', diffLines.slice(0, 10).join('\n'));
+      }
+    } else {
+      console.log(`[check] Change below significance threshold (${score.toFixed(2)}) — ignoring`);
+      // Update snapshot silently (don't alert, but update baseline to avoid repeated low-signal noise)
+      if (!DRY_RUN) {
+        await storeSnapshot(id, contentHash, contentText);
+        await markChecked(id);
+      }
+    }
+  } else {
+    console.log(`[check] No change at ${url}`);
+    if (!DRY_RUN) await markChecked(id);
+  }
+
+  return changed;
+}
+
+// ──────────────────────────────────────────────────────────────
+// HTTP fetch with timeout and basic retry
+// ──────────────────────────────────────────────────────────────
+async function fetchPage(url, attempt = 1) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; PricePulse/1.0; +https://pricepulse.app/bot)',
+        'Accept': 'text/html,application/xhtml+xml',
+        'Accept-Language': 'en-US,en;q=0.9',
+      },
+      redirect: 'follow',
+    });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+    return await res.text();
+  } catch (err) {
+    if (attempt < 2 && err.name !== 'AbortError') {
+      console.warn(`[fetch] Retry ${attempt + 1} for ${url}: ${err.message}`);
+      await sleep(3000);
+      return fetchPage(url, attempt + 1);
+    }
+    throw err;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+// Supabase helpers
+// ──────────────────────────────────────────────────────────────
+async function getLastSnapshot(monitorId) {
+  const { data, error } = await supabase
+    .from('snapshots')
+    .select('id, content_hash, content_text')
+    .eq('monitor_id', monitorId)
+    .order('fetched_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (error) throw new Error(`getLastSnapshot: ${error.message}`);
+  return data;
+}
+
+async function storeSnapshot(monitorId, contentHash, contentText) {
+  const { data, error } = await supabase
+    .from('snapshots')
+    .insert({ monitor_id: monitorId, content_hash: contentHash, content_text: contentText })
+    .select('id')
+    .single();
+
+  if (error) throw new Error(`storeSnapshot: ${error.message}`);
+  return data;
+}
+
+async function storeDiff(monitorId, beforeId, afterId, diffLines, score) {
+  const { error } = await supabase
+    .from('diffs')
+    .insert({
+      monitor_id: monitorId,
+      snapshot_before_id: beforeId,
+      snapshot_after_id: afterId,
+      diff_lines: diffLines,
+      significance_score: score,
+    });
+
+  if (error) throw new Error(`storeDiff: ${error.message}`);
+}
+
+async function markChecked(monitorId) {
+  const { error } = await supabase
+    .from('monitors')
+    .update({ last_checked_at: new Date().toISOString(), consecutive_errors: 0 })
+    .eq('id', monitorId);
+
+  if (error) console.error(`markChecked failed: ${error.message}`);
+}
+
+async function markChanged(monitorId) {
+  const { error } = await supabase
+    .from('monitors')
+    .update({
+      last_checked_at: new Date().toISOString(),
+      last_changed_at: new Date().toISOString(),
+      consecutive_errors: 0,
+    })
+    .eq('id', monitorId);
+
+  if (error) console.error(`markChanged failed: ${error.message}`);
+}
+
+async function recordMonitorError(monitorId, errorCount) {
+  const update = { consecutive_errors: errorCount, last_checked_at: new Date().toISOString() };
+  // Disable monitor after 10 consecutive errors (saves quota)
+  if (errorCount >= 10) update.active = false;
+
+  const { error } = await supabase
+    .from('monitors')
+    .update(update)
+    .eq('id', monitorId);
+
+  if (error) console.error(`recordMonitorError failed: ${error.message}`);
+}
+
+async function queueAlerts(monitorId) {
+  // Load pending diffs for this monitor that haven't been alerted yet
+  const { data: diffs, error: diffErr } = await supabase
+    .from('diffs')
+    .select('id')
+    .eq('monitor_id', monitorId)
+    .order('detected_at', { ascending: false })
+    .limit(1);
+
+  if (diffErr || !diffs?.length) return;
+  const diffId = diffs[0].id;
+
+  // Find the monitor owner
+  const { data: monitor, error: monErr } = await supabase
+    .from('monitors')
+    .select('user_id')
+    .eq('id', monitorId)
+    .single();
+
+  if (monErr || !monitor) return;
+
+  // Load their alert configs (global + monitor-specific)
+  const { data: configs } = await supabase
+    .from('alert_configs')
+    .select('id, channel')
+    .eq('user_id', monitor.user_id)
+    .eq('active', true)
+    .or(`monitor_id.is.null,monitor_id.eq.${monitorId}`);
+
+  if (!configs?.length) {
+    // Default: queue an email alert even with no explicit config
+    await insertAlert(monitor.user_id, monitorId, diffId, 'email');
+    return;
+  }
+
+  for (const config of configs) {
+    await insertAlert(monitor.user_id, monitorId, diffId, config.channel);
+  }
+}
+
+async function insertAlert(userId, monitorId, diffId, channel) {
+  const { error } = await supabase
+    .from('alerts')
+    .insert({ user_id: userId, monitor_id: monitorId, diff_id: diffId, channel, status: 'pending' });
+
+  if (error) console.error(`insertAlert failed: ${error.message}`);
+}
+
+// ──────────────────────────────────────────────────────────────
+// Utilities
+// ──────────────────────────────────────────────────────────────
+function sha256(text) {
+  return crypto.createHash('sha256').update(text, 'utf8').digest('hex');
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// ──────────────────────────────────────────────────────────────
 main().catch(err => {
   console.error('[monitor-run] Fatal error:', err);
   process.exit(1);

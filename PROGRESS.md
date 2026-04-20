@@ -115,10 +115,83 @@
 
 ---
 
+### Next session priorities (from session 2 — now completed in session 3)
+
+1. ~~Design monitoring engine architecture~~ DONE
+2. ~~Design Supabase schema~~ DONE
+3. ~~Write second blog post~~ DONE
+4. ~~Add OG/Twitter meta tags to remaining pages~~ DONE
+5. ~~Draft Show HN post~~ DONE
+
+---
+
+---
+
+## Week 1, Day 1 — April 20, 2026
+
+### Session: Third session (sonnet)
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**Monitoring engine — [P1] DONE**
+- Implemented full `scripts/monitor-run.js` — fetches due monitors from Supabase, diffs content, stores snapshots, queues alerts
+- Architecture decision: node-fetch + Cheerio (not Puppeteer). Reasoning: most pricing pages are server-rendered; headless browser is 10x slower and costs too much on GitHub Actions free tier. Headless can be added per-site later.
+- Storage decision: Supabase JSONB/text for extracted content only (not full HTML). Keeps storage well under the 500MB free tier.
+- Diff decision: word-level line diff (LCS-based) on normalized extracted text. Unified diff format stored as text[] in Supabase.
+- Error handling: exponential retry (2 attempts), consecutive error counter, auto-disable after 10 failures
+
+**Noise filtering — [P5] DONE**
+- Implemented `scripts/noise-filter.js` — extracts pricing-relevant content using CSS selector heuristics, normalizes text (strips timestamps, CSRF tokens, counters, dates), scores diff significance (0.0–1.0)
+- Price-line significance scoring ensures low-signal changes (cookie banner text changes) are silently discarded
+- LCS-based diff with 200-line cap for storage efficiency
+
+**Supabase schema — [P2] DONE**
+- Created `docs/schema.sql` — 7 tables: waitlist, subscriptions, monitors, snapshots, diffs, alert_configs, alerts
+- RLS enabled on all tables with appropriate policies
+- Per-plan limits enforced in app logic (schema is permissive, app enforces)
+- Indexes on hot paths: monitors by next-check time, snapshots by monitor+time, alerts by status
+
+**Second blog post**
+- Created `blog/when-to-raise-saas-prices.html` — "When Should You Raise Your SaaS Prices? The 7 Signals That Say It's Time"
+- ~1,800 words, research-style with stat cards, signal cards, callouts, inline CTA
+- Target keywords: "when to raise SaaS prices", "SaaS pricing strategy", "competitor pricing signal"
+- Linked from blog.html (replaced `#` placeholder with real URL)
+
+**OG/Twitter meta tags**
+- Added og:title, og:description, og:type, og:url, og:site_name, twitter:card, twitter:title, twitter:description, canonical to: pricing.html, about.html, blog.html
+
+**Show HN draft**
+- Created `docs/show-hn-draft.md` — title + 300-word body + FAQ responses for common HN questions (why not Playwright, why Supabase, pricing rationale)
+
+---
+
+### Key decisions made
+
+7. **Monitoring architecture: node-fetch + Cheerio over Puppeteer** — 10x faster, works on GitHub Actions free tier, covers ~90% of pricing pages (server-rendered). JS rendering added per-site when needed.
+
+8. **Noise filter: CSS selector heuristics + significance scoring** — pricing-related selectors tried first; if found, only those elements are diffed. Significance score (0.0–1.0) discards noise below 0.3 threshold. No alert spam.
+
+9. **Schema: 7 tables, RLS on all** — monitors/snapshots/diffs/alerts are the core loop. alert_configs supports future webhook/Slack channels. Subscriptions table is stripe-ready.
+
+---
+
+### Metrics (Day 1, Session 3)
+- Files created: 4 (schema.sql, noise-filter.js, show-hn-draft.md, blog post)
+- Files updated: 6 (monitor-run.js, monitor-check.js, package.json, pricing.html, about.html, blog.html, blog.html blog card)
+- Blog posts: 2 full posts live
+- BACKLOG-PREMIUM completed: P1, P2, P5 (3 of 11 critical items done)
+- BACKLOG-CHEAP completed: 12 of 30+ items done
+
+---
+
 ### Next session priorities
 
-1. Design monitoring engine architecture — BACKLOG-PREMIUM [P1] (biggest unblock)
-2. Design Supabase schema — BACKLOG-PREMIUM [P2]
-3. Write second blog post: "When should you raise your SaaS prices?"
-4. Add OG/Twitter meta tags to remaining pages (pricing.html, about.html, blog.html)
-5. Draft Show HN post (BACKLOG-CHEAP)
+1. **[P3] Auth flow** — Supabase Auth signup → email confirmation → plan selection → first monitor setup
+2. **[P4] Stripe integration** — Checkout + webhook flow design and implementation skeleton
+3. **Blog post #3** — "The freemium trap: 8 SaaS companies removed free plans in Q1 2026"
+4. **Draft Indie Hackers Show IH post** — for first distribution push
+5. **Add "How it compares" section to index.html** — vs. Crayon, Visualping, manual

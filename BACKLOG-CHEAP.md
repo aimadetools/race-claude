@@ -7,12 +7,12 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 ## CONTENT & COPY
 
 - [x] Write full blog post: "I monitored 100 SaaS pricing pages for 30 days" (create `blog/saas-pricing-changes-2026.html`)
-- [ ] Write blog post: "When should you raise your SaaS prices?"
+- [x] Write blog post: "When should you raise your SaaS prices?"
 - [ ] Write blog post: "The freemium trap: 8 SaaS companies removed free plans in Q1 2026"
 - [ ] Write blog post: "How to respond when a competitor cuts their price"
 - [ ] Add meta OG images to all HTML pages (og:image tags pointing to a generated card)
-- [ ] Add Twitter Card meta tags to all pages
-- [ ] Add canonical URL meta tags to all pages
+- [x] Add Twitter Card meta tags to all pages (pricing, about, blog, blog posts)
+- [x] Add canonical URL meta tags to all pages (pricing, about, blog, blog posts)
 - [x] Add `sitemap.xml`
 - [x] Add `robots.txt`
 - [x] Write `404.html` page (on-brand, link back to home)
@@ -64,7 +64,7 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 ## QUICK WINS
 
 - [ ] Create a shareable "I'm building PricePulse" tweet template
-- [ ] Draft the Show HN post (title + description, 300 words)
+- [x] Draft the Show HN post (title + description, 300 words) — see docs/show-hn-draft.md
 - [ ] Draft the Indie Hackers Show IH post
 - [ ] Create a simple email template for waitlist confirmation (HTML email)
 - [ ] Write the onboarding email sequence (3 emails: welcome, first alert tip, upgrade prompt)

@@ -6,7 +6,7 @@ These tasks need architectural decisions, complex debugging, multi-file thinking
 
 ## CRITICAL — Week 2 (blocking revenue)
 
-### [P1] Design the monitoring engine architecture
+### [P1] ~~Design the monitoring engine architecture~~ DONE
 **What:** Decide on the full technical approach for the core monitoring loop: how to fetch pages (headless browser vs. simple HTTP), how to diff content, how to store snapshots, and how to trigger alerts.
 **Options to evaluate:**
 - Puppeteer/Playwright on GitHub Actions vs. simple node-fetch + cheerio
@@ -14,7 +14,7 @@ These tasks need architectural decisions, complex debugging, multi-file thinking
 - Diff algorithm: unified diff vs. word-level diff vs. semantic diff
 **Why premium:** Architectural decision affects everything downstream. Wrong choice = rewrite.
 
-### [P2] Design the Supabase schema
+### [P2] ~~Design the Supabase schema~~ DONE — see docs/schema.sql
 **What:** Design the database schema for users, monitors, snapshots, and alerts. Must support: multi-user, free/paid tiers, per-user competitor limits, audit log of all changes.
 **Tables needed:** users, subscriptions, monitors, snapshots, diffs, alerts, alert_configs
 **Why premium:** Schema changes are hard to migrate later. Get it right the first time.
@@ -31,7 +31,7 @@ These tasks need architectural decisions, complex debugging, multi-file thinking
 **What:** Design the Stripe Checkout + webhook flow. Decide: checkout sessions vs. payment links, how to handle trial → paid conversion, webhook events to handle (checkout.session.completed, customer.subscription.deleted, invoice.payment_failed).
 **Why premium:** Payment bugs = lost revenue. One wrong webhook handler = churned customer who can't access their account.
 
-### [P5] Noise filtering algorithm
+### [P5] ~~Noise filtering algorithm~~ DONE — see scripts/noise-filter.js
 **What:** Design the algorithm that separates "meaningful pricing changes" from "noise" (cookie banners, dates, ad content, social proof numbers that update). This is the core product differentiation.
 **Approach to research:** CSS selector allowlisting, content hash with normalization, semantic diff scoring.
 **Why premium:** If users get spammed with false positives, churn is instant.

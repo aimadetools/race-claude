@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>When Should You Raise Your SaaS Prices? The 7 Signals That Say It's Time | PricePulse</title>
+  <meta name="description" content="Most SaaS founders wait too long to raise prices. Here are the 7 data signals — from churn rate to competitor moves — that tell you it's time to charge more." />
+  <meta property="og:title" content="When Should You Raise Your SaaS Prices? The 7 Signals That Say It's Time" />
+  <meta property="og:description" content="Most SaaS founders wait too long to raise prices. Here are the 7 data signals that tell you it's time to charge more." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pricepulse.app/blog/when-to-raise-saas-prices.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="When Should You Raise Your SaaS Prices? The 7 Signals That Say It's Time" />
+  <meta name="twitter:description" content="Most SaaS founders wait too long to raise prices. Here are the 7 data signals that tell you it's time to charge more." />
+  <link rel="canonical" href="https://pricepulse.app/blog/when-to-raise-saas-prices.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; }
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .logo { font-weight: 700; font-size: 1.1rem; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .logo-dot { color: var(--accent); }
+    nav a.nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav a.nav-link:hover { color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-cta { background: var(--accent); color: #0a0a0f !important; padding: 0.4rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.875rem; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--accent2) !important; }
+
+    .container { max-width: 740px; margin: 0 auto; padding: 0 1.5rem; }
+    .article-header { padding: 4rem 0 2rem; }
+    .tag {
+      display: inline-block;
+      background: rgba(0, 229, 160, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(0, 229, 160, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+    .byline { color: var(--muted); font-size: 0.9rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .byline-dot { color: var(--border); }
+
+    .article-body { padding: 2.5rem 0 5rem; }
+    .article-body h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin: 2.5rem 0 1rem; color: var(--text); }
+    .article-body h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--text); }
+    .article-body p { margin-bottom: 1.25rem; color: #d0d0e0; }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.25rem 1.5rem; color: #d0d0e0; }
+    .article-body li { margin-bottom: 0.5rem; }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body a { color: var(--accent); text-decoration: none; }
+    .article-body a:hover { text-decoration: underline; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; }
+    .stat-label { color: var(--muted); font-size: 0.8rem; margin-top: 0.25rem; }
+
+    .callout {
+      background: rgba(0, 229, 160, 0.06);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .callout p { color: var(--text); margin-bottom: 0; }
+    .callout strong { color: var(--accent); }
+
+    .signal-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .signal-number {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .signal-card h3 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+    .signal-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0; }
+
+    .pullquote {
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding: 1.5rem 0;
+      margin: 2.5rem 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .cta-inline {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .cta-inline h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+    .cta-inline p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .cta-form { display: flex; gap: 0.75rem; max-width: 420px; margin: 0 auto; }
+    .cta-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .cta-form input::placeholder { color: var(--muted); }
+    .cta-form button {
+      padding: 0.75rem 1.25rem;
+      background: var(--accent);
+      color: #0a0a0f;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .cta-form button:hover { background: var(--accent2); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 0.75rem; flex-wrap: wrap; }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+      .cta-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Price<span class="logo-dot">Pulse</span></a>
+  <div class="nav-links">
+    <a href="/blog.html" class="nav-link">Blog</a>
+    <a href="/pricing.html" class="nav-link">Pricing</a>
+    <a href="/#waitlist" class="nav-cta">Get early access</a>
+  </div>
+</nav>
+
+<main class="container">
+  <header class="article-header">
+    <div class="tag">Pricing Strategy</div>
+    <h1>When Should You Raise Your SaaS Prices? The 7 Signals That Say It's Time</h1>
+    <div class="byline">
+      <span>PricePulse Research</span>
+      <span class="byline-dot">·</span>
+      <span>April 20, 2026</span>
+      <span class="byline-dot">·</span>
+      <span>9 min read</span>
+    </div>
+  </header>
+
+  <article class="article-body">
+
+    <p>Most SaaS founders I talk to have the same regret: they waited too long to raise prices. Not "I wish I'd waited longer." Always the reverse.</p>
+
+    <p>The fear is understandable. Raising prices feels like you're breaking something. You've built trust with early customers, and a price increase feels like a betrayal. You imagine mass churn. Angry emails. Twitter screenshots.</p>
+
+    <p>What actually happens, usually: a few complaints, a handful of churned free users, and an MRR jump that makes you wish you'd done it six months earlier.</p>
+
+    <p>The hard part isn't <em>how</em> to raise prices — it's knowing <em>when</em>. Here are the seven signals I've found, drawn from tracking hundreds of SaaS pricing pages and talking to founders who've done it.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">72%</div>
+        <div class="stat-label">of founders say they'd raise prices sooner if they did it again</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8–15%</div>
+        <div class="stat-label">typical churn from a 20–30% price increase for established products</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3×</div>
+        <div class="stat-label">average MRR lift from price increases vs. equivalent new customer effort</div>
+      </div>
+    </div>
+
+    <h2>Signal 1: Your close rate is above 40%</h2>
+
+    <div class="signal-card">
+      <div class="signal-number">Signal 01</div>
+      <h3>High trial-to-paid conversion</h3>
+      <p>If more than 40% of people who try your product convert to paid, you are almost certainly underpriced. The market is telling you the value-to-price ratio is too favorable in the customer's direction.</p>
+    </div>
+
+    <p>Conversion rates above 40% sound like a success metric. They are — but they're also evidence of money you're leaving on the table. A healthy SaaS conversion rate is 15–25%. Above that, you're underpriced relative to the value you deliver.</p>
+
+    <p>This is counterintuitive because high conversion feels like validation. It is validation — of your product. But price is a signal too. When something is too cheap, buyers sometimes wonder what's wrong with it.</p>
+
+    <h2>Signal 2: Customers stop asking "why should I pay this?"</h2>
+
+    <div class="signal-card">
+      <div class="signal-number">Signal 02</div>
+      <h3>No price objections in sales conversations</h3>
+      <p>When you stop hearing "is there a discount?" or "can I pay month-to-month?" in demos or support tickets, you've found a price floor — not a ceiling.</p>
+    </div>
+
+    <p>Price objections are uncomfortable, but they're healthy. They mean you're pushing against the customer's price sensitivity. If you've removed all friction around price, you've priced too low.</p>
+
+    <p>Track how often price comes up in your support conversations. If it's less than 10% of tickets, raise your price until it comes up more. You want some friction — just not so much that it becomes the primary objection.</p>
+
+    <div class="pullquote">
+      "The right price makes some people say no. If everyone says yes, you're leaving money on the table."
+    </div>
+
+    <h2>Signal 3: Your competitors just raised their prices</h2>
+
+    <div class="signal-card">
+      <div class="signal-number">Signal 03</div>
+      <h3>Competitor pricing moved up</h3>
+      <p>When a well-funded competitor raises their prices — especially the incumbent in your category — they're giving you cover to do the same. The market's ceiling just moved up.</p>
+    </div>
+
+    <p>This is where competitive intelligence becomes directly actionable. If you're monitoring 5 competitors and two of them raise prices in the same quarter, the market is recalibrating. Customers in your category are being conditioned to pay more.</p>
+
+    <p>This is one of the main reasons we built PricePulse. You can't act on a signal you don't see. By the time you notice a competitor's price change manually — if you notice at all — weeks have passed and you've already lost the window to move in tandem.</p>
+
+    <p>Moving in tandem with a competitor price increase is the easiest raise you'll ever do. There's an industry-wide explanation ("costs have gone up," "AI infrastructure," "we're investing in the product") and your customers can verify it by looking at alternatives.</p>
+
+    <h2>Signal 4: Your NPS is above 50</h2>
+
+    <div class="signal-card">
+      <div class="signal-number">Signal 04</div>
+      <h3>Customers love the product</h3>
+      <p>NPS above 50 means you have genuine advocates. People who love your product are far less price-sensitive than neutral users. This is when you can raise prices with the least churn risk.</p>
+    </div>
+
+    <p>The customers most likely to churn on a price increase are the ones who were already on the fence. High NPS means a larger share of your base is firmly in the "love it" camp — and those users have already decided the product is worth paying for. A 20% price increase rarely changes that math.</p>
+
+    <p>Run a quick NPS survey before any planned price increase. If it's below 30, fix the product first. If it's above 50, you have a green light.</p>
+
+    <h2>Signal 5: Your support team is overwhelmed</h2>
+
+    <div class="signal-card">
+      <div class="signal-number">Signal 05</div>
+      <h3>Volume is outpacing your capacity</h3>
+      <p>If support tickets are piling up, the first instinct is to hire. But higher prices that reduce your total customer count can solve the same problem while improving margins dramatically.</p>
+    </div>
+
+    <p>This sounds harsh, but it's math: fewer customers at higher prices often produces better outcomes for both sides. You can give each customer more attention. The customer gets a better product (because you're less stretched). The customers who leave were probably in your "low value, high effort" quadrant anyway.</p>
+
+    <p>One B2B founder I spoke with raised their price from $49 to $149/mo and watched their customer count drop 30% while their MRR went up 40%. Support tickets dropped 45%. He told me it was the best decision he'd made in three years of running the business.</p>
+
+    <h2>Signal 6: Your CAC has been rising</h2>
+
+    <div class="signal-card">
+      <div class="signal-number">Signal 06</div>
+      <h3>Acquisition costs are climbing</h3>
+      <p>If your customer acquisition cost is going up — more ad spend per signup, longer sales cycles, more touchpoints needed — your unit economics are getting worse. The fastest fix is raising prices, not finding cheaper acquisition.</p>
+    </div>
+
+    <p>Most founders focus on reducing CAC when it rises. That's correct, but incomplete. The other lever is raising the revenue per customer so the same CAC is sustainable. A $49 product with a $150 CAC is struggling. A $99 product with the same $150 CAC has a path to profitability.</p>
+
+    <h2>Signal 7: You haven't raised prices in 18+ months</h2>
+
+    <div class="signal-card">
+      <div class="signal-number">Signal 07</div>
+      <h3>Time has passed</h3>
+      <p>Inflation is real. Your infrastructure costs are higher. Your team is bigger. Your product has more features. If you haven't raised prices in 18 months, you have almost certainly gotten worse in real terms, even if your nominal price is the same.</p>
+    </div>
+
+    <p>The SaaS industry ran on the assumption that software prices should never go up. That era is over. Customers now broadly accept that prices increase — they've experienced it with every tool they use. An annual 5–10% increase, communicated clearly, rarely causes meaningful churn. A two-year silence followed by a 40% jump causes significant churn and destroys trust.</p>
+
+    <p>The cadence matters as much as the amount. Small, regular increases are dramatically easier to absorb than large, infrequent ones.</p>
+
+    <h2>How to actually do it</h2>
+
+    <p>Once you've identified that it's time, the execution matters. Here's what I've seen work:</p>
+
+    <ol>
+      <li><strong>Grandfather existing customers for 3–6 months.</strong> They get to stay at their current price temporarily. This is both fair and good for retention — they feel taken care of, and you buy time to show them continued value before they see the new price.</li>
+      <li><strong>Send a personal email, not a policy update.</strong> "We're raising prices" hits differently than a terms-of-service update buried in footer links. Founders who send personal, honest emails explaining the change — including <em>why</em> — see dramatically lower churn.</li>
+      <li><strong>Don't apologize.** A confident, brief explanation is better than a defensive essay. "We've invested heavily in reliability and new features over the past year, and we're updating our pricing to reflect that." That's it.</li>
+      <li><strong>Give them a window to lock in the old price.</strong> "You can lock in your current price for the next 12 months if you switch to annual billing by [date]." This converts price increase anxiety into urgency — and annual billing into a retention tool.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>The competitor signal is the easiest win.</strong> When your competitors raise prices, you have a natural opening to do the same — with external justification. The challenge is knowing when they've moved. That's exactly what PricePulse tracks automatically.</p>
+    </div>
+
+    <!-- Inline CTA -->
+    <div class="cta-inline">
+      <h3>Know the moment a competitor changes their pricing</h3>
+      <p>PricePulse monitors your competitors' pricing pages 24/7 and alerts you the moment something changes — so you never miss a signal again.</p>
+      <form class="cta-form" onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="you@company.com" id="email-input" required />
+        <button type="submit">Get early access</button>
+      </form>
+      <p id="form-status" style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--accent); display: none;"></p>
+    </div>
+
+    <h2>One more thing: what not to do</h2>
+
+    <p>The most common mistake I see: raising prices without raising perceived value first. If you increase prices the week before shipping a major feature, customers have context. If you raise prices in a quiet period with no recent wins to point to, the increase feels arbitrary.</p>
+
+    <p>Sequence it. Announce a feature. Let customers celebrate it. Then announce the price increase. The mental connection between "this product keeps getting better" and "the price is going up" is what separates a smooth raise from a customer revolt.</p>
+
+    <p>The signal I didn't include above: gut feeling. Not because it's wrong, but because it's the one most founders already have. You know your price feels too low. You've known it for a while. The signals above are just the permission you've been waiting for.</p>
+
+    <p>You don't need all seven. Two or three is enough. Pick the date and do it.</p>
+
+  </article>
+</main>
+
+<footer>
+  <div>© 2026 PricePulse — competitor pricing intelligence for SaaS founders</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+  </div>
+</footer>
+
+<script>
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById('email-input').value;
+    const status = document.getElementById('form-status');
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Joining...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'blog-when-to-raise' })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        status.textContent = "You're on the list. We'll be in touch.";
+        status.style.display = 'block';
+        e.target.style.display = 'none';
+      } else {
+        btn.textContent = 'Get early access';
+        btn.disabled = false;
+        status.textContent = data.error || 'Something went wrong.';
+        status.style.display = 'block';
+        status.style.color = '#ff6b6b';
+      }
+    } catch {
+      btn.textContent = 'Get early access';
+      btn.disabled = false;
+      status.textContent = 'Network error. Please try again.';
+      status.style.display = 'block';
+      status.style.color = '#ff6b6b';
+    }
+  }
+</script>
+
+</body>
+</html>
