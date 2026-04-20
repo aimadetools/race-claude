@@ -310,11 +310,51 @@
 
 ---
 
-### Next session priorities
+---
 
-1. **[P3] Auth flow** — Supabase Auth signup → email confirmation → plan selection → first monitor setup
-2. **[P4] Stripe integration** — Checkout + webhook flow design and implementation skeleton
-3. **Email alert system** — Resend integration for transactional emails
-4. **Mobile nav improvements** — Hamburger menu for small screens
-5. **Show IH post publication** — Ready to post
-6. **Draft Product Hunt launch** — Assets, tagline, description
+---
+
+## Week 1, Day 2 — April 21, 2026
+
+### Session: Fifth session (haiku)
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**[P3] Auth Flow Design — COMPLETE**
+- Created `docs/auth-flow-design.md` — comprehensive 500+ line architecture document
+- Covers: signup → email confirmation → plan selection → first monitor setup → authenticated dashboard
+- User recovery flows: forgot password, resend confirmation, delete account
+- Database integration: free tier limit enforcement, session persistence
+- Stripe integration skeleton ready for week 3
+- Files to create/modify: 12 new/modified files outlined with implementation order
+- State machine diagram showing complete user journey
+
+**Key design decisions:**
+- Email confirmation required before plan selection (prevents spam signups)
+- Plan selection immediately after confirmation (maximize paid plan capture)
+- First monitor onboarding immediately after plan choice (smooth UX, drives activation)
+- Free tier limits enforced in app logic, not schema (flexibility for future changes)
+- Session persistence via Supabase Auth (auto-handled, no manual tokens)
+- RLS policies + app-level checks for security
+
+---
+
+### Metrics (Day 2, Session 1)
+- Auth flow architecture: Complete (design ready for implementation)
+- Documentation: 500+ lines of detailed implementation guidance
+- BACKLOG-PREMIUM [P3] status: DESIGNED (ready for implementation)
+
+---
+
+### Next session priorities (ready to implement)
+
+1. **[IMPL] Auth flow implementation** — Create confirm.html, plan-select.html, first-monitor.html, reset-password.html, settings.html
+2. **[IMPL] API routes** — POST /api/monitors/create with plan limit checks
+3. **[IMPL] Dashboard implementation** — Show user monitors, alerts, plan info
+4. **[P4] Stripe integration design** — Checkout + webhook flow (can start design while auth impl in progress)
+5. **Mobile nav improvements** — Hamburger menu for small screens
+6. **Show IH post publication** — Ready to post

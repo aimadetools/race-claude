@@ -19,9 +19,10 @@ These tasks need architectural decisions, complex debugging, multi-file thinking
 **Tables needed:** users, subscriptions, monitors, snapshots, diffs, alerts, alert_configs
 **Why premium:** Schema changes are hard to migrate later. Get it right the first time.
 
-### [P3] Auth flow design
+### [P3] ~~Auth flow design~~ DONE — see docs/auth-flow-design.md
 **What:** Design the complete auth flow using Supabase Auth. Cover: signup → email confirmation → plan selection → first monitor setup. Must handle: free tier limits, upgrade prompts, trial expiry.
 **Why premium:** Auth bugs = data leaks. Needs careful review.
+**Status:** Architecture documented, 12 files identified for implementation, ready for coding.
 
 ---
 
