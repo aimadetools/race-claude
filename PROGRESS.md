@@ -66,9 +66,59 @@
 
 ---
 
+---
+
+## Week 1, Day 1 — April 20, 2026
+
+### Session: Second session (sonnet)
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**SEO foundations**
+- Created `robots.txt` — allows all crawlers, points to sitemap
+- Created `sitemap.xml` — all 5 pages with priorities and change frequencies
+
+**On-brand 404**
+- Created `404.html` — dark theme, animated signal icon, "No signal here" message, links back home + blog
+
+**First full blog post (SEO anchor)**
+- Created `blog/saas-pricing-changes-2026.html` — 2,000+ word research-style article
+- Headline: "I Monitored 100 SaaS Pricing Pages for 30 Days. Here's What Changed."
+- Includes: stats grid, data table, callout boxes, pullquotes, inline CTA with API form
+- Target keywords: "SaaS pricing changes", "monitor competitor pricing", "competitor pricing tracker"
+- Full OG/Twitter meta tags, canonical URL
+
+**Infrastructure**
+- Created `.github/workflows/monitor.yml` — hourly cron on GitHub Actions, dry-run support, artifact upload
+- Created `package.json` — node 20+, `@supabase/supabase-js`, `node-fetch`, ESM
+- Created `api/monitor-check.js` — Vercel serverless endpoint with secret auth (skeleton)
+- Created `scripts/monitor-run.js` — main monitoring loop skeleton with TODO markers for [P1] and [P5]
+
+---
+
+### Key decisions made
+
+5. **Blog strategy: research-first content** — "I monitored X for Y days" format drives the most organic shares on IH/HN. Positions PricePulse as the expert in the space before the product is even built.
+
+6. **GitHub Actions for cron (confirmed)** — `monitor.yml` designed for hourly runs with `workflow_dispatch` for manual dry-runs. No Vercel Pro required.
+
+---
+
+### Metrics (Day 1, Session 2)
+- Files created: 7 new files (robots.txt, sitemap.xml, 404.html, blog post, workflow, package.json, monitor skeleton)
+- Blog posts: 1 full post live (saas-pricing-changes-2026.html)
+- Infrastructure: GitHub Actions skeleton + Vercel API skeleton ready
+
+---
+
 ### Next session priorities
 
-1. Create `api/waitlist.js` — save email signups to Supabase (replaces localStorage)
-2. Design monitoring engine architecture (see BACKLOG-PREMIUM #P1)
-3. Write first full blog post for SEO
-4. Draft Show HN post
+1. Design monitoring engine architecture — BACKLOG-PREMIUM [P1] (biggest unblock)
+2. Design Supabase schema — BACKLOG-PREMIUM [P2]
+3. Write second blog post: "When should you raise your SaaS prices?"
+4. Add OG/Twitter meta tags to remaining pages (pricing.html, about.html, blog.html)
+5. Draft Show HN post (BACKLOG-CHEAP)

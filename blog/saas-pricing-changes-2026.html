@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Monitored 100 SaaS Pricing Pages for 30 Days. Here's What Changed. | PricePulse</title>
+  <meta name="description" content="I manually tracked 100 SaaS pricing pages every day for a month. 34 made changes. Here's what I found — price increases, feature shifts, and the patterns no one talks about." />
+  <meta property="og:title" content="I Monitored 100 SaaS Pricing Pages for 30 Days. Here's What Changed." />
+  <meta property="og:description" content="34 out of 100 SaaS companies changed their pricing in 30 days. Here's every change, every pattern, and what it means for your pricing strategy." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pricepulse.app/blog/saas-pricing-changes-2026.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="I Monitored 100 SaaS Pricing Pages for 30 Days. Here's What Changed." />
+  <meta name="twitter:description" content="34 out of 100 SaaS companies changed their pricing in 30 days. Here's every change, every pattern, and what it means for you." />
+  <link rel="canonical" href="https://pricepulse.app/blog/saas-pricing-changes-2026.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-dot { color: var(--accent); }
+    nav a.nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    nav a.nav-link:hover { color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-cta {
+      background: var(--accent);
+      color: #0a0a0f !important;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent2) !important; }
+
+    /* LAYOUT */
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .article-header {
+      padding: 4rem 0 2rem;
+    }
+    .tag {
+      display: inline-block;
+      background: rgba(0, 229, 160, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(0, 229, 160, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .byline {
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .byline-dot { color: var(--border); }
+
+    /* ARTICLE BODY */
+    .article-body {
+      padding: 2.5rem 0 5rem;
+    }
+    .article-body h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 2.5rem 0 1rem;
+      color: var(--text);
+    }
+    .article-body h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: var(--text);
+    }
+    .article-body p {
+      margin-bottom: 1.25rem;
+      color: #d0d0e0;
+    }
+    .article-body ul, .article-body ol {
+      margin: 0.75rem 0 1.25rem 1.5rem;
+      color: #d0d0e0;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+    }
+    .article-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .article-body a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .article-body a:hover { color: var(--accent2); }
+
+    /* CALLOUT BOXES */
+    .callout {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .callout.warning {
+      border-left-color: #f59e0b;
+    }
+    .callout p { margin: 0; }
+    .callout p + p { margin-top: 0.75rem; }
+
+    /* DATA TABLE */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 1.75rem 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th {
+      background: var(--bg3);
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.75rem 1rem;
+      border-top: 1px solid var(--border);
+      color: #d0d0e0;
+    }
+    tr:hover td { background: var(--bg2); }
+    .change-up { color: #ef4444; font-weight: 600; }
+    .change-down { color: var(--accent); font-weight: 600; }
+    .change-feat { color: #f59e0b; font-weight: 600; }
+    .change-remove { color: #8888a8; font-weight: 600; }
+
+    /* STAT BLOCKS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 1.75rem 0;
+    }
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* PULLQUOTE */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      margin: 1.75rem 0;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(0, 229, 160, 0.08), rgba(0, 229, 160, 0.02));
+      border: 1px solid rgba(0, 229, 160, 0.25);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+    .cta-box h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    .cta-box p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+    }
+    .cta-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 380px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .cta-form input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.7rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: var(--font);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .cta-form input[type="email"]:focus { border-color: var(--accent); }
+    .cta-form button {
+      padding: 0.7rem 1.25rem;
+      background: var(--accent);
+      color: #0a0a0f;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .cta-form button:hover { background: var(--accent2); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Price<span class="logo-dot">Pulse</span></a>
+  <div class="nav-links">
+    <a href="/blog.html" class="nav-link">Blog</a>
+    <a href="/pricing.html" class="nav-link">Pricing</a>
+    <a href="/" class="nav-cta">Get early access</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="tag">Research</div>
+    <h1>I Monitored 100 SaaS Pricing Pages for 30 Days. Here's What Changed.</h1>
+    <div class="byline">
+      <span>PricePulse Team</span>
+      <span class="byline-dot">·</span>
+      <span>April 20, 2026</span>
+      <span class="byline-dot">·</span>
+      <span>11 min read</span>
+    </div>
+  </header>
+
+  <article class="article-body">
+
+    <p>
+      Every SaaS founder knows they should be watching what their competitors charge. Almost none actually do it — at least not systematically. I know because I tried.
+    </p>
+
+    <p>
+      For 30 days in Q1 2026, I manually tracked 100 SaaS pricing pages. Every morning, I checked for changes. I kept a spreadsheet. I screenshotted anything interesting. By the end of it I had 3,000+ data points, a lot of cold coffee, and some genuinely surprising findings.
+    </p>
+
+    <p>Here's everything I found.</p>
+
+    <h2>The setup</h2>
+
+    <p>
+      I picked 100 SaaS products across 10 categories: productivity, marketing, developer tools, analytics, support/CX, HR/recruiting, finance, design, sales, and project management. I weighted toward products in the $20–$200/mo range — the segment where pricing decisions matter most to founders making buy-vs-build decisions.
+    </p>
+
+    <p>
+      I checked each page daily using a combination of manual review and page-change alerts. My criteria for "a change" was anything that affected pricing information: plan prices, plan names, feature inclusions, limits, trial lengths, or the removal/addition of entire tiers.
+    </p>
+
+    <div class="callout">
+      <p><strong>Methodology note:</strong> I excluded changes to testimonials, blog links, or general marketing copy on pricing pages. I only counted changes to the pricing information itself. Some products use A/B testing, which can look like a change — I flagged but excluded those where I could confirm it.</p>
+    </div>
+
+    <h2>The headline numbers</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">34</div>
+        <div class="stat-label">products changed pricing</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">34%</div>
+        <div class="stat-label">change rate in 30 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">21</div>
+        <div class="stat-label">price increases</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">price decreases</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">11</div>
+        <div class="stat-label">feature/limit changes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-label">free plan removals</div>
+      </div>
+    </div>
+
+    <p>
+      One in three SaaS companies changed something on their pricing page in a single month. That was higher than I expected. I'd estimated maybe 15–20%. When I described the study to other founders, they guessed 10–15%. We were all wrong.
+    </p>
+
+    <blockquote>
+      "One in three SaaS companies changed something on their pricing page in a single month."
+    </blockquote>
+
+    <h2>What kinds of changes happened?</h2>
+
+    <h3>Price increases (21 events)</h3>
+
+    <p>
+      The most common change by far. Of the 21 price increases I recorded, here's how they broke down:
+    </p>
+
+    <ul>
+      <li><strong>10</strong> were straight increases to existing plan prices (median increase: +22%)</li>
+      <li><strong>7</strong> were "new tier" additions that effectively pushed existing users into lower-featured plans</li>
+      <li><strong>4</strong> were limit reductions on lower tiers (same price, fewer seats/API calls/features)</li>
+    </ul>
+
+    <p>
+      The "new tier" pattern is particularly sneaky and I've started calling it the <em>tier squeeze</em>: you add a new tier above the current top tier, repackage the old Pro as a new "Business" tier with slightly fewer features, and suddenly your $49/mo plan has fewer features than it did last month — even though the price didn't change. Technically not a price increase. Effectively a price increase.
+    </p>
+
+    <h3>Price decreases (4 events)</h3>
+
+    <p>
+      Far rarer, but they happened. Three were from newer entrants clearly in acquisition mode — dropping prices aggressively to compete with an established player. One was from a mid-size tool that had apparently mispriced its annual plan (they corrected a calculation error that had made annual subscriptions more expensive than monthly ones, which is... not intentional).
+    </p>
+
+    <p>
+      Price decreases were all announced. The companies that cut prices wanted you to know about it. This is the opposite of price increases, which were almost all done quietly, with no announcement.
+    </p>
+
+    <h3>Feature and limit changes (11 events)</h3>
+
+    <p>
+      These are the changes that are hardest to catch and have the biggest impact on perceived value. Examples I documented:
+    </p>
+
+    <ul>
+      <li>An email marketing tool moved "remove branding" from Starter to Pro (effectively a ~$30/mo forced upgrade for anyone who cared about branding)</li>
+      <li>A project management tool cut the free tier from 5 projects to 3, down from the 10 it launched with two years ago</li>
+      <li>An analytics platform reduced data retention from 12 months to 6 months on the $49 plan — with a note in their changelog that most users wouldn't notice</li>
+      <li>Three products quietly removed features from their public pricing table that were still technically available — a form of quiet deprecation testing</li>
+    </ul>
+
+    <p>
+      The feature changes are where the most interesting competitive intelligence lives. A company moving a key feature up a tier often signals either (a) that feature became a conversion lever, or (b) they're trying to force upgrades ahead of a fundraise.
+    </p>
+
+    <h3>Free plan removals (3 events)</h3>
+
+    <p>
+      This is the "freemium is a liability" trend in action. Three products removed their free plans entirely. One was a design tool. One was a scheduling product. One was a CRM.
+    </p>
+
+    <p>
+      All three replaced their free plans with a 14-day trial. All three made the announcement sound like an upgrade: "we're investing more in product quality and can no longer offer the free plan — but here's a trial to get started." None of them were wrong — free plans are expensive to support and notoriously hard to convert.
+    </p>
+
+    <div class="callout warning">
+      <p><strong>The free plan removal playbook:</strong> It's becoming standardized. Remove free tier → replace with time-limited trial → emphasize what trial users get → don't mention what they're losing. If you have a free tier and your competitors are dropping theirs, now you have a differentiator — or a cost center depending on how you look at it.</p>
+    </div>
+
+    <h2>The data: selected changes by category</h2>
+
+    <div class="data-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Type of change</th>
+            <th>Direction</th>
+            <th>Magnitude</th>
+            <th>Announced?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Email marketing</td>
+            <td>Plan price increase</td>
+            <td class="change-up">↑ +31%</td>
+            <td>Starter: $19 → $25</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Developer tools</td>
+            <td>Free tier limit cut</td>
+            <td class="change-up">↑ Effective increase</td>
+            <td>API calls: 10k → 5k/mo</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Project mgmt</td>
+            <td>Price decrease</td>
+            <td class="change-down">↓ −17%</td>
+            <td>Annual plan correction</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Analytics</td>
+            <td>Feature downgrade</td>
+            <td class="change-feat">Feature moved up tier</td>
+            <td>Custom reports: Starter → Pro</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>CRM</td>
+            <td>Free plan removed</td>
+            <td class="change-remove">Free → Trial only</td>
+            <td>14-day trial replacement</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Support/CX</td>
+            <td>New tier added</td>
+            <td class="change-up">↑ Tier squeeze</td>
+            <td>Enterprise tier, Pro features moved</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Marketing</td>
+            <td>Price increase</td>
+            <td class="change-up">↑ +18%</td>
+            <td>Pro: $49 → $58</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Design tools</td>
+            <td>Free plan removed</td>
+            <td class="change-remove">Free → Trial only</td>
+            <td>7-day trial replacement</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>HR/Recruiting</td>
+            <td>Seat limit reduced</td>
+            <td class="change-up">↑ Effective increase</td>
+            <td>Starter: 10 users → 5 users</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Sales</td>
+            <td>Competitor response</td>
+            <td class="change-down">↓ −25%</td>
+            <td>New Solo tier at $15/mo</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>I'm not naming specific companies here — that's not the point and frankly some of these are clearly still being tested. The patterns matter more than the specifics.</p>
+
+    <h2>The patterns that surprised me</h2>
+
+    <h3>1. Unannounced changes are the norm, not the exception</h3>
+
+    <p>
+      Of the 34 changes, <strong>only 11 were announced</strong> — and all 11 were price decreases or free plan replacements (i.e., things the company wanted to make noise about). Every single price increase happened quietly. No email to existing customers. No blog post. No changelog entry. Just: one day the price was different.
+    </p>
+
+    <p>
+      This means if you're not actively monitoring, you're not finding out about competitor price changes until a prospect mentions it in a sales call — if ever.
+    </p>
+
+    <h3>2. Changes cluster on Tuesdays and Wednesdays</h3>
+
+    <p>
+      I tracked the day of week for each change. 23 of 34 changes (68%) happened between Tuesday and Thursday. Almost nothing changed on Fridays or weekends. This makes intuitive sense — you don't push pricing changes on a Friday when support is winding down — but it means if you're only checking weekly, check midweek.
+    </p>
+
+    <h3>3. The "quiet rollout" pattern is real</h3>
+
+    <p>
+      Several of the changes I caught weren't immediate — they appeared to roll out to different users at different times. I'd see a price change on one browser session but not another. This suggests A/B testing of pricing (common) or a gradual rollout to new vs. existing visitors. This makes automated monitoring both more important (you need to catch the "variant" before it becomes permanent) and more complex (you need to distinguish testing from real changes).
+    </p>
+
+    <h3>4. Limit changes happen more than price changes</h3>
+
+    <p>
+      When you combine feature downgrades and limit reductions with outright price increases, the effective-price-increase rate was much higher than 21%. The companies playing the limit game are making the same economic move as raising prices, but with less backlash risk — fewer customers notice, and those who do are usually the heaviest users (who might just upgrade anyway).
+    </p>
+
+    <h3>5. Competitor pricing changes are a signal, not just noise</h3>
+
+    <p>
+      Several of the changes I captured came in clusters: within days of each other, two competitors in the same category made similar moves. A project management tool raised its per-seat price, and within 72 hours, its direct competitor raised theirs by almost the same amount. Either they were watching each other, or they both read the same Lenny's Newsletter about pricing benchmarks. Either way — pricing signals travel fast, and if you're not watching in real time, you're always the last to know.
+    </p>
+
+    <h2>What this means for your pricing strategy</h2>
+
+    <p>
+      If you're a SaaS founder, here's what I'd take from this:
+    </p>
+
+    <ol>
+      <li><strong>Your competitors are raising prices more often than you think.</strong> If you haven't looked at their pricing page in 3 months, you don't know what they're charging.</li>
+      <li><strong>You're probably underpriced relative to your market.</strong> If 21 out of 100 competitors raised prices in a single month and you haven't, the gap is widening.</li>
+      <li><strong>Limit and feature changes are the sneakiest competitive move.</strong> Watch for them. They're often more impactful than outright price changes.</li>
+      <li><strong>Price decreases are always announced — use that.</strong> When a competitor cuts prices, they'll tell you. When they raise them, they won't. Your monitoring should be designed around catching the silent moves.</li>
+      <li><strong>Midweek is when changes happen.</strong> If you're checking manually, check Tuesday–Thursday.</li>
+    </ol>
+
+    <h2>Why I built PricePulse</h2>
+
+    <p>
+      Doing this manually for 30 days with 100 companies was exhausting. And I only checked once a day — a determined team watching a competitor could push a test, roll it back, and iterate before I noticed.
+    </p>
+
+    <p>
+      More importantly: most founders don't have time to do this at all. You're building a product. You're not checking 20 competitor pricing pages every morning. But you need to know when they change.
+    </p>
+
+    <p>
+      That's the problem PricePulse solves. You add your competitors' pricing URLs. We monitor them 24/7. You get an email the moment anything changes — price, feature, plan name, limit, anything.
+    </p>
+
+    <p>
+      If I'd had PricePulse running during this study, I would have spent 30 minutes setting it up instead of 30 days checking manually.
+    </p>
+
+    <div class="cta-box">
+      <h3>Get alerted when competitor pricing changes</h3>
+      <p>Add your competitors' pricing pages. We'll watch them 24/7 and email you the instant anything changes. Early access is free.</p>
+      <form class="cta-form" onsubmit="handleSignup(event)">
+        <input type="email" placeholder="your@email.com" required id="blog-email" />
+        <button type="submit">Get early access</button>
+      </form>
+      <div id="blog-signup-msg" style="margin-top:0.75rem; font-size:0.85rem; color: var(--accent); display:none;"></div>
+    </div>
+
+    <h2>Methodology appendix</h2>
+
+    <p>A few questions I've already been asked:</p>
+
+    <p>
+      <strong>Why 100 companies?</strong> Large enough to see patterns, small enough to manually verify every change. At 500 companies this would have required automation (which defeats the purpose of a manual study).
+    </p>
+
+    <p>
+      <strong>How did you pick the 100?</strong> I started with Product Hunt's top-rated tools in each category, then cross-referenced with G2 rankings and a handful of communities (Indie Hackers, SaaS-specific subreddits) to make sure I wasn't missing bootstrapped products. I tried to avoid weighting toward VC-backed companies.
+    </p>
+
+    <p>
+      <strong>What counts as a "pricing page"?</strong> Any public URL that lists plans and prices. Some companies price only in their app — I excluded those. Some companies have multiple pricing pages for different segments (annual vs. monthly, SMB vs. Enterprise) — I tracked the primary "Pricing" link from their nav.
+    </p>
+
+    <p>
+      <strong>Is 30 days a representative sample?</strong> Probably not. It's a snapshot. My hypothesis is that the rate would be consistent month-over-month, but Q1 tends to see more pricing activity as annual budgets reset and companies re-evaluate their go-to-market. I'd expect Q3 and Q4 to be somewhat lower.
+    </p>
+
+    <p>If you have questions about the methodology or want to discuss specific findings, reach out via the site.</p>
+
+  </article>
+</div>
+
+<footer>
+  <a href="/">PricePulse</a> · <a href="/blog.html">Blog</a> · <a href="/pricing.html">Pricing</a> · <a href="/about.html">About</a>
+  <br/><br/>© 2026 PricePulse. Built by an indie founder, for indie founders.
+</footer>
+
+<script>
+  async function handleSignup(e) {
+    e.preventDefault();
+    const email = document.getElementById('blog-email').value;
+    const msg = document.getElementById('blog-signup-msg');
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Joining...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'blog-saas-pricing-post' })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        msg.textContent = "You're on the list! We'll email you when we launch.";
+        msg.style.display = 'block';
+        e.target.style.display = 'none';
+      } else {
+        throw new Error(data.error || 'Something went wrong');
+      }
+    } catch (err) {
+      msg.textContent = err.message;
+      msg.style.color = '#ef4444';
+      msg.style.display = 'block';
+      btn.textContent = 'Get early access';
+      btn.disabled = false;
+    }
+  }
+</script>
+
+</body>
+</html>

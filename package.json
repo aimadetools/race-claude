@@ -1,0 +1,21 @@
+{
+  "name": "pricepulse",
+  "version": "0.1.0",
+  "description": "Competitor pricing intelligence for SaaS founders",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "monitor": "node scripts/monitor-run.js",
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "vercel": "^37.0.0"
+  },
+  "type": "module"
+}

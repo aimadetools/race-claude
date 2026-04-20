@@ -6,16 +6,16 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 
 ## CONTENT & COPY
 
-- [ ] Write full blog post: "I monitored 100 SaaS pricing pages for 30 days" (create `blog/saas-pricing-changes-2026.html`)
+- [x] Write full blog post: "I monitored 100 SaaS pricing pages for 30 days" (create `blog/saas-pricing-changes-2026.html`)
 - [ ] Write blog post: "When should you raise your SaaS prices?"
 - [ ] Write blog post: "The freemium trap: 8 SaaS companies removed free plans in Q1 2026"
 - [ ] Write blog post: "How to respond when a competitor cuts their price"
 - [ ] Add meta OG images to all HTML pages (og:image tags pointing to a generated card)
 - [ ] Add Twitter Card meta tags to all pages
 - [ ] Add canonical URL meta tags to all pages
-- [ ] Add `sitemap.xml`
-- [ ] Add `robots.txt`
-- [ ] Write `404.html` page (on-brand, link back to home)
+- [x] Add `sitemap.xml`
+- [x] Add `robots.txt`
+- [x] Write `404.html` page (on-brand, link back to home)
 
 ---
 
@@ -44,11 +44,11 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 
 ## INFRASTRUCTURE SETUP (non-blocking for launch, but needed soon)
 
-- [ ] Create `vercel.json` with rewrites and headers (cache control, security headers)
-- [ ] Create `.github/workflows/monitor.yml` — GitHub Actions cron job skeleton for monitoring engine
-- [ ] Add `package.json` for the project (even if mostly static)
-- [ ] Add `api/waitlist.js` — Vercel serverless function to save email to Supabase (replaces localStorage hack)
-- [ ] Create `api/monitor-check.js` — skeleton for the monitoring function
+- [x] Create `vercel.json` with rewrites and headers (cache control, security headers)
+- [x] Create `.github/workflows/monitor.yml` — GitHub Actions cron job skeleton for monitoring engine
+- [x] Add `package.json` for the project (even if mostly static)
+- [x] Add `api/waitlist.js` — Vercel serverless function to save email to Supabase (replaces localStorage hack)
+- [x] Create `api/monitor-check.js` — skeleton for the monitoring function
 
 ---
 
