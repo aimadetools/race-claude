@@ -156,9 +156,11 @@
     <h1>Simple, transparent pricing</h1>
     <p>Start free. Upgrade when you need more. No surprises.</p>
 
+    <!-- Toggle for monthly/annual billing. Triggers toggleBilling() to swap price displays and update labels -->
     <div class="toggle-wrapper">
       <span class="toggle-label active" id="monthly-label">Monthly</span>
       <label class="toggle">
+        <!-- Checkbox triggers toggleBilling() on change event -->
         <input type="checkbox" id="billing-toggle" onchange="toggleBilling()" />
         <span class="slider"></span>
       </label>
@@ -166,10 +168,12 @@
     </div>
   </div>
 
+  <!-- pricing-grid has .annual-active class added when toggle is checked, hiding .price-monthly and showing .price-annual -->
   <div class="pricing-grid" id="pricing-grid">
     <!-- Free -->
     <div class="pricing-card">
       <div class="pricing-plan">Free</div>
+      <!-- Contains both monthly and annual prices. CSS hides/shows based on .annual-active class on parent -->
       <div class="price-display">
         <div class="price-monthly"><sup style="font-size:1.25rem;vertical-align:top;margin-top:0.4rem">$</sup>0</div>
         <div class="price-annual"><sup style="font-size:1.25rem;vertical-align:top;margin-top:0.4rem">$</sup>0</div>
@@ -332,6 +336,23 @@
 </footer>
 
 <script>
+  /**
+   * toggleBilling() - Switch between monthly and annual price display
+   *
+   * How it works:
+   * 1. Check if the billing-toggle checkbox is checked (annual mode)
+   * 2. If annual (checked):
+   *    - Add 'annual-active' class to pricing-grid (CSS rule hides .price-monthly, shows .price-annual)
+   *    - Update label styling to highlight "Annual"
+   * 3. If monthly (unchecked):
+   *    - Remove 'annual-active' class (CSS shows .price-monthly by default)
+   *    - Update label styling to highlight "Monthly"
+   *
+   * CSS handles the actual showing/hiding via:
+   *   .pricing-grid .price-monthly { display: block; }
+   *   .pricing-grid.annual-active .price-monthly { display: none; }
+   *   .pricing-grid.annual-active .price-annual { display: block; }
+   */
   function toggleBilling() {
     const isAnnual = document.getElementById('billing-toggle').checked;
     const grid = document.getElementById('pricing-grid');
