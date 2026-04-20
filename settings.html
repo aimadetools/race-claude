@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — PricePulse</title>
+  <meta name="description" content="Manage your PricePulse account settings, plan, and preferences." />
+  <meta property="og:title" content="Settings — PricePulse" />
+  <meta property="og:description" content="Update your account settings and preferences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pricepulse.app/settings.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://pricepulse.app/og-image.jpg" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0, 229, 160, 0.15);
+      --warning: #f59e0b;
+      --red: #ef4444;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+    .logo:hover { text-decoration: none; }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-family: var(--font);
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .btn-danger {
+      background: transparent;
+      color: var(--red);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .btn-danger:hover {
+      border-color: var(--red);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    /* SECTIONS */
+    .settings-section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .setting-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .setting-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .setting-label strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .setting-label span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .setting-value {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-align: right;
+    }
+
+    .setting-value-text {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .setting-value-badge {
+      display: inline-block;
+      padding: 0.4rem 0.85rem;
+      background: var(--accent-glow);
+      border: 1px solid rgba(0, 229, 160, 0.25);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+
+    .btn-sm {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.8rem;
+    }
+
+    /* LOADING & STATES */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+    }
+
+    .loading.active {
+      display: block;
+    }
+
+    .spinner {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 0.75rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+    }
+
+    .empty-state-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      main { padding: 2rem 1.5rem; }
+
+      h1 { font-size: 1.5rem; }
+
+      .settings-section {
+        padding: 1.5rem;
+      }
+
+      .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .setting-value {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="dashboard.html" class="logo">
+    <span class="logo-dot"></span>
+    PricePulse
+  </a>
+  <div class="nav-right">
+    <a href="dashboard.html" class="btn btn-outline btn-sm">← Back to dashboard</a>
+    <button onclick="handleLogout()" class="btn btn-outline btn-sm">Sign out</button>
+  </div>
+</nav>
+
+<main>
+  <h1>Account Settings</h1>
+
+  <!-- LOADING STATE -->
+  <div class="loading" id="loadingState">
+    <div class="spinner"></div>
+    <p>Loading settings...</p>
+  </div>
+
+  <!-- ACCOUNT SECTION -->
+  <div class="settings-section" id="accountSection" style="display:none">
+    <h2 class="section-title">📧 Account</h2>
+    <p class="section-desc">Manage your account details and security.</p>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Email address</strong>
+        <span>Your login email</span>
+      </div>
+      <div class="setting-value">
+        <span id="emailDisplay"></span>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Password</strong>
+        <span>Last changed <span id="passwordDate">never</span></span>
+      </div>
+      <div class="setting-value">
+        <a href="login.html" class="btn btn-outline btn-sm">Change password</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAN SECTION -->
+  <div class="settings-section" id="planSection" style="display:none">
+    <h2 class="section-title">💳 Plan</h2>
+    <p class="section-desc">Manage your subscription and billing.</p>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Current plan</strong>
+        <span>Your subscription level</span>
+      </div>
+      <div class="setting-value">
+        <div class="setting-value-badge" id="planBadge">Free</div>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Competitors monitored</strong>
+        <span>Usage out of plan limit</span>
+      </div>
+      <div class="setting-value">
+        <span id="monitorCount">0 / 2</span>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Upgrade to Pro</strong>
+        <span>Get unlimited monitors and 30-minute checks</span>
+      </div>
+      <div class="setting-value">
+        <button onclick="goToUpgrade()" class="btn btn-outline btn-sm" id="upgradeBtn">
+          View plans
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREFERENCES SECTION -->
+  <div class="settings-section" id="preferencesSection" style="display:none">
+    <h2 class="section-title">🔔 Alert Preferences</h2>
+    <p class="section-desc">Control how and when you receive notifications.</p>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Email alerts</strong>
+        <span>Get notified of price changes</span>
+      </div>
+      <div class="setting-value">
+        <input type="checkbox" id="emailAlerts" checked onchange="updatePreferences()" />
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Price increases only</strong>
+        <span>Only alert on price raises, not discounts</span>
+      </div>
+      <div class="setting-value">
+        <input type="checkbox" id="priceIncreaseOnly" onchange="updatePreferences()" />
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Daily digest</strong>
+        <span>Get a summary of changes once per day</span>
+      </div>
+      <div class="setting-value">
+        <input type="checkbox" id="dailyDigest" onchange="updatePreferences()" />
+      </div>
+    </div>
+  </div>
+
+  <!-- DANGER ZONE -->
+  <div class="settings-section" style="border-color: rgba(239, 68, 68, 0.25); background: rgba(239, 68, 68, 0.05);">
+    <h2 class="section-title" style="color: var(--red);">⚠️ Danger Zone</h2>
+    <p class="section-desc">Irreversible actions.</p>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong style="color: var(--red);">Delete account</strong>
+        <span>Permanently delete your account and all data</span>
+      </div>
+      <div class="setting-value">
+        <button onclick="confirmDeleteAccount()" class="btn btn-danger btn-sm">
+          Delete account
+        </button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 PricePulse · <a href="index.html">Home</a> · <a href="mailto:hello@pricepulse.app">Contact</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL = 'SUPABASE_URL_PLACEHOLDER';
+  const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY_PLACEHOLDER';
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  async function loadSettings() {
+    // Show loading
+    document.getElementById('loadingState').classList.add('active');
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        window.location.href = 'login.html?redirect=settings.html';
+        return;
+      }
+
+      const userId = session.user.id;
+      const email = session.user.email;
+
+      // Display email
+      document.getElementById('emailDisplay').textContent = email;
+
+      // Load subscription
+      const { data: sub } = await supabase
+        .from('subscriptions')
+        .select('plan')
+        .eq('user_id', userId)
+        .single();
+
+      if (sub) {
+        const planText = sub.plan.charAt(0).toUpperCase() + sub.plan.slice(1);
+        document.getElementById('planBadge').textContent = planText;
+      }
+
+      // Load monitor count
+      const { data: monitors, error: monitorError } = await supabase
+        .from('monitors')
+        .select('id', { count: 'exact' })
+        .eq('user_id', userId);
+
+      if (!monitorError && monitors) {
+        const max = sub?.plan === 'starter' ? 10 : (sub?.plan === 'pro' ? '∞' : 2);
+        document.getElementById('monitorCount').textContent = `${monitors.length} / ${max}`;
+      }
+
+      // Hide loading, show content
+      document.getElementById('loadingState').classList.remove('active');
+      document.getElementById('accountSection').style.display = 'block';
+      document.getElementById('planSection').style.display = 'block';
+      document.getElementById('preferencesSection').style.display = 'block';
+
+    } catch (err) {
+      console.error('Error loading settings:', err);
+      document.getElementById('loadingState').innerHTML = '<p>Error loading settings. Please refresh.</p>';
+    }
+  }
+
+  function updatePreferences() {
+    // TODO: Save preferences to user_preferences table (v2)
+    console.log('Preferences updated (not saved yet)');
+  }
+
+  function goToUpgrade() {
+    window.location.href = 'plan-select.html';
+  }
+
+  function confirmDeleteAccount() {
+    if (confirm('Are you sure? This will permanently delete your account and all monitors. This cannot be undone.')) {
+      if (confirm('This is your last chance. Really delete everything?')) {
+        handleDeleteAccount();
+      }
+    }
+  }
+
+  async function handleDeleteAccount() {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+
+      // Delete user (this will cascade to other tables with FK)
+      await supabase.auth.admin.deleteUser(session.user.id);
+
+      // Sign out and redirect
+      await supabase.auth.signOut();
+      alert('Account deleted. Redirecting to home...');
+      window.location.href = 'index.html';
+
+    } catch (err) {
+      console.error('Delete error:', err);
+      alert('Could not delete account. Please contact support.');
+    }
+  }
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+    window.location.href = 'index.html';
+  }
+
+  // Load settings on page load
+  window.addEventListener('load', loadSettings);
+</script>
+
+</body>
+</html>
