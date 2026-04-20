@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirm your email — PricePulse</title>
+  <meta name="description" content="Confirm your PricePulse account email address." />
+  <meta property="og:title" content="Confirm your email — PricePulse" />
+  <meta property="og:description" content="Activate your PricePulse account to start monitoring competitor pricing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pricepulse.app/confirm.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://pricepulse.app/og-image.jpg" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0, 229, 160, 0.15);
+      --warning: #f59e0b;
+      --red: #ef4444;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+    }
+
+    /* STATES */
+    .state {
+      display: none;
+    }
+    .state.active { display: block; }
+
+    .state-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .state-icon.spinning {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .state-icon.success { animation: none; }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .code {
+      display: inline-block;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0.75rem 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.5rem;
+      background: var(--accent);
+      color: #0a0a0f;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-family: var(--font);
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      background: #00ffb3;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0, 229, 160, 0.35);
+      text-decoration: none;
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: transparent;
+    }
+
+    .error-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .error-title {
+      font-weight: 600;
+      color: #fca5a5;
+      margin-bottom: 0.5rem;
+    }
+
+    .error-text {
+      font-size: 0.9rem;
+      color: #fca5a5;
+      line-height: 1.6;
+    }
+
+    .help-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .help-text a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .resend-form {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .resend-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: var(--font);
+      transition: border-color 0.2s;
+      margin-bottom: 0.75rem;
+    }
+
+    input[type="email"]:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    input[type="email"]::placeholder {
+      color: var(--muted);
+    }
+
+    .countdown {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1rem 0;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- STATE 1: VERIFYING -->
+  <div class="state active" id="verifying">
+    <div class="state-icon spinning">🔐</div>
+    <h1>Confirming your email</h1>
+    <p>Please wait while we activate your account...</p>
+    <div style="text-align: center; margin-top: 2rem;">
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <!-- STATE 2: SUCCESS -->
+  <div class="state" id="success">
+    <div class="state-icon success">✨</div>
+    <h1>You're in!</h1>
+    <p>Your PricePulse account is now active. We're setting up your dashboard...</p>
+    <p style="color: var(--text); font-size: 0.9rem;">Redirecting in <span class="countdown" id="countdown">5</span> seconds...</p>
+  </div>
+
+  <!-- STATE 3: LINK EXPIRED -->
+  <div class="state" id="expired">
+    <div class="state-icon">⏰</div>
+    <h1>Link expired</h1>
+    <p>The confirmation link has expired or is invalid. We can send you a new one.</p>
+
+    <div class="error-box">
+      <div class="error-title">What to do</div>
+      <div class="error-text">
+        Enter your email below and we'll send you a fresh confirmation link. It will be valid for 24 hours.
+      </div>
+    </div>
+
+    <form id="resendForm" onsubmit="handleResend(event)" class="resend-form">
+      <label class="resend-label">Email address</label>
+      <input
+        type="email"
+        id="resendEmail"
+        placeholder="you@yourstartup.com"
+        required
+      />
+      <button type="submit" class="btn" id="resendBtn">
+        Send confirmation email →
+      </button>
+    </form>
+
+    <p class="help-text">
+      <a href="login.html">Already have an account? Sign in</a>
+    </p>
+  </div>
+
+  <!-- STATE 4: ERROR -->
+  <div class="state" id="error">
+    <div class="state-icon">❌</div>
+    <h1>Confirmation failed</h1>
+    <p id="errorMessage">Something went wrong. Please try again.</p>
+
+    <div class="error-box">
+      <div class="error-title">Next steps</div>
+      <div class="error-text">
+        You can try requesting a new confirmation email below, or contact us if the problem persists.
+      </div>
+    </div>
+
+    <form id="errorResendForm" onsubmit="handleResend(event)" class="resend-form">
+      <label class="resend-label">Email address</label>
+      <input
+        type="email"
+        id="errorResendEmail"
+        placeholder="you@yourstartup.com"
+        required
+      />
+      <button type="submit" class="btn" id="errorResendBtn">
+        Send confirmation email →
+      </button>
+    </form>
+
+    <p class="help-text">
+      Need help? <a href="mailto:hello@pricepulse.app">Contact support</a> or
+      <a href="index.html">go back home</a>
+    </p>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL = 'SUPABASE_URL_PLACEHOLDER';
+  const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY_PLACEHOLDER';
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function setState(stateName) {
+    document.querySelectorAll('.state').forEach(s => s.classList.remove('active'));
+    document.getElementById(stateName).classList.add('active');
+  }
+
+  async function verifyEmail() {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    const type = params.get('type') || 'signup';
+
+    if (!token) {
+      setState('error');
+      document.getElementById('errorMessage').textContent =
+        'No confirmation token found. Please check the link in your email.';
+      return;
+    }
+
+    try {
+      // Verify OTP with Supabase
+      const { data, error } = await supabase.auth.verifyOtp({
+        type: type,
+        token: token
+      });
+
+      if (error) {
+        console.error('Verification error:', error);
+        if (error.message.includes('invalid') || error.message.includes('expired')) {
+          setState('expired');
+        } else {
+          setState('error');
+          document.getElementById('errorMessage').textContent =
+            error.message || 'Could not verify your email. Please try again.';
+        }
+        return;
+      }
+
+      // User is confirmed, create profile in subscriptions table
+      if (data.user) {
+        try {
+          await createUserProfile(data.user.id, data.user.email);
+        } catch (profileError) {
+          console.error('Profile creation error:', profileError);
+          // Continue anyway - user is confirmed
+        }
+      }
+
+      // Show success state
+      setState('success');
+
+      // Countdown and redirect
+      let count = 5;
+      const countdown = setInterval(() => {
+        document.getElementById('countdown').textContent = count;
+        count--;
+        if (count < 0) {
+          clearInterval(countdown);
+          window.location.href = 'plan-select.html';
+        }
+      }, 1000);
+
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      setState('error');
+      document.getElementById('errorMessage').textContent =
+        'An unexpected error occurred. Please try again.';
+    }
+  }
+
+  async function createUserProfile(userId, email) {
+    // Create entry in subscriptions table with free tier
+    const { error } = await supabase
+      .from('subscriptions')
+      .insert({
+        user_id: userId,
+        email: email,
+        plan: 'free',
+        created_at: new Date().toISOString()
+      });
+
+    if (error) {
+      // Log but don't fail - might already exist
+      console.warn('Could not create user profile:', error);
+    }
+  }
+
+  async function handleResend(e) {
+    e.preventDefault();
+
+    const emailInput = e.target.querySelector('input[type="email"]');
+    const email = emailInput.value.trim();
+    const btn = e.target.querySelector('button[type="submit"]');
+
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: email
+      });
+
+      if (error) {
+        alert('Could not resend email: ' + (error.message || 'Unknown error'));
+        btn.disabled = false;
+        btn.textContent = originalText;
+        return;
+      }
+
+      // Success
+      alert('Confirmation email sent! Check your inbox (and spam folder). The link is valid for 24 hours.');
+      emailInput.value = '';
+      btn.disabled = false;
+      btn.textContent = originalText;
+
+    } catch (err) {
+      alert('Network error. Please try again.');
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  }
+
+  // Run verification on page load
+  window.addEventListener('load', verifyEmail);
+</script>
+
+</body>
+</html>

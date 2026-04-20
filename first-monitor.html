@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add your first monitor — PricePulse</title>
+  <meta name="description" content="Add your first competitor to monitor. Get started in 30 seconds." />
+  <meta property="og:title" content="Add your first monitor — PricePulse" />
+  <meta property="og:description" content="Start monitoring competitor pricing pages immediately. Add your first competitor now." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pricepulse.app/first-monitor.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://pricepulse.app/og-image.jpg" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0, 229, 160, 0.15);
+      --warning: #f59e0b;
+      --red: #ef4444;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+    .logo:hover { text-decoration: none; }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      padding-top: 64px;
+    }
+
+    /* LEFT — FORM */
+    .form-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .form-box {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .progress-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .progress-step {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .progress-step.active {
+      background: var(--accent);
+    }
+
+    .progress-step.done {
+      background: var(--accent2);
+    }
+
+    .form-heading {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    input[type="url"],
+    select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: var(--font);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    input::placeholder { color: var(--muted); }
+
+    .input-helper {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-family: var(--font);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0f;
+    }
+    .btn-primary:hover {
+      background: #00ffb3;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0, 229, 160, 0.35);
+      text-decoration: none;
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .form-error {
+      display: none;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: #fca5a5;
+      margin-bottom: 1rem;
+    }
+
+    .form-error.visible { display: block; }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .form-footer a { font-weight: 600; }
+
+    .skip-link {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .skip-link a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* SUCCESS STATE */
+    .success-box {
+      display: none;
+      background: rgba(0, 229, 160, 0.08);
+      border: 1px solid rgba(0, 229, 160, 0.3);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .success-box.visible { display: block; }
+
+    .success-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .success-box h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-box p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* RIGHT — BENEFITS */
+    .benefits-panel {
+      background: var(--bg2);
+      border-left: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefits-panel::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 229, 160, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .benefits-inner {
+      max-width: 380px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .benefits-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .benefits-heading {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .benefit-item:last-child { margin-bottom: 0; }
+
+    .benefit-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(0, 229, 160, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .benefit-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .benefit-text span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-panel {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding: 2.5rem 1.5rem;
+      }
+
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .form-panel { padding: 2rem 1.25rem; }
+      .form-heading { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <span class="logo-dot"></span>
+    PricePulse
+  </a>
+  <div style="font-size:0.9rem;color:var(--muted);">Step 2 of 3</div>
+</nav>
+
+<main>
+  <!-- LEFT: FORM -->
+  <div class="form-panel">
+    <div class="form-box">
+
+      <!-- PROGRESS BAR -->
+      <div class="progress-bar">
+        <div class="progress-step done"></div>
+        <div class="progress-step done"></div>
+        <div class="progress-step active"></div>
+      </div>
+
+      <h1 class="form-heading">Add your first competitor</h1>
+      <p class="form-sub">Let's get you monitoring. This takes about 30 seconds.</p>
+
+      <div class="form-error" id="formError"></div>
+
+      <!-- MONITOR FORM -->
+      <form id="monitorForm" onsubmit="handleCreateMonitor(event)">
+
+        <!-- MONITOR NAME -->
+        <div class="form-group">
+          <label for="name">Competitor name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="e.g., Notion, Figma, Linear"
+            maxlength="100"
+            required
+          />
+          <span class="input-helper">The name of the company/product you want to monitor</span>
+        </div>
+
+        <!-- PRICING PAGE URL -->
+        <div class="form-group">
+          <label for="url">Pricing page URL</label>
+          <input
+            type="url"
+            id="url"
+            name="url"
+            placeholder="https://notion.so/pricing"
+            required
+          />
+          <span class="input-helper">The direct link to their pricing page</span>
+        </div>
+
+        <!-- ALERT EMAIL -->
+        <div class="form-group">
+          <label for="alertEmail">Alert email</label>
+          <input
+            type="email"
+            id="alertEmail"
+            name="alertEmail"
+            placeholder="your@email.com"
+            required
+          />
+          <span class="input-helper">Where we'll send price change alerts</span>
+        </div>
+
+        <!-- CHECK FREQUENCY -->
+        <div class="form-group">
+          <label for="frequency">Check frequency</label>
+          <select id="frequency" name="frequency" required>
+            <option value="">Select check frequency...</option>
+            <option value="daily" selected>Every 24 hours (Free plan)</option>
+            <option value="hourly" disabled>Every hour (Starter+)</option>
+            <option value="30min" disabled>Every 30 minutes (Pro)</option>
+          </select>
+          <span class="input-helper">Depends on your plan. Free tier: daily checks.</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitBtn">
+          Start monitoring →
+        </button>
+
+      </form>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-box" id="successBox">
+        <div class="success-icon">🎉</div>
+        <h2>Monitor created!</h2>
+        <p>We're now watching <span id="monitorName"></span> for pricing changes. You'll get your first alert soon!</p>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--accent)">Redirecting to your dashboard...</p>
+      </div>
+
+      <div class="skip-link">
+        <a href="dashboard.html">Skip for now, go to dashboard →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT: BENEFITS -->
+  <div class="benefits-panel">
+    <div class="benefits-inner">
+      <span class="benefits-tag">Get started</span>
+      <h2 class="benefits-heading">What happens next</h2>
+
+      <div class="benefit-item">
+        <div class="benefit-icon-wrap">📡</div>
+        <div class="benefit-text">
+          <strong>We start monitoring</strong>
+          <span>Your first price check runs immediately. Then on your plan's schedule.</span>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon-wrap">⚡</div>
+        <div class="benefit-text">
+          <strong>You get alerts</strong>
+          <span>Any price changes are sent to your email instantly. No noise, just real changes.</span>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon-wrap">📊</div>
+        <div class="benefit-text">
+          <strong>Full audit history</strong>
+          <span>See every change with before/after diffs. Never miss a move again.</span>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon-wrap">➕</div>
+        <div class="benefit-text">
+          <strong>Add more monitors</strong>
+          <span>Your plan determines how many competitors you can monitor. Add more anytime.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">📡 PricePulse</div>
+  <div class="footer-links">
+    <a href="pricing.html">Pricing</a>
+    <a href="mailto:hello@pricepulse.app">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 PricePulse. Built in public.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL = 'SUPABASE_URL_PLACEHOLDER';
+  const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY_PLACEHOLDER';
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function showError(msg) {
+    const el = document.getElementById('formError');
+    el.textContent = msg;
+    el.classList.add('visible');
+  }
+
+  function hideError() {
+    const el = document.getElementById('formError');
+    el.classList.remove('visible');
+  }
+
+  async function handleCreateMonitor(e) {
+    e.preventDefault();
+    hideError();
+
+    const name = document.getElementById('name').value.trim();
+    const url = document.getElementById('url').value.trim();
+    const alertEmail = document.getElementById('alertEmail').value.trim();
+    const frequency = document.getElementById('frequency').value;
+    const btn = document.getElementById('submitBtn');
+
+    // Validate frequency selection
+    if (!frequency) {
+      showError('Please select a check frequency.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Creating monitor…';
+
+    try {
+      // Get current user session
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        showError('Not authenticated. Please sign in again.');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      const userId = session.user.id;
+
+      // Validate URL format
+      try {
+        new URL(url);
+      } catch {
+        showError('Please enter a valid URL (e.g., https://example.com/pricing)');
+        btn.disabled = false;
+        btn.textContent = 'Start monitoring →';
+        return;
+      }
+
+      // Create monitor in database
+      const { data, error } = await supabase
+        .from('monitors')
+        .insert({
+          user_id: userId,
+          name: name,
+          url: url,
+          alert_email: alertEmail,
+          frequency: frequency,
+          next_check: new Date().toISOString(),
+          status: 'active',
+          created_at: new Date().toISOString()
+        })
+        .select();
+
+      if (error) {
+        console.error('Monitor creation error:', error);
+        if (error.message.includes('limit')) {
+          showError('You\'ve reached your plan\'s monitor limit. Upgrade to add more.');
+        } else {
+          showError('Could not create monitor. Please try again.');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Start monitoring →';
+        return;
+      }
+
+      // Show success state
+      document.getElementById('monitorForm').style.display = 'none';
+      document.getElementById('monitorName').textContent = name;
+      document.getElementById('successBox').classList.add('visible');
+      document.querySelector('.form-heading').textContent = 'Monitor created!';
+      document.querySelector('.form-sub').textContent = 'Let\'s go to your dashboard.';
+
+      // Redirect after 3 seconds
+      setTimeout(() => {
+        window.location.href = 'dashboard.html?onboarded=true';
+      }, 3000);
+
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      showError('Network error. Please check your connection and try again.');
+      btn.disabled = false;
+      btn.textContent = 'Start monitoring →';
+    }
+  }
+
+  // Check authentication on load
+  window.addEventListener('load', async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      window.location.href = 'login.html?redirect=first-monitor.html';
+    }
+
+    // Get user's plan to show available frequencies
+    const { data: sub } = await supabase
+      .from('subscriptions')
+      .select('plan')
+      .eq('user_id', session.user.id)
+      .single();
+
+    if (sub) {
+      const freqSelect = document.getElementById('frequency');
+      const options = freqSelect.querySelectorAll('option');
+
+      if (sub.plan === 'starter') {
+        options[2].disabled = false; // Enable hourly
+      } else if (sub.plan === 'pro') {
+        options[2].disabled = false; // Enable hourly
+        options[3].disabled = false; // Enable 30min
+      }
+
+      // Set default frequency based on plan
+      if (sub.plan === 'starter') {
+        freqSelect.value = 'hourly';
+      } else if (sub.plan === 'pro') {
+        freqSelect.value = '30min';
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
