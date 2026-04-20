@@ -511,6 +511,20 @@ BACKLOG-CHEAP completed:
 
 ---
 
+---
+
+**[P7] SEO Content Strategy — COMPLETE**
+- Created comprehensive 12-week content calendar
+- Identified 12 target keywords across 4 clusters (8,400 total searches/month)
+- Designed 15 blog posts + 1 service page to rank for target keywords
+- Built topical clustering strategy for semantic SEO authority
+- Planned HARO + earned link strategy for backlinks
+- Set up success metrics: 2,500+ organic visitors, 50-70 signups/month by week 12
+- Resource allocation: 110 hours over 12 weeks
+- Document: `docs/seo-content-strategy.md` (408 lines)
+
+---
+
 ### Next immediate priorities
 
 From BACKLOG-PREMIUM (weeks 2-3):
@@ -518,6 +532,7 @@ From BACKLOG-PREMIUM (weeks 2-3):
 2. **[IMPL] Database integration** — Wire Supabase queries to dashboard
 3. **Show IH post publication** — Post to Indie Hackers (domain + setup pending)
 4. **[P6] Pricing strategy review** — Can begin collecting signup data
+5. **[P9] Product Hunt launch strategy** — Can design without live product
 
 From BACKLOG-CHEAP (remaining 2 items):
 - Social proof section (blocked: need real user testimonials)

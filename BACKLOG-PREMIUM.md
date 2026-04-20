@@ -45,10 +45,14 @@ These tasks need architectural decisions, complex debugging, multi-file thinking
 
 ## MEDIUM — Week 5-8
 
-### [P7] SEO content strategy
-**What:** Identify the exact 10 keywords to target with blog content. Evaluate: search volume, competition, buyer intent, topical authority. Build a 12-week content calendar.
-**Target keywords to research:** "competitor pricing tracker", "SaaS competitive intelligence", "monitor competitor prices", "how to track competitor pricing", "SaaS pricing intelligence tool"
-**Why premium:** SEO strategy compounds; wrong focus wastes weeks of content work.
+### ~~[P7] SEO content strategy~~ DONE — see docs/seo-content-strategy.md
+**What:** ✅ Identified 12 target keywords across 4 clusters (8,400 searches/month). Built 12-week content calendar with 15 blog posts + service page. Designed topical clustering and authority-building strategy.
+**Key deliverables:**
+- Keyword clusters: Core product (950-740 sv), Problem-awareness (680-290 sv), Solution keywords (440-190 sv), Long-tail (210-85 sv)
+- Content calendar: Weeks 5-16 with specific posts, timeline, internal linking
+- SEO milestones: Week 8 (5 posts, 500+ organic visitors), Week 12 (10+ posts, 2,000+ visitors)
+- Link strategy: Owned (email, social), Earned (HARO, IH, HN), Guest posting
+**Why premium:** SEO strategy compounds; wrong keywords waste weeks of content effort.
 
 ### [P8] Affiliate program design
 **What:** Design the affiliate program structure: commission rate (30% recurring?), payout threshold, tracking approach (Rewardful vs. manual vs. LemonSqueezy built-in), cookie duration, fraud prevention.
