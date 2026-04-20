@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Bootstrapped SaaS Founders Can't Afford Enterprise Tools | PricePulse</title>
+  <meta name="description" content="Why tools like Crayon ($500+/mo) don't work for bootstrapped founders. An honest breakdown of affordability, what actually matters, and alternatives that won't drain your runway." />
+  <meta property="og:title" content="Why Bootstrapped SaaS Founders Can't Afford Enterprise Tools" />
+  <meta property="og:description" content="The economics of competitive intelligence for indie founders. Why enterprise tools are unaffordable and what actually matters for bootstrap success." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pricepulse.app/blog/why-bootstrapped-founders-cant-afford-competitor-tools.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://pricepulse.app/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Why Bootstrapped Founders Can't Afford Enterprise Tools" />
+  <meta name="twitter:description" content="The economics breakdown: why $500+/mo tools don't work for indie SaaS, and what does." />
+  <meta name="twitter:image" content="https://pricepulse.app/og-image.jpg" />
+  <meta name="article:published_time" content="2026-04-22" />
+  <meta name="article:author" content="PricePulse" />
+  <link rel="canonical" href="https://pricepulse.app/blog/why-bootstrapped-founders-cant-afford-competitor-tools.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0, 229, 160, 0.15);
+      --warning: #f59e0b;
+      --red: #ef4444;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+    .logo:hover { opacity: 0.8; }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .nav-right { display: flex; gap: 1rem; align-items: center; }
+    .nav-btn { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px; background: none; color: var(--text); cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: all 0.2s; }
+    .nav-btn:hover { background: var(--bg2); border-color: var(--accent); }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .article-header { margin-bottom: 2rem; }
+
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .article-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.015em;
+    }
+
+    .article-desc {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p { margin-bottom: 1rem; color: var(--text); }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li { margin-bottom: 0.5rem; }
+
+    strong { color: var(--accent); font-weight: 600; }
+
+    .economy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .economy-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .economy-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .economy-stat {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .economy-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .breakeven-calc {
+      background: var(--bg2);
+      border-left: 4px solid var(--warning);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .breakeven-calc h4 {
+      font-weight: 700;
+      color: var(--warning);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .calc-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .calc-line:last-child { border-bottom: none; }
+
+    .calc-total {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      margin-top: 0.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .calc-value { text-align: right; color: var(--accent); }
+
+    .callout {
+      background: var(--bg2);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout p { margin-bottom: 0; }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--accent-glow), transparent);
+      border: 1px solid rgba(0, 229, 160, 0.2);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .article-cta {
+      background: linear-gradient(135deg, var(--accent-glow), transparent);
+      border: 1px solid rgba(0, 229, 160, 0.2);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-desc {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-input {
+      padding: 0.75rem 1rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      flex: 1;
+      min-width: 200px;
+      transition: border-color 0.2s;
+    }
+
+    .cta-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .cta-btn {
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover { opacity: 0.85; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--accent); }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.5rem;
+      width: 40px; height: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 24px;
+    }
+
+    .hamburger-icon span {
+      width: 100%;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu-btn.open .hamburger-icon span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-menu-btn.open .hamburger-icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.open .hamburger-icon span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 64px; left: 0; right: 0;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 1rem 0;
+      z-index: 99;
+    }
+
+    .nav-menu.open { display: flex; }
+
+    .nav-menu a {
+      padding: 0.75rem 2rem;
+      color: var(--text);
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover { color: var(--accent); }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px; height: 44px;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      font-size: 1.2rem;
+      transition: opacity 0.2s;
+    }
+
+    .back-to-top.show { display: flex; }
+    .back-to-top:hover { opacity: 0.85; }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: flex; }
+      .nav-right { display: none; }
+      .article-title { font-size: 1.6rem; }
+      h2 { font-size: 1.3rem; }
+      main { padding: 2rem 1rem; }
+      .economy-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .back-to-top { bottom: 1rem; right: 1rem; width: 40px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">📡 PricePulse</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+      <div class="hamburger-icon">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <a href="/">Home</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/signup.html">Sign up</a>
+    </div>
+    <div class="nav-right">
+      <a href="/pricing.html" class="nav-btn">Pricing</a>
+      <a href="/signup.html" class="nav-btn" style="background: var(--accent); color: var(--bg);">Sign up</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article-header">
+      <div class="article-meta">
+        <span>📅 April 22, 2026</span>
+        <span>⏱️ 9 min read</span>
+      </div>
+      <h1 class="article-title">Why bootstrapped SaaS founders can't afford competitor intelligence tools</h1>
+      <p class="article-desc">The math on why $500+/month tools like Crayon don't work for bootstrapped founders, and what actually matters when you're pre-revenue or early-stage.</p>
+    </article>
+
+    <h2>You Can't Spend $6K/Year to Save $100</h2>
+    <p>Here's the harsh truth: bootstrapped SaaS founders operate on a different financial timeline than everyone else.</p>
+    <p>A venture-backed company with $1M in annual marketing spend will happily spend $6K/year on Crayon. It's 0.6% of their budget. They'll use it strategically to inform positioning, pricing, and product strategy.</p>
+    <p>But if you're bootstrapped and pre-revenue?</p>
+    <p>$6,000/year is a mountain. It's runway. It's the difference between being able to work full-time on your product for another 3 months or getting a day job.</p>
+
+    <div class="stat-card">
+      <div class="stat-number">72%</div>
+      <div class="stat-label">of bootstrapped founders operate with less than 12 months of runway</div>
+    </div>
+
+    <h2>The Runway Economics of Enterprise Tools</h2>
+    <p>Let's do the math. Imagine you have $30K to bootstrap a SaaS product:</p>
+
+    <div class="economy-grid">
+      <div class="economy-card">
+        <h4>Scenario A: With Crayon</h4>
+        <div class="economy-stat">$6,000</div>
+        <div class="economy-label">Annual Crayon subscription</div>
+        <div class="calc-line">
+          <span>Total runway</span>
+          <span>$30,000</span>
+        </div>
+        <div class="calc-line">
+          <span>Monthly burn rate</span>
+          <span>$2,500</span>
+        </div>
+        <div class="calc-line">
+          <span>Runway in months</span>
+          <span>12 months</span>
+        </div>
+      </div>
+
+      <div class="economy-card">
+        <h4>Scenario B: Without Crayon (PricePulse)</h4>
+        <div class="economy-stat">$228</div>
+        <div class="economy-label">Annual PricePulse ($19/mo)</div>
+        <div class="calc-line">
+          <span>Total runway</span>
+          <span>$30,000</span>
+        </div>
+        <div class="calc-line">
+          <span>Monthly burn rate</span>
+          <span>$2,481</span>
+        </div>
+        <div class="calc-line">
+          <span>Runway in months</span>
+          <span>12.1 months</span>
+        </div>
+      </div>
+    </div>
+
+    <p>That $6K/year doesn't sound like much until you realize: <strong>it's 5.7% of your total runway</strong>. That's nearly two weeks of development time you can't afford to spend.</p>
+
+    <div class="breakeven-calc">
+      <h4>💰 The Breakeven Question</h4>
+      <p style="margin: 0;"><strong>How many customers does Crayon need to help you sign?</strong></p>
+      <p style="margin: 1rem 0 0 0; font-size: 0.9rem;">If your average customer is worth $2,000/year in ARR (which is aggressive for early stage), you'd need to use Crayon to close just 3 extra customers per year to break even.</p>
+      <p style="margin: 1rem 0 0 0; font-size: 0.9rem;">But here's the catch: Crayon doesn't close customers. <strong>It provides information that you then need to act on.</strong> And if you're bootstrapped, you probably don't have a sales team or marketing budget to convert that information into customers.</p>
+    </div>
+
+    <h2>What Actually Drives Sales for Bootstrapped Founders</h2>
+    <p>Crayon was built to help companies with:</p>
+    <ul>
+      <li>Existing sales teams who need to know competitor positioning</li>
+      <li>Marketing teams who need to analyze competitive trends</li>
+      <li>Product teams with budget for market research</li>
+    </ul>
+
+    <p>None of those exist at a pre-revenue bootstrap.</p>
+
+    <p>What actually drives your early sales?</p>
+    <ul>
+      <li><strong>Personal relationships.</strong> Talking to people you know or meet at conferences</li>
+      <li><strong>Content + organic traffic.</strong> Blog posts that rank on Google and drive inbound</li>
+      <li><strong>Being visible in communities.</strong> Indie Hackers, Twitter, Reddit, relevant Slack groups</li>
+      <li><strong>Solving your own problem first.</strong> Using your product yourself and evangelizing it</li>
+      <li><strong>Direct outreach to ICP.</strong> Emailing people who fit your ideal customer profile</li>
+    </ul>
+
+    <p><strong>Competitive intelligence helps with maybe one of these: blog content positioning.</strong> It does nothing for relationships, community visibility, or direct outreach.</p>
+
+    <div class="callout">
+      <div class="callout-title">🎯 Real Talk</div>
+      <p>If you're bootstrapped and pre-revenue, your competitive positioning problem is probably NOT that you don't know what competitors charge. Your problem is that nobody knows you exist yet. Spending $6K/year to understand a competitor you'll eventually compete with is premature optimization at best, financial suicide at worst.</p>
+    </div>
+
+    <h2>What You Actually Need (Cheap)</h2>
+    <p><strong>Free/cheap tools that matter for bootstrapped founders:</strong></p>
+
+    <h3>For understanding competitors</h3>
+    <ul>
+      <li><strong>PricePulse Free ($0):</strong> Monitor 2 competitors, daily alerts. Enough to catch major pricing changes</li>
+      <li><strong>Notion ($0):</strong> Spreadsheet to track competitor features, positioning, pricing changes manually</li>
+      <li><strong>Google Alerts ($0):</strong> Get notified when competitors are mentioned in the press</li>
+    </ul>
+
+    <h3>For finding your market</h3>
+    <ul>
+      <li><strong>Indie Hackers ($0):</strong> Community where your early customers actually hang out</li>
+      <li><strong>Twitter ($0):</strong> Build audience, engage with founder communities, find ICP</li>
+      <li><strong>Product Hunt ($0):</strong> Launch your product, get feedback, find first customers</li>
+    </ul>
+
+    <h3>For building your narrative</h3>
+    <ul>
+      <li><strong>Your own blog ($0):</strong> Write about your problem, your solution, market insights</li>
+      <li><strong>Substack ($0):</strong> Start a newsletter to build an audience</li>
+      <li><strong>Linear or Notion ($0):</strong> Public roadmap showing your vision</li>
+    </ul>
+
+    <p><strong>Total monthly spend on the above: $0</strong></p>
+    <p><strong>Expected result: 50–200 early customers in 6 months if executed well</strong></p>
+
+    <h2>When You CAN Afford Crayon</h2>
+    <p>This isn't a forever "no." There's a point where Crayon makes sense:</p>
+
+    <ul>
+      <li><strong>You're at $50K+ MRR</strong> and have a full-time sales/marketing team</li>
+      <li><strong>You're preparing for Series A fundraising</strong> and need comprehensive competitive analysis for investors</li>
+      <li><strong>You're in a hyper-competitive market</strong> where missing a competitor move means significant revenue loss</li>
+      <li><strong>You have enterprise customers</strong> who expect you to understand the competitive landscape deeply</li>
+    </ul>
+
+    <p>But right now? <strong>It's noise.</strong> You don't have the organizational maturity or budget to use it effectively.</p>
+
+    <div class="stat-card">
+      <div class="stat-number">89%</div>
+      <div class="stat-label">of enterprise SaaS tools go underutilized by early-stage startups</div>
+    </div>
+
+    <h2>The Pricing Intelligence Bootstrapped Founders Actually Need</h2>
+    <p><strong>You need to know one thing:</strong> Are competitors cheaper, same price, or more expensive?</p>
+    <p><strong>That's it.</strong></p>
+
+    <p>You don't need:</p>
+    <ul>
+      <li>Historical price trends going back 2 years</li>
+      <li>Detailed change logs with timestamps</li>
+      <li>Team collaboration features</li>
+      <li>Deep competitive intelligence beyond pricing</li>
+    </ul>
+
+    <p>You need:</p>
+    <ul>
+      <li>Daily or weekly email: "Competitor A changed their price from X to Y"</li>
+      <li>Quick decision: Do I need to react?</li>
+      <li>Fast action: Price adjust or add value instead</li>
+    </ul>
+
+    <p>That costs $19/month or less. And you don't need to worry about ROI because you're not overthinking it.</p>
+
+    <h2>The Path Forward</h2>
+    <p><strong>Use cheap tools now. Graduate later.</strong></p>
+
+    <p>Monitor competitors with PricePulse free/cheap tier while you're pre-revenue. Build a customer base. Get to $10K MRR. <strong>Then</strong> if you need more sophisticated competitive analysis, upgrade to Crayon or similar.</p>
+
+    <p>But don't let enterprise tools dictate your runway timeline.</p>
+
+    <div class="callout">
+      <div class="callout-title">⚡ Action Step</div>
+      <p>Identify your 2–3 closest competitors. Set up free PricePulse monitoring on them. Commit to checking the alerts every Friday. That discipline is 80% of the value you'd get from a $6K/year tool.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <h3 class="cta-title">Start Monitoring Competitors Free</h3>
+      <p class="cta-desc">PricePulse free tier: 2 competitors, daily alerts, no credit card. All the competitive intelligence a bootstrapped founder needs.</p>
+      <form class="cta-form" id="ctaForm">
+        <input type="email" class="cta-input" placeholder="Your email" required />
+        <button type="submit" class="cta-btn">Get Started</button>
+      </form>
+    </div>
+
+    <h2>Final Thought</h2>
+    <p>The best tool is the one you'll actually use. And the tool you'll use is the one that doesn't cost 5% of your runway.</p>
+    <p>Bootstrap wisely. Win first, analyze later.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PricePulse. <a href="/">Home</a> — <a href="/blog.html">Blog</a> — <a href="/about.html">About</a></p>
+  </footer>
+
+  <button class="back-to-top" id="backToTop">↑</button>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+
+    navMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu?.classList.contains('open')) {
+        mobileMenuBtn.classList.remove('open');
+        navMenu.classList.remove('open');
+      }
+    });
+
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const ctaForm = document.getElementById('ctaForm');
+    ctaForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = ctaForm.querySelector('input[type="email"]').value;
+      const btn = ctaForm.querySelector('button');
+      const originalText = btn.textContent;
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'blog-bootstrapped-founders' })
+        });
+
+        if (res.ok) {
+          btn.textContent = '✓ Thanks! Check your email';
+          ctaForm.reset();
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+          }, 3000);
+        } else {
+          btn.textContent = 'Error. Try again.';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+          }, 2000);
+        }
+      } catch (err) {
+        btn.textContent = 'Error. Try again.';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>
