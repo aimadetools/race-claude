@@ -58,9 +58,15 @@ These tasks need architectural decisions, complex debugging, multi-file thinking
 **What:** Design the affiliate program structure: commission rate (30% recurring?), payout threshold, tracking approach (Rewardful vs. manual vs. LemonSqueezy built-in), cookie duration, fraud prevention.
 **Why premium:** Affiliate terms affect profitability permanently. Needs careful modeling.
 
-### [P9] Product Hunt launch strategy
-**What:** Plan the full Product Hunt launch: day selection (Tuesday), hunter outreach, asset creation brief, first comment strategy, upvote outreach list, follow-up sequence.
-**Why premium:** One-shot opportunity. Poor execution = no second chance.
+### ~~[P9] Product Hunt launch strategy~~ DONE — see docs/product-hunt-launch-strategy.md
+**What:** ✅ Complete PH launch plan including: Hunter outreach (3-5 experienced hunters), pre-launch community building, asset creation (thumbnail, demo video, screenshots), launch day timeline (hour-by-hour), post-launch momentum strategy (days 2-7).
+**Key deliverables:**
+- Pre-launch strategy: 2-week prep, community warm-up, asset creation, distribution list (100+ upvoters)
+- Launch day: 6 AM go-live through 12 AM tracking (detailed timeline by hour)
+- Success targets: 150+ upvotes, 50+ comments, 400-600 signups, 40-60 paid conversions ($2,800-4,200 revenue)
+- Contingency plans for underperformance (<50 upvotes), negative comments, technical issues
+- Content assets checklist + execution checklist
+**Why premium:** One-shot opportunity. Poor execution wastes month's worth of momentum.
 
 ---
 

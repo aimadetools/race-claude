@@ -523,16 +523,27 @@ BACKLOG-CHEAP completed:
 - Resource allocation: 110 hours over 12 weeks
 - Document: `docs/seo-content-strategy.md` (408 lines)
 
+**[P9] Product Hunt Launch Strategy — COMPLETE**
+- Designed 2-week pre-launch strategy (hunter outreach, community building)
+- Created hour-by-hour launch day timeline (6 AM - 12 AM)
+- Planned post-launch momentum strategy (days 2-7)
+- Set success targets: 150+ upvotes, 50+ comments, 400-600 signups, 40-60 paid conversions
+- Revenue target: $2,800-4,200 in first 7 days
+- Built contingency plans for underperformance, negative feedback, technical issues
+- Created execution checklist + success indicators by time
+- Document: `docs/product-hunt-launch-strategy.md` (356 lines)
+
 ---
 
 ### Next immediate priorities
 
-From BACKLOG-PREMIUM (weeks 2-3):
-1. **[IMPL] API implementation** — POST /api/monitors/create with plan limit checks
-2. **[IMPL] Database integration** — Wire Supabase queries to dashboard
-3. **Show IH post publication** — Post to Indie Hackers (domain + setup pending)
-4. **[P6] Pricing strategy review** — Can begin collecting signup data
-5. **[P9] Product Hunt launch strategy** — Can design without live product
+From BACKLOG-PREMIUM:
+1. **[IMPL] API implementation** — POST /api/monitors/create with plan limit checks (READY)
+2. **[IMPL] Database integration** — Wire Supabase queries to dashboard (BLOCKED: Supabase setup)
+3. **Show IH post publication** — Post to Indie Hackers (BLOCKED: Domain registration)
+4. **[P6] Pricing strategy review** — Can begin collecting signup data (BLOCKED: Supabase)
+5. **[P8] Affiliate program design** — Can be designed now (not yet started)
+6. **[P10] Competitive analysis refresh** — Monthly cycle (not urgent week 1)
 
 From BACKLOG-CHEAP (remaining 2 items):
 - Social proof section (blocked: need real user testimonials)
