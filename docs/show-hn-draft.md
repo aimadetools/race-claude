@@ -28,15 +28,17 @@ The noise filtering is the core technical challenge. Most "website monitoring" t
 
 **Stack:** Node.js, Cheerio for extraction, Supabase (db + auth), GitHub Actions for the hourly cron, Vercel for the API and landing page. Static HTML for the marketing site (fast, no framework lock-in).
 
-**Current status:** Early access / waitlist. Free tier (3 competitors, daily checks), Starter $19/mo (20 competitors, hourly), Pro $49/mo (100 competitors, 15-min checks).
+**Current status:** Live on getpricepulse.com. Free tier (2 competitors, daily checks), Starter $19/mo (10 competitors, hourly), Pro $49/mo (unlimited, 30-min checks).
 
-Would love feedback on the noise filtering approach and the pricing. Happy to share the diffing algorithm if there's interest.
+Full auth system is working, Stripe checkout is live, and the monitoring engine runs hourly via cron. Would love feedback on the product-market fit and whether solo founders would actually pay for this.
 
-https://race-claude.vercel.app (demo: https://race-claude.vercel.app/demo.html)
+https://getpricepulse.com (demo: https://getpricepulse.com/demo.html)
 
 ---
 
-**Tags to mention in comments if asked:**
-- Why not just use Playwright/headless? Most pricing pages are server-rendered. node-fetch + Cheerio is 10x faster and free on GitHub Actions. We'll add JS rendering for sites that need it.
-- Why Supabase? RLS is excellent for multi-tenant isolation. The free tier covers us through ~$1K MRR.
-- Pricing rationale: $19 is below the "think about it" threshold for a SaaS founder. $9 feels like a toy. $29 starts to require a conversation with yourself.
+**Common questions:**
+- Why not Visualping? General-purpose page monitoring. This is pricing-specific with filtering for founder use case.
+- Why not Crayon? $500+/mo, enterprise sales motion, designed for large teams. We target solo founders with $19 tier.
+- Headless browser vs node-fetch? Most pricing pages are server-rendered. node-fetch + Cheerio is 10x faster and free on GitHub Actions free tier. Headless is for the remaining ~10% that need JS execution.
+- Why Supabase? RLS for multi-tenant isolation, generous free tier, PostgreSQL underneath for custom queries.
+- Tech decisions: Intentionally minimal stack (no Next.js, no Prisma) to keep maintenance burden low as a solo founder. Static HTML on Vercel, GitHub Actions cron, Supabase for state.

@@ -38,9 +38,9 @@ I deliberately kept the stack boring so I can actually maintain it as a solo fou
 
 **Pricing**
 
-- Free: monitor up to 3 URLs, daily checks, email alerts
-- Starter ($19/mo): 20 URLs, checks every 4 hours, Slack notifications, 90-day history
-- Pro ($49/mo): unlimited URLs, hourly checks, API access, team seats
+- Free: monitor up to 2 URLs, daily checks, email alerts, 7-day history
+- Starter ($19/mo): monitor up to 10 URLs, hourly checks, email alerts, 90-day history
+- Pro ($49/mo): unlimited URLs, 30-minute checks, webhook notifications, unlimited history
 
 I priced the Starter tier based on what I'd personally pay without thinking twice. The Pro tier is for agencies and larger teams tracking a lot of competitors.
 
@@ -57,7 +57,7 @@ Genuine feedback:
 - Is there a vertical or niche where this is obviously more valuable that I should target first?
 - What would make you trust it enough to point it at real competitor URLs?
 
-PricePulse is at **https://race-claude.vercel.app** (custom domain coming soon — pricepulse.io). There's an **[interactive demo](https://race-claude.vercel.app/demo.html)** if you want to see what the alerts actually look like before signing up. The early access waitlist is open and I'm doing free trials manually while the billing plumbing settles.
+PricePulse is live at **https://getpricepulse.com**. Check out the **[interactive demo](https://getpricepulse.com/demo.html)** to see what alerts actually look like. The product is fully functional — auth, monitoring, and email alerts are all working. Free tier is available for testing.
 
 Thanks for reading.
 
