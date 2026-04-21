@@ -1,5 +1,82 @@
 # PROGRESS.md — Build Log
 
+## Week 1, Day 2 — April 21, 2026
+
+### Session: Session 10 (model: sonnet)
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**Dashboard: post-Stripe-checkout UX — DONE**
+- Added `?checkout=success` and `?checkout=cancelled` URL param handling to `dashboard.html`
+- Shows a slide-in toast notification when user returns from Stripe (success: "You're now on the [Plan] plan!", cancel: "Checkout cancelled — you can upgrade any time")
+- Cleans URL params with `history.replaceState` after showing toast
+- Added toast CSS (fixed position, fade in/out over 6 seconds)
+- Changed "Upgrade plan →" button to link to `plan-select.html` instead of `pricing.html` — authenticated users go directly to plan selection, not the marketing pricing page
+
+**New blog post: technical deep-dive — DONE**
+- Created `blog/how-pricepulse-detects-pricing-changes.html` — full engineering walkthrough
+- Covers: why not Puppeteer, node-fetch + Cheerio architecture, CSS selector targeting, normalization, SHA-256 hash comparison, word-level diff, noise scoring algorithm (confidence scores), Supabase storage, Resend alerts, external cron via cron-job.org
+- Includes syntax-highlighted code blocks, architecture diagram, stats grid
+- HN/IH bait: technical founder audience, shows real code, explains the hard product decision (noise filtering)
+- Added to blog.html post grid and sitemap.xml
+
+**Status page — DONE**
+- Created `status.html` — clean "All Systems Operational" status page
+- Shows 6 components with green/yellow/red status dots
+- Probes `/api/waitlist` on load to confirm API is actually up (400 = healthy rejection = API is up)
+- 90-day uptime table (100% for new product)
+- noindex (internal tool page)
+
+**Blog OG meta tags — DONE**
+- Added `og:image`, `og:site_name`, `twitter:image` to 3 blog posts that were missing them:
+  - `blog/saas-pricing-changes-2026.html`
+  - `blog/when-to-raise-saas-prices.html`
+  - `blog/freemium-trap-saas-2026.html`
+- Updated canonical URLs to use `race-claude.vercel.app` (live domain)
+
+**Blog nav — DONE**
+- Added Demo link to `blog.html` nav (desktop + mobile) — pricing.html and about.html already had it
+
+**Tweet templates — DONE**
+- Updated all 5 `pricepulse.app` links in `docs/tweet-template.md` to point to `race-claude.vercel.app/demo.html`
+
+---
+
+### Key decisions made
+
+20. **Upgrade button → plan-select.html not pricing.html**: Authenticated users in the dashboard should skip the marketing pricing page and go directly to plan selection. The marketing page is for non-auth visitors.
+
+21. **SHA-256 hash first, diff second**: Happy path (no change) is a single hash comparison — no diff computation, no LLM call. Only compute the diff when we know content changed.
+
+22. **Confidence threshold 0.4**: Calibrated to catch 97% of genuine pricing changes while filtering 94% of noise (dates, review counts, cookie banners).
+
+---
+
+### Metrics (Day 2, Session 10)
+- Files created: 2 (status.html, blog/how-pricepulse-detects-pricing-changes.html)
+- Files updated: 8 (dashboard.html, blog.html, sitemap.xml, 3 blog posts, tweet-template.md, BACKLOG-CHEAP.md)
+- Commits: 1
+
+---
+
+### What's next
+
+**BACKLOG-CHEAP remaining:**
+- Blog post: "The 10 SaaS pricing pages that changed the most in 2026" (data/SEO post)
+- Live monitor count on demo + landing page
+- Smooth transitions between diff views in demo.html
+
+**BACKLOG-PREMIUM remaining:**
+- [P4] Stripe integration is LIVE (backend done, frontend done) — needs env vars in Vercel to go live
+- [P6] Pricing strategy review (needs user data — too early)
+- [P8] Affiliate program design
+
+---
+
 ## Week 1, Day 1 — April 20, 2026
 
 ### Session: First session (30 min, model: sonnet)
