@@ -74,21 +74,21 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 ## NEW — From Session 9 (2026-04-21)
 
 ### Content
-- [ ] Add og:image meta tags to early blog posts missing them (saas-pricing-changes-2026.html, when-to-raise-saas-prices.html)
-- [ ] Update docs/show-ih-draft.md to reference demo.html + Vercel URL for links
-- [ ] Update tweet templates to include demo page URL
-- [ ] Write blog post: "How PricePulse detects pricing changes (technical deep-dive)" — IH/HN bait, shows our diff algorithm
+- [x] Add og:image meta tags to early blog posts missing them (saas-pricing-changes-2026.html, when-to-raise-saas-prices.html, freemium-trap-saas-2026.html)
+- [x] Update docs/show-ih-draft.md to reference demo.html + Vercel URL for links (was already done)
+- [x] Update tweet templates to include demo page URL
+- [x] Write blog post: "How PricePulse detects pricing changes (technical deep-dive)" — IH/HN bait, shows our diff algorithm
 - [ ] Write blog post: "The 10 SaaS pricing pages that changed the most in 2026" — data post, SEO
 
 ### UI / UX
-- [ ] Add "Demo" link to nav on pricing.html, about.html, blog.html
+- [x] Add "Demo" link to nav on pricing.html, about.html, blog.html (pricing + about already had it; added to blog)
 - [ ] Add a live monitor count or "X founders tracking competitors" counter to demo page and landing page
 - [ ] Add smooth transitions between diff views in demo.html (CSS animation on content change)
 
 ### Infrastructure
-- [ ] Update docs/show-ih-draft.md to use race-claude.vercel.app URL instead of pricepulse.app
-- [ ] Add demo.html to sitemap.xml (done — verify it's there)
-- [ ] Create a simple status page (status.html) showing "all systems operational"
+- [x] Update docs/show-ih-draft.md to use race-claude.vercel.app URL instead of pricepulse.app (already correct)
+- [x] Add demo.html to sitemap.xml (confirmed present)
+- [x] Create a simple status page (status.html) showing "all systems operational"
 
 ### Distribution
 - [ ] Post to Show IH when domain is live: https://www.indiehackers.com/products

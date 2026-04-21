@@ -561,6 +561,32 @@
       border-radius: 9px;
     }
 
+    /* CHECKOUT TOAST */
+    .checkout-toast {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: #1a1a2e;
+      border: 1px solid rgba(0,229,160,0.35);
+      border-radius: 10px;
+      padding: 0.85rem 1.4rem;
+      font-size: 0.9rem;
+      color: #e8e8f0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .checkout-toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .checkout-toast.info { border-color: rgba(255,255,255,0.15); }
+
     /* PLAN BANNER */
     .plan-banner {
       margin-top: 2.5rem;
@@ -726,7 +752,7 @@
           <strong>2 of 2 monitors used.</strong> Upgrade to track more competitors and get hourly alerts.
         </span>
       </div>
-      <a href="pricing.html" class="btn btn-primary btn-sm">Upgrade plan →</a>
+      <a href="plan-select.html" class="btn btn-primary btn-sm" id="upgradeBtn">Upgrade plan →</a>
     </div>
 
   </div>
@@ -737,6 +763,9 @@
   <div class="spinner"></div>
   <p class="loading-text">Loading your dashboard…</p>
 </div>
+
+<!-- CHECKOUT TOAST -->
+<div class="checkout-toast" id="checkoutToast"></div>
 
 <!-- FOOTER -->
 <footer>
@@ -877,10 +906,29 @@
       // Render monitor list
       renderMonitors(monitors);
 
+      // Handle post-Stripe-checkout redirect
+      const urlParams = new URLSearchParams(window.location.search);
+      const checkoutResult = urlParams.get('checkout');
+      if (checkoutResult === 'success') {
+        showCheckoutToast('success', `🎉 You're now on the ${currentPlan.charAt(0).toUpperCase() + currentPlan.slice(1)} plan! Your monitors are upgrading now.`);
+        history.replaceState(null, '', 'dashboard.html');
+      } else if (checkoutResult === 'cancelled') {
+        showCheckoutToast('info', 'Checkout cancelled — you can upgrade any time from the plan banner.');
+        history.replaceState(null, '', 'dashboard.html');
+      }
+
     } catch (err) {
       console.error('Initialization error:', err);
       window.location.href = 'login.html';
     }
+  }
+
+  function showCheckoutToast(type, message) {
+    const toast = document.getElementById('checkoutToast');
+    toast.textContent = message;
+    if (type === 'info') toast.classList.add('info');
+    toast.classList.add('visible');
+    setTimeout(() => toast.classList.remove('visible'), 6000);
   }
 
   function formatFrequency(freq) {

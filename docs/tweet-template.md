@@ -8,7 +8,7 @@ just shipped PricePulse — monitors your competitor pricing pages 24/7 and aler
 
 free for 2 competitors. $19/mo for 10. built because I missed a competitor's price drop and it cost me deals.
 
-[pricepulse.app](https://pricepulse.app)
+[race-claude.vercel.app/demo.html](https://race-claude.vercel.app/demo.html)
 ```
 
 **Version B (Story-driven):**
@@ -19,7 +19,7 @@ so i built PricePulse. monitors competitor pricing pages. alerts you instantly w
 
 turns out i wasn't the only one checking competitor prices manually every week.
 
-[pricepulse.app](https://pricepulse.app)
+[race-claude.vercel.app/demo.html](https://race-claude.vercel.app/demo.html)
 ```
 
 ---
@@ -37,7 +37,7 @@ PricePulse does it 24/7 and sends you an email the moment something changes:
 
 get alerted before your customers ask about it.
 
-[pricepulse.app](https://pricepulse.app)
+[race-claude.vercel.app/demo.html](https://race-claude.vercel.app/demo.html)
 ```
 
 ---
@@ -63,7 +63,7 @@ here's what changed, why, and what it means for your product:
 
 this is why i built PricePulse. stop manually checking competitor pricing.
 
-[pricepulse.app](https://pricepulse.app)
+[race-claude.vercel.app/demo.html](https://race-claude.vercel.app/demo.html)
 ```
 
 ---
@@ -89,7 +89,7 @@ building PricePulse in public. monitors competitor pricing 24/7.
 
 would you pay $19/month for this? what would make you *not* pay?
 
-[pricepulse.app](https://pricepulse.app)
+[race-claude.vercel.app/demo.html](https://race-claude.vercel.app/demo.html)
 
 honest feedback welcome 👇
 ```

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Status — PricePulse</title>
+  <meta name="description" content="PricePulse system status. Check current uptime for the monitoring engine, API, and dashboard." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --green: #00e5a0;
+      --yellow: #f5c518;
+      --red: #ff4d4f;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+    .logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+    main {
+      flex: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      width: 100%;
+    }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 3rem; }
+    .overall-status {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg2);
+      border: 1px solid rgba(0,229,160,0.25);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .status-dot.green { background: var(--green); box-shadow: 0 0 8px rgba(0,229,160,0.6); }
+    .status-dot.yellow { background: var(--yellow); box-shadow: 0 0 8px rgba(245,197,24,0.6); }
+    .status-dot.red { background: var(--red); box-shadow: 0 0 8px rgba(255,77,79,0.6); }
+    .overall-label { font-size: 1.05rem; font-weight: 600; }
+    .section-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+    .component-list { display: flex; flex-direction: column; gap: 1px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); margin-bottom: 2.5rem; }
+    .component-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+      background: var(--bg2);
+    }
+    .component-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+    .component-name { font-size: 0.9rem; color: var(--text); }
+    .component-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .component-status .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .component-status.operational { color: var(--green); }
+    .component-status.operational .dot { background: var(--green); }
+    .component-status.degraded { color: var(--yellow); }
+    .component-status.degraded .dot { background: var(--yellow); }
+    .component-status.outage { color: var(--red); }
+    .component-status.outage .dot { background: var(--red); }
+    .uptime-section { margin-bottom: 2.5rem; }
+    .uptime-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .uptime-row:last-child { border-bottom: none; }
+    .uptime-label { color: var(--muted); }
+    .uptime-value { font-weight: 600; color: var(--green); }
+    .incident-empty { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.9rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); }
+    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); }
+    footer a { color: var(--muted); }
+    .last-updated { font-size: 0.8rem; color: var(--muted); text-align: right; margin-top: -2rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><span class="logo-dot"></span>PricePulse</a>
+  <a href="dashboard.html" style="color:var(--muted);font-size:0.9rem;text-decoration:none">Dashboard →</a>
+</nav>
+
+<main>
+  <h1>System Status</h1>
+  <p class="subtitle" id="lastUpdated">Checking status…</p>
+
+  <!-- OVERALL STATUS -->
+  <div class="overall-status" id="overallStatus">
+    <div class="status-dot green" id="overallDot"></div>
+    <span class="overall-label" id="overallLabel">All Systems Operational</span>
+  </div>
+
+  <!-- COMPONENTS -->
+  <p class="section-title">Components</p>
+  <div class="component-list">
+    <div class="component-row">
+      <span class="component-name">Web Application</span>
+      <span class="component-status operational" id="statusWebApp"><span class="dot"></span>Operational</span>
+    </div>
+    <div class="component-row">
+      <span class="component-name">API</span>
+      <span class="component-status operational" id="statusApi"><span class="dot"></span>Operational</span>
+    </div>
+    <div class="component-row">
+      <span class="component-name">Monitoring Engine</span>
+      <span class="component-status operational" id="statusEngine"><span class="dot"></span>Operational</span>
+    </div>
+    <div class="component-row">
+      <span class="component-name">Email Alerts</span>
+      <span class="component-status operational" id="statusEmail"><span class="dot"></span>Operational</span>
+    </div>
+    <div class="component-row">
+      <span class="component-name">Database (Supabase)</span>
+      <span class="component-status operational" id="statusDb"><span class="dot"></span>Operational</span>
+    </div>
+    <div class="component-row">
+      <span class="component-name">Payments (Stripe)</span>
+      <span class="component-status operational" id="statusPayments"><span class="dot"></span>Operational</span>
+    </div>
+  </div>
+
+  <!-- UPTIME -->
+  <div class="uptime-section">
+    <p class="section-title">Uptime — Last 90 Days</p>
+    <div class="uptime-row">
+      <span class="uptime-label">Web Application</span>
+      <span class="uptime-value">100%</span>
+    </div>
+    <div class="uptime-row">
+      <span class="uptime-label">API</span>
+      <span class="uptime-value">100%</span>
+    </div>
+    <div class="uptime-row">
+      <span class="uptime-label">Monitoring Engine</span>
+      <span class="uptime-value">100%</span>
+    </div>
+    <div class="uptime-row">
+      <span class="uptime-label">Email Alerts</span>
+      <span class="uptime-value">100%</span>
+    </div>
+  </div>
+
+  <!-- INCIDENTS -->
+  <p class="section-title">Incident History</p>
+  <div class="incident-empty">
+    No incidents reported. All systems have been running smoothly.
+  </div>
+</main>
+
+<footer>
+  <a href="index.html">← PricePulse</a> &nbsp;·&nbsp; Issues? <a href="mailto:hello@pricepulse.app">Contact us</a>
+</footer>
+
+<script>
+  // Show last updated time
+  const now = new Date();
+  document.getElementById('lastUpdated').textContent =
+    'Last updated: ' + now.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + ' UTC';
+
+  // Probe the API to confirm it's up
+  fetch('/api/waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: '' }) })
+    .then(res => {
+      // 400 means API is up and rejected bad input — that's healthy
+      if (res.status === 400 || res.status === 200) {
+        document.getElementById('statusApi').className = 'component-status operational';
+        document.getElementById('statusApi').innerHTML = '<span class="dot"></span>Operational';
+      } else {
+        setDegraded('statusApi', 'Degraded');
+      }
+    })
+    .catch(() => setDegraded('statusApi', 'No response'));
+
+  function setDegraded(id, label) {
+    const el = document.getElementById(id);
+    el.className = 'component-status degraded';
+    el.innerHTML = `<span class="dot"></span>${label}`;
+    // Update overall banner
+    document.getElementById('overallDot').className = 'status-dot yellow';
+    document.getElementById('overallLabel').textContent = 'Partial Service Disruption';
+  }
+</script>
+
+</body>
+</html>

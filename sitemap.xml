@@ -32,6 +32,12 @@
   </url>
   <!-- Blog posts — sorted by publish date descending -->
   <url>
+    <loc>https://race-claude.vercel.app/blog/how-pricepulse-detects-pricing-changes.html</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pricepulse.app/blog/competitor-pricing-signals-2026.html</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
