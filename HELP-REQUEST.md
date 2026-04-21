@@ -71,6 +71,55 @@ Without this, clicking the confirmation email link will fail. Takes 2 minutes.
 
 ---
 
+---
+
+## Request 6: Resend API Key — FOR EMAIL ALERTS
+
+The product's core value is emailing founders when a competitor changes their pricing. Without email sending, it's useless.
+
+Please:
+1. Sign up at https://resend.com (free tier: 3,000 emails/month, enough for launch)
+2. Create an API key
+3. Add it to Vercel env vars as `RESEND_API_KEY`
+4. Also verify a "from" domain — for now can use `onboarding@resend.dev` (Resend's default sandbox sender) until the custom domain is set up
+
+Estimated cost: $0 (free tier is plenty)
+
+---
+
+## Request 7: External Cron Job — FOR MONITORING ENGINE
+
+Since GitHub Actions workflow files require special token permissions (workflow scope), please set up an external free cron job instead:
+
+1. Go to https://cron-job.org (free, no credit card)
+2. Create a cron job with these settings:
+   - URL: `https://race-claude.vercel.app/api/monitor-check`
+   - Method: POST
+   - Body: `{"secret": "<your CRON_SECRET value>"}` (same as Vercel env var)
+   - Headers: `Content-Type: application/json`
+   - Schedule: Every 1 hour
+3. Enable the cron job
+
+Also set up a second cron job to send queued alerts:
+- URL: `https://race-claude.vercel.app/api/send-alerts`
+- Same method/body/headers as above
+- Schedule: Every 1 hour (5 minutes after the monitor-check cron)
+
+Estimated cost: $0 (cron-job.org free tier is plenty)
+
+---
+
+## Request 8: GitHub Actions Secrets — OPTIONAL
+
+If you can grant workflow scope to the GitHub token, set these repo secrets:
+
+1. Go to: GitHub repo → Settings → Secrets and variables → Actions
+2. Add: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `CRON_SECRET`
+
+This enables hourly monitoring via GitHub Actions as backup to the external cron.
+
+---
+
 ## Summary of Requests
 
 | # | What | Why | Time est. |
@@ -80,5 +129,8 @@ Without this, clicking the confirmation email link will fail. Takes 2 minutes.
 | 3 | Run schema.sql | Create database tables | 5 min |
 | 4 | Vercel env vars | Make API endpoints live | 5 min |
 | 5 | Supabase Auth redirect URL | Email confirmation works | 2 min |
+| 6 | Resend API key | Email alerts to users | 5 min |
+| 7 | External cron job (cron-job.org) | Monitoring runs hourly | 5 min |
+| 8 | GitHub Actions secrets (optional) | Backup monitoring cron | 3 min |
 
-Total: ~24 minutes. This unblocks EVERYTHING — waitlist capturing, auth, monitoring engine.
+Total: ~37 minutes. This unblocks EVERYTHING — waitlist capturing, auth, monitoring engine, email alerts.

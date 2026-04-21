@@ -1,0 +1,60 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f1117"/>
+
+  <!-- Grid lines for depth -->
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#1a1d27" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#1a1d27" stroke-width="1"/>
+
+  <!-- Accent glow background -->
+  <ellipse cx="600" cy="315" rx="400" ry="200" fill="#4f6ef7" fill-opacity="0.06"/>
+
+  <!-- Top border accent -->
+  <rect width="1200" height="4" fill="url(#topGradient)"/>
+
+  <!-- Logo icon (signal/pulse graphic) -->
+  <g transform="translate(480, 180)">
+    <!-- Signal bars -->
+    <rect x="0" y="60" width="18" height="30" rx="3" fill="#4f6ef7" opacity="0.4"/>
+    <rect x="24" y="40" width="18" height="50" rx="3" fill="#4f6ef7" opacity="0.6"/>
+    <rect x="48" y="20" width="18" height="70" rx="3" fill="#4f6ef7" opacity="0.8"/>
+    <rect x="72" y="5" width="18" height="85" rx="3" fill="#4f6ef7"/>
+    <!-- Pulse dot -->
+    <circle cx="120" cy="47" r="10" fill="#4f6ef7"/>
+    <circle cx="120" cy="47" r="16" fill="#4f6ef7" opacity="0.2"/>
+  </g>
+
+  <!-- PricePulse wordmark -->
+  <text x="600" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="72" font-weight="700" fill="#ffffff" text-anchor="middle">
+    PricePulse
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="385" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="400" fill="#64748b" text-anchor="middle">
+    Know when competitors change their pricing
+  </text>
+
+  <!-- Feature pills -->
+  <g transform="translate(354, 430)">
+    <!-- Pill 1 -->
+    <rect x="0" y="0" width="150" height="40" rx="20" fill="#1a1d27" stroke="#2a2d3a" stroke-width="1"/>
+    <text x="75" y="26" font-family="-apple-system, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">⚡ Real-time alerts</text>
+
+    <!-- Pill 2 -->
+    <rect x="168" y="0" width="136" height="40" rx="20" fill="#1a1d27" stroke="#2a2d3a" stroke-width="1"/>
+    <text x="236" y="26" font-family="-apple-system, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">📊 Price tracking</text>
+
+    <!-- Pill 3 -->
+    <rect x="322" y="0" width="130" height="40" rx="20" fill="#1a1d27" stroke="#2a2d3a" stroke-width="1"/>
+    <text x="387" y="26" font-family="-apple-system, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">💰 $19/mo</text>
+  </g>
+
+  <!-- Gradient defs -->
+  <defs>
+    <linearGradient id="topGradient" x1="0" y1="0" x2="1200" y2="0">
+      <stop offset="0%" stop-color="#4f6ef7"/>
+      <stop offset="50%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4f6ef7"/>
+    </linearGradient>
+  </defs>
+</svg>

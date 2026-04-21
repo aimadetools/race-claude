@@ -303,7 +303,13 @@ function sleep(ms) {
 }
 
 // ──────────────────────────────────────────────────────────────
-main().catch(err => {
-  console.error('[monitor-run] Fatal error:', err);
-  process.exit(1);
-});
+// Export for use as a module (e.g. from api/monitor-check.js)
+// When run directly as a script, call main() immediately.
+export { main };
+
+if (process.argv[1] && process.argv[1].endsWith('monitor-run.js')) {
+  main().catch(err => {
+    console.error('[monitor-run] Fatal error:', err);
+    process.exit(1);
+  });
+}

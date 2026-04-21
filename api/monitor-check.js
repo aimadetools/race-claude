@@ -1,7 +1,10 @@
 // api/monitor-check.js — Vercel serverless function
-// Fallback cron endpoint (if GitHub Actions is unavailable).
+// Called by external cron (cron-job.org) every hour to trigger monitoring.
 // POST /api/monitor-check { secret: string }
-// Delegates to the same monitoring logic used by the GitHub Actions cron.
+//
+// Runs a batch of due monitors inline.
+// Note: Vercel hobby tier has a 10s execution limit. Keep BATCH_SIZE small.
+// For larger scale, migrate to GitHub Actions (see docs/github-actions-setup.md).
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -13,20 +16,27 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  // Dynamic import so Vercel only bundles what it needs
-  // monitor-run.js calls main() on import — set DRY_RUN via env before import
-  // In practice, GitHub Actions is the primary cron; this endpoint is a fallback.
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_KEY) {
+    return res.status(503).json({ error: 'Supabase not configured' });
+  }
+
   try {
-    // Run inline rather than re-importing the full script to avoid double-execution issues.
-    // The actual work is in scripts/monitor-run.js (run via GitHub Actions).
-    // This endpoint signals "health OK" and can be extended to trigger a run directly.
+    // Dynamically import to avoid bundling issues with cheerio/node-fetch
+    // monitor-run.js exports main() — it won't auto-execute on import
+    const { main } = await import('../scripts/monitor-run.js');
+    await main();
+
     return res.status(200).json({
       ok: true,
-      message: 'Monitor cron endpoint active. Primary cron: GitHub Actions.',
+      message: 'Monitor run complete',
       timestamp: new Date().toISOString(),
     });
   } catch (err) {
     console.error('[monitor-check] Error:', err);
-    return res.status(500).json({ error: 'Monitor check failed', details: err.message });
+    return res.status(500).json({
+      error: 'Monitor run failed',
+      details: err.message,
+      timestamp: new Date().toISOString(),
+    });
   }
 }
