@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your First Monitor is Live!</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { background: linear-gradient(135deg, #00e5a0 0%, #00b87a 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 8px 8px 0 0; }
+    .header h1 { margin: 0; font-size: 28px; }
+    .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+    .section { margin-bottom: 25px; }
+    .section h2 { color: #00e5a0; font-size: 18px; margin-top: 0; }
+    .milestone-box { background: white; border: 2px solid #00e5a0; border-radius: 8px; padding: 20px; text-align: center; margin: 20px 0; }
+    .milestone-box .icon { font-size: 40px; margin-bottom: 10px; }
+    .milestone-box .text { color: #00e5a0; font-weight: 600; font-size: 16px; }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+    .feature-card { background: white; padding: 15px; border-radius: 6px; border-left: 4px solid #00e5a0; }
+    .feature-card strong { color: #00e5a0; display: block; margin-bottom: 5px; }
+    .tip-box { background: #e8f5e9; border-left: 4px solid #00e5a0; padding: 15px; margin: 20px 0; border-radius: 4px; }
+    .cta-button { display: inline-block; background: #00e5a0; color: #0a0a0f; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 20px 0; transition: background 0.2s; }
+    .cta-button:hover { background: #00b87a; }
+    .footer { text-align: center; color: #666; font-size: 12px; padding-top: 20px; border-top: 1px solid #ddd; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎉 Your First Monitor is Live!</h1>
+      <p style="margin: 10px 0 0 0; font-size: 16px;">You're officially tracking {{COMPETITOR_NAME}}</p>
+    </div>
+
+    <div class="content">
+      <p>Hey {{FIRST_NAME}},</p>
+
+      <p>Congrats! You've successfully set up your first competitor monitor. This is a big moment — you're now ahead of 99% of SaaS founders who rely on luck to notice pricing changes.</p>
+
+      <div class="milestone-box">
+        <div class="icon">✅</div>
+        <div class="text">Monitor Active: {{COMPETITOR_NAME}}</div>
+        <p style="margin: 10px 0 0 0; font-size: 14px; color: #333;">Checking every hour for changes</p>
+      </div>
+
+      <div class="section">
+        <h2>📊 What's Happening Behind the Scenes</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <strong>Continuous Monitoring</strong>
+            We're checking {{COMPETITOR_NAME}}'s pricing page every hour, 24/7.
+          </div>
+          <div class="feature-card">
+            <strong>Smart Filtering</strong>
+            Only real changes trigger alerts. Cookie banners? Ignored. Review count updates? Ignored.
+          </div>
+          <div class="feature-card">
+            <strong>Detailed Diffs</strong>
+            When something changes, you'll see exactly what — with before/after side-by-side.
+          </div>
+          <div class="feature-card">
+            <strong>Lightning Fast</strong>
+            Get alerted within minutes, not days. That's your competitive edge.
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🚀 Next Steps</h2>
+
+        <div class="tip-box">
+          <strong style="color: #00e5a0;">💡 Pro Tip:</strong> Add 2-3 more competitors. The more you monitor, the better your market intelligence. You have {{MONITORS_REMAINING}} monitor slots left on your plan.
+        </div>
+
+        <p><strong>Here are some popular competitors to monitor:</strong></p>
+        <ul>
+          <li>Direct competitors (same market, same pricing model)</li>
+          <li>Indirect competitors (adjacent features, different pricing)</li>
+          <li>Aspirational competitors (bigger players you want to learn from)</li>
+        </ul>
+
+        <center>
+          <a href="https://getpricepulse.com/dashboard.html" class="cta-button">→ Add More Monitors</a>
+        </center>
+      </div>
+
+      <div class="section">
+        <h2>💬 Real Example</h2>
+        <p>One founder using PricePulse noticed a competitor quietly raised their lowest tier by $50/month. Three weeks before announcing it. They used that time to:</p>
+        <ul>
+          <li>Review their own pricing model</li>
+          <li>Prepare customer communication</li>
+          <li>Decide whether to follow or differentiate</li>
+        </ul>
+        <p>By the time the competitor's announcement went out, they were ready. That's the PricePulse advantage.</p>
+      </div>
+
+      <div class="section">
+        <h2>📧 You're Subscribed to Alerts</h2>
+        <p>From now on, every time {{COMPETITOR_NAME}}'s pricing changes, you'll get an email like this within minutes. No noise. Just actionable intelligence.</p>
+      </div>
+
+      <p style="margin-top: 30px; color: #666;">
+        Questions? Reply to this email or visit <a href="https://getpricepulse.com/help.html" style="color: #00e5a0;">our help page</a>.
+      </p>
+
+      <div class="footer">
+        <p>PricePulse — Competitor pricing intelligence for SaaS founders<br>
+        <a href="https://getpricepulse.com/" style="color: #666; text-decoration: none;">getpricepulse.com</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

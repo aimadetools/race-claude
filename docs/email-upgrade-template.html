@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Want to Monitor More Competitors?</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { background: linear-gradient(135deg, #00e5a0 0%, #00b87a 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 8px 8px 0 0; }
+    .header h1 { margin: 0; font-size: 26px; }
+    .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+    .section { margin-bottom: 25px; }
+    .section h2 { color: #00e5a0; font-size: 18px; margin-top: 0; }
+    .plan-card { background: white; border: 2px solid #00e5a0; border-radius: 8px; padding: 20px; margin: 15px 0; }
+    .plan-card.current { background: #e8f5e9; }
+    .plan-name { font-size: 18px; font-weight: 600; color: #00e5a0; margin-bottom: 10px; }
+    .plan-feature { padding: 8px 0; color: #333; }
+    .plan-feature::before { content: "✓ "; color: #00e5a0; font-weight: 600; }
+    .price { font-size: 24px; font-weight: 700; color: #00e5a0; margin: 15px 0; }
+    .cta-button { display: inline-block; background: #00e5a0; color: #0a0a0f; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 15px auto; transition: background 0.2s; display: block; text-align: center; }
+    .cta-button:hover { background: #00b87a; }
+    .secondary-button { display: inline-block; background: transparent; color: #00e5a0; border: 2px solid #00e5a0; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 15px auto; transition: all 0.2s; display: block; text-align: center; }
+    .secondary-button:hover { background: #e8f5e9; }
+    .social-proof { background: white; border-left: 4px solid #00e5a0; padding: 15px; margin: 20px 0; border-radius: 4px; }
+    .social-proof .quote { font-style: italic; color: #666; margin-bottom: 8px; }
+    .social-proof .author { font-size: 12px; color: #999; }
+    .faq { background: white; padding: 15px; margin: 15px 0; border-radius: 6px; }
+    .faq strong { color: #00e5a0; }
+    .footer { text-align: center; color: #666; font-size: 12px; padding-top: 20px; border-top: 1px solid #ddd; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Ready to Scale Your Competitive Intelligence?</h1>
+      <p style="margin: 10px 0 0 0; font-size: 15px;">You've maxed out your free tier. Upgrade to monitor more.</p>
+    </div>
+
+    <div class="content">
+      <p>Hey {{FIRST_NAME}},</p>
+
+      <p>Great news — you've been using PricePulse and hit your 2-monitor limit on the Free plan. That means the product is working for you.</p>
+
+      <p>You've got two options:</p>
+
+      <div class="section">
+        <h2>🚀 Upgrade to Starter ($19/mo)</h2>
+        <div class="plan-card">
+          <div class="plan-name">Starter Plan</div>
+          <div class="plan-feature">Monitor 10 competitors (5x more than Free)</div>
+          <div class="plan-feature">Hourly checks (vs. daily on Free)</div>
+          <div class="plan-feature">Email alerts + dashboard access</div>
+          <div class="plan-feature">7-day change history</div>
+          <div class="plan-feature">No credit card for first 14 days</div>
+          <div class="price">$19/month</div>
+          <a href="https://getpricepulse.com/plan-select.html" class="cta-button">→ Upgrade Now</a>
+        </div>
+
+        <p style="text-align: center; color: #666; font-size: 14px;">That's $0.63 per competitor per month. Or about 2 cups of coffee.</p>
+      </div>
+
+      <div class="section">
+        <h2>📊 Or Pro ($49/mo) if You're Serious</h2>
+        <div class="plan-card">
+          <div class="plan-name">Pro Plan</div>
+          <div class="plan-feature">Unlimited competitors</div>
+          <div class="plan-feature">30-minute checks (real-time monitoring)</div>
+          <div class="plan-feature">Slack + webhook integrations</div>
+          <div class="plan-feature">30-day change history</div>
+          <div class="plan-feature">Priority support</div>
+          <div class="price">$49/month</div>
+          <a href="https://getpricepulse.com/plan-select.html" class="cta-button">→ Try Pro</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>💡 Why Upgrade Now?</h2>
+        <ul>
+          <li><strong>Market moves fast.</strong> If a competitor is worth monitoring, they're worth monitoring hourly.</li>
+          <li><strong>Founder advantage.</strong> The faster you react to pricing changes, the more control you have over your own strategy.</li>
+          <li><strong>No-risk trial.</strong> First 14 days free, no credit card. Try it and see the ROI yourself.</li>
+          <li><strong>Cheap compared to enterprise tools.</strong> Crayon charges $500+/mo. You get 25x the value for $19.</li>
+        </ul>
+      </div>
+
+      <div class="social-proof">
+        <div class="quote">"We caught our biggest competitor's price increase 3 weeks early. Gave us time to plan our response instead of reacting last-minute."</div>
+        <div class="author">— Sarah, SaaS founder</div>
+      </div>
+
+      <div class="section">
+        <h2>❓ Common Questions</h2>
+
+        <div class="faq">
+          <strong>Can I cancel anytime?</strong><br>
+          Yes. No contracts, no cancellation fees. Cancel from your dashboard instantly.
+        </div>
+
+        <div class="faq">
+          <strong>What if I only need 3 competitors?</strong><br>
+          Starter is still the better deal ($19 for 10 slots). You'll have room to grow.
+        </div>
+
+        <div class="faq">
+          <strong>Do you offer annual billing?</strong><br>
+          Coming soon! For now it's monthly. Reach out and we can discuss options.
+        </div>
+
+        <div class="faq">
+          <strong>What about the 14-day free trial?</strong><br>
+          It applies to Starter and Pro. Try it risk-free, then decide.
+        </div>
+      </div>
+
+      <div class="section" style="text-align: center;">
+        <a href="https://getpricepulse.com/plan-select.html" class="cta-button">→ View All Plans</a>
+        <a href="https://getpricepulse.com/help.html" class="secondary-button">← Learn More</a>
+      </div>
+
+      <p style="margin-top: 30px; color: #666;">
+        Still on the fence? Reply to this email with questions. We typically respond within a few hours.
+      </p>
+
+      <div class="footer">
+        <p>PricePulse — Competitor pricing intelligence for SaaS founders<br>
+        <a href="https://getpricepulse.com/" style="color: #666; text-decoration: none;">getpricepulse.com</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
