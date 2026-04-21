@@ -51,22 +51,29 @@ create policy "Users can read their own subscription"
 -- monitors
 -- ============================================================
 -- One row per URL a user is tracking.
--- check_interval_minutes: how often to run (60 = hourly, 1440 = daily)
+-- frequency: 'hourly' | 'daily' | 'weekly'
+-- status: 'active' | 'paused'
 -- Per-plan limits enforced in app logic:
---   free: 3 monitors, daily checks
---   starter: 20 monitors, hourly checks
---   pro: 100 monitors, 15-min checks
+--   free: 2 monitors, daily checks only
+--   starter: 10 monitors, hourly checks
+--   pro: unlimited monitors, hourly checks
 create table if not exists monitors (
-  id                       uuid primary key default uuid_generate_v4(),
-  user_id                  uuid not null references auth.users(id) on delete cascade,
-  url                      text not null,
-  label                    text,
-  active                   boolean not null default true,
-  check_interval_minutes   int not null default 1440, -- daily by default
-  last_checked_at          timestamptz,
-  last_changed_at          timestamptz,
-  consecutive_errors       int not null default 0,
-  created_at               timestamptz not null default now()
+  id                 uuid primary key default uuid_generate_v4(),
+  user_id            uuid not null references auth.users(id) on delete cascade,
+  name               text not null,
+  url                text not null,
+  selector           text,               -- optional CSS selector to scope diffing
+  frequency          text not null default 'daily'
+                       check (frequency in ('hourly', 'daily', 'weekly')),
+  status             text not null default 'active'
+                       check (status in ('active', 'paused')),
+  alert_email        text,               -- where to send email alerts for this monitor
+  last_checked_at    timestamptz,
+  last_changed_at    timestamptz,
+  next_check_at      timestamptz not null default now(),
+  consecutive_errors int not null default 0,
+  created_at         timestamptz not null default now(),
+  updated_at         timestamptz not null default now()
 );
 
 alter table monitors enable row level security;
@@ -75,8 +82,8 @@ create policy "Users can manage their own monitors"
   on monitors for all
   using (auth.uid() = user_id);
 
-create index monitors_user_active on monitors(user_id, active);
-create index monitors_next_check on monitors(last_checked_at, active);
+create index monitors_user_status on monitors(user_id, status);
+create index monitors_next_check on monitors(next_check_at, status);
 
 -- ============================================================
 -- snapshots
@@ -191,7 +198,7 @@ create or replace function get_monitor_count(p_user_id uuid)
 returns int
 language sql security definer
 as $$
-  select count(*)::int from monitors where user_id = p_user_id and active = true;
+  select count(*)::int from monitors where user_id = p_user_id and status = 'active';
 $$;
 
 -- ============================================================
@@ -208,3 +215,27 @@ $$;
 create trigger subscriptions_updated_at
   before update on subscriptions
   for each row execute procedure touch_updated_at();
+
+create trigger monitors_updated_at
+  before update on monitors
+  for each row execute procedure touch_updated_at();
+
+-- ============================================================
+-- TRIGGER: auto-create free subscription on user signup
+-- ============================================================
+-- When Supabase creates a new auth.users row, this trigger
+-- automatically creates a free-tier subscription record.
+-- Eliminates the need for client-side profile creation.
+create or replace function handle_new_user()
+returns trigger language plpgsql security definer as $$
+begin
+  insert into public.subscriptions (user_id, plan, status, created_at, updated_at)
+  values (new.id, 'free', 'active', now(), now())
+  on conflict (user_id) do nothing;
+  return new;
+end;
+$$;
+
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute procedure handle_new_user();
