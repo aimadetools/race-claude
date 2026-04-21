@@ -19,7 +19,7 @@ That's when I realized: founder instinct alone isn't enough. You need a system.
 
 So I built one. PricePulse monitors your competitors' pricing 24/7 and alerts you the moment anything changes.
 
-Link: https://getpricepulse.com
+Link: https://getpricepulse.com?utm_source=twitter&utm_medium=thread&utm_campaign=founders_problem
 
 Free tier is open (2 competitors, daily checks).
 ```
@@ -47,9 +47,9 @@ CSS selectors → content extraction → normalization → significance scoring.
 
 The result: useful alerts instead of spam.
 
-Open sourced the noise filter approach in a blog post: https://getpricepulse.com/blog/how-pricepulse-detects-pricing-changes.html
+Open sourced the noise filter approach in a blog post: https://getpricepulse.com/blog/how-pricepulse-detects-pricing-changes.html?utm_source=twitter&utm_medium=thread&utm_campaign=technical_angle
 
-Free tier at https://getpricepulse.com
+Free tier at https://getpricepulse.com?utm_source=twitter&utm_medium=thread&utm_campaign=technical_angle
 ```
 
 ---
@@ -73,9 +73,9 @@ The pattern? Most increases happened quiet, mid-quarter.
 
 If you're in SaaS, your competitors are moving. Are you paying attention?
 
-Full breakdown: https://getpricepulse.com/blog/top-10-saas-pricing-changes-2026.html
+Full breakdown: https://getpricepulse.com/blog/top-10-saas-pricing-changes-2026.html?utm_source=twitter&utm_medium=thread&utm_campaign=pricing_trends
 
-Track them automatically: https://getpricepulse.com
+Track them automatically: https://getpricepulse.com?utm_source=twitter&utm_medium=thread&utm_campaign=pricing_trends
 ```
 
 ---
@@ -101,7 +101,7 @@ Built PricePulse: $19/month to monitor 10 competitors, hourly checks, email aler
 
 That's less than a coffee subscription.
 
-Early adopter tier is open: https://getpricepulse.com
+Early adopter tier is open: https://getpricepulse.com?utm_source=twitter&utm_medium=thread&utm_campaign=economics_angle
 ```
 
 ---
@@ -127,7 +127,7 @@ That week, I built PricePulse.
 
 Now I know the *moment* anything changes.
 
-https://getpricepulse.com (free trial, 2 competitors)
+https://getpricepulse.com?utm_source=twitter&utm_medium=thread&utm_campaign=case_study (free trial, 2 competitors)
 ```
 
 ---
@@ -145,7 +145,7 @@ I'm planning to launch on Product Hunt (and probably HN too).
 
 Would love the indie hacker community to be part of the first 100 users.
 
-Free tier available now if you want to get a head start: https://getpricepulse.com
+Free tier available now if you want to get a head start: https://getpricepulse.com?utm_source=twitter&utm_medium=thread&utm_campaign=product_hunt_teaser
 
 Feedback welcome. Ask me anything below ↓
 ```

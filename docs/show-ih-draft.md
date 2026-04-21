@@ -57,7 +57,7 @@ Genuine feedback:
 - Is there a vertical or niche where this is obviously more valuable that I should target first?
 - What would make you trust it enough to point it at real competitor URLs?
 
-PricePulse is live at **https://getpricepulse.com**. Check out the **[interactive demo](https://getpricepulse.com/demo.html)** to see what alerts actually look like. The product is fully functional — auth, monitoring, and email alerts are all working. Free tier is available for testing.
+PricePulse is live at **https://getpricepulse.com?utm_source=indie_hackers&utm_medium=post&utm_campaign=show_ih**. Check out the **[interactive demo](https://getpricepulse.com/demo.html?utm_source=indie_hackers&utm_medium=post&utm_campaign=show_ih)** to see what alerts actually look like. The product is fully functional — auth, monitoring, and email alerts are all working. Free tier is available for testing.
 
 Thanks for reading.
 

@@ -122,9 +122,9 @@ Monitor competitor pricing for multiple clients. Add data to strategy reports.
 
 ## Social Links
 
-- Website: https://getpricepulse.com
+- Website: https://getpricepulse.com?utm_source=product_hunt&utm_medium=post&utm_campaign=ph_launch
 - Twitter: [@getpricepulse](https://twitter.com/getpricepulse)
-- Demo: https://getpricepulse.com/demo.html
+- Demo: https://getpricepulse.com/demo.html?utm_source=product_hunt&utm_medium=post&utm_campaign=ph_launch
 
 ---
 
@@ -260,7 +260,7 @@ Monitor competitor pricing for multiple clients. Add data to strategy reports.
 "No data selling. RLS on all tables means your monitoring data is visible only to you. HTTPS everywhere. Stripe handles payments securely."
 
 ### If asked about uptime/reliability
-"Monitoring engine runs on GitHub Actions (99.9% uptime). API on Vercel (99.99% uptime). Failures are logged and we alert you. Current status: https://getpricepulse.com/status.html"
+"Monitoring engine runs on GitHub Actions (99.9% uptime). API on Vercel (99.99% uptime). Failures are logged and we alert you. Current status: https://getpricepulse.com/status.html?utm_source=product_hunt&utm_medium=post&utm_campaign=ph_launch"
 
 ### If asked about roadmap
 "Short term: Slack/webhook notifications, Zapier integration. Medium term: historical pricing analytics, AI pricing recommendations. What matters to you?"

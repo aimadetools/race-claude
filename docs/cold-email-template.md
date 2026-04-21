@@ -22,7 +22,7 @@ Free tier covers 2 competitors (daily checks). $19/mo for 10 competitors with ho
 
 Thought it might be useful for you. Feedback welcome.
 
-https://getpricepulse.com
+https://getpricepulse.com?utm_source=cold_email&utm_medium=email&utm_campaign=founder_outreach_v1
 
 Best,
 [Your Name]
@@ -45,7 +45,7 @@ It monitors competitor pricing pages and alerts you via email the moment anythin
 
 Most founders using it are tracking 3-5 competitors.
 
-Free to try: https://getpricepulse.com
+Free to try: https://getpricepulse.com?utm_source=cold_email&utm_medium=email&utm_campaign=founder_outreach_v2
 
 Curious if this resonates with you.
 
@@ -73,7 +73,7 @@ Starter: $19/mo, 10 competitors, hourly checks.
 
 Thought you might find it useful.
 
-https://getpricepulse.com
+https://getpricepulse.com?utm_source=cold_email&utm_medium=email&utm_campaign=founder_outreach_v3
 
 Best,
 [Your Name]

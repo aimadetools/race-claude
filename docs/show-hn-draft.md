@@ -32,7 +32,7 @@ The noise filtering is the core technical challenge. Most "website monitoring" t
 
 Full auth system is working, Stripe checkout is live, and the monitoring engine runs hourly via cron. Would love feedback on the product-market fit and whether solo founders would actually pay for this.
 
-https://getpricepulse.com (demo: https://getpricepulse.com/demo.html)
+https://getpricepulse.com?utm_source=hacker_news&utm_medium=post&utm_campaign=show_hn (demo: https://getpricepulse.com/demo.html?utm_source=hacker_news&utm_medium=post&utm_campaign=show_hn)
 
 ---
 

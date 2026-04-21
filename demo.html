@@ -609,6 +609,43 @@ async function handleSignup(e) {
     msg.style.color = '#ef4444';
   }
 }
+
+// ─── UTM TRACKING ───────────────────────────────────────────────────────────
+function captureUTM() {
+  const params = new URLSearchParams(window.location.search);
+  const utm = {
+    source: params.get('utm_source') || 'direct',
+    medium: params.get('utm_medium') || 'direct',
+    campaign: params.get('utm_campaign') || 'direct',
+    timestamp: new Date().toISOString(),
+  };
+  localStorage.setItem('utm_data', JSON.stringify(utm));
+  trackEvent('page_view', { page: window.location.pathname });
+}
+
+function trackEvent(eventType, eventData = {}) {
+  const utm = JSON.parse(localStorage.getItem('utm_data') || '{}');
+  const event = {
+    type: eventType,
+    utm_source: utm.source,
+    utm_medium: utm.medium,
+    utm_campaign: utm.campaign,
+    timestamp: new Date().toISOString(),
+    ...eventData
+  };
+
+  fetch('/api/analytics', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(event),
+  }).catch(() => {});
+
+  let events = JSON.parse(localStorage.getItem('analytics_events') || '[]');
+  events.push(event);
+  localStorage.setItem('analytics_events', JSON.stringify(events));
+}
+
+document.addEventListener('DOMContentLoaded', captureUTM);
 </script>
 </body>
 </html>
