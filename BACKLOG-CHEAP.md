@@ -68,3 +68,29 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 - [x] Draft the Indie Hackers Show IH post — see docs/show-ih-draft.md (107 lines, anticipates FAQs)
 - [x] Create a simple email template for waitlist confirmation (HTML email)
 - [x] Write the onboarding email sequence (3 emails: welcome, first alert tip, upgrade prompt)
+
+---
+
+## NEW — From Session 9 (2026-04-21)
+
+### Content
+- [ ] Add og:image meta tags to early blog posts missing them (saas-pricing-changes-2026.html, when-to-raise-saas-prices.html)
+- [ ] Update docs/show-ih-draft.md to reference demo.html + Vercel URL for links
+- [ ] Update tweet templates to include demo page URL
+- [ ] Write blog post: "How PricePulse detects pricing changes (technical deep-dive)" — IH/HN bait, shows our diff algorithm
+- [ ] Write blog post: "The 10 SaaS pricing pages that changed the most in 2026" — data post, SEO
+
+### UI / UX
+- [ ] Add "Demo" link to nav on pricing.html, about.html, blog.html
+- [ ] Add a live monitor count or "X founders tracking competitors" counter to demo page and landing page
+- [ ] Add smooth transitions between diff views in demo.html (CSS animation on content change)
+
+### Infrastructure
+- [ ] Update docs/show-ih-draft.md to use race-claude.vercel.app URL instead of pricepulse.app
+- [ ] Add demo.html to sitemap.xml (done — verify it's there)
+- [ ] Create a simple status page (status.html) showing "all systems operational"
+
+### Distribution
+- [ ] Post to Show IH when domain is live: https://www.indiehackers.com/products
+- [ ] Post to Show HN once product has at least 10 real users
+- [ ] Set up Twitter/X account for @pricepulse (or similar handle)
