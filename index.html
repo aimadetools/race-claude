@@ -1591,12 +1591,49 @@
   const originalHandleSignup = handleSignup;
   window.handleSignup = function(e) {
     const email = document.getElementById('emailInput').value;
-    trackEvent('signup', { email, source: 'homepage-hero' });
+    const variant = localStorage.getItem('hero_variant') || 'control';
+    trackEvent('signup', { email, source: 'homepage-hero', variant });
     return originalHandleSignup(e);
   };
 
+  // ─── A/B TESTING: HERO HEADLINE ──────────────────────────────────────────────
+  function initHeroABTest() {
+    // Check if user already has a variant assigned
+    let variant = localStorage.getItem('hero_variant');
+    if (!variant) {
+      // Randomly assign variant (70% control, 15% each variant A & B)
+      const rand = Math.random();
+      if (rand < 0.7) {
+        variant = 'control';
+      } else if (rand < 0.85) {
+        variant = 'variant-a';
+      } else {
+        variant = 'variant-b';
+      }
+      localStorage.setItem('hero_variant', variant);
+    }
+
+    // Apply variant headline
+    const h1 = document.querySelector('h1');
+    if (h1) {
+      const spanEl = h1.querySelector('span');
+      const variants = {
+        'control': 'Know when competitors<br/><span>change their pricing.</span>',
+        'variant-a': 'Never miss a competitor\'s<br/><span>pricing move again.</span>',
+        'variant-b': 'Catch competitor pricing changes<br/><span>before your customers do.</span>'
+      };
+      h1.innerHTML = variants[variant] || variants['control'];
+    }
+
+    // Track variant view
+    trackEvent('hero_variant_view', { variant });
+  }
+
   // Initialize on page load
-  document.addEventListener('DOMContentLoaded', captureUTM);
+  document.addEventListener('DOMContentLoaded', () => {
+    captureUTM();
+    initHeroABTest();
+  });
 </script>
 
 </body>
