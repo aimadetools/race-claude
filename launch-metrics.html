@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PricePulse Launch Metrics — Live Tracker</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .metric {
+            text-align: center;
+        }
+        .metric-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .metric-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #667eea;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .metric-change {
+            font-size: 14px;
+            color: #27ae60;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
+        }
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+        .row.full { grid-template-columns: 1fr; }
+        input, textarea {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        button:hover { background: #764ba2; }
+        .status {
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+        .status.success { background: #d4edda; color: #155724; }
+        .status.pending { background: #fff3cd; color: #856404; }
+        .channel-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .channel {
+            padding: 12px;
+            border-left: 4px solid #667eea;
+            background: #f5f7ff;
+        }
+        .channel-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+        }
+        .channel-stat {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-top: 4px;
+        }
+        .notes {
+            background: #f9f9f9;
+            padding: 16px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            margin-top: 16px;
+        }
+        .last-updated {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 PricePulse Launch Metrics</h1>
+        <div class="subtitle">Track your first week of growth in real-time</div>
+
+        <!-- Key Metrics -->
+        <div class="grid">
+            <div class="card">
+                <div class="metric">
+                    <div class="metric-label">Total Signups</div>
+                    <div class="metric-value" id="totalSignups">0</div>
+                    <div class="metric-change" id="signupChange">↑ 0 today</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="metric">
+                    <div class="metric-label">Paid Conversions</div>
+                    <div class="metric-value" id="paidConversions">0</div>
+                    <div class="metric-change" id="conversionChange">↑ 0 today</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="metric">
+                    <div class="metric-label">Monthly Recurring Revenue</div>
+                    <div class="metric-value" id="mrr">$0</div>
+                    <div class="metric-change" id="mrrChange">↑ $0 today</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="metric">
+                    <div class="metric-label">Conversion Rate</div>
+                    <div class="metric-value" id="conversionRate">0%</div>
+                    <div class="metric-change" id="targetRate">Target: 5%+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daily Input -->
+        <div class="section">
+            <h2>📊 Log Daily Metrics</h2>
+            <div class="row">
+                <div>
+                    <label>Date</label>
+                    <input type="date" id="date" value="">
+                </div>
+                <div>
+                    <label>Show IH Signups</label>
+                    <input type="number" id="showihSignups" value="0">
+                </div>
+                <div>
+                    <label>Twitter Signups</label>
+                    <input type="number" id="twitterSignups" value="0">
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Cold Email Signups</label>
+                    <input type="number" id="emailSignups" value="0">
+                </div>
+                <div>
+                    <label>Paid Conversions (Today)</label>
+                    <input type="number" id="paidToday" value="0">
+                </div>
+                <div>
+                    <label>Conversion Plan</label>
+                    <select id="planType">
+                        <option value="starter">Starter ($19)</option>
+                        <option value="pro">Pro ($49)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row full">
+                <div>
+                    <label>Daily Notes</label>
+                    <textarea id="notes" rows="3" placeholder="What's working? What surprised you? Any blockers?"></textarea>
+                </div>
+            </div>
+            <button onclick="saveMetrics()">💾 Save Metrics</button>
+            <div id="status" class="status pending" style="display:none;"></div>
+            <div class="last-updated" id="lastUpdated"></div>
+        </div>
+
+        <!-- Channel Breakdown -->
+        <div class="section">
+            <h2>📈 Signups by Channel</h2>
+            <div class="channel-metrics">
+                <div class="channel">
+                    <div class="channel-name">Show IH</div>
+                    <div class="channel-stat" id="channelIH">0</div>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">Twitter</div>
+                    <div class="channel-stat" id="channelTwitter">0</div>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">Cold Email</div>
+                    <div class="channel-stat" id="channelEmail">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weekly Summary -->
+        <div class="section">
+            <h2>📋 Week 1 Summary (Update Friday)</h2>
+            <div class="notes">
+                <strong>Expected targets:</strong>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li>200+ total signups</li>
+                    <li>10-15 paid conversions</li>
+                    <li>$190-285 MRR</li>
+                    <li>Show IH post: 100+ upvotes</li>
+                    <li>3-5 quality customer conversations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="section">
+            <h2>ℹ️ How to Use This Tracker</h2>
+            <div class="notes">
+                <strong>Each morning:</strong> Log yesterday's signups and conversions by channel. This lets you see what's working in real-time.
+                <br><br>
+                <strong>What to track:</strong> Show IH upvotes/comments, Twitter likes/replies, cold email open rates, signups from each source.
+                <br><br>
+                <strong>Daily notes matter:</strong> "Show IH post hit 50 upvotes by 3 PM", "Cold email batch #1 hit 5% open rate", "API was down 1-2 PM".
+                <br><br>
+                <strong>Update Friday:</strong> Copy this week's data into your launch summary for the next session.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set today's date
+        document.getElementById('date').valueAsDate = new Date();
+
+        // Load from localStorage
+        function loadMetrics() {
+            const saved = localStorage.getItem('pricepulseMetrics');
+            if (saved) {
+                const data = JSON.parse(saved);
+                Object.keys(data).forEach(key => {
+                    const elem = document.getElementById(key);
+                    if (elem) elem.value = data[key];
+                });
+                updateTotals();
+            }
+        }
+
+        // Save to localStorage
+        function saveMetrics() {
+            const data = {
+                date: document.getElementById('date').value,
+                showihSignups: parseInt(document.getElementById('showihSignups').value) || 0,
+                twitterSignups: parseInt(document.getElementById('twitterSignups').value) || 0,
+                emailSignups: parseInt(document.getElementById('emailSignups').value) || 0,
+                paidToday: parseInt(document.getElementById('paidToday').value) || 0,
+                planType: document.getElementById('planType').value,
+                notes: document.getElementById('notes').value
+            };
+
+            localStorage.setItem('pricepulseMetrics', JSON.stringify(data));
+
+            const status = document.getElementById('status');
+            status.className = 'status success';
+            status.textContent = '✅ Metrics saved! (' + new Date().toLocaleTimeString() + ')';
+            status.style.display = 'block';
+
+            updateTotals();
+
+            setTimeout(() => { status.style.display = 'none'; }, 3000);
+        }
+
+        // Update totals
+        function updateTotals() {
+            const showih = parseInt(document.getElementById('showihSignups').value) || 0;
+            const twitter = parseInt(document.getElementById('twitterSignups').value) || 0;
+            const email = parseInt(document.getElementById('emailSignups').value) || 0;
+            const paid = parseInt(document.getElementById('paidToday').value) || 0;
+            const plan = document.getElementById('planType').value;
+
+            const total = showih + twitter + email;
+            const mrrValue = plan === 'pro' ? paid * 49 : paid * 19;
+            const conversionRate = total > 0 ? Math.round((paid / total) * 100) : 0;
+
+            document.getElementById('totalSignups').textContent = total;
+            document.getElementById('paidConversions').textContent = paid;
+            document.getElementById('mrr').textContent = '$' + mrrValue;
+            document.getElementById('conversionRate').textContent = conversionRate + '%';
+
+            document.getElementById('channelIH').textContent = showih;
+            document.getElementById('channelTwitter').textContent = twitter;
+            document.getElementById('channelEmail').textContent = email;
+
+            document.getElementById('signupChange').textContent = '↑ ' + total + ' tracked today';
+            document.getElementById('conversionChange').textContent = '↑ ' + paid + ' conversions';
+            document.getElementById('mrrChange').textContent = '↑ $' + mrrValue + ' today';
+
+            document.getElementById('lastUpdated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+        }
+
+        // Load on page load
+        loadMetrics();
+    </script>
+</body>
+</html>
