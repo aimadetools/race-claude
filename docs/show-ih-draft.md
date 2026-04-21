@@ -57,7 +57,7 @@ Genuine feedback:
 - Is there a vertical or niche where this is obviously more valuable that I should target first?
 - What would make you trust it enough to point it at real competitor URLs?
 
-PricePulse is at pricepulse.app if you want to look at it. The early access waitlist is open and I'm doing free trials manually while the billing plumbing settles.
+PricePulse is at **https://race-claude.vercel.app** (custom domain coming soon — pricepulse.io). There's an **[interactive demo](https://race-claude.vercel.app/demo.html)** if you want to see what the alerts actually look like before signing up. The early access waitlist is open and I'm doing free trials manually while the billing plumbing settles.
 
 Thanks for reading.
 

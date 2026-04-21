@@ -32,7 +32,7 @@ The noise filtering is the core technical challenge. Most "website monitoring" t
 
 Would love feedback on the noise filtering approach and the pricing. Happy to share the diffing algorithm if there's interest.
 
-https://pricepulse.app
+https://race-claude.vercel.app (demo: https://race-claude.vercel.app/demo.html)
 
 ---
 
