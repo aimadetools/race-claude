@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help & FAQ — PricePulse</title>
+  <meta name="description" content="Frequently asked questions about PricePulse. Learn how to monitor competitor pricing, set alerts, manage subscriptions, and more." />
+  <meta property="og:title" content="Help & FAQ — PricePulse" />
+  <meta property="og:description" content="Get answers to common questions about PricePulse." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getpricepulse.com/help.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg" />
+  <link rel="canonical" href="https://getpricepulse.com/help.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10, 10, 15, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; }
+
+    main { max-width: 900px; margin: 100px auto 0; padding: 3rem 2rem; }
+    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+    .subtitle { color: var(--muted); font-size: 1.1rem; margin-bottom: 3rem; }
+
+    .faq-section { margin-bottom: 4rem; }
+    .faq-section h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-question {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--accent); }
+    .faq-question::before { content: '→'; transition: transform 0.3s; }
+    .faq-item.open .faq-question::before { transform: rotate(90deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      margin-top: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .faq-item.open .faq-answer { max-height: 500px; }
+
+    .cta-section {
+      margin-top: 4rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--bg2) 0%, rgba(0, 229, 160, 0.06) 100%);
+      border: 1px solid rgba(0, 229, 160, 0.2);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-section h3 { margin-bottom: 1rem; }
+    .cta-section p { color: var(--muted); margin-bottom: 1.5rem; }
+    .btn { display: inline-block; padding: 0.75rem 2rem; background: var(--accent); color: #0a0a0f; border-radius: 8px; font-weight: 600; }
+    .btn:hover { background: #00ffb3; text-decoration: none; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      main { margin-top: 80px; padding: 2rem 1rem; }
+      h1 { font-size: 1.75rem; }
+      .faq-answer { max-height: 800px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">
+      <span class="logo-dot"></span> PricePulse
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="demo.html">Demo</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Help & FAQ</h1>
+    <p class="subtitle">Answers to common questions about PricePulse</p>
+
+    <!-- GETTING STARTED -->
+    <div class="faq-section">
+      <h2>Getting Started</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I get started with PricePulse?</div>
+        <div class="faq-answer">
+          <p>1. <strong>Sign up</strong> with your email at getpricepulse.com</p>
+          <p>2. <strong>Confirm</strong> your email address</p>
+          <p>3. <strong>Choose a plan</strong> (Free, Starter, or Pro)</p>
+          <p>4. <strong>Add competitor URLs</strong> to monitor (you can add up to 2 on the free plan, 10 on Starter, unlimited on Pro)</p>
+          <p>5. <strong>Get alerts</strong> via email the moment anything changes</p>
+          <p>It takes about 2 minutes to set up your first monitor.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is there a free trial?</div>
+        <div class="faq-answer">
+          <p>Yes! The Free plan is forever free. You get:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>Monitor 2 competitors</li>
+            <li>Daily checks (not hourly)</li>
+            <li>7-day history</li>
+            <li>Email alerts</li>
+          </ul>
+          <p>No credit card required. Try it now at getpricepulse.com</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do I need a credit card to sign up?</div>
+        <div class="faq-answer">
+          <p><strong>No.</strong> The free plan requires no credit card. If you want to upgrade to a paid plan later, you'll enter your card at that time.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MONITORING -->
+    <div class="faq-section">
+      <h2>Monitoring & Alerts</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">Which URLs can I monitor?</div>
+        <div class="faq-answer">
+          <p>You can monitor any publicly accessible URL — typically a competitor's pricing page. Examples:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>pricing.competitor.com</li>
+            <li>competitor.com/plans</li>
+            <li>app.competitor.com/pricing</li>
+          </ul>
+          <p>If a page requires authentication, we can't monitor it. But if it's a public pricing page, we can.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How often does PricePulse check for changes?</div>
+        <div class="faq-answer">
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Free plan:</strong> Daily (once per day)</li>
+            <li><strong>Starter plan:</strong> Hourly (every hour)</li>
+            <li><strong>Pro plan:</strong> Every 30 minutes</li>
+          </ul>
+          <p>Checks run automatically 24/7. You get an alert via email within minutes of a change being detected.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What counts as a "change"?</div>
+        <div class="faq-answer">
+          <p>We monitor for changes that matter: prices, plan names, features, CTAs, and plan structure. We filter out noise like:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>Timestamp updates (date/time widgets)</li>
+            <li>Social proof counters ("Trusted by 10K+ teams")</li>
+            <li>Cookie banners</li>
+            <li>Ad rotations</li>
+            <li>Minor formatting</li>
+          </ul>
+          <p>So you get alerts only for things that matter.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Will competitors see me monitoring them?</div>
+        <div class="faq-answer">
+          <p><strong>No.</strong> You're requesting a public webpage, just like any visitor to their site. They see a normal HTTP request from a Vercel IP — they have no way to know it's associated with you specifically.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How long is pricing history kept?</div>
+        <div class="faq-answer">
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Free plan:</strong> 7 days</li>
+            <li><strong>Starter plan:</strong> 90 days</li>
+            <li><strong>Pro plan:</strong> Unlimited</li>
+          </ul>
+          <p>This lets you see when competitors changed their pricing and by how much.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING & BILLING -->
+    <div class="faq-section">
+      <h2>Pricing & Billing</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">What are the pricing plans?</div>
+        <div class="faq-answer">
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Free:</strong> $0/month. 2 competitors, daily checks, 7-day history</li>
+            <li><strong>Starter:</strong> $19/month. 10 competitors, hourly checks, 90-day history</li>
+            <li><strong>Pro:</strong> $49/month. Unlimited competitors, 30-min checks, unlimited history, webhooks</li>
+          </ul>
+          <p>All plans include email alerts. Cancel anytime, no long-term commitment.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I change plans anytime?</div>
+        <div class="faq-answer">
+          <p><strong>Yes.</strong> Upgrade or downgrade your plan anytime from your dashboard. Changes take effect immediately. If you downgrade, you'll be refunded a prorated amount.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do you offer annual billing discounts?</div>
+        <div class="faq-answer">
+          <p>Not yet, but we're considering it. For now, all billing is monthly. If annual billing would help you, <a href="mailto:hello@getpricepulse.com">let us know</a>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What payment methods do you accept?</div>
+        <div class="faq-answer">
+          <p>We accept all major credit cards: Visa, Mastercard, American Express, Discover. Payments are processed by Stripe.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNICAL -->
+    <div class="faq-section">
+      <h2>Technical</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How does PricePulse detect changes? (Technical deep-dive)</div>
+        <div class="faq-answer">
+          <p>We fetch the pricing page HTML, extract pricing-relevant content (using CSS selectors), normalize it (remove timestamps, format variations), compute a SHA-256 hash, and compare it to the previous version. If the hash changed, we compute a word-level diff and score the significance. Only changes above a confidence threshold trigger an alert.</p>
+          <p>Full technical details are in our <a href="/blog/how-pricepulse-detects-pricing-changes.html">blog post</a>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do you support JavaScript-rendered pages?</div>
+        <div class="faq-answer">
+          <p>Most pricing pages are server-rendered or use standard JS frameworks (React, Vue, Svelte) that hydrate quickly — those work fine with our standard monitoring.</p>
+          <p>For heavy client-side rendering (aggressive JS obfuscation, dynamic content), we can run a headless browser, but this is slower and requires a Pro plan for hourly checks.</p>
+          <p>If a page is difficult to monitor, we'll tell you rather than silently miss changes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is PricePulse secure? What about privacy?</div>
+        <div class="faq-answer">
+          <p><strong>Security:</strong> All data is encrypted in transit (HTTPS). Passwords are hashed. Payment processing is handled by Stripe (PCI-compliant). We use Supabase for data storage with RLS (Row-Level Security) so your data is visible only to you.</p>
+          <p><strong>Privacy:</strong> We don't sell your data. We don't share it with anyone. Your monitoring data is yours alone. See our privacy practices on the <a href="/about.html">About page</a>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What's the uptime/reliability?</div>
+        <div class="faq-answer">
+          <p>The monitoring engine runs on GitHub Actions (99.9% uptime). The API runs on Vercel (99.99% uptime). Email is sent by Resend (99.99% uptime).</p>
+          <p>Our <a href="/status.html">status page</a> shows real-time uptime. If something goes down, you can check there.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCOUNT & SUPPORT -->
+    <div class="faq-section">
+      <h2>Account & Support</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I reset my password?</div>
+        <div class="faq-answer">
+          <p>Go to login.html and click "Forgot password?" Enter your email, and we'll send a reset link. Click the link and choose a new password. You'll be logged in automatically.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I delete my account?</div>
+        <div class="faq-answer">
+          <p><strong>Yes.</strong> Go to your account settings and click "Delete account." This will:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>Delete all your monitors</li>
+            <li>Delete your pricing history</li>
+            <li>Cancel any active subscription</li>
+            <li>Remove your account completely</li>
+          </ul>
+          <p>This action cannot be undone.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I get support or report a bug?</div>
+        <div class="faq-answer">
+          <p>Email <a href="mailto:hello@getpricepulse.com">hello@getpricepulse.com</a> with:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>What happened</li>
+            <li>What you expected to happen</li>
+            <li>Your account email</li>
+            <li>Any error messages</li>
+          </ul>
+          <p>We typically respond within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can multiple people use the same account?</div>
+        <div class="faq-answer">
+          <p>Currently, each email gets one account. If your team needs to share an account, all users can log in with the same email/password, but we recommend creating individual accounts for audit trails and security.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA SECTION -->
+    <div class="cta-section">
+      <h3>Still have questions?</h3>
+      <p>Reach out! We're here to help.</p>
+      <a href="mailto:hello@getpricepulse.com" class="btn">Email us →</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PricePulse. Built by founders, for founders.</p>
+  </footer>
+
+  <script>
+    // Make FAQ items expandable
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
+
+    // UTM tracking
+    function captureUTM() {
+      const params = new URLSearchParams(window.location.search);
+      const utm = {
+        source: params.get('utm_source') || 'direct',
+        medium: params.get('utm_medium') || 'direct',
+        campaign: params.get('utm_campaign') || 'direct',
+        timestamp: new Date().toISOString(),
+      };
+      localStorage.setItem('utm_data', JSON.stringify(utm));
+    }
+
+    document.addEventListener('DOMContentLoaded', captureUTM);
+  </script>
+</body>
+</html>

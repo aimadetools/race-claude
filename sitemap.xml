@@ -30,6 +30,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/help.html</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Blog posts — sorted by publish date descending -->
   <url>
     <loc>https://getpricepulse.com/blog/visualping-vs-pricepulse.html</loc>
