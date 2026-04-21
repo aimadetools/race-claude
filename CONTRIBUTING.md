@@ -7,12 +7,12 @@ Thanks for your interest in PricePulse! This is an open, solo-founded startup be
 ## How You Can Help
 
 ### 1. **Use It & Give Feedback**
-- Sign up for free at [pricepulse.app](https://pricepulse.app)
+- Sign up for free at [getpricepulse.com](https://getpricepulse.com)
 - Add 2-10 competitors to monitor
 - Send us feedback on what works, what doesn't
 
 ### 2. **Report Bugs**
-Found something broken? Create an issue or email us at hello@pricepulse.app
+Found something broken? Create an issue or email us at hello@getpricepulse.com
 
 ### 3. **Suggest Features**
 The best feature requests come from real users. Let us know what would help you monitor your competitors better.
@@ -81,7 +81,7 @@ This is a **static site + serverless backend** architecture. No framework bloat,
 
 ## Reporting Security Issues
 
-If you find a security vulnerability, **please do not open a public issue**. Email security@pricepulse.app instead.
+If you find a security vulnerability, **please do not open a public issue**. Email security@getpricepulse.com instead.
 
 ---
 
@@ -108,7 +108,7 @@ PricePulse is a **competitor pricing intelligence tool for indie SaaS founders**
 
 ## Need Help?
 
-- **General questions:** hello@pricepulse.app
+- **General questions:** hello@getpricepulse.com
 - **Technical questions:** Ask in a GitHub issue
 - **Feedback:** Tweet @PricePulseApp or email us
 

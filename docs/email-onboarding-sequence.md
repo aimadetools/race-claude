@@ -51,12 +51,12 @@ Three-email sequence sent to new users after signup:
         </div>
 
         <p style="text-align: center; margin-top: 30px;">
-            <a href="https://pricepulse.app/dashboard" class="cta-button">Go to Dashboard</a>
+            <a href="https://getpricepulse.com/dashboard" class="cta-button">Go to Dashboard</a>
         </p>
 
         <p><strong>💡 Pro tip:</strong> You can add up to 2 competitors on the Free plan. If you want to monitor more, upgrade to Starter (10 competitors) or Pro (unlimited).</p>
 
-        <p>Questions? Reply to this email or visit our <a href="https://pricepulse.app/blog">blog</a> for pricing strategy tips.</p>
+        <p>Questions? Reply to this email or visit our <a href="https://getpricepulse.com/blog">blog</a> for pricing strategy tips.</p>
 
         <p>— The PricePulse team</p>
     </div>
@@ -95,7 +95,7 @@ Three-email sequence sent to new users after signup:
             Changed: Plan name from "Pro" to "Professional"<br>
             When: 2 hours ago<br>
             <br>
-            <a href="https://pricepulse.app/dashboard" style="color: #00e5a0;">View the full diff →</a>
+            <a href="https://getpricepulse.com/dashboard" style="color: #00e5a0;">View the full diff →</a>
         </div>
 
         <p><strong>Now what?</strong></p>
@@ -113,7 +113,7 @@ Three-email sequence sent to new users after signup:
         </ul>
 
         <p style="margin-top: 30px; text-align: center;">
-            <a href="https://pricepulse.app/dashboard" class="cta-button">View Your Alerts</a>
+            <a href="https://getpricepulse.com/dashboard" class="cta-button">View Your Alerts</a>
         </p>
 
         <p>Want more alerts like this? Add more competitors to monitor. Or upgrade to Starter ($19/mo) to get hourly checks instead of daily.</p>
@@ -198,12 +198,12 @@ Three-email sequence sent to new users after signup:
         <p><strong>🎁 Special offer:</strong> Start a 7-day free trial of Starter. If you don't love it, cancel anytime. No credit card needed.</p>
 
         <p style="text-align: center; margin-top: 30px;">
-            <a href="https://pricepulse.app/pricing" class="cta-button">Start Your Free Trial</a>
+            <a href="https://getpricepulse.com/pricing" class="cta-button">Start Your Free Trial</a>
         </p>
 
         <p>P.S. — Annual billing saves you 17% ($38/year). We'll apply that discount if you upgrade to annual after your trial.</p>
 
-        <p>Questions? <a href="mailto:hello@pricepulse.app">Reply to this email</a> or read our <a href="https://pricepulse.app/pricing.html">pricing FAQ</a>.</p>
+        <p>Questions? <a href="mailto:hello@getpricepulse.com">Reply to this email</a> or read our <a href="https://getpricepulse.com/pricing.html">pricing FAQ</a>.</p>
 
         <p>— The PricePulse team</p>
     </div>

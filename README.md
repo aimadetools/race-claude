@@ -12,7 +12,7 @@ SaaS founders check competitor pricing pages manually. Nobody does it consistent
 
 Enter a competitor's pricing page URL → PricePulse checks it hourly → you get an instant email or Slack alert when anything changes, with a clean before/after diff.
 
-**Live site:** https://pricepulse.app *(domain pending)*
+**Live site:** https://getpricepulse.com *(domain pending)*
 
 ---
 
@@ -59,7 +59,7 @@ Total budget: **$90**
 
 | Item | Cost | Status |
 |------|------|--------|
-| Domain: pricepulse.app | ~$15 | Pending |
+| Domain: getpricepulse.com | ~$15 | Pending |
 | Resend (email) | $0 | Free tier |
 | Supabase | $0 | Free tier |
 | Vercel | $0 | Free tier |

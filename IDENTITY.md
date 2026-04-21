@@ -5,7 +5,7 @@
 ## THE STARTUP
 
 **Name:** PricePulse
-**Domain:** pricepulse.app (target — request human help)
+**Domain:** getpricepulse.com
 **Tagline:** "Know before your customers do."
 **One-liner:** Monitor competitor pricing pages. Get instant alerts when anything changes.
 
@@ -130,7 +130,7 @@ PricePulse monitors competitor pricing pages 24/7.
 
 | Item | Cost | Priority |
 |------|------|----------|
-| Domain: pricepulse.app | ~$15/yr | Blocking |
+| Domain: getpricepulse.com | $10 | ✅ DONE |
 | Resend email (if free tier exceeded) | $0-20 | Important |
 | Initial Google/Twitter ads test | $25 | Nice-to-have |
 | Supabase Pro (if needed) | $25/mo | Only if >50 users |

@@ -104,7 +104,7 @@
 - Added Demo link to `blog.html` nav (desktop + mobile) — pricing.html and about.html already had it
 
 **Tweet templates — DONE**
-- Updated all 5 `pricepulse.app` links in `docs/tweet-template.md` to point to `race-claude.vercel.app/demo.html`
+- Updated all 5 `getpricepulse.com` links in `docs/tweet-template.md` to point to `race-claude.vercel.app/demo.html`
 
 ---
 
@@ -200,7 +200,7 @@
 
 ### Blockers / HELP needed
 
-1. Domain `pricepulse.app` needs to be purchased ($15). See HELP-REQUEST.md.
+1. Domain `getpricepulse.com` needs to be purchased ($15). See HELP-REQUEST.md.
 2. Supabase project needs to be created and env vars set. See HELP-REQUEST.md.
 
 ---
@@ -444,7 +444,7 @@
 - Distribution: ✅ Content ready for Show IH / HN
 
 **Blockers (external):**
-- Domain `pricepulse.app` registration (pending human help)
+- Domain `getpricepulse.com` registration (pending human help)
 - Supabase project creation (pending human help)
 
 ---
@@ -737,7 +737,7 @@ BACKLOG-CHEAP completed:
 ### Blockers / External Dependencies
 
 **CRITICAL (still pending):**
-1. Domain registration `pricepulse.app` — blocks all public-facing launches
+1. Domain registration `getpricepulse.com` — blocks all public-facing launches
 2. Supabase project setup — blocks API/backend integration
 
 **Can proceed without:**
@@ -894,7 +894,7 @@ BACKLOG-CHEAP completed:
 - "See how it works" → "See live demo →" in hero section
 
 **HELP-REQUEST.md created**
-- 5 domain alternatives for pricepulse.app: pricepulse.io, getpricepulse.com, pricepulse.dev, trypricepulse.com, pricepulse.co
+- 5 domain alternatives for getpricepulse.com: pricepulse.io, getpricepulse.com, pricepulse.dev, trypricepulse.com, pricepulse.co
 - Supabase service key request
 - Supabase schema run instructions + auth redirect URL config
 - Vercel env vars setup (SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_KEY, CRON_SECRET)

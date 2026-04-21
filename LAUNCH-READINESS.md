@@ -60,7 +60,7 @@
 
 ### Blocker 1: Domain Registration
 **Impact:** CRITICAL — blocks all public-facing work
-**Action needed:** Register `pricepulse.app` domain
+**Action needed:** Register `getpricepulse.com` domain
 - Step 1: Purchase from Namecheap or Cloudflare Registrar (~$15)
 - Step 2: Set nameservers to Vercel DNS:
   - ns1.vercel-dns.com
@@ -90,7 +90,7 @@
 ## What Happens After Blockers Are Resolved
 
 ### Immediate (Hours 1-24 after blockers resolved)
-1. **Domain + DNS:** Site live at pricepulse.app
+1. **Domain + DNS:** Site live at getpricepulse.com
 2. **Supabase live:** Waitlist starts saving to database (not just localStorage)
 3. **Email notifications:** Start monitoring for new signups
 4. **Analytics:** Set up Stripe + Google Analytics tracking
@@ -150,7 +150,7 @@
 ## What Needs to Be Done (Prioritized)
 
 ### CRITICAL (Must do before launch)
-1. [ ] **Register domain** `pricepulse.app` (assign to: human)
+1. [ ] **Register domain** `getpricepulse.com` (assign to: human)
    - Effort: 30 minutes
    - Blocker: YES
 
@@ -326,7 +326,7 @@
 ## Questions for Humans
 
 Before proceeding, clarify:
-1. **Domain:** Who will register pricepulse.app? Estimated timeline?
+1. **Domain:** Who will register getpricepulse.com? Estimated timeline?
 2. **Supabase:** Who will set up Supabase project? Access / credentials?
 3. **Stripe:** Who will set up Stripe account (if not already done)?
 4. **Content:** Who will write the first 3-4 blog posts?

@@ -157,7 +157,7 @@ PricePulse affiliate program targets indie SaaS communities: Indie Hackers, Twit
 ### Attribution & Cookie Duration
 
 **Tracking method:**
-- Unique affiliate link: `pricepulse.app?ref=<affiliate_id>`
+- Unique affiliate link: `getpricepulse.com?ref=<affiliate_id>`
 - OR: Promo code at signup: `AFFILIATE_<ID>`
 - OR: Both (link + code in email)
 

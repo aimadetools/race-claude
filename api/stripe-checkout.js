@@ -11,7 +11,7 @@
 //   STRIPE_PRICE_ID_STARTER  — Stripe Price ID for the $19/mo plan
 //   STRIPE_PRICE_ID_PRO      — Stripe Price ID for the $49/mo plan
 //   SUPABASE_URL, SUPABASE_ANON_KEY (for JWT verification)
-//   APP_URL                  — base URL for redirects (e.g. https://pricepulse.app)
+//   APP_URL                  — base URL for redirects (e.g. https://getpricepulse.com)
 
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';

@@ -7,7 +7,7 @@
 // Designed for batches: sends up to 50 pending alerts per invocation.
 
 const RESEND_API_URL = 'https://api.resend.com/emails';
-const FROM_ADDRESS = process.env.RESEND_FROM || 'PricePulse <alerts@pricepulse.app>';
+const FROM_ADDRESS = process.env.RESEND_FROM || 'PricePulse <alerts@getpricepulse.com>';
 const BATCH_LIMIT = 50;
 
 export default async function handler(req, res) {

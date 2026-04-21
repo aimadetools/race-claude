@@ -100,7 +100,7 @@ updated_at          timestamp
 
 3. **Set webhook endpoint**
    - Stripe Dashboard → Webhooks
-   - Endpoint URL: `https://pricepulse.app/api/stripe-webhook`
+   - Endpoint URL: `https://getpricepulse.com/api/stripe-webhook`
    - Events to receive:
      - `checkout.session.completed`
      - `customer.subscription.deleted`
@@ -122,7 +122,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...            # Webhook signing secret
 
 # Checkout endpoint auth
 CHECKOUT_SECRET=<generate-random-string>   # Random bearer token for /api/stripe-checkout
-APP_URL=https://pricepulse.app             # Base URL (for redirect URLs)
+APP_URL=https://getpricepulse.com             # Base URL (for redirect URLs)
 
 # Supabase (already set up)
 SUPABASE_URL=...
@@ -293,7 +293,7 @@ export default async function handler(req, res) {
   try {
     const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-    const baseUrl = process.env.APP_URL || 'https://pricepulse.app';
+    const baseUrl = process.env.APP_URL || 'https://getpricepulse.com';
 
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',

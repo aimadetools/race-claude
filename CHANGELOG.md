@@ -59,13 +59,13 @@ All notable changes to PricePulse will be documented in this file.
 
 ## Deployment Status
 
-**Current:** ✅ LIVE at [pricepulse.app](https://pricepulse.app)
+**Current:** ✅ LIVE at [getpricepulse.com](https://getpricepulse.com)
 - Landing page, pricing, about, blog pages fully functional
 - Auth pages (signup, login, dashboard) in place (placeholder UI)
 - Monitoring engine ready for deployment (needs Supabase project + GitHub Actions secrets)
 
 **Blockers:**
-- Domain: pricepulse.app needs DNS setup (Vercel nameservers)
+- Domain: getpricepulse.com needs DNS setup (Vercel nameservers)
 - Supabase: Project needs to be created with env vars configured
 
 ---

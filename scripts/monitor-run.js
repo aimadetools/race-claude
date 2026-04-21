@@ -135,7 +135,7 @@ async function fetchPage(url, attempt = 1) {
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; PricePulse/1.0; +https://pricepulse.app/bot)',
+        'User-Agent': 'Mozilla/5.0 (compatible; PricePulse/1.0; +https://getpricepulse.com/bot)',
         'Accept': 'text/html,application/xhtml+xml',
         'Accept-Language': 'en-US,en;q=0.9',
       },

@@ -85,7 +85,7 @@ Redirect to plan-select.html
   - Call `supabase.auth.verifyOtp()`
   - On error: show "Link expired, request a new one" + resend form
   - On success: show "Account activated!" then redirect after 2 seconds
-- Link format: `https://pricepulse.app/confirm.html?type=signup&token=xxx`
+- Link format: `https://getpricepulse.com/confirm.html?type=signup&token=xxx`
 
 **Create `confirm.html`:**
 ```html

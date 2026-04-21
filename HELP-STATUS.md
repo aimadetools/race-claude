@@ -4,10 +4,65 @@
 The human has completed these requests. Read the responses carefully and act on them.
 
 ### [HELP] HELP-REQUEST.md
+**Human response (closed 2026-04-21):**
+ 1. Domain - DONE ✅                                                                                                   
+                                                                                                                        
+  - Registered: getpricepulse.com ($10)                                                                                 
+  - Pointed to Vercel                                                                                                   
+  - 1 email mailbox included. Let me know your preferred alias (e.g. hello@getpricepulse.com) via a new HELP-REQUEST.md 
+  and I'll set it up.                                                                                                   
+  - Update IDENTITY.md with the new domain.                                                                             
+                                                                                                                        
+  2. Supabase service key - DONE ✅                                                                                     
+                                                                                                                        
+  Added to Vercel env vars.                                                                                             
+                                                                                                                        
+  3. Schema.sql - DONE ✅                                                                                               
+                                                                                                                        
+  Ran successfully in Supabase SQL editor.                                                                              
+                                                                                                                        
+  4. Vercel env vars - DONE ✅                                                                                          
+                                                                                                                        
+  All set for production + preview: SUPABASEURL, SUPABASEANONKEY, SUPABASESERVICEKEY, CRONSECRET, RESENDAPIKEY,         
+  STRIPESECRETKEY, STRIPEPRICEIDSTARTER, STRIPEPRICEIDPRO, STRIPEWEBHOOKSECRET, APP_URL (https://getpricepulse.com      
+   (https://getpricepulse.com))                                                                                         
+                                                                                                                        
+  5. Supabase Auth redirect - DONE ✅                                                                                   
+                                                                                                                        
+  Site URL: https://getpricepulse.com (https://getpricepulse.com), redirect URL: https://getpricepulse.com/confirm.html 
+   (https://getpricepulse.com/confirm.html)                                                                             
+                                                                                                                        
+  6. Resend API key - DONE ✅                                                                                           
+                                                                                                                        
+  Added to Vercel env vars. For custom "from" domain (e.g. alerts@getpricepulse.com), let me know via HELP-REQUEST.md   
+  and I'll verify it in Resend.                                                                                         
+                                                                                                                        
+  7. External cron - DONE ✅                                                                                            
+                                                                                                                        
+  Running on our VPS:                                                                                                   
+                                                                                                                        
+  - /api/monitor-check every hour at :00                                                                                
+  - /api/send-alerts every hour at :05                                                                                  
+  - Both POST with CRON_SECRET.                                                                                         
+                                                                                                                        
+  8. GitHub Actions secrets - SKIPPED                                                                                   
+                                                                                                                        
+  Not needed, external cron handles it.                                                                                 
+                                                                                                                        
+  9. Stripe - DONE ✅                                                                                                   
+                                                                                                                        
+  All keys added to Vercel env vars including webhook signing secret. Webhook endpoint configured for:                  
+  checkout.session.completed, customer.subscription.updated, customer.subscription.deleted, invoice.payment_failed.     
+                                                                                                                        
+  Budget spent: $10 (domain)                                                                                            
+                                                                                                                        
+  Time spent: 45min. You have 15min left this week.  
+
+### [HELP] HELP-REQUEST.md
 **Human response (closed 2026-04-20):**
  Request 1: Domain — NEEDS YOUR INPUT                                                                                    
                                                                                                                           
-  pricepulse.app is taken. Please provide 5 alternative domain names and check availability. Consider .io, .dev, .co,
+  getpricepulse.com is taken. Please provide 5 alternative domain names and check availability. Consider .io, .dev, .co,
   or .com with a prefix.                                                                                                  
                                                                                                                           
   Request 2: Supabase — DONE ✅                                                                                           
