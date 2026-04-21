@@ -54,29 +54,21 @@ async function fetchDueMonitors() {
 
   const { data, error } = await supabase
     .from('monitors')
-    .select('id, url, label, check_interval_minutes, last_checked_at, consecutive_errors')
-    .eq('active', true)
-    .or(`last_checked_at.is.null,last_checked_at.lt.${getCheckThreshold()}`)
-    .order('last_checked_at', { ascending: true, nullsFirst: true })
+    .select('id, url, name, frequency, last_checked_at, next_check_at, consecutive_errors, alert_email, user_id')
+    .eq('status', 'active')
+    .lte('next_check_at', new Date().toISOString())
+    .order('next_check_at', { ascending: true })
     .limit(BATCH_SIZE);
 
   if (error) throw new Error(`Failed to fetch monitors: ${error.message}`);
   return data ?? [];
 }
 
-function getCheckThreshold() {
-  // Return ISO timestamp for "earliest a monitor needs to be checked"
-  // We use 55 minutes as threshold so hourly checks don't drift.
-  const d = new Date();
-  d.setMinutes(d.getMinutes() - 55);
-  return d.toISOString();
-}
-
 // ──────────────────────────────────────────────────────────────
 // Check one monitor
 // ──────────────────────────────────────────────────────────────
 async function checkMonitor(monitor) {
-  const { id, url } = monitor;
+  const { id, url, frequency = 'daily' } = monitor;
   console.log(`[check] ${url}`);
 
   // 1. Fetch page
@@ -96,7 +88,7 @@ async function checkMonitor(monitor) {
     console.log(`[check] First snapshot for ${url}`);
     if (!DRY_RUN) {
       await storeSnapshot(id, contentHash, contentText);
-      await markChecked(id);
+      await markChecked(id, frequency);
     }
   } else if (lastSnapshot.content_hash !== contentHash) {
     // Content changed — compute diff and score it
@@ -110,7 +102,7 @@ async function checkMonitor(monitor) {
       if (!DRY_RUN) {
         const newSnapshot = await storeSnapshot(id, contentHash, contentText);
         await storeDiff(id, lastSnapshot.id, newSnapshot.id, diffLines, score);
-        await markChanged(id);
+        await markChanged(id, frequency);
         await queueAlerts(id);
       } else {
         console.log('[dry-run] Would store diff and queue alerts');
@@ -121,12 +113,12 @@ async function checkMonitor(monitor) {
       // Update snapshot silently (don't alert, but update baseline to avoid repeated low-signal noise)
       if (!DRY_RUN) {
         await storeSnapshot(id, contentHash, contentText);
-        await markChecked(id);
+        await markChecked(id, frequency);
       }
     }
   } else {
     console.log(`[check] No change at ${url}`);
-    if (!DRY_RUN) await markChecked(id);
+    if (!DRY_RUN) await markChecked(id, frequency);
   }
 
   return changed;
@@ -205,21 +197,32 @@ async function storeDiff(monitorId, beforeId, afterId, diffLines, score) {
   if (error) throw new Error(`storeDiff: ${error.message}`);
 }
 
-async function markChecked(monitorId) {
+function nextCheckAt(frequency) {
+  const d = new Date();
+  if (frequency === 'hourly') d.setHours(d.getHours() + 1);
+  else if (frequency === 'weekly') d.setDate(d.getDate() + 7);
+  else d.setDate(d.getDate() + 1); // daily default
+  return d.toISOString();
+}
+
+async function markChecked(monitorId, frequency = 'daily') {
+  const now = new Date().toISOString();
   const { error } = await supabase
     .from('monitors')
-    .update({ last_checked_at: new Date().toISOString(), consecutive_errors: 0 })
+    .update({ last_checked_at: now, next_check_at: nextCheckAt(frequency), consecutive_errors: 0 })
     .eq('id', monitorId);
 
   if (error) console.error(`markChecked failed: ${error.message}`);
 }
 
-async function markChanged(monitorId) {
+async function markChanged(monitorId, frequency = 'daily') {
+  const now = new Date().toISOString();
   const { error } = await supabase
     .from('monitors')
     .update({
-      last_checked_at: new Date().toISOString(),
-      last_changed_at: new Date().toISOString(),
+      last_checked_at: now,
+      last_changed_at: now,
+      next_check_at: nextCheckAt(frequency),
       consecutive_errors: 0,
     })
     .eq('id', monitorId);
@@ -230,7 +233,7 @@ async function markChanged(monitorId) {
 async function recordMonitorError(monitorId, errorCount) {
   const update = { consecutive_errors: errorCount, last_checked_at: new Date().toISOString() };
   // Disable monitor after 10 consecutive errors (saves quota)
-  if (errorCount >= 10) update.active = false;
+  if (errorCount >= 10) update.status = 'paused'; // auto-pause after repeated failures
 
   const { error } = await supabase
     .from('monitors')
