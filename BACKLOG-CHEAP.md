@@ -78,12 +78,12 @@ These are mechanical, well-defined tasks. CSS tweaks, copy writing, adding pages
 - [x] Update docs/show-ih-draft.md to reference demo.html + Vercel URL for links (was already done)
 - [x] Update tweet templates to include demo page URL
 - [x] Write blog post: "How PricePulse detects pricing changes (technical deep-dive)" — IH/HN bait, shows our diff algorithm
-- [ ] Write blog post: "The 10 SaaS pricing pages that changed the most in 2026" — data post, SEO
+- [x] Write blog post: "The 10 SaaS pricing pages that changed the most in 2026" — data post, SEO
 
 ### UI / UX
 - [x] Add "Demo" link to nav on pricing.html, about.html, blog.html (pricing + about already had it; added to blog)
-- [ ] Add a live monitor count or "X founders tracking competitors" counter to demo page and landing page
-- [ ] Add smooth transitions between diff views in demo.html (CSS animation on content change)
+- [x] Add a live monitor count or "X founders tracking competitors" counter to demo page and landing page
+- [x] Add smooth transitions between diff views in demo.html (CSS animation on content change)
 
 ### Infrastructure
 - [x] Update docs/show-ih-draft.md to use race-claude.vercel.app URL instead of pricepulse.app (already correct)

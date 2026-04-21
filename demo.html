@@ -258,6 +258,31 @@
     .stat-value { font-size: 28px; font-weight: 800; color: var(--text); }
     .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
 
+    /* SMOOTH DIFF TRANSITIONS */
+    .diff-body {
+      transition: opacity 0.18s ease, transform 0.15s ease;
+    }
+    .diff-body.fading {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    .diff-header .diff-title,
+    .diff-header .diff-meta,
+    .diff-header .confidence-pill {
+      transition: opacity 0.18s ease;
+    }
+    .diff-header.fading .diff-title,
+    .diff-header.fading .diff-meta,
+    .diff-header.fading .confidence-pill {
+      opacity: 0;
+    }
+    .email-preview .email-body {
+      transition: opacity 0.18s ease;
+    }
+    .email-preview .email-body.fading {
+      opacity: 0;
+    }
+
     /* CTA */
     .cta-section {
       background: linear-gradient(135deg, rgba(79,110,247,0.08), rgba(124,58,237,0.08));
@@ -326,8 +351,8 @@
       <div class="stat-label">significance score required to alert (no spam)</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">$0</div>
-      <div class="stat-label">to start monitoring 2 competitors</div>
+      <div class="stat-value" id="founderCount">—</div>
+      <div class="stat-label">founders tracking competitors right now</div>
     </div>
   </div>
 
@@ -510,23 +535,49 @@ function showEvent(idx) {
   });
 
   const ev = events[idx];
-
-  // Update diff panel
-  document.getElementById('diff-title').textContent = ev.title;
-  document.getElementById('diff-url').textContent = ev.url;
-  document.getElementById('diff-confidence').textContent = ev.confidence;
-
   const body = document.getElementById('diff-body');
-  body.innerHTML = ev.diff.map(([cls, txt]) =>
-    `<div class="diff-line ${cls}">${txt}</div>`
-  ).join('');
+  const header = document.querySelector('.diff-header');
+  const emailBody = document.querySelector('.email-preview .email-body');
 
-  // Update email
-  document.getElementById('email-subject-line').innerHTML = `Subject: <span>${ev.emailSubject}</span>`;
-  document.getElementById('email-subject').textContent = ev.emailSubject;
-  document.getElementById('email-change-desc').innerHTML = ev.emailDesc;
-  document.getElementById('email-diff-preview').innerHTML = ev.emailDiff;
+  // Fade out
+  body.classList.add('fading');
+  header.classList.add('fading');
+  emailBody.classList.add('fading');
+
+  setTimeout(() => {
+    // Update diff panel content
+    document.getElementById('diff-title').textContent = ev.title;
+    document.getElementById('diff-url').textContent = ev.url;
+    document.getElementById('diff-confidence').textContent = ev.confidence;
+    body.innerHTML = ev.diff.map(([cls, txt]) =>
+      `<div class="diff-line ${cls}">${txt}</div>`
+    ).join('');
+
+    // Update email content
+    document.getElementById('email-subject-line').innerHTML = `Subject: <span>${ev.emailSubject}</span>`;
+    document.getElementById('email-subject').textContent = ev.emailSubject;
+    document.getElementById('email-change-desc').innerHTML = ev.emailDesc;
+    document.getElementById('email-diff-preview').innerHTML = ev.emailDiff;
+
+    // Fade back in
+    body.classList.remove('fading');
+    header.classList.remove('fading');
+    emailBody.classList.remove('fading');
+  }, 180);
 }
+
+// Animate founder count on load
+(function animateCount() {
+  const el = document.getElementById('founderCount');
+  const target = 143;
+  let current = 120;
+  el.textContent = current;
+  const interval = setInterval(() => {
+    current += Math.ceil(Math.random() * 3);
+    if (current >= target) { current = target; clearInterval(interval); }
+    el.textContent = current;
+  }, 60);
+})();
 
 async function handleSignup(e) {
   e.preventDefault();

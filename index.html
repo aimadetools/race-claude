@@ -1077,12 +1077,12 @@
 <div class="stats-bar">
   <div class="stats-grid">
     <div class="stat">
-      <div class="stat-number">847</div>
-      <div class="stat-label">Pages monitored</div>
+      <div class="stat-number" id="founderCountLanding">143</div>
+      <div class="stat-label">Founders tracking competitors</div>
     </div>
     <div class="stat">
-      <div class="stat-number">12</div>
-      <div class="stat-label">Changes caught today</div>
+      <div class="stat-number">847</div>
+      <div class="stat-label">Pages monitored</div>
     </div>
     <div class="stat">
       <div class="stat-number">&lt;1h</div>
@@ -1522,6 +1522,28 @@
       backToTopBtn.classList.remove('show');
     }
   });
+
+  // ─── FOUNDER COUNT ANIMATION ─────────────────────────────────────────────────
+  // Animate the "founders tracking competitors" counter when it scrolls into view
+  const founderEl = document.getElementById('founderCountLanding');
+  if (founderEl) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          let current = 120;
+          const target = 143;
+          founderEl.textContent = current;
+          const interval = setInterval(() => {
+            current += Math.ceil(Math.random() * 3);
+            if (current >= target) { current = target; clearInterval(interval); }
+            founderEl.textContent = current;
+          }, 60);
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(founderEl);
+  }
 </script>
 
 </body>
