@@ -669,28 +669,36 @@
         window.location.href = 'first-monitor.html';
 
       } else if (planId === 'starter' || planId === 'pro') {
-        // For paid plans, redirect to Stripe Checkout (MVP: skeleton)
-        if (!STRIPE_CHECKOUT_ID || STRIPE_CHECKOUT_ID === 'STRIPE_CHECKOUT_ID_PLACEHOLDER') {
-          alert('Payment processing coming soon! For now, please use the Free plan or contact hello@pricepulse.app for early access.');
-          return;
+        // Redirect to Stripe Checkout via our API
+        try {
+          const checkoutRes = await fetch('/api/stripe-checkout', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${session.access_token}`,
+            },
+            body: JSON.stringify({ planId }),
+          });
+
+          const checkoutData = await checkoutRes.json();
+
+          if (!checkoutRes.ok) {
+            if (checkoutRes.status === 503) {
+              // Stripe not configured yet — offer free plan fallback
+              alert('Paid plans are coming soon. We\'ve added you to the early access list! Starting you on the Free plan for now.');
+              window.location.href = 'first-monitor.html';
+            } else {
+              alert('Error creating checkout: ' + (checkoutData.error || 'Please try again.'));
+            }
+            return;
+          }
+
+          // Redirect to Stripe Checkout
+          window.location.href = checkoutData.url;
+        } catch (err) {
+          console.error('Checkout error:', err);
+          alert('Could not reach payment server. Please try again or use the Free plan.');
         }
-
-        // TODO: Implement Stripe Checkout redirect in week 3
-        // For now, update to paid plan locally (for testing)
-        const { error } = await supabase
-          .from('subscriptions')
-          .update({
-            plan: planId,
-            stripe_checkout_id: null
-          })
-          .eq('user_id', userId);
-
-        if (error) {
-          alert('Error: Could not save plan selection. Please try again.');
-          return;
-        }
-
-        window.location.href = 'first-monitor.html';
       }
 
     } catch (err) {

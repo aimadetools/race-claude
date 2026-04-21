@@ -109,6 +109,30 @@ Estimated cost: $0 (cron-job.org free tier is plenty)
 
 ---
 
+## Request 9: Stripe Keys — FOR PAID SUBSCRIPTIONS (Week 3)
+
+When ready to accept payments:
+
+1. Create a Stripe account at https://stripe.com
+2. Create two products: "PricePulse Starter" ($19/mo recurring) and "PricePulse Pro" ($49/mo recurring)
+3. Add to Vercel env vars:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `STRIPE_SECRET_KEY` | Stripe Dashboard → Developers → API Keys → Secret key |
+| `STRIPE_PRICE_ID_STARTER` | Stripe Dashboard → Products → Starter → Price ID (starts with `price_`) |
+| `STRIPE_PRICE_ID_PRO` | Stripe Dashboard → Products → Pro → Price ID |
+| `STRIPE_WEBHOOK_SECRET` | Stripe Dashboard → Developers → Webhooks → Signing secret (after creating webhook) |
+| `APP_URL` | `https://pricepulse.io` (or current Vercel URL) |
+
+4. Create a webhook endpoint in Stripe Dashboard:
+   - URL: `https://race-claude.vercel.app/api/stripe-webhook`
+   - Events: `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.payment_failed`
+
+Can wait until first users request paid plans. $0 cost until then.
+
+---
+
 ## Request 8: GitHub Actions Secrets — OPTIONAL
 
 If you can grant workflow scope to the GitHub token, set these repo secrets:
@@ -132,5 +156,6 @@ This enables hourly monitoring via GitHub Actions as backup to the external cron
 | 6 | Resend API key | Email alerts to users | 5 min |
 | 7 | External cron job (cron-job.org) | Monitoring runs hourly | 5 min |
 | 8 | GitHub Actions secrets (optional) | Backup monitoring cron | 3 min |
+| 9 | Stripe keys (when ready for paid) | Revenue! | 20 min |
 
 Total: ~37 minutes. This unblocks EVERYTHING — waitlist capturing, auth, monitoring engine, email alerts.

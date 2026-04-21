@@ -1,87 +1,87 @@
-/**
- * POST /api/stripe-checkout
- *
- * Creates a Stripe Checkout Session for a given plan.
- *
- * Request body:
- *   { planId: 'starter' | 'pro', userEmail: string }
- *
- * Response:
- *   200 { url: string }   — Checkout Session URL, redirect the user here
- *   400                   — Missing / invalid request body
- *   401                   — Missing or invalid Bearer token
- *   500                   — Stripe API error
- *
- * Required env vars:
- *   STRIPE_SECRET_KEY
- *   STRIPE_PRICE_ID_STARTER
- *   STRIPE_PRICE_ID_PRO
- *   CHECKOUT_SECRET          — callers must send  Authorization: Bearer <CHECKOUT_SECRET>
- *   APP_URL                  — base URL for success/cancel redirects (e.g. https://pricepulse.app)
- */
+// api/stripe-checkout.js — Vercel serverless function
+// Creates a Stripe Checkout Session for plan upgrades.
+// Auth via Supabase JWT (Authorization: Bearer <token>).
+// The Supabase user ID is passed as Stripe metadata so the webhook
+// can link the payment back to the correct user.
+//
+// POST /api/stripe-checkout { planId: 'starter' | 'pro' }
+//
+// Required env vars:
+//   STRIPE_SECRET_KEY
+//   STRIPE_PRICE_ID_STARTER  — Stripe Price ID for the $19/mo plan
+//   STRIPE_PRICE_ID_PRO      — Stripe Price ID for the $49/mo plan
+//   SUPABASE_URL, SUPABASE_ANON_KEY (for JWT verification)
+//   APP_URL                  — base URL for redirects (e.g. https://pricepulse.app)
 
-const Stripe = require('stripe');
+import Stripe from 'stripe';
+import { createClient } from '@supabase/supabase-js';
 
 const PLAN_PRICE_MAP = {
   starter: process.env.STRIPE_PRICE_ID_STARTER,
   pro: process.env.STRIPE_PRICE_ID_PRO,
 };
 
-module.exports = async function handler(req, res) {
-  // ── Method guard ────────────────────────────────────────────────────────────
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+function getAuthedClient(authHeader) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) return null;
+  const token = authHeader.slice(7);
+  return createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY, {
+    global: { headers: { Authorization: `Bearer ${token}` } },
+  });
+}
+
+export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return res.status(503).json({ error: 'Stripe not configured' });
   }
 
-  // ── Auth check ───────────────────────────────────────────────────────────────
-  const authHeader = req.headers['authorization'] || '';
-  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  // Authenticate user via Supabase JWT
+  const supabase = getAuthedClient(req.headers.authorization);
+  if (!supabase) return res.status(401).json({ error: 'Unauthorized' });
 
-  if (!token || token !== process.env.CHECKOUT_SECRET) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) return res.status(401).json({ error: 'Invalid session' });
 
-  // ── Input validation ─────────────────────────────────────────────────────────
-  const { planId, userEmail } = req.body || {};
-
-  if (!planId || !userEmail) {
-    return res.status(400).json({ error: 'planId and userEmail are required' });
-  }
+  const { planId } = req.body || {};
+  if (!planId) return res.status(400).json({ error: 'planId required' });
 
   const priceId = PLAN_PRICE_MAP[planId];
   if (!priceId) {
-    return res
-      .status(400)
-      .json({ error: `Unknown planId "${planId}". Valid values: starter, pro` });
+    return res.status(400).json({ error: `Unknown planId "${planId}". Valid: starter, pro` });
   }
 
-  // ── Create Checkout Session ──────────────────────────────────────────────────
   try {
-    const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
-
-    const baseUrl = process.env.APP_URL || 'https://pricepulse.app';
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const baseUrl = process.env.APP_URL || 'https://race-claude.vercel.app';
 
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
-      customer_email: userEmail,
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      success_url: `${baseUrl}/dashboard?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${baseUrl}/pricing?checkout=cancelled`,
-      metadata: {
-        planId,
-      },
-      // Allow promotion codes so users can redeem discount codes at checkout
+      customer_email: user.email,
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: `${baseUrl}/dashboard.html?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/pricing.html?checkout=cancelled`,
       allow_promotion_codes: true,
+      metadata: {
+        // Critical: webhook uses this to update the right Supabase user
+        supabase_user_id: user.id,
+        plan_id: planId,
+      },
+      subscription_data: {
+        metadata: {
+          supabase_user_id: user.id,
+          plan_id: planId,
+        },
+      },
     });
 
     return res.status(200).json({ url: session.url });
   } catch (err) {
-    console.error('[stripe-checkout] Stripe error:', err.message);
+    console.error('[stripe-checkout] Error:', err.message);
     return res.status(500).json({ error: 'Failed to create checkout session' });
   }
-};
+}
