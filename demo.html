@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Demo — PricePulse | See a real pricing change alert</title>
+  <meta name="description" content="See exactly what PricePulse detects. A live interactive demo showing real pricing page changes, diffs, and email alerts." />
+  <meta property="og:title" content="PricePulse Demo — What a Competitor Pricing Alert Looks Like" />
+  <meta property="og:description" content="See a live demo of PricePulse in action: real diffs, email alerts, and change history for SaaS pricing pages." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pricepulse.app/demo.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://pricepulse.app/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PricePulse Demo — What a Competitor Pricing Alert Looks Like" />
+  <meta name="twitter:description" content="See a live demo of PricePulse in action." />
+  <link rel="canonical" href="https://pricepulse.app/demo.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --bg2: #1a1d27;
+      --bg3: #22263a;
+      --border: #2a2d3a;
+      --text: #e2e8f0;
+      --text-muted: #64748b;
+      --text-dim: #94a3b8;
+      --accent: #4f6ef7;
+      --accent2: #7c3aed;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .btn-nav {
+      background: var(--accent);
+      color: #fff; text-decoration: none;
+      padding: 8px 16px; border-radius: 8px;
+      font-size: 14px; font-weight: 600;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      max-width: 720px; margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(79,110,247,0.12);
+      border: 1px solid rgba(79,110,247,0.3);
+      color: #818cf8;
+      font-size: 12px; font-weight: 600;
+      padding: 4px 12px; border-radius: 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-dim);
+      margin-bottom: 32px;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; text-decoration: none;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 16px; font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(79,110,247,0.3); }
+
+    /* DEMO CONTAINER */
+    .demo-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .section-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      display: grid; gap: 2px;
+      margin-bottom: 40px;
+    }
+    .timeline-item {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .timeline-item:hover,
+    .timeline-item.active {
+      border-color: var(--accent);
+      background: rgba(79,110,247,0.06);
+    }
+    .timeline-item.active .event-dot { background: var(--accent); box-shadow: 0 0 0 4px rgba(79,110,247,0.2); }
+    .event-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .event-dot.major { background: var(--red); }
+    .event-dot.minor { background: var(--yellow); }
+    .event-content { flex: 1; }
+    .event-title { font-size: 14px; font-weight: 600; color: var(--text); }
+    .event-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .event-badge {
+      font-size: 11px; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .event-badge.major { background: rgba(239,68,68,0.15); color: var(--red); }
+    .event-badge.minor { background: rgba(234,179,8,0.15); color: var(--yellow); }
+    .event-badge.none { background: rgba(100,116,139,0.15); color: var(--text-muted); }
+
+    /* DIFF VIEWER */
+    .diff-panel {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .diff-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg3);
+    }
+    .diff-title { font-size: 14px; font-weight: 600; }
+    .diff-meta { font-size: 12px; color: var(--text-muted); }
+    .confidence-pill {
+      font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 12px;
+      background: rgba(34,197,94,0.15); color: var(--green);
+    }
+    .diff-body {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      padding: 20px;
+      overflow-x: auto;
+    }
+    .diff-line { padding: 1px 8px; border-radius: 3px; }
+    .diff-line.added { background: rgba(34,197,94,0.12); color: var(--green); }
+    .diff-line.removed { background: rgba(239,68,68,0.12); color: var(--red); }
+    .diff-line.context { color: var(--text-muted); }
+    .diff-line.meta { color: #6366f1; font-style: italic; }
+
+    /* EMAIL PREVIEW */
+    .email-preview {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .email-chrome {
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+    }
+    .email-dots { display: flex; gap: 6px; margin-bottom: 8px; }
+    .email-dots span { width: 12px; height: 12px; border-radius: 50%; }
+    .email-dots span:nth-child(1) { background: #ef4444; }
+    .email-dots span:nth-child(2) { background: #eab308; }
+    .email-dots span:nth-child(3) { background: #22c55e; }
+    .email-field { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+    .email-field span { color: var(--text-dim); }
+    .email-body { padding: 24px; }
+    .email-subject { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .email-content {
+      background: #0f1117;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+    .email-content h3 { font-size: 16px; font-weight: 700; color: #818cf8; margin-bottom: 8px; }
+    .email-content p { font-size: 14px; color: var(--text-dim); margin-bottom: 12px; }
+    .email-diff-preview {
+      font-family: monospace;
+      font-size: 12px;
+      background: var(--bg3);
+      border-radius: 6px;
+      padding: 12px;
+      margin: 12px 0;
+      border-left: 3px solid var(--accent);
+    }
+    .email-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; text-decoration: none;
+      padding: 10px 20px; border-radius: 8px;
+      font-size: 14px; font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .stat-value { font-size: 28px; font-weight: 800; color: var(--text); }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(79,110,247,0.08), rgba(124,58,237,0.08));
+      border: 1px solid rgba(79,110,247,0.2);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+    }
+    .cta-section h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { font-size: 16px; color: var(--text-dim); margin-bottom: 28px; }
+    .cta-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-form input {
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px;
+      padding: 12px 16px; font-size: 15px;
+      width: 280px; outline: none;
+    }
+    .cta-form input:focus { border-color: var(--accent); }
+    .cta-form button {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; border: none; border-radius: 8px;
+      padding: 12px 24px; font-size: 15px; font-weight: 700;
+      cursor: pointer;
+    }
+    .cta-fine { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
+
+    @media (max-width: 640px) {
+      .email-body { padding: 16px; }
+      .cta-section { padding: 32px 20px; }
+      .diff-body { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Price<span>Pulse</span></a>
+  <div class="nav-links">
+    <a href="pricing.html">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="signup.html" class="btn-nav">Start free →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge">⚡ Interactive Demo</div>
+  <h1>This is what you get when a competitor <em>changes their pricing</em></h1>
+  <p>Real diffs. Instant email alerts. Full change history. No noise.</p>
+  <a href="signup.html" class="hero-cta">Try it free — no credit card →</a>
+</div>
+
+<div class="demo-container">
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-value">34%</div>
+      <div class="stat-label">of SaaS tools changed pricing last month</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">&lt;1h</div>
+      <div class="stat-label">median time to detect on Pro plan</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">0.3+</div>
+      <div class="stat-label">significance score required to alert (no spam)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">$0</div>
+      <div class="stat-label">to start monitoring 2 competitors</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section-label">Monitor: Notion Pricing Page — Last 30 days</div>
+  <div class="timeline" id="timeline">
+    <div class="timeline-item active" onclick="showEvent(0)" data-idx="0">
+      <div class="event-dot major"></div>
+      <div class="event-content">
+        <div class="event-title">Price increase — Plus plan $16→$18/mo</div>
+        <div class="event-meta">Apr 18, 2026 · 9:14 AM UTC · Confidence: 96%</div>
+      </div>
+      <div class="event-badge major">MAJOR</div>
+    </div>
+    <div class="timeline-item" onclick="showEvent(1)" data-idx="1">
+      <div class="event-dot minor"></div>
+      <div class="event-content">
+        <div class="event-title">Plan limit change — AI blocks reduced (100→50/mo)</div>
+        <div class="event-meta">Apr 12, 2026 · 2:30 PM UTC · Confidence: 78%</div>
+      </div>
+      <div class="event-badge minor">MODERATE</div>
+    </div>
+    <div class="timeline-item" onclick="showEvent(2)" data-idx="2">
+      <div class="event-dot"></div>
+      <div class="event-content">
+        <div class="event-title">Copy change — "Free forever" → "Free for personal use"</div>
+        <div class="event-meta">Apr 5, 2026 · 11:55 AM UTC · Confidence: 62%</div>
+      </div>
+      <div class="event-badge minor">MODERATE</div>
+    </div>
+    <div class="timeline-item" onclick="showEvent(3)" data-idx="3">
+      <div class="event-dot"></div>
+      <div class="event-content">
+        <div class="event-title">No meaningful change detected (cookie banner update)</div>
+        <div class="event-meta">Mar 28, 2026 · 8:02 AM UTC · Confidence: 0.04 — filtered</div>
+      </div>
+      <div class="event-badge none">FILTERED</div>
+    </div>
+  </div>
+
+  <!-- DIFF VIEWER -->
+  <div class="section-label">Change diff</div>
+  <div class="diff-panel">
+    <div class="diff-header">
+      <div>
+        <div class="diff-title" id="diff-title">Apr 18, 2026 — Notion Plus plan price change</div>
+        <div class="diff-meta" id="diff-url">notion.so/pricing · Detected 9:14 AM UTC</div>
+      </div>
+      <div class="confidence-pill" id="diff-confidence">96% confidence</div>
+    </div>
+    <div class="diff-body" id="diff-body">
+      <div class="diff-line meta">@@ Pricing section — Plus plan @@</div>
+      <div class="diff-line context">  &lt;div class="plan-card plan-plus"&gt;</div>
+      <div class="diff-line context">    &lt;h3&gt;Plus&lt;/h3&gt;</div>
+      <div class="diff-line removed">-   &lt;span class="price"&gt;$16&lt;/span&gt;&lt;span class="per"&gt;/member/month&lt;/span&gt;</div>
+      <div class="diff-line added">+   &lt;span class="price"&gt;$18&lt;/span&gt;&lt;span class="per"&gt;/member/month&lt;/span&gt;</div>
+      <div class="diff-line context">    &lt;p class="billed"&gt;billed annually&lt;/p&gt;</div>
+      <div class="diff-line context">  ...</div>
+      <div class="diff-line meta">@@ Annual pricing @@</div>
+      <div class="diff-line removed">-   Save $48/year with annual billing</div>
+      <div class="diff-line added">+   Save $60/year with annual billing</div>
+    </div>
+  </div>
+
+  <!-- EMAIL PREVIEW -->
+  <div class="section-label">Email alert you'd receive</div>
+  <div class="email-preview">
+    <div class="email-chrome">
+      <div class="email-dots"><span></span><span></span><span></span></div>
+      <div class="email-field">From: <span>PricePulse &lt;alerts@pricepulse.app&gt;</span></div>
+      <div class="email-field">To: <span>you@yourcompany.com</span></div>
+      <div class="email-field" id="email-subject-line">Subject: <span>⚡ Pricing change detected: Notion Pricing Page</span></div>
+    </div>
+    <div class="email-body">
+      <div class="email-subject" id="email-subject">⚡ Pricing change detected: Notion Pricing Page</div>
+      <div class="email-content">
+        <h3 id="email-monitor-name">Notion Pricing Page</h3>
+        <p id="email-change-desc">A pricing change was detected on <strong>notion.so/pricing</strong> on April 18, 2026 at 9:14 AM UTC. Confidence: 96%.</p>
+        <div class="email-diff-preview" id="email-diff-preview">
+          <span style="color:#ef4444">- $16/member/month (Plus plan)</span><br>
+          <span style="color:#22c55e">+ $18/member/month (Plus plan)</span><br>
+          <span style="color:#6366f1">@ 12.5% price increase</span>
+        </div>
+        <a href="#" class="email-btn">View full diff →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Start monitoring your competitors</h2>
+    <p>Free plan monitors 2 competitors. No credit card required.</p>
+    <form class="cta-form" id="waitlistForm" onsubmit="handleSignup(event)">
+      <input type="email" placeholder="your@email.com" required id="emailInput" />
+      <button type="submit" id="submitBtn">Get early access →</button>
+    </form>
+    <div class="cta-fine" id="formMsg">Free forever plan available. Starter ($19/mo) and Pro ($49/mo) for more power.</div>
+  </div>
+
+</div>
+
+<script>
+const events = [
+  {
+    title: 'Apr 18, 2026 — Notion Plus plan price change',
+    url: 'notion.so/pricing · Detected 9:14 AM UTC',
+    confidence: '96% confidence',
+    diff: [
+      ['meta', '@@ Pricing section — Plus plan @@'],
+      ['context', '  &lt;div class="plan-card plan-plus"&gt;'],
+      ['context', '    &lt;h3&gt;Plus&lt;/h3&gt;'],
+      ['removed', '-   &lt;span class="price"&gt;$16&lt;/span&gt;&lt;span class="per"&gt;/member/month&lt;/span&gt;'],
+      ['added', '+   &lt;span class="price"&gt;$18&lt;/span&gt;&lt;span class="per"&gt;/member/month&lt;/span&gt;'],
+      ['context', '    &lt;p class="billed"&gt;billed annually&lt;/p&gt;'],
+      ['context', '  ...'],
+      ['meta', '@@ Annual pricing @@'],
+      ['removed', '-   Save $48/year with annual billing'],
+      ['added', '+   Save $60/year with annual billing'],
+    ],
+    emailSubject: '⚡ Pricing change detected: Notion Pricing Page',
+    emailDesc: 'A pricing change was detected on <strong>notion.so/pricing</strong> on April 18, 2026 at 9:14 AM UTC. Confidence: 96%.',
+    emailDiff: '<span style="color:#ef4444">- $16/member/month (Plus plan)</span><br><span style="color:#22c55e">+ $18/member/month (Plus plan)</span><br><span style="color:#6366f1">@ 12.5% price increase</span>',
+  },
+  {
+    title: 'Apr 12, 2026 — AI block limit reduced',
+    url: 'notion.so/pricing · Detected 2:30 PM UTC',
+    confidence: '78% confidence',
+    diff: [
+      ['meta', '@@ Features section — Plus plan @@'],
+      ['context', '  &lt;li class="feature"&gt;Unlimited pages&lt;/li&gt;'],
+      ['removed', '-   &lt;li class="feature"&gt;100 AI responses/member/month&lt;/li&gt;'],
+      ['added', '+   &lt;li class="feature"&gt;50 AI responses/member/month&lt;/li&gt;'],
+      ['context', '  &lt;li class="feature"&gt;Unlimited file uploads&lt;/li&gt;'],
+    ],
+    emailSubject: '⚡ Plan change detected: Notion Pricing Page',
+    emailDesc: 'A plan feature change was detected on <strong>notion.so/pricing</strong> on April 12, 2026. Confidence: 78%.',
+    emailDiff: '<span style="color:#ef4444">- 100 AI responses/member/month</span><br><span style="color:#22c55e">+ 50 AI responses/member/month</span><br><span style="color:#6366f1">@ 50% reduction in AI allowance</span>',
+  },
+  {
+    title: 'Apr 5, 2026 — Marketing copy change',
+    url: 'notion.so/pricing · Detected 11:55 AM UTC',
+    confidence: '62% confidence',
+    diff: [
+      ['meta', '@@ Hero section — Free plan @@'],
+      ['context', '  &lt;div class="plan-card plan-free"&gt;'],
+      ['context', '    &lt;h3&gt;Free&lt;/h3&gt;'],
+      ['removed', '-   &lt;p class="tagline"&gt;Free forever&lt;/p&gt;'],
+      ['added', '+   &lt;p class="tagline"&gt;Free for personal use&lt;/p&gt;'],
+      ['context', '    &lt;a href="/sign-up"&gt;Get started&lt;/a&gt;'],
+    ],
+    emailSubject: '🔔 Copy change detected: Notion Pricing Page',
+    emailDesc: 'A marketing copy change was detected on <strong>notion.so/pricing</strong> on April 5, 2026. Confidence: 62%.',
+    emailDiff: '<span style="color:#ef4444">- "Free forever"</span><br><span style="color:#22c55e">+ "Free for personal use"</span><br><span style="color:#6366f1">@ Subtle restriction signal</span>',
+  },
+  {
+    title: 'Mar 28, 2026 — Change filtered (noise)',
+    url: 'notion.so/pricing · 8:02 AM UTC · Filtered',
+    confidence: 'Filtered (4% significance)',
+    diff: [
+      ['meta', '@@ Cookie banner (FILTERED — below 0.3 threshold) @@'],
+      ['context', '  -- This change was automatically filtered --'],
+      ['context', '  Significance score: 0.04 (threshold: 0.30)'],
+      ['context', ''],
+      ['removed', '-   &lt;div id="cookie-banner"&gt;Accept cookies&lt;/div&gt;'],
+      ['added', '+   &lt;div id="cookie-banner" data-v="2"&gt;Accept cookies&lt;/div&gt;'],
+      ['context', ''],
+      ['context', '  PricePulse filtered this out automatically.'],
+      ['context', '  You were NOT alerted. No noise.'],
+    ],
+    emailSubject: '(No alert sent — below significance threshold)',
+    emailDesc: 'This change was <strong>automatically filtered</strong>. The cookie banner version attribute changed but this is not a pricing signal. You were not alerted.',
+    emailDiff: '<span style="color:#64748b">No alert sent</span><br><span style="color:#64748b">Significance: 0.04 / 0.30 threshold</span><br><span style="color:#22c55e">✓ Zero false positive</span>',
+  },
+];
+
+function showEvent(idx) {
+  // Update timeline active state
+  document.querySelectorAll('.timeline-item').forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+  });
+
+  const ev = events[idx];
+
+  // Update diff panel
+  document.getElementById('diff-title').textContent = ev.title;
+  document.getElementById('diff-url').textContent = ev.url;
+  document.getElementById('diff-confidence').textContent = ev.confidence;
+
+  const body = document.getElementById('diff-body');
+  body.innerHTML = ev.diff.map(([cls, txt]) =>
+    `<div class="diff-line ${cls}">${txt}</div>`
+  ).join('');
+
+  // Update email
+  document.getElementById('email-subject-line').innerHTML = `Subject: <span>${ev.emailSubject}</span>`;
+  document.getElementById('email-subject').textContent = ev.emailSubject;
+  document.getElementById('email-change-desc').innerHTML = ev.emailDesc;
+  document.getElementById('email-diff-preview').innerHTML = ev.emailDiff;
+}
+
+async function handleSignup(e) {
+  e.preventDefault();
+  const email = document.getElementById('emailInput').value.trim();
+  const btn = document.getElementById('submitBtn');
+  const msg = document.getElementById('formMsg');
+
+  btn.disabled = true;
+  btn.textContent = 'Joining…';
+
+  try {
+    const res = await fetch('/api/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'demo' }),
+    });
+    const data = await res.json();
+    if (res.ok) {
+      btn.textContent = "You're on the list! ✓";
+      msg.textContent = "Check your inbox — we'll notify you when we're ready for new users.";
+      msg.style.color = '#22c55e';
+    } else {
+      throw new Error(data.error || 'Failed');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Get early access →';
+    msg.textContent = 'Something went wrong. Please try again.';
+    msg.style.color = '#ef4444';
+  }
+}
+</script>
+</body>
+</html>
