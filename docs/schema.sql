@@ -221,6 +221,31 @@ create trigger monitors_updated_at
   for each row execute procedure touch_updated_at();
 
 -- ============================================================
+-- email_log — lifecycle email tracking (deduplication)
+-- ============================================================
+-- Tracks which automated emails have been sent to each user.
+-- email_type: 'welcome' | 'activation_nudge' | 'upgrade_prompt' | 'reengagement'
+-- UNIQUE(user_id, email_type) prevents duplicate sends.
+-- See: docs/schema-migration-email-log.sql for migration instructions.
+create table if not exists email_log (
+  id          uuid primary key default uuid_generate_v4(),
+  user_id     uuid not null references auth.users(id) on delete cascade,
+  email_type  text not null check (email_type in ('welcome', 'activation_nudge', 'upgrade_prompt', 'reengagement', 'first_monitor_added')),
+  sent_at     timestamptz not null default now(),
+  resend_id   text,
+  unique (user_id, email_type)
+);
+
+alter table email_log enable row level security;
+
+create policy "Users can read their own email log"
+  on email_log for select
+  using (auth.uid() = user_id);
+
+create index email_log_user on email_log(user_id);
+create index email_log_type_sent on email_log(email_type, sent_at desc);
+
+-- ============================================================
 -- TRIGGER: auto-create free subscription on user signup
 -- ============================================================
 -- When Supabase creates a new auth.users row, this trigger

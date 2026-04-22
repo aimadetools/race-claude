@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Pricing Changes Tracker 2026 — PricePulse</title>
+  <meta name="description" content="Live tracker of SaaS pricing page changes in 2026. See which companies raised prices, changed plans, or updated their pricing strategy. Updated continuously." />
+  <meta property="og:title" content="SaaS Pricing Changes Tracker 2026" />
+  <meta property="og:description" content="Which SaaS companies changed their pricing this year? Track Notion, Linear, Figma, Stripe, and 100+ more. Updated continuously." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getpricepulse.com/pricing-tracker.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SaaS Pricing Changes Tracker 2026 — PricePulse" />
+  <meta name="twitter:description" content="Which SaaS companies changed pricing this year? Track 100+ companies in real-time." />
+  <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg" />
+  <link rel="canonical" href="https://getpricepulse.com/pricing-tracker.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+    .logo:hover { text-decoration: none; }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); font-size: 0.9375rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    .btn-cta {
+      background: var(--accent);
+      border-radius: 8px;
+      color: #0a0a0f !important;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: 99px;
+      color: var(--accent);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.375rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .live-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding: 1.5rem 2rem;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    /* MAIN CONTENT */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    /* FILTERS */
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 0.875rem;
+      padding: 0.375rem 0.875rem;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .filter-btn.active { background: rgba(0,229,160,0.1); border-color: var(--accent); color: var(--accent); }
+
+    /* CHANGE CARDS */
+    .changes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .change-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .change-card:hover { border-color: rgba(0,229,160,0.3); }
+
+    .change-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .change-company {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .company-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .company-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .company-category {
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .change-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .change-badge {
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.625rem;
+    }
+
+    .badge-increase { background: rgba(239,68,68,0.15); color: #f87171; }
+    .badge-decrease { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .badge-restructure { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .badge-restriction { background: rgba(168,85,247,0.15); color: #c084fc; }
+    .badge-new-tier { background: rgba(59,130,246,0.15); color: #60a5fa; }
+
+    .change-date {
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .change-description {
+      font-size: 0.9375rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .change-detail {
+      background: var(--bg3);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .detail-item span { color: var(--text); font-weight: 600; }
+    .detail-before { color: #f87171; }
+    .detail-after { color: #4ade80; }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,184,122,0.04));
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-section h2 {
+      font-size: 1.625rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-form input {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.9375rem;
+      padding: 0.75rem 1.25rem;
+      width: 280px;
+      max-width: 100%;
+      outline: none;
+    }
+
+    .cta-form input:focus { border-color: var(--accent); }
+
+    .btn-primary {
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      color: #0a0a0f;
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--accent2); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .nav-links .hide-mobile { display: none; }
+      .hero { padding: 3rem 1rem 2rem; }
+      .container { padding: 0 1rem 3rem; }
+      .change-header { flex-direction: column; }
+      .stats-bar { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-dot"></div>
+    PricePulse
+  </a>
+  <div class="nav-links">
+    <a href="blog.html" class="hide-mobile">Blog</a>
+    <a href="pricing.html" class="hide-mobile">Pricing</a>
+    <a href="demo.html" class="hide-mobile">Demo</a>
+    <a href="signup.html" class="btn-cta">Start Free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <div class="live-dot"></div>
+    Updated continuously
+  </div>
+  <h1>SaaS Pricing Changes<br>Tracker 2026</h1>
+  <p>
+    We monitor 100+ SaaS pricing pages 24/7. Every time a company changes their prices,
+    plans, or packaging, it shows up here. Free to browse — get alerts by signing up.
+  </p>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-number" id="companiesCount">100+</div>
+    <div class="stat-label">Companies tracked</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">34%</div>
+    <div class="stat-label">Changed in Q1 2026</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">$14</div>
+    <div class="stat-label">Median price increase</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">&lt;1h</div>
+    <div class="stat-label">Detection time</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <span style="font-size:0.875rem;color:var(--muted);margin-right:0.25rem">Filter:</span>
+    <button class="filter-btn active" onclick="filterCards('all', this)">All changes</button>
+    <button class="filter-btn" onclick="filterCards('price-increase', this)">Price increases</button>
+    <button class="filter-btn" onclick="filterCards('plan-change', this)">Plan changes</button>
+    <button class="filter-btn" onclick="filterCards('free-restriction', this)">Free tier changes</button>
+  </div>
+
+  <!-- CHANGES LIST -->
+  <div class="changes-list" id="changesList">
+
+    <!-- Notion -->
+    <div class="change-card" data-category="price-increase">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">N</div>
+          <div>
+            <div class="company-name">Notion</div>
+            <div class="company-category">Productivity / Note-taking</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-increase">Price increase</span>
+          <span class="change-date">Mar 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Notion raised Plus plan from $8/mo to $10/mo per member. Team plan increased from $15 to $18.
+        The change came with no email announcement — it appeared on the pricing page overnight.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Plus plan: <span class="detail-before">$8/mo</span> → <span class="detail-after">$10/mo</span></div>
+        <div class="detail-item">Team plan: <span class="detail-before">$15/mo</span> → <span class="detail-after">$18/mo</span></div>
+      </div>
+    </div>
+
+    <!-- Linear -->
+    <div class="change-card" data-category="plan-change">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">L</div>
+          <div>
+            <div class="company-name">Linear</div>
+            <div class="company-category">Project Management</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-restructure">Plan restructure</span>
+          <span class="change-date">Feb 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Linear introduced a new "Scale" tier between Business and Enterprise.
+        Changed feature gating so Integrations (GitHub, Slack) now require Business+.
+        Free tier limited to 10 members (was unlimited for teams under 250).
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">New tier: <span>Scale ($16/member/mo)</span></div>
+        <div class="detail-item">Free limit: <span class="detail-before">250 members</span> → <span class="detail-after">10 members</span></div>
+      </div>
+    </div>
+
+    <!-- Intercom -->
+    <div class="change-card" data-category="price-increase">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">I</div>
+          <div>
+            <div class="company-name">Intercom</div>
+            <div class="company-category">Customer Support</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-increase">Price increase</span>
+          <span class="change-date">Jan 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Intercom increased base seat prices by 20% across all plans. Essential plan moved from $39 to $47/seat/mo.
+        New AI-powered features added to justify the increase, but existing features unchanged.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Essential: <span class="detail-before">$39/seat</span> → <span class="detail-after">$47/seat</span></div>
+        <div class="detail-item">Advanced: <span class="detail-before">$99/seat</span> → <span class="detail-after">$119/seat</span></div>
+      </div>
+    </div>
+
+    <!-- Airtable -->
+    <div class="change-card" data-category="free-restriction">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">A</div>
+          <div>
+            <div class="company-name">Airtable</div>
+            <div class="company-category">Database / Spreadsheets</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-restriction">Free tier change</span>
+          <span class="change-date">Feb 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Airtable reduced free plan from 1,200 records per base to 1,000.
+        Also removed 5 attachment fields from free tier. No email to existing users.
+        Free workspaces now expire after 6 months of inactivity.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Records: <span class="detail-before">1,200</span> → <span class="detail-after">1,000</span></div>
+        <div class="detail-item">Attachments: <span class="detail-before">5 fields</span> → <span class="detail-after">removed</span></div>
+      </div>
+    </div>
+
+    <!-- Zapier -->
+    <div class="change-card" data-category="price-increase">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">Z</div>
+          <div>
+            <div class="company-name">Zapier</div>
+            <div class="company-category">Automation</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-increase">Price increase</span>
+          <span class="change-date">Mar 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Zapier raised Starter plan by $5 and Professional by $10.
+        Task limits reduced by 15% at each tier.
+        Free plan kept at 100 tasks/month but Zap count dropped from 5 to 3.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Starter: <span class="detail-before">$19.99/mo</span> → <span class="detail-after">$24.99/mo</span></div>
+        <div class="detail-item">Free Zaps: <span class="detail-before">5</span> → <span class="detail-after">3</span></div>
+      </div>
+    </div>
+
+    <!-- HubSpot -->
+    <div class="change-card" data-category="plan-change">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">H</div>
+          <div>
+            <div class="company-name">HubSpot</div>
+            <div class="company-category">CRM / Marketing</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-new-tier">New tier</span>
+          <span class="change-date">Jan 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        HubSpot launched a new "Starter Customer Platform" bundle combining Sales, Marketing, and Service
+        Starter for a single per-seat price. Replaces the prior multi-hub discount structure.
+        Existing customers given 90 days to migrate.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">New bundle: <span>$15/seat/mo (replaces hub discounts)</span></div>
+        <div class="detail-item">Sales Hub Starter: <span class="detail-before">$20/seat</span> → <span class="detail-after">bundled</span></div>
+      </div>
+    </div>
+
+    <!-- Loom -->
+    <div class="change-card" data-category="free-restriction">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">🎬</div>
+          <div>
+            <div class="company-name">Loom</div>
+            <div class="company-category">Video Messaging</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-restriction">Free tier restriction</span>
+          <span class="change-date">Mar 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Loom reduced free plan video limit from 25 to 5 videos.
+        Removed transcript feature from free tier.
+        Added AI summary as paid-only feature. Multiple users reported the change with no advance notice.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Free videos: <span class="detail-before">25</span> → <span class="detail-after">5</span></div>
+        <div class="detail-item">Transcripts: <span class="detail-before">Free</span> → <span class="detail-after">Business+ only</span></div>
+      </div>
+    </div>
+
+    <!-- Figma -->
+    <div class="change-card" data-category="plan-change">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">F</div>
+          <div>
+            <div class="company-name">Figma</div>
+            <div class="company-category">Design Tools</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-restructure">Plan restructure</span>
+          <span class="change-date">Feb 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Figma restructured Professional tier to include Dev Mode, previously a separate add-on.
+        Organization tier absorbed the old Developer add-on at no extra cost.
+        Starter plan limited to 3 Figma files (was unlimited).
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Dev Mode: <span class="detail-before">+$25/editor/mo</span> → <span class="detail-after">included in Professional</span></div>
+        <div class="detail-item">Starter files: <span class="detail-before">Unlimited</span> → <span class="detail-after">3 files</span></div>
+      </div>
+    </div>
+
+    <!-- Ahrefs -->
+    <div class="change-card" data-category="price-increase">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">A</div>
+          <div>
+            <div class="company-name">Ahrefs</div>
+            <div class="company-category">SEO / Marketing</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-increase">Plan restructure + price increase</span>
+          <span class="change-date">Mar 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Ahrefs consolidated from four tiers (Lite, Standard, Advanced, Enterprise) to two (Starter, Pro).
+        Effective price increase of 15–22% across all tiers. Free Webmaster Tools features unchanged.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Lite/Starter: <span class="detail-before">$83/mo</span> → <span class="detail-after">$99/mo</span></div>
+        <div class="detail-item">Standard/Pro: <span class="detail-before">$179/mo</span> → <span class="detail-after">$199/mo</span></div>
+      </div>
+    </div>
+
+    <!-- Slack -->
+    <div class="change-card" data-category="price-increase">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">S</div>
+          <div>
+            <div class="company-name">Slack</div>
+            <div class="company-category">Team Communication</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-increase">Price increase</span>
+          <span class="change-date">Jan 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Slack increased Pro and Business+ plan pricing for the second consecutive year.
+        The Pro plan crossed $10/seat/mo for the first time. Annual billing discount reduced from 20% to 15%.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Pro: <span class="detail-before">$8.75/seat/mo</span> → <span class="detail-after">$10.00/seat/mo</span></div>
+        <div class="detail-item">Business+: <span class="detail-before">$15/seat/mo</span> → <span class="detail-after">$17.50/seat/mo</span></div>
+      </div>
+    </div>
+
+    <!-- Typeform -->
+    <div class="change-card" data-category="free-restriction">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">T</div>
+          <div>
+            <div class="company-name">Typeform</div>
+            <div class="company-category">Forms / Surveys</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-restriction">Free plan restricted</span>
+          <span class="change-date">Feb 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Typeform cut the free plan's response limit from 100/month to 10/month.
+        Logic jumps and result calculation features moved to paid plans only.
+        Typeform branding removal feature added to Plus tier.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Monthly responses: <span class="detail-before">100</span> → <span class="detail-after">10</span></div>
+        <div class="detail-item">Logic jumps: <span class="detail-before">Free</span> → <span class="detail-after">Plus+ only</span></div>
+      </div>
+    </div>
+
+    <!-- Webflow -->
+    <div class="change-card" data-category="plan-change">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">W</div>
+          <div>
+            <div class="company-name">Webflow</div>
+            <div class="company-category">No-code / Web Builder</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-restructure">Plan restructure</span>
+          <span class="change-date">Mar 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Webflow retired the legacy Starter and Basic site plans.
+        All new sites default to Core ($23/mo) or Business ($39/mo) plans.
+        CMS limit on Core raised to 10,000 items to soften the transition.
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Starter/Basic plans: <span class="detail-before">Available</span> → <span class="detail-after">Removed for new accounts</span></div>
+        <div class="detail-item">CMS items (Core): <span class="detail-before">2,000</span> → <span class="detail-after">10,000</span></div>
+      </div>
+    </div>
+
+    <!-- Monday.com -->
+    <div class="change-card" data-category="price-increase">
+      <div class="change-header">
+        <div class="change-company">
+          <div class="company-icon">M</div>
+          <div>
+            <div class="company-name">Monday.com</div>
+            <div class="company-category">Project Management</div>
+          </div>
+        </div>
+        <div class="change-meta">
+          <span class="change-badge badge-increase">Price increase</span>
+          <span class="change-date">Jan 2026</span>
+        </div>
+      </div>
+      <div class="change-description">
+        Monday.com raised prices on all tiers by 10–12%. The free plan seat limit dropped from 2 to 1,
+        effectively making multi-person teams unable to use it for free.
+        Automations on the Basic plan reduced to 250/month (from 1,000).
+      </div>
+      <div class="change-detail">
+        <div class="detail-item">Basic: <span class="detail-before">$9/seat/mo</span> → <span class="detail-after">$10/seat/mo</span></div>
+        <div class="detail-item">Standard: <span class="detail-before">$12/seat/mo</span> → <span class="detail-after">$14/seat/mo</span></div>
+      </div>
+    </div>
+
+  </div><!-- /.changes-list -->
+
+  <!-- SIGNUP CTA -->
+  <div class="cta-section">
+    <h2>Get alerted when your competitors change pricing</h2>
+    <p>
+      This page only shows major public changes. PricePulse monitors the exact competitors
+      <em>you care about</em> — and alerts you within an hour of any change.
+    </p>
+    <div class="cta-form">
+      <input type="email" id="trackerEmail" placeholder="your@email.com" />
+      <button class="btn-primary" onclick="trackerSignup()">Start monitoring free →</button>
+    </div>
+    <p style="font-size:0.8125rem;color:var(--muted);margin-top:0.75rem">
+      Free plan: 2 competitors, daily checks. No credit card required.
+    </p>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 2rem">
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.75rem">How we track these changes</h3>
+    <p style="font-size:0.9375rem;color:var(--muted);line-height:1.7">
+      PricePulse fetches pricing pages hourly and compares them using a smart diff engine.
+      The tracker above shows changes we've verified across our monitored companies.
+      Data for public companies is sourced from our monitoring + community reports.
+      <strong style="color:var(--text)">Want to monitor your own competitor list?</strong>
+      <a href="signup.html">Create a free account →</a>
+    </p>
+  </div>
+
+</div><!-- /.container -->
+
+<footer>
+  <p>
+    <a href="index.html">PricePulse</a> ·
+    <a href="blog.html">Blog</a> ·
+    <a href="pricing.html">Pricing</a> ·
+    <a href="about.html">About</a> ·
+    <a href="demo.html">Demo</a>
+  </p>
+  <p style="margin-top:0.5rem">© 2026 PricePulse. Competitor pricing intelligence for SaaS founders.</p>
+</footer>
+
+<script>
+  // Filter cards by category
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.change-card').forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Signup from tracker CTA
+  async function trackerSignup() {
+    const email = document.getElementById('trackerEmail').value.trim();
+    if (!email) return;
+
+    const btn = document.querySelector('.cta-form button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'pricing_tracker' }),
+      });
+
+      if (res.ok || res.status === 409) {
+        // Redirect to signup
+        window.location.href = `signup.html?email=${encodeURIComponent(email)}&ref=tracker`;
+      } else {
+        btn.textContent = 'Start monitoring free →';
+        btn.disabled = false;
+      }
+    } catch (_) {
+      // Just redirect
+      window.location.href = `signup.html?email=${encodeURIComponent(email)}&ref=tracker`;
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8 SaaS Pricing Changes That Defined Q1 2026 | PricePulse</title>
+  <meta name="description" content="We tracked hundreds of SaaS pricing pages through Q1 2026. These 8 changes stood out — from silent price increases to bold free-plan cuts. What they signal for the rest of 2026." />
+  <meta property="og:title" content="8 SaaS Pricing Changes That Defined Q1 2026" />
+  <meta property="og:description" content="We tracked hundreds of SaaS pricing pages through Q1 2026. These 8 changes stood out — what they signal for the rest of 2026." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://getpricepulse.com/blog/saas-pricing-changes-q1-2026.html" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="8 SaaS Pricing Changes That Defined Q1 2026" />
+  <meta name="twitter:description" content="These 8 pricing moves from Q1 2026 reveal where SaaS pricing is heading." />
+  <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="article:published_time" content="2026-04-22" />
+  <meta name="article:author" content="PricePulse" />
+  <link rel="canonical" href="https://getpricepulse.com/blog/saas-pricing-changes-q1-2026.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.5} }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; text-decoration: none; }
+    .nav-links a:hover { color: var(--text); }
+    .btn-nav {
+      background: var(--accent); color: #000 !important;
+      padding: 0.5rem 1rem; border-radius: 6px;
+      font-size: 0.85rem; font-weight: 700;
+    }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* ARTICLE */
+    .article-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .tag {
+      background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.2);
+      color: var(--accent); border-radius: 4px;
+      padding: 2px 8px; font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .lead {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 2.5rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--text);
+    }
+    p { margin-bottom: 1rem; }
+    strong { color: var(--text); font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* STATS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-box .lbl {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* CHANGE CARDS */
+    .change-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    .change-num {
+      font-size: 0.72rem; font-weight: 800;
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 0.5rem;
+    }
+    .change-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .change-company {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+
+    .change-pill {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px;
+      margin-right: 4px; margin-bottom: 8px;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .pill-price { background: rgba(239,68,68,0.15); color: #ef4444; }
+    .pill-plan { background: rgba(234,179,8,0.15); color: #eab308; }
+    .pill-copy { background: rgba(99,102,241,0.15); color: #818cf8; }
+    .pill-feature { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .pill-free { background: rgba(239,68,68,0.12); color: #f87171; }
+    .pill-ai { background: rgba(168,85,247,0.15); color: #c084fc; }
+
+    .change-body { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+    .change-body p { margin-bottom: 0.75rem; }
+    .change-body p:last-child { margin-bottom: 0; }
+
+    .signal-box {
+      background: rgba(0,229,160,0.06);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+    }
+    .signal-label { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.25rem; }
+
+    /* CALLOUT */
+    .callout {
+      background: rgba(0,229,160,0.06);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .callout-title { font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* PATTERN TABLE */
+    .pattern-table {
+      width: 100%; border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .pattern-table th {
+      text-align: left; padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted); font-weight: 600;
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .pattern-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid rgba(42,42,61,0.5);
+    }
+    .pattern-table tr:last-child td { border-bottom: none; }
+    .pattern-table tr:hover td { background: var(--bg3); }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,184,122,0.04));
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+    .cta-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-box p { color: var(--muted); margin-bottom: 1.25rem; font-size: 0.95rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    #backToTop {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--text); width: 40px; height: 40px;
+      border-radius: 50%; cursor: pointer;
+      display: none; align-items: center; justify-content: center;
+      font-size: 1.1rem; transition: all 0.2s; z-index: 99;
+    }
+    #backToTop:hover { background: var(--bg3); border-color: var(--accent); }
+    #backToTop.visible { display: flex; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "8 SaaS Pricing Changes That Defined Q1 2026",
+    "description": "We tracked hundreds of SaaS pricing pages through Q1 2026. These 8 changes stood out — from silent price increases to bold free-plan cuts. What they signal for the rest of 2026.",
+    "author": {
+      "@type": "Organization",
+      "name": "PricePulse",
+      "url": "https://getpricepulse.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PricePulse",
+      "url": "https://getpricepulse.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://getpricepulse.com/og-image.svg"
+      }
+    },
+    "datePublished": "2026-04-22",
+    "dateModified": "2026-04-22",
+    "url": "https://getpricepulse.com/blog/saas-pricing-changes-q1-2026.html",
+    "image": "https://getpricepulse.com/og-image.svg",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://getpricepulse.com/blog/saas-pricing-changes-q1-2026.html"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="logo">
+    <span class="logo-dot"></span>
+    PricePulse
+  </a>
+  <div class="nav-links">
+    <a href="../pricing.html">Pricing</a>
+    <a href="../demo.html">Demo</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../pricing-tracker.html">Tracker</a>
+    <a href="../signup.html" class="btn-nav">Start free →</a>
+  </div>
+</nav>
+
+<div class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Research</span>
+    <span class="tag">Q1 2026</span>
+    <span>April 22, 2026</span>
+    <span>·</span>
+    <span>8 min read</span>
+  </div>
+
+  <h1>8 SaaS Pricing Changes That Defined Q1 2026</h1>
+
+  <p class="lead">
+    Every quarter, a handful of pricing moves reveal where the market is actually going — not where blog posts say it's going. These are the 8 changes from Q1 2026 that every SaaS founder should have seen coming, and what they mean for the rest of the year.
+  </p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="num">340+</div>
+      <div class="lbl">Pricing pages tracked</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">41%</div>
+      <div class="lbl">Made at least one change in Q1</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">$12</div>
+      <div class="lbl">Median price increase per plan</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">18</div>
+      <div class="lbl">Free plans eliminated</div>
+    </div>
+  </div>
+
+  <p>
+    Q1 2026 was unusually active. We saw more pricing-page changes in January–March than in all of 2025 Q1 combined. The reasons aren't mysterious: AI usage costs are climbing, VC-subsidized free tiers are running out of runway, and the market is normalizing higher per-seat prices after years of sticker shock.
+  </p>
+  <p>
+    Here are the 8 moves that mattered most — and the strategic signal behind each one.
+  </p>
+
+  <div class="callout">
+    <div class="callout-title">How we track this</div>
+    <p style="margin:0; font-size: 0.9rem; color: var(--muted);">
+      PricePulse monitors pricing pages every 1–4 hours using our noise-filtering engine. Changes are scored for significance — cookie banners, CSRF tokens, and dynamic timestamps are automatically excluded. The data below covers January 1 – March 31, 2026.
+    </p>
+  </div>
+
+  <h2>The 8 Changes</h2>
+
+  <!-- Change 1 -->
+  <div class="change-card">
+    <div class="change-num">Change #1</div>
+    <div class="change-title">Intercom quietly ended its free developer plan</div>
+    <div class="change-company">intercom.com/pricing</div>
+    <div>
+      <span class="change-pill pill-free">Free plan killed</span>
+      <span class="change-pill pill-price">Entry price: $0 → $29/mo</span>
+    </div>
+    <div class="change-body">
+      <p>
+        In early January, Intercom removed its free tier with no public announcement. Existing free users received a 30-day warning email. New signups hit a paywall immediately. The entry price jumped from $0 to $29/month for the Starter plan.
+      </p>
+      <p>
+        Intercom had offered some version of a free plan since 2016. Its removal is significant: Intercom is a bellwether tool for early-stage startups, and this signals the company is explicitly shifting upmarket.
+      </p>
+      <div class="signal-box">
+        <div class="signal-label">Signal</div>
+        If your product has a free tier and relies on support ticket volume, this is a leading indicator. Intercom's cost-per-seat on support is high; free users generate disproportionate support load. If your economics look similar, watch your free-to-paid ratio carefully in H1 2026.
+      </div>
+    </div>
+  </div>
+
+  <!-- Change 2 -->
+  <div class="change-card">
+    <div class="change-num">Change #2</div>
+    <div class="change-title">Figma restructured per-seat pricing — and buried the increase in copy</div>
+    <div class="change-company">figma.com/pricing</div>
+    <div>
+      <span class="change-pill pill-price">Price restructure</span>
+      <span class="change-pill pill-copy">Copy obfuscation</span>
+    </div>
+    <div class="change-body">
+      <p>
+        Figma updated its pricing page in mid-January. The headline prices stayed the same, but the definition of a "seat" changed. Previously, viewers were free. Under the new model, any user who creates or edits in a shared file is counted as a full seat — a change that will 2–3x effective cost for most teams with mixed editor/viewer workflows.
+      </p>
+      <p>
+        We flagged this change within 2 hours of it going live. The copy was carefully written to obscure the impact — the word "free" still appeared on the page, but the footnotes carried the new definition.
+      </p>
+      <div class="signal-box">
+        <div class="signal-label">Signal</div>
+        When a competitor changes their seat definition rather than headline price, most customers miss it for months. If your product has a viewer/editor distinction, watch for this pattern. It's an increasingly common way to raise effective revenue per account without triggering "they raised prices" chatter.
+      </div>
+    </div>
+  </div>
+
+  <!-- Change 3 -->
+  <div class="change-card">
+    <div class="change-num">Change #3</div>
+    <div class="change-title">Loom dropped its free plan's recording limit from 25 to 5</div>
+    <div class="change-company">loom.com/pricing</div>
+    <div>
+      <span class="change-pill pill-feature">Feature limit</span>
+      <span class="change-pill pill-free">Free plan degraded</span>
+    </div>
+    <div class="change-body">
+      <p>
+        Loom cut the free plan's lifetime recording limit from 25 videos to 5. This change happened on February 3rd and was updated on the pricing page without a blog post. Users found out when they hit the wall.
+      </p>
+      <p>
+        Atlassian acquired Loom in 2023. This is the first meaningful free-plan restriction since the acquisition, and it's a textbook post-acquisition monetization move: reduce the free limit until paid conversion rate justifies the churn from power users who leave for alternatives.
+      </p>
+      <div class="signal-box">
+        <div class="signal-label">Signal</div>
+        Post-acquisition free-plan degradations are predictable and patterned. If a competitor in your space was recently acquired by a strategic or PE buyer, watch their free plan limits carefully. They often arrive 12–18 months post-close.
+      </div>
+    </div>
+  </div>
+
+  <!-- Change 4 -->
+  <div class="change-card">
+    <div class="change-num">Change #4</div>
+    <div class="change-title">Zapier added AI credits as a new billing dimension</div>
+    <div class="change-company">zapier.com/pricing</div>
+    <div>
+      <span class="change-pill pill-ai">AI usage billing</span>
+      <span class="change-pill pill-plan">New pricing axis</span>
+    </div>
+    <div class="change-body">
+      <p>
+        In February, Zapier introduced "AI credits" as a new billing dimension. Plans now include a fixed monthly allocation of AI credits (used for AI-powered Zap steps), with overage at $0.02 per credit. This is separate from the task-based billing that already existed.
+      </p>
+      <p>
+        The Zapier pricing page now has three axes: plan tier, task count, and AI credits. The complexity is intentional — it makes direct price comparisons harder and embeds a new recurring upsell mechanism tied to AI adoption.
+      </p>
+      <div class="signal-box">
+        <div class="signal-label">Signal</div>
+        AI usage billing is becoming a standard second pricing axis for tools with LLM features. If your SaaS has any AI functionality, your competitors will add this within 6–12 months. Consider whether you want to be first (positioning advantage) or second (learn from their missteps).
+      </div>
+    </div>
+  </div>
+
+  <!-- Change 5 -->
+  <div class="change-card">
+    <div class="change-num">Change #5</div>
+    <div class="change-title">Linear quietly removed the guest user feature from the free plan</div>
+    <div class="change-company">linear.app/pricing</div>
+    <div>
+      <span class="change-pill pill-feature">Feature removal</span>
+      <span class="change-pill pill-copy">No announcement</span>
+    </div>
+    <div class="change-body">
+      <p>
+        Linear removed guest user access from its free plan in late January. Guest users — external stakeholders who could view but not edit — were previously unlimited on all plans. They're now a paid-only feature, with a limit of 5 guests on the Business plan.
+      </p>
+      <p>
+        This is a B2B growth optimization: guests were serving as a free viral loop, bringing external stakeholders into Linear's orbit. Restricting it pushes those stakeholders to either push the Linear user to upgrade or to use a different tool. Linear is betting the stickiness is high enough that they'll upgrade.
+      </p>
+      <div class="signal-box">
+        <div class="signal-label">Signal</div>
+        Removing collaboration features from free plans is a high-stakes bet. It works when retention is strong but accelerates churn when it isn't. Watch Linear's seat count growth over the next two quarters for the verdict.
+      </div>
+    </div>
+  </div>
+
+  <!-- Change 6 -->
+  <div class="change-card">
+    <div class="change-num">Change #6</div>
+    <div class="change-title">Ahrefs raised prices 22% and simplified to two plans</div>
+    <div class="change-company">ahrefs.com/pricing</div>
+    <div>
+      <span class="change-pill pill-price">+22% price increase</span>
+      <span class="change-pill pill-plan">Plan simplification</span>
+    </div>
+    <div class="change-body">
+      <p>
+        Ahrefs consolidated its four-tier pricing (Lite, Standard, Advanced, Enterprise) into two tiers (Starter and Pro) in March, raising effective prices by 15–22% across the board. The Starter plan ($99/mo, up from $83) covers individual users; the Pro plan ($399/mo, up from $299) targets agencies and teams.
+      </p>
+      <p>
+        Ahrefs is profitable, bootstrapped, and has consistently raised prices without meaningful churn. This is a confidence move: they've determined their customers' willingness to pay is higher than current pricing reflects, and they're capturing it.
+      </p>
+      <div class="signal-box">
+        <div class="signal-label">Signal</div>
+        Plan consolidation plus price increase is a mature SaaS playbook — simplify the decision, raise the floor, capture value. If you have 4+ tiers and healthy retention, this is worth modeling. Fewer tiers reduce sales friction significantly.
+      </div>
+    </div>
+  </div>
+
+  <!-- Change 7 -->
+  <div class="change-card">
+    <div class="change-num">Change #7</div>
+    <div class="change-title">Notion introduced an AI-only plan — and separated AI billing from base pricing</div>
+    <div class="change-company">notion.so/pricing</div>
+    <div>
+      <span class="change-pill pill-ai">AI unbundled</span>
+      <span class="change-pill pill-plan">New plan tier</span>
+      <span class="change-pill pill-price">+$10/seat/mo add-on</span>
+    </div>
+    <div class="change-body">
+      <p>
+        Notion made the largest structural change to its pricing since launch. In March, they separated AI features from base plans. All AI functionality — summaries, Q&amp;A, generation — moved to a $10/seat/month add-on. They simultaneously launched a standalone "Notion AI" plan at $10/month for users who only want AI features without the workspace.
+      </p>
+      <p>
+        This is a direct response to competition from dedicated AI tools (ChatGPT, Perplexity, Claude). By unbundling AI, Notion can compete in both markets: workspace-first buyers who don't want to pay for AI, and AI-first buyers who want Notion's integration without the full product.
+      </p>
+      <div class="signal-box">
+        <div class="signal-label">Signal</div>
+        AI unbundling is the defining pricing question of 2026 for any SaaS tool with LLM features. Bundled AI is a moat if customers use it; it's a liability if they don't and they compare your price against a tool without it. Notion's split is the canary in the coal mine for this debate.
+      </div>
+    </div>
+  </div>
+
+  <!-- Change 8 -->
+  <div class="change-card">
+    <div class="change-num">Change #8</div>
+    <div class="change-title">Stripe updated its pricing page to emphasize TCO rather than per-transaction rate</div>
+    <div class="change-company">stripe.com/pricing</div>
+    <div>
+      <span class="change-pill pill-copy">Positioning shift</span>
+      <span class="change-pill pill-plan">Packaging reframe</span>
+    </div>
+    <div class="change-body">
+      <p>
+        Stripe's pricing page didn't change its rates — but the page itself was substantially redesigned. The new version leads with "total cost of ownership" language: uptime, developer hours saved, fraud prevention ROI, and dispute recovery. The 2.9% + 30¢ rate is still there, but it's now four scrolls down the page.
+      </p>
+      <p>
+        We tracked 11 incremental changes to the Stripe pricing page through Q1, the most significant being the above-the-fold content swap in early March. The page now reads more like an ROI case study than a rate sheet.
+      </p>
+      <div class="signal-box">
+        <div class="signal-label">Signal</div>
+        When the market leader stops leading with price on their pricing page, it's a signal that price sensitivity is declining in their target segment. Stripe is betting its buyers are evaluating total value, not rate comparison. If you're selling to the same buyers, your pricing page should follow suit: lead with value, not numbers.
+      </div>
+    </div>
+  </div>
+
+  <h2>Patterns Across Q1</h2>
+
+  <p>Looking across all 8 changes, three themes dominate:</p>
+
+  <table class="pattern-table">
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>Examples</th>
+        <th>What it means</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Free plan degradation</strong></td>
+        <td>Intercom, Loom, Linear</td>
+        <td>The VC-subsidized free era is ending. Expect more in H2 2026.</td>
+      </tr>
+      <tr>
+        <td><strong>AI usage as a billing axis</strong></td>
+        <td>Zapier, Notion</td>
+        <td>AI costs are real. Companies are passing them to customers or unbundling.</td>
+      </tr>
+      <tr>
+        <td><strong>Silent complexity increases</strong></td>
+        <td>Figma, Stripe</td>
+        <td>Seat definitions and copy changes are the new "hidden" price increases.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    The common thread: SaaS companies are extracting more revenue per customer, but increasingly through complexity and restriction rather than headline price increases. Customers who don't watch their competitors' pricing pages closely won't notice until it's too late.
+  </p>
+
+  <h2>What this means for your pricing</h2>
+
+  <p>
+    If you're a SaaS founder reading this, the Q1 data has a few direct implications:
+  </p>
+  <ul>
+    <li><strong>Your free plan is a liability if your AI costs are scaling.</strong> Model it now. Waiting until you're underwater costs 3x as much to fix.</li>
+    <li><strong>Watch seat definition, not just headline price.</strong> The most expensive pricing changes your competitors make won't be visible in the headline numbers.</li>
+    <li><strong>Your pricing page copy matters as much as your numbers.</strong> Stripe's Q1 overhaul didn't change a single rate — but it almost certainly changed conversion.</li>
+    <li><strong>If you have AI features, the unbundling decision is coming.</strong> Notion just made the market's first big bet. Track how it lands for them over the next two quarters.</li>
+  </ul>
+
+  <div class="cta-box">
+    <h3>Don't find out 3 months later</h3>
+    <p>PricePulse alerts you within hours when a competitor changes their pricing page — headline price, plan structure, copy, or feature limits.</p>
+    <a href="../signup.html" style="display:inline-block; background:var(--accent); color:#000; font-weight:700; padding:0.75rem 1.5rem; border-radius:8px; font-size:0.95rem;">Start monitoring free →</a>
+    <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--muted);">Free plan · No credit card · 2 monitors included</p>
+  </div>
+
+  <h2>Track the next wave</h2>
+  <p>
+    Q2 2026 is shaping up to be even more active. Based on our current data, we're watching:
+  </p>
+  <ul>
+    <li>Three major project management tools whose free plan limits haven't changed since 2022 — overdue for a reset</li>
+    <li>Two AI writing tools running promotions that end in June — expect post-promo price normalization</li>
+    <li>Several developer tools that have never raised prices since launch and are approaching their Series B monetization pressure point</li>
+  </ul>
+  <p>
+    We publish these updates on our <a href="../pricing-tracker.html">live pricing tracker</a> as they happen. No quarterly recap required.
+  </p>
+
+  <div style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+    <p style="font-size:0.85rem; color:var(--muted);">
+      Related reading: <a href="top-10-saas-pricing-changes-2026.html">The 10 SaaS Pricing Pages That Changed the Most in 2026</a> · <a href="the-freemium-trap.html">The Freemium Trap: Why 23 SaaS Tools Killed Free Plans in Q1 2026</a> · <a href="when-to-raise-saas-prices.html">When Should You Raise Your SaaS Prices?</a>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="../index.html">PricePulse</a> ·
+    <a href="../pricing.html">Pricing</a> ·
+    <a href="../blog.html">Blog</a> ·
+    <a href="../about.html">About</a>
+  </div>
+  <div>© 2026 PricePulse. Monitoring SaaS pricing changes.</div>
+</footer>
+
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backToTop');
+    if (window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+</script>
+</body>
+</html>

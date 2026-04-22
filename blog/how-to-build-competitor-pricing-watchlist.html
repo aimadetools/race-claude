@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Build a Competitor Pricing Watchlist | PricePulse</title>
+  <meta name="description" content="A step-by-step guide to building a competitor pricing watchlist — who to track, what to watch for, and how to turn pricing intelligence into decisions. With and without tools." />
+  <meta property="og:title" content="How to Build a Competitor Pricing Watchlist" />
+  <meta property="og:description" content="A practical guide to tracking competitor pricing without losing your mind. Who to watch, what matters, and how to act on it." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://getpricepulse.com/blog/how-to-build-competitor-pricing-watchlist.html" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Build a Competitor Pricing Watchlist" />
+  <meta name="twitter:description" content="Step-by-step: who to track, what to watch for, and how to act on competitor pricing changes." />
+  <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="article:published_time" content="2026-04-22" />
+  <meta name="article:author" content="PricePulse" />
+  <link rel="canonical" href="https://getpricepulse.com/blog/how-to-build-competitor-pricing-watchlist.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.5} }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; text-decoration: none; }
+    .nav-links a:hover { color: var(--text); }
+    .btn-nav {
+      background: var(--accent); color: #000 !important;
+      padding: 0.5rem 1rem; border-radius: 6px;
+      font-size: 0.85rem; font-weight: 700;
+    }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* ARTICLE */
+    .article-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .tag {
+      background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.2);
+      color: var(--accent); border-radius: 4px;
+      padding: 2px 8px; font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .lead {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 2.5rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--text);
+    }
+    p { margin-bottom: 1rem; }
+    strong { color: var(--text); font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* STEP CARDS */
+    .step-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    .step-num {
+      font-size: 0.72rem; font-weight: 800;
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 0.5rem;
+    }
+    .step-title {
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 0.75rem; color: var(--text);
+    }
+    .step-body { font-size: 0.9375rem; color: var(--muted); line-height: 1.7; }
+    .step-body p { color: var(--muted); }
+    .step-body strong { color: var(--text); }
+    .step-body ul, .step-body ol { color: var(--muted); }
+
+    /* CALLOUT BOXES */
+    .callout {
+      background: rgba(0,229,160,0.06);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout-label {
+      font-size: 0.72rem; font-weight: 800;
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 0.5rem;
+    }
+    .callout p { color: var(--muted); margin-bottom: 0; font-size: 0.9375rem; }
+
+    /* WARNING BOX */
+    .warning {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .warning-label {
+      font-size: 0.72rem; font-weight: 800;
+      color: #f59e0b; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 0.5rem;
+    }
+    .warning p { color: var(--muted); margin-bottom: 0; font-size: 0.9375rem; }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    th {
+      background: var(--bg3); color: var(--text);
+      padding: 0.75rem 1rem; text-align: left;
+      font-weight: 600; font-size: 0.8rem;
+      border: 1px solid var(--border);
+    }
+    td {
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      vertical-align: top;
+    }
+    td strong { color: var(--text); }
+
+    /* CTA BOX */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,184,122,0.04));
+      border: 1px solid rgba(0,229,160,0.25);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .cta-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-box p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent); color: #0a0a0f;
+      padding: 0.75rem 1.75rem; border-radius: 8px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cta-btn:hover { background: #00ffb3; transform: translateY(-1px); text-decoration: none; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    /* BACK TO TOP */
+    #backToTop {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--text); width: 40px; height: 40px;
+      border-radius: 50%; cursor: pointer;
+      font-size: 1.1rem; display: none;
+      align-items: center; justify-content: center;
+      z-index: 50;
+    }
+    #backToTop.visible { display: flex; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Build a Competitor Pricing Watchlist",
+    "description": "A step-by-step guide to building a competitor pricing watchlist — who to track, what to watch for, and how to turn pricing intelligence into decisions.",
+    "author": { "@type": "Organization", "name": "PricePulse" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PricePulse",
+      "logo": { "@type": "ImageObject", "url": "https://getpricepulse.com/og-image.svg" }
+    },
+    "datePublished": "2026-04-22",
+    "dateModified": "2026-04-22",
+    "url": "https://getpricepulse.com/blog/how-to-build-competitor-pricing-watchlist.html",
+    "image": "https://getpricepulse.com/og-image.svg",
+    "mainEntityOfPage": "https://getpricepulse.com/blog/how-to-build-competitor-pricing-watchlist.html"
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="logo">
+    <span class="logo-dot"></span>
+    PricePulse
+  </a>
+  <div class="nav-links">
+    <a href="../pricing-tracker.html">Tracker</a>
+    <a href="../pricing.html">Pricing</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../signup.html" class="btn-nav">Start free →</a>
+  </div>
+</nav>
+
+<div class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Guide</span>
+    <span>April 22, 2026</span>
+    <span>10 min read</span>
+    <span>Last updated: April 2026</span>
+  </div>
+
+  <h1>How to Build a Competitor Pricing Watchlist (Without Losing Your Mind)</h1>
+
+  <p class="lead">Most founders check competitor pricing by opening browser tabs whenever they remember to. This guide shows you how to build a systematic watchlist — so changes find you, not the other way around.</p>
+
+  <p>Competitor pricing changes happen constantly. A competitor quietly adds a $10/month seat fee. Another moves your most-used feature from their Starter to Pro tier. A third cuts prices by 30% to compete on your turf.</p>
+
+  <p>Most founders miss these changes for days, weeks, or months. By the time they notice, customer calls have already happened. Sales pitches have already been made against outdated positioning. Sometimes a deal has already been lost to a competitor that changed their price the week before.</p>
+
+  <p>The solution isn't checking more tabs more often. It's building a watchlist — a systematic process for monitoring competitor pricing that runs without you.</p>
+
+  <p>Here's how to build one, step by step.</p>
+
+  <h2>What a competitor pricing watchlist actually is</h2>
+
+  <p>A competitor pricing watchlist is three things:</p>
+  <ol>
+    <li><strong>A defined list of competitors to monitor</strong> — not every SaaS tool in your category, but the specific ones whose pricing decisions affect yours</li>
+    <li><strong>A monitoring method</strong> — manual, spreadsheet-based, or automated — that surfaces changes when they happen</li>
+    <li><strong>A response protocol</strong> — what you actually do when a competitor changes their pricing</li>
+  </ol>
+
+  <p>Most founders have a vague version of #1 in their head but no #2 or #3. That's why pricing intelligence rarely turns into action.</p>
+
+  <h2>Step 1: Choose who to watch</h2>
+
+  <div class="step-card">
+    <div class="step-num">Step 01</div>
+    <div class="step-title">Build your competitor list — but be selective</div>
+    <div class="step-body">
+      <p>Start with the competitors that show up in your sales calls. If prospects are mentioning three or four tools by name when they compare alternatives, those go on your watchlist first. These are direct competitors whose pricing changes have immediate impact on your win rate.</p>
+      <p>Then add category-adjacent tools that serve the same buyer. They're not direct alternatives, but when they raise prices, some of their customers start shopping around — including potentially into your category.</p>
+      <p>Finally, add one or two "best-in-class" leaders in your space. Their pricing signals where the market is heading. When they add a new billing dimension or remove a free plan, others usually follow within 12–18 months.</p>
+      <p><strong>Rule of thumb:</strong> 5–15 competitors is the right watchlist size. Fewer than 5, you're missing signal. More than 15, you'll stop acting on the data.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Tip</div>
+    <p>Don't include every tool in your category — include the ones your customers consider when evaluating you. Ask your most recent churned customers and your most recent won deals: "What else were you considering?" That list is your watchlist.</p>
+  </div>
+
+  <h2>Step 2: Identify what to watch on each page</h2>
+
+  <div class="step-card">
+    <div class="step-num">Step 02</div>
+    <div class="step-title">Know what "a pricing change" actually means for each competitor</div>
+    <div class="step-body">
+      <p>Not all changes to a pricing page matter equally. Defining what you care about upfront prevents you from drowning in noise later.</p>
+      <p>For most B2B SaaS, the changes that matter are:</p>
+      <ul>
+        <li><strong>Headline price changes</strong> — plan prices going up or down by any amount</li>
+        <li><strong>Feature tier shifts</strong> — a feature moving from a lower plan to a higher plan (or vice versa)</li>
+        <li><strong>New pricing axes</strong> — adding seats, usage limits, or AI credits as new billing dimensions</li>
+        <li><strong>Free plan modifications</strong> — removing features, adding limits, or eliminating the free tier entirely</li>
+        <li><strong>Plan consolidations or additions</strong> — going from 4 tiers to 2, or adding an Enterprise tier</li>
+        <li><strong>Promotional pricing</strong> — limited-time discounts or special offers that affect close rates</li>
+      </ul>
+      <p>For each competitor on your list, note which of these are most likely to affect your business. A free-plan competitor restricting their free tier is different from an enterprise-focused competitor restructuring their seat pricing — even though both are "pricing changes."</p>
+    </div>
+  </div>
+
+  <h2>Step 3: Choose your monitoring method</h2>
+
+  <p>There are three approaches, each with real tradeoffs:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Setup time</th>
+          <th>Ongoing time</th>
+          <th>Catches changes within</th>
+          <th>Best for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Manual tab-checking</strong></td>
+          <td>0 min</td>
+          <td>1–3 hrs/week</td>
+          <td>Days to weeks</td>
+          <td>1–2 competitors, high-touch market</td>
+        </tr>
+        <tr>
+          <td><strong>Spreadsheet + screenshot habit</strong></td>
+          <td>2–4 hrs</td>
+          <td>30–60 min/week</td>
+          <td>Days to weeks</td>
+          <td>5–10 competitors, structured team</td>
+        </tr>
+        <tr>
+          <td><strong>Automated monitoring tool</strong></td>
+          <td>15–30 min</td>
+          <td>0 (alerts find you)</td>
+          <td>Minutes to hours</td>
+          <td>5–15 competitors, solo founder or small team</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Option A: Manual monitoring</h3>
+
+  <p>Open each competitor's pricing page once a week or once a month. Compare what you see to what you remember. Take notes.</p>
+
+  <p>This works when you have 1–2 direct competitors and are in a slow-moving market. It fails when you have more than 3 competitors, the market moves fast, or you don't have 2 hours a week to spare. It also fails when the change is subtle — a feature limit buried in a footnote, a price rounding that only matters in aggregate.</p>
+
+  <h3>Option B: Spreadsheet + screenshot habit</h3>
+
+  <p>Create a spreadsheet with one row per competitor and columns for each plan (name, price, key features, limits). Take screenshots monthly. Compare to last month.</p>
+
+  <p>This is significantly better than manual checking because it externalizes your memory — you're comparing actual data, not what you thought you remembered. The weak point is frequency: monthly comparison misses pricing changes that your competitors use for short-run promotions or tactical discounts in a specific geographic market.</p>
+
+  <h3>Option C: Automated monitoring</h3>
+
+  <p>Tools like <a href="../index.html">PricePulse</a> continuously fetch your competitors' pricing pages, diff the content against the last snapshot, filter out noise (cookie banners, testimonials, ad rotations), and alert you when something meaningful changes.</p>
+
+  <p>The setup is 10–15 minutes: add URLs, configure alert preferences, done. After that, changes find you — usually within an hour of going live.</p>
+
+  <div class="callout">
+    <div class="callout-label">Real example</div>
+    <p>In Q1 2026, Intercom changed their seat pricing definition. The word "user" was redefined in a footnote that most people skimmed past. An automated monitor caught the page change within 2 hours. A monthly manual review would have taken 4–6 weeks to surface it. By that time, Intercom's sales team had already been pitching against the new pricing for weeks.</p>
+  </div>
+
+  <h2>Step 4: Set up your alerts</h2>
+
+  <div class="step-card">
+    <div class="step-num">Step 04</div>
+    <div class="step-title">Make pricing changes impossible to miss</div>
+    <div class="step-body">
+      <p>Whether you're monitoring manually or automatically, the goal is the same: pricing changes should interrupt your workflow, not wait for your next scheduled review.</p>
+      <p>If you're doing this manually, set a recurring calendar block — not a task, but a block that actually shows up and can't be snoozed. Title it "Competitor pricing check" and treat it like a customer call. Once you reschedule it more than twice in a row, you've effectively stopped doing it.</p>
+      <p>If you're using an automated tool, set up email or Slack alerts so changes reach you in the same channel as other important updates. A pricing change alert buried in an inbox subfolder is almost as bad as no alert at all.</p>
+      <p>For high-priority competitors, consider routing alerts to a shared channel where your sales team and product team both see them. Pricing changes are often relevant to more than just the founder.</p>
+    </div>
+  </div>
+
+  <h2>Step 5: Build a response playbook</h2>
+
+  <p>This is the step most founders skip, and it's the one that determines whether your watchlist actually matters.</p>
+
+  <p>When a competitor changes their pricing, you typically have four options:</p>
+
+  <div class="step-card">
+    <div class="step-num">Response options</div>
+    <div class="step-title">What to do when a competitor makes a move</div>
+    <div class="step-body">
+      <ol>
+        <li><strong>Do nothing.</strong> The change doesn't affect your market, your ICP, or your positioning. This is often the right call — not every competitor change requires a response. But it should be a deliberate choice, not a default.</li>
+        <li><strong>Update your sales materials.</strong> If a competitor raised prices, update your battlecards to reflect the new positioning. If they cut a feature from their free plan, add this to your comparison page. Small updates with high leverage.</li>
+        <li><strong>Adjust your positioning.</strong> If a competitor's change opens a gap — they moved upmarket, cut a feature, or raised prices — consider whether there's a positioning opportunity worth pursuing.</li>
+        <li><strong>Change your own pricing.</strong> If a direct competitor cut prices aggressively, you may need to respond. If they raised prices, you might have room to raise yours too. This is the hardest decision and shouldn't be made reactively without data, but it should at least be considered.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="warning">
+    <div class="warning-label">Common mistake</div>
+    <p>Don't immediately change your pricing in response to a competitor move. Reactive pricing — especially downward — trains customers to wait for deals and signals fragility. The first response to a competitor price cut should almost always be to gather data (talk to recent churned customers, check win rate trends) before changing anything.</p>
+  </div>
+
+  <h2>Step 6: Establish a review cadence</h2>
+
+  <p>Even with automated monitoring, a regular structured review is valuable. The alert tells you <em>that</em> something changed. The review is where you decide <em>what to do about it</em>.</p>
+
+  <p>We recommend:</p>
+  <ul>
+    <li><strong>Weekly:</strong> Scan your alert inbox. Flag anything that requires action beyond note-taking. Update sales battlecards for any significant changes.</li>
+    <li><strong>Monthly:</strong> Review your full competitive pricing landscape against last month. Look for patterns across competitors, not just individual changes. Update your comparison page if needed.</li>
+    <li><strong>Quarterly:</strong> Reassess your watchlist. Add new entrants, remove companies that have become irrelevant. Review whether your own pricing still makes sense given the market landscape you're monitoring.</li>
+  </ul>
+
+  <h2>What a well-run watchlist looks like</h2>
+
+  <p>Here's what this looks like in practice for a solo founder running a B2B SaaS with 4–8 direct competitors:</p>
+
+  <ul>
+    <li>Watchlist of 7 competitor pricing pages, all monitored automatically</li>
+    <li>Email alert to founder + one salesperson when any change is detected</li>
+    <li>30-minute Monday morning calendar block: review any alerts from the past week, update battlecards if needed</li>
+    <li>First-Monday-of-month: pull pricing data into a shared doc, compare to last month, share summary with team</li>
+    <li>Quarterly: present competitive pricing trends at team all-hands, make pricing decisions if warranted</li>
+  </ul>
+
+  <p>Total ongoing time investment: about 2–3 hours per month. In exchange, you know within an hour when any competitor changes their pricing — which means you're never caught flat-footed in a sales call, never positioning against outdated pricing, and never missing a market signal that your competitors are pricing differently because their customers are telling them something you need to know.</p>
+
+  <h2>The five pricing changes most founders miss</h2>
+
+  <p>If you're just getting started, these are the changes that tend to slip past manual monitoring:</p>
+
+  <ol>
+    <li><strong>Feature footnote changes.</strong> Pricing pages often bury limit changes in footnotes or tooltips. "Up to 5 users" becoming "up to 3 users" rarely changes the headline plan price.</li>
+    <li><strong>Annual vs. monthly price divergence.</strong> A competitor raises annual prices without touching monthly, or vice versa. The headline number is unchanged; the economics have shifted.</li>
+    <li><strong>Geographic or segment-specific pricing.</strong> Some competitors charge differently in different geographies or for specific verticals. These rarely appear on public pricing pages.</li>
+    <li><strong>Trial period changes.</strong> Cutting a 14-day trial to 7 days isn't a pricing change by most definitions, but it affects conversion rates — and often signals pricing pressure.</li>
+    <li><strong>Grandfathering clauses expiring.</strong> When a competitor says "existing customers keep their current plan" and then that clause expires, it's effectively a price increase for a subset of customers.</li>
+  </ol>
+
+  <h2>Start watching today</h2>
+
+  <p>You don't need a sophisticated system to start. Pick your three highest-priority competitors. Open their pricing pages. Screenshot them and drop them in a Google Doc. Set a calendar reminder to review next month.</p>
+
+  <p>That's your first watchlist. It won't catch real-time changes, but it's dramatically better than relying on memory.</p>
+
+  <p>When you're ready to automate it — or when you discover that monthly check-ins are too slow for your market — <a href="../pricing-tracker.html">see what real-time monitoring looks like in action</a>, or <a href="../signup.html">start a free PricePulse account</a> and add your first competitor URL in about five minutes.</p>
+
+  <div class="cta-box">
+    <h3>Monitor your competitors automatically</h3>
+    <p>PricePulse fetches your competitors' pricing pages hourly, diffs them, filters noise, and emails you the moment something changes. Free plan: 2 competitors, no credit card required.</p>
+    <a href="../signup.html" class="cta-btn">Start monitoring free →</a>
+  </div>
+
+  <div style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+    <p style="font-size:0.85rem; color:var(--muted);">
+      Related reading: <a href="top-10-saas-pricing-changes-2026.html">The 10 SaaS Pricing Pages That Changed the Most in 2026</a> · <a href="saas-pricing-changes-q1-2026.html">8 SaaS Pricing Changes That Defined Q1 2026</a> · <a href="when-to-raise-saas-prices.html">When Should You Raise Your SaaS Prices?</a>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="../index.html">PricePulse</a> ·
+    <a href="../pricing.html">Pricing</a> ·
+    <a href="../blog.html">Blog</a> ·
+    <a href="../pricing-tracker.html">Tracker</a> ·
+    <a href="../about.html">About</a>
+  </div>
+  <div>© 2026 PricePulse. Monitoring SaaS pricing changes.</div>
+</footer>
+
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backToTop');
+    if (window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+</script>
+</body>
+</html>

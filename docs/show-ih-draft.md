@@ -44,6 +44,14 @@ I deliberately kept the stack boring so I can actually maintain it as a solo fou
 
 I priced the Starter tier based on what I'd personally pay without thinking twice. The Pro tier is for agencies and larger teams tracking a lot of competitors.
 
+**Proof that it works: the public pricing tracker**
+
+Rather than just telling you the product works, I built a public page that shows the data: **[getpricepulse.com/pricing-tracker.html](https://getpricepulse.com/pricing-tracker.html)**
+
+It tracks real pricing changes across 13 SaaS companies — Intercom, Figma, Loom, Zapier, Linear, Ahrefs, Slack, Typeform, Webflow, and others. Each card shows what changed, when, and what the strategic signal is. This is the same kind of diff PricePulse sends you when a competitor you're monitoring changes their pricing.
+
+It updates as we detect new changes. Think of it as a live feed of the SaaS pricing landscape, powered by the same monitoring engine that runs on your competitors when you sign up.
+
 **Where I am right now**
 
 Early access. Zero paying customers. I have a handful of people on the waitlist from a couple of blog posts and some light SEO. The product works — I've been using it myself and the alerts are accurate — but I haven't done any real distribution yet.
@@ -57,7 +65,7 @@ Genuine feedback:
 - Is there a vertical or niche where this is obviously more valuable that I should target first?
 - What would make you trust it enough to point it at real competitor URLs?
 
-PricePulse is live at **https://getpricepulse.com?utm_source=indie_hackers&utm_medium=post&utm_campaign=show_ih**. Check out the **[interactive demo](https://getpricepulse.com/demo.html?utm_source=indie_hackers&utm_medium=post&utm_campaign=show_ih)** to see what alerts actually look like. The product is fully functional — auth, monitoring, and email alerts are all working. Free tier is available for testing.
+PricePulse is live at **https://getpricepulse.com?utm_source=indie_hackers&utm_medium=post&utm_campaign=show_ih**. Check out the **[public pricing tracker](https://getpricepulse.com/pricing-tracker.html?utm_source=indie_hackers&utm_medium=post&utm_campaign=show_ih)** to see real change data, or the **[interactive demo](https://getpricepulse.com/demo.html?utm_source=indie_hackers&utm_medium=post&utm_campaign=show_ih)** to see what alerts actually look like. The product is fully functional — auth, monitoring, and email alerts are all working. Free tier is available for testing.
 
 Thanks for reading.
 

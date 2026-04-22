@@ -524,6 +524,10 @@
         <p>We sent a confirmation link to</p>
         <span class="success-email" id="confirmedEmail"></span>
         <p style="margin-top:1rem">Click the link in the email to activate your account and start monitoring competitors.</p>
+        <div style="display:flex;gap:0.75rem;margin-top:1.25rem;flex-wrap:wrap;justify-content:center;">
+          <a href="https://mail.google.com" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:0.85rem;padding:0.5rem 1rem;">Open Gmail →</a>
+          <a href="https://outlook.live.com" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:0.85rem;padding:0.5rem 1rem;">Open Outlook →</a>
+        </div>
         <p style="margin-top:0.75rem;font-size:0.8rem">Can't find it? Check your spam folder or <a href="#" onclick="resendEmail(event)">resend the email</a>.</p>
       </div>
 
@@ -588,6 +592,7 @@
     <a href="about.html">About</a>
     <a href="pricing.html">Pricing</a>
     <a href="blog.html">Blog</a>
+    <a href="pricing-tracker.html">Tracker</a>
     <a href="mailto:hello@getpricepulse.com">Contact</a>
   </div>
   <div class="footer-copy">© 2026 PricePulse. Built in public.</div>
@@ -692,7 +697,14 @@
     localStorage.setItem('analytics_events', JSON.stringify(events));
   }
 
-  document.addEventListener('DOMContentLoaded', captureUTM);
+  document.addEventListener('DOMContentLoaded', () => {
+    captureUTM();
+    // Pre-fill email from URL param (e.g. from pricing-tracker CTA: signup.html?email=user@co.com)
+    const emailParam = new URLSearchParams(window.location.search).get('email');
+    if (emailParam) {
+      document.getElementById('email').value = decodeURIComponent(emailParam);
+    }
+  });
 </script>
 </body>
 </html>

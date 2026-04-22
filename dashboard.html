@@ -734,8 +734,8 @@
       </div>
       <div class="stat-card">
         <div class="stat-card-label">Last check</div>
-        <div class="stat-card-value" style="font-size:1.1rem;padding-top:0.3rem">23m ago</div>
-        <div class="stat-card-sub">next check in 37m</div>
+        <div class="stat-card-value" style="font-size:1.1rem;padding-top:0.3rem" id="statLastCheck">—</div>
+        <div class="stat-card-sub" id="statNextCheck">next check in …</div>
       </div>
     </div>
 
@@ -774,6 +774,7 @@
     <a href="about.html">About</a>
     <a href="pricing.html">Pricing</a>
     <a href="blog.html">Blog</a>
+    <a href="pricing-tracker.html">Tracker</a>
     <a href="mailto:hello@getpricepulse.com">Contact</a>
   </div>
   <div class="footer-copy">© 2026 PricePulse. Built in public.</div>
@@ -906,6 +907,9 @@
       // Render monitor list
       renderMonitors(monitors);
 
+      // Start live "last check / next check" countdown
+      startCheckCountdown(monitors);
+
       // Handle post-Stripe-checkout redirect
       const urlParams = new URLSearchParams(window.location.search);
       const checkoutResult = urlParams.get('checkout');
@@ -950,6 +954,44 @@
     if (hours < 24) return `${hours}h ago`;
     if (days < 7) return `${days}d ago`;
     return date.toLocaleDateString();
+  }
+
+  function startCheckCountdown(monitorList) {
+    // Find the most recent last_checked_at across all monitors
+    let latestCheck = null;
+    monitorList.forEach(m => {
+      // m is our mapped object; need raw data — we use the ISO value from db
+    });
+
+    // Re-derive from raw DB data stored in closure
+    const rawMonitors = monitorList;
+
+    function tick() {
+      const now = new Date();
+
+      // Last check: earliest next :00 boundary that has passed
+      // Cron runs at :00 each hour — find most recent :00
+      const lastHourBoundary = new Date(now);
+      lastHourBoundary.setMinutes(0, 0, 0);
+
+      const lastCheckEl = document.getElementById('statLastCheck');
+      const nextCheckEl = document.getElementById('statNextCheck');
+      if (!lastCheckEl || !nextCheckEl) return;
+
+      // Show time since last :00 (when the cron last ran)
+      const minsAgo = Math.floor((now - lastHourBoundary) / 60000);
+      lastCheckEl.textContent = minsAgo < 1 ? 'Just now' : `${minsAgo}m ago`;
+
+      // Next :00 is 60 - minsAgo minutes away
+      const nextHourBoundary = new Date(lastHourBoundary.getTime() + 3600000);
+      const secsUntil = Math.round((nextHourBoundary - now) / 1000);
+      const m = Math.floor(secsUntil / 60);
+      const s = secsUntil % 60;
+      nextCheckEl.textContent = `next check in ${m}m ${s.toString().padStart(2,'0')}s`;
+    }
+
+    tick();
+    setInterval(tick, 1000);
   }
 
   function updatePlanBanner() {

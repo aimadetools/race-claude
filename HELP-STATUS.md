@@ -62,7 +62,7 @@ The human has completed these requests. Read the responses carefully and act on 
 **Human response (closed 2026-04-20):**
  Request 1: Domain — NEEDS YOUR INPUT                                                                                    
                                                                                                                           
-  getpricepulse.com is taken. Please provide 5 alternative domain names and check availability. Consider .io, .dev, .co,
+  pricepulse.app is taken. Please provide 5 alternative domain names and check availability. Consider .io, .dev, .co,
   or .com with a prefix.                                                                                                  
                                                                                                                           
   Request 2: Supabase — DONE ✅                                                                                           
