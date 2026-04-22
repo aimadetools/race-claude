@@ -77,6 +77,7 @@ export default async function handler(req, res) {
       .select('user_id')
       .gte('created_at', windowStart)
       .lte('created_at', windowEnd)
+      .eq('nurture_unsubscribed', false)
       .limit(BATCH_LIMIT);
 
     for (const sub of candidates || []) {
@@ -86,7 +87,7 @@ export default async function handler(req, res) {
       if (!email) continue;
 
       const firstName = nameFromEmail(email);
-      const sent = await sendEmail(email, 'Welcome to PricePulse — set up your first monitor', buildWelcomeHtml(firstName));
+      const sent = await sendEmail(email, 'Welcome to PricePulse — set up your first monitor', buildWelcomeHtml(firstName, sub.user_id));
       if (sent) {
         await logEmail(supabase, sub.user_id, 'welcome', sent);
         results.welcome++;
@@ -129,10 +130,18 @@ export default async function handler(req, res) {
 
       const firstName = nameFromEmail(email);
       const competitorName = monitor.name;
+      // Check if user is unsubscribed
+      const { data: sub } = await supabase
+        .from('subscriptions')
+        .select('nurture_unsubscribed')
+        .eq('user_id', monitor.user_id)
+        .single();
+      if (sub?.nurture_unsubscribed) { processed.add(monitor.user_id); continue; }
+
       const sent = await sendEmail(
         email,
         `Your monitor is live — tracking ${competitorName}`,
-        buildFirstMonitorHtml(firstName, competitorName)
+        buildFirstMonitorHtml(firstName, competitorName, monitor.user_id)
       );
       if (sent) {
         await logEmail(supabase, monitor.user_id, 'first_monitor_added', sent);
@@ -157,6 +166,7 @@ export default async function handler(req, res) {
       .select('user_id')
       .gte('created_at', windowStart)
       .lte('created_at', windowEnd)
+      .eq('nurture_unsubscribed', false)
       .limit(BATCH_LIMIT);
 
     for (const sub of candidates || []) {
@@ -176,7 +186,7 @@ export default async function handler(req, res) {
       if (!email) continue;
 
       const firstName = nameFromEmail(email);
-      const sent = await sendEmail(email, 'You haven\'t added any monitors yet', buildActivationNudgeHtml(firstName));
+      const sent = await sendEmail(email, 'You haven\'t added any monitors yet', buildActivationNudgeHtml(firstName, sub.user_id));
       if (sent) {
         await logEmail(supabase, sub.user_id, 'activation_nudge', sent);
         results.activation_nudge++;
@@ -194,6 +204,7 @@ export default async function handler(req, res) {
       .select('user_id')
       .eq('plan', 'free')
       .eq('status', 'active')
+      .eq('nurture_unsubscribed', false)
       .limit(100); // Process more candidates, filter by monitor count
 
     const candidates = [];
@@ -214,7 +225,7 @@ export default async function handler(req, res) {
       if (!email) continue;
 
       const firstName = nameFromEmail(email);
-      const sent = await sendEmail(email, 'Ready to monitor more competitors?', buildUpgradePromptHtml(firstName));
+      const sent = await sendEmail(email, 'Ready to monitor more competitors?', buildUpgradePromptHtml(firstName, userId));
       if (sent) {
         await logEmail(supabase, userId, 'upgrade_prompt', sent);
         results.upgrade_prompt++;
@@ -234,6 +245,7 @@ export default async function handler(req, res) {
       .from('subscriptions')
       .select('user_id')
       .lte('created_at', cutoff)
+      .eq('nurture_unsubscribed', false)
       .limit(100);
 
     const candidates = [];
@@ -251,7 +263,7 @@ export default async function handler(req, res) {
     for (const { userId, email } of candidates) {
       if (!email) continue;
       const firstName = nameFromEmail(email);
-      const sent = await sendEmail(email, 'Your competitors may have changed their pricing', buildReengagementHtml(firstName));
+      const sent = await sendEmail(email, 'Your competitors may have changed their pricing', buildReengagementHtml(firstName, userId));
       if (sent) {
         await logEmail(supabase, userId, 'reengagement', sent);
         results.reengagement++;
@@ -267,6 +279,18 @@ export default async function handler(req, res) {
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+function generateUnsubscribeLink(userId) {
+  // Create an unsubscribe token: userId:timestamp:hmac(userId:timestamp)
+  const { createHmac } = require('crypto');
+  const timestamp = Math.floor(Date.now() / 1000);
+  const secret = process.env.CRON_SECRET || 'default-secret';
+  const signature = createHmac('sha256', secret)
+    .update(`${userId}:${timestamp}`)
+    .digest('hex');
+  const token = `${userId}:${timestamp}:${signature}`;
+  return `${APP_URL}/api/unsubscribe?token=${token}`;
+}
 
 async function alreadySent(supabase, userId, emailType) {
   const { data } = await supabase
@@ -318,7 +342,8 @@ function nameFromEmail(email) {
 
 // ── Email HTML builders ───────────────────────────────────────────────────────
 
-function buildWelcomeHtml(firstName) {
+function buildWelcomeHtml(firstName, userId) {
+  const unsubscribeLink = generateUnsubscribeLink(userId);
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -369,7 +394,8 @@ function buildWelcomeHtml(firstName) {
 <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb">
   <p style="margin:0;font-size:12px;color:#9ca3af;line-height:1.6">
     You're receiving this because you signed up for PricePulse.<br>
-    Questions? Reply to this email — we read every one.
+    Questions? Reply to this email — we read every one.<br>
+    <a href="${unsubscribeLink}" style="color:#9ca3af;text-decoration:underline">Unsubscribe from nurture emails</a>
   </p>
 </td></tr>
 
@@ -380,7 +406,7 @@ function buildWelcomeHtml(firstName) {
 </html>`;
 }
 
-function buildFirstMonitorHtml(firstName, competitorName) {
+function buildFirstMonitorHtml(firstName, competitorName, userId) {
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -444,7 +470,7 @@ function buildFirstMonitorHtml(firstName, competitorName) {
 </html>`;
 }
 
-function buildActivationNudgeHtml(firstName) {
+function buildActivationNudgeHtml(firstName, userId) {
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -502,7 +528,7 @@ function buildActivationNudgeHtml(firstName) {
 </html>`;
 }
 
-function buildUpgradePromptHtml(firstName) {
+function buildUpgradePromptHtml(firstName, userId) {
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -565,7 +591,7 @@ function buildUpgradePromptHtml(firstName) {
 </html>`;
 }
 
-function buildReengagementHtml(firstName) {
+function buildReengagementHtml(firstName, userId) {
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>

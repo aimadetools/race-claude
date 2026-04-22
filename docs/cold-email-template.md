@@ -16,7 +16,7 @@ Most founders don't — they find out by accident. Or worse, from a customer chu
 
 I built a tool that monitors competitor pricing pages 24/7 and alerts you the moment anything changes. Price increases, plan restructures, feature moves — you see it first.
 
-It's called PricePulse.
+It's called PricePulse. We're currently tracking 13+ major SaaS companies — check out the live tracker here: https://getpricepulse.com/pricing-tracker.html
 
 Free tier covers 2 competitors (daily checks). $19/mo for 10 competitors with hourly monitoring.
 
@@ -43,6 +43,8 @@ That's what inspired PricePulse.
 
 It monitors competitor pricing pages and alerts you via email the moment anything changes. No noise. Just signal. Price changed? You know. Plan structure changed? You know.
 
+Want to see what we're tracking? Check the public tracker: https://getpricepulse.com/pricing-tracker.html (13+ companies, real pricing changes in 2026)
+
 Most founders using it are tracking 3-5 competitors.
 
 Free to try: https://getpricepulse.com?utm_source=cold_email&utm_medium=email&utm_campaign=founder_outreach_v2
@@ -66,7 +68,7 @@ So I built PricePulse.
 
 It's simple: you add URLs, we check them hourly, we alert you via email when prices/features change. That's it.
 
-Currently used by [X] founders tracking [Y] competitors total.
+We're already tracking major companies — Notion, Linear, Figma, Slack, and more. Public tracker here: https://getpricepulse.com/pricing-tracker.html
 
 Free tier: 2 competitors, daily checks.
 Starter: $19/mo, 10 competitors, hourly checks.
@@ -96,7 +98,7 @@ Most founders don't notice until a customer brings it up in a call.
 
 I built PricePulse to solve that. Monitors pricing pages, filters out noise, sends email alerts when it matters.
 
-Currently tracking a lot of [Competitor] changes since they seem to test pricing pretty aggressively.
+Currently tracking Notion, Linear, Figma, Airtable, and other major players. Check what we're catching: https://getpricepulse.com/pricing-tracker.html
 
 Free tier on the site: https://getpricepulse.com
 

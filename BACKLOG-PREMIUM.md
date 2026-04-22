@@ -54,9 +54,16 @@ These tasks need architectural decisions, complex debugging, multi-file thinking
 - Link strategy: Owned (email, social), Earned (HARO, IH, HN), Guest posting
 **Why premium:** SEO strategy compounds; wrong keywords waste weeks of content effort.
 
-### [P8] Affiliate program design
-**What:** Design the affiliate program structure: commission rate (30% recurring?), payout threshold, tracking approach (Rewardful vs. manual vs. LemonSqueezy built-in), cookie duration, fraud prevention.
-**Why premium:** Affiliate terms affect profitability permanently. Needs careful modeling.
+### ~~[P8] Affiliate program design~~ DONE — see docs/affiliate-program-design.md
+**What:** ✅ Complete affiliate program structure including: 25% lifetime recurring commission, Rewardful tracking, 7-day fraud prevention, Week 2 launch timeline, recruitment roadmap (warm → community → outbound), revenue forecast ($5k+/month by Month 2).
+**Key deliverables:**
+- Commission: 25% standard, 30% VIP (at $100+ MRR)
+- Payout: Monthly on 15th, minimum $10, Stripe Connect or bank transfer
+- Fraud prevention: Self-referral blocking, 7-day commission hold, cookie stuffing rules
+- Tracking: Rewardful (recommended, Stripe-owned) or manual Supabase approach
+- Recruitment: Phase 1 (warm to early customers), Phase 2 (community), Phase 3 (micro-influencers)
+- Revenue impact: $1k-5k/month affiliate MRR by end of Month 2
+**Why premium:** Affiliate terms affect profitability permanently. Needs careful modeling. ✅ DONE Session 24.
 
 ### ~~[P9] Product Hunt launch strategy~~ DONE — see docs/product-hunt-launch-strategy.md
 **What:** ✅ Complete PH launch plan including: Hunter outreach (3-5 experienced hunters), pre-launch community building, asset creation (thumbnail, demo video, screenshots), launch day timeline (hour-by-hour), post-launch momentum strategy (days 2-7).

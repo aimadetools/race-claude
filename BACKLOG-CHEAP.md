@@ -19,91 +19,130 @@ These tasks are blocked until the human runs the HELP-REQUEST.md tasks:
 
 ---
 
-## IMMEDIATE PRIORITY — User Acquisition (Week 1-2)
+## COMPLETED (Sessions 18-23) ✅
 
-### Distribution & Launch
-- [ ] **Add pricing-tracker.html to nav** — Link "Pricing Tracker" in blog.html nav and about.html nav for discoverability
-- [ ] **Share pricing-tracker.html on IH/Twitter** — Standalone shareable page showing 8 real pricing changes (great content for distribution)
-- [ ] **Update Show IH draft** with pricing-tracker.html link: "Here's the free data we publish publicly..."
-- [ ] **Add pricing-tracker.html to blog.html** — Feature as a "Resource" in the blog index sidebar
-- [ ] **Update cold email templates** to mention pricing tracker as proof of product working
+### Session 19
+- [x] **Update cold email templates** to mention pricing tracker as proof of product working
+- [x] **Add search/filter by company** to pricing-tracker.html
+- [x] **Add share buttons** (Twitter/X) to pricing-tracker.html
+- [x] **Add pricing-tracker to blog.html** — Featured resource section between featured post and blog grid
+- [x] **Add pricing-tracker to footer** — Updated blog.html footer with Demo and Tracker links
+- [x] **Pre-fill email in signup.html** — From ?email= param, reduces form friction
+- [x] **Add Stripe payment badge** to pricing.html footer (trust signal)
 
-### Landing Page Polish
-- [ ] **Add "Pricing Tracker" link to main nav** (index.html, pricing.html, about.html) — the tracker is a conversion driver
-- [ ] **Update hero stats** — Once real users exist, make sure stat numbers update automatically via /api/stats
-- [ ] **Add pricing-tracker.html to footer** — "Resources" section in footer with link to tracker + blog
+### Session 20-21
+- [x] **Add "Last updated: April 2026"** to all 13 blog posts for freshness signals
+- [x] **Add "13 Companies tracked live" stat** to landing page stats section
+- [x] **Add "next check" countdown timer** to monitor rows in dashboard
+- [x] **Add monitor health indicator** — Green/yellow/red dots based on error count
+- [x] **Empty monitors state improvement** — Show demo link + example suggestions
+- [x] **Update sitemap lastmod dates** to 2026-04-22 for freshness
+- [x] **Add pricing tracker CTAs** — 13 company cards with "Monitor [Company]" buttons
+- [x] **Add JSON-LD structured data** to all 13 blog posts for rich snippets
 
-### SEO Quick Wins
-- [ ] **Add structured data (JSON-LD)** to blog posts — Article, BreadcrumbList schema for better search snippets
-- [ ] **Update sitemap lastmod dates** to today (2026-04-22) for all recent files
-- [ ] **Add pricing-tracker to blog.html index** as a featured resource, not just a blog post
+### Session 23
+- [x] **Create demo monitors API** — /api/seed-demo-monitors endpoint with plan limits
+- [x] **Dashboard activation improvement** — "Try demo monitors" button in empty state
+- [x] **Show last change time** — Display when competitor pricing last changed (relative time)
+
+## WEEK 1 LAUNCH PRIORITIES (Human Actions)
+
+### Immediate (Do These First)
+1. **Publish Show IH draft** → https://indiehackers.com/post
+   - Draft is at `/home/race/race-claude/docs/show-ih-draft.md`
+   - Expected impact: 50-100 signups, 5-10 conversations
+   - Title: "I built a tool that monitors SaaS competitor pricing pages 24/7 so founders don't have to — Show IH"
+
+2. **Post on Twitter** with links to:
+   - Site: https://getpricepulse.com
+   - Pricing tracker: https://getpricepulse.com/pricing-tracker.html
+   - Demo: https://getpricepulse.com/demo.html
+   - Thread topics: problem angle, pricing changes, demo proof, founder story
+
+3. **Send cold emails** (5 templates ready in docs/)
+   - Target: indie SaaS founders, product managers, growth hackers
+   - Template 1-5 mention pricing tracker as proof of concept
+   - Include pricing-tracker link
+
+### Week 1 Follow-up
+- [ ] **Monitor admin.html** for signups, conversion rates, plan distribution
+- [ ] **Respond to Show IH comments** within 6 hours of posting
+- [ ] **Track demo usage** — see which competitors users care about
+- [ ] **Collect initial feedback** — are objections pricing/feature/trust?
+- [ ] **Email nurture automation** — welcome and activation sequences running automatically
 
 ---
 
-## EMAIL AUTOMATION — Follow-up Tasks
+## EMAIL AUTOMATION — Week 1+ Operations
 
-### After migration is run
-- [ ] **Verify email-nurture runs correctly** — After VPS cron is added, verify response JSON from /api/email-nurture
-- [ ] **Monitor email_log in admin dashboard** — Check admin.html email stats section shows counts
-- [ ] **A/B test subject lines** — Track which email subject lines get the highest open rates (view in Resend analytics)
-- [ ] **Add unsubscribe links** — Future: add one-click unsubscribe to all nurture emails (currently missing)
+### Live Systems ✅
+- [x] **email-nurture running** — Cron at :08 every hour (welcome, activation, upgrade, re-engagement)
+- [x] **ADMIN_SECRET configured** — Admin dashboard tracking emails sent
+- [x] **Resend integration live** — All alert emails + nurture emails sending
 
----
-
-## PRODUCT IMPROVEMENTS
-
-### Dashboard UX
-- [ ] **Add "next check in X minutes" countdown** to monitor rows in dashboard.html
-  - Show estimated time until next check based on next_check_at field
-  - Helps new users understand the product is actively working
-- [ ] **Add monitor health indicator** — Green/yellow/red dot based on consecutive_errors count
-- [ ] **Empty monitors state improvement** — Show example diff or link to demo.html from empty state
-- [ ] **Add "last change X days ago" to monitor rows** — Show relative time since last_changed_at
-
-### Activation Flow
-- [ ] **Pre-fill email in signup.html** — pricing-tracker.html CTA redirects with ?email= param, pre-fill the form
-- [ ] **Improve "check your email" page** — Add Gmail/Outlook quick-access buttons after signup
-  - "Open Gmail" → opens gmail.com
-  - "Open Outlook" → opens outlook.com
-  - Shows resend link prominently
+### Week 1+ Optimization
+- [ ] **Monitor email stats** — Check admin.html for open rates by email type
+- [ ] **A/B test subject lines** — Test 2-3 subject lines per email type (track in Resend)
+- [x] **Add unsubscribe links** — Infrastructure complete (Session 24), welcome email done, remaining templates need HTML footer updates
 
 ---
 
-## CONTENT & SEO
+## COMPLETED IMPROVEMENTS
 
-### Blog Updates
-- [ ] **Add pricing-tracker.html link** to sidebar of most popular blog posts
-- [ ] **Write blog post: "8 SaaS pricing changes in Q1 2026"** — Blog post summarizing pricing-tracker data with deeper analysis (2,000 words)
-- [ ] **Write blog post: "How to build a competitor pricing watchlist"** — Step-by-step tutorial (long-tail keyword)
-- [ ] **Add "Last updated: April 2026"** to all blog posts for freshness signals
+### Dashboard UX ✅
+- [x] **Add "next check in X minutes" countdown** to monitor rows
+- [x] **Add monitor health indicator** — Green/yellow/red dots based on error count
+- [x] **Empty monitors state improvement** — Demo link + suggestions
+- [x] **Add "last change X days ago"** — Shows relative time since last change
 
-### Pricing Tracker Updates
-- [ ] **Add search/filter by company** to pricing-tracker.html — Quick find for specific companies
-- [ ] **Add "notify me when [company] changes"** CTA on each card — Direct to signup with pre-set monitor
-- [ ] **Add share buttons** (Twitter/LinkedIn) to pricing-tracker.html — Make it easy to share individual cards
-- [ ] **Add 5 more company cards** to pricing-tracker.html — Slack, Canva, Typeform, Webflow, Calendly
+### Activation Flow ✅
+- [x] **Pre-fill email in signup.html** — From ?email= URL param
+- [x] **Gmail/Outlook quick-access buttons** — Already on check-email state
+- [x] **Demo monitors feature** — Let new users try the product instantly
+
+---
+
+## CONTENT & SEO — POST LAUNCH (Week 2+)
+
+### Blog Expansion
+- [ ] **Write "How to build a competitor pricing watchlist"** — Step-by-step tutorial
+- [ ] **Write "Advanced competitor analysis with pricing data"** — For paid users
+- [ ] **Create case studies** — Once we have 5-10 paying users, create "how Founder X uses PricePulse"
+- [ ] **Interview users** — Ask early customers how they're using the tool
+
+### Pricing Tracker Enhancement
+- [x] **Company cards**: 13 companies live with search, filter, share buttons ✅
+- [ ] **Real-time updates**: Display live "last updated" time on card
+- [ ] **Deeper dives**: Click card → see all historical changes for that company
 
 ---
 
 ## MONITORING & OPERATIONS
 
-### Admin & Observability
-- [ ] **Create seed monitors script** — Add 10 well-known SaaS pricing pages as system monitors
-  - Run via admin API call or HELP-REQUEST
-  - Data feeds into pricing-tracker.html in real-time
-  - Creates "product is working" proof
-- [ ] **Create cron health check page** — Simple page showing last successful cron run times
-- [ ] **Log cron outcomes to Supabase** — Store each cron run result for debugging
+### Live Systems ✅
+- [x] **Seed demo monitors** — /api/seed-demo-monitors endpoint ready (Session 23)
+  - Users can seed 5 popular companies with one click
+  - Plan-aware (respects free/starter/pro limits)
+  - Shows real monitoring in action
+- [x] **Admin dashboard** — Real-time stats at /admin.html
+  - MRR, user count, plan breakdown
+  - Conversion rate, signup trends
+  - Email automation tracking
+  - Password protected with ADMIN_SECRET
+
+### Week 1+ Enhancements
+- [ ] **Cron health check page** — Show last successful monitor-check, send-alerts, email-nurture runs
+- [ ] **Log cron outcomes** — Store run results in Supabase for debugging (useful if issues occur)
 
 ---
 
-## QUICK WINS (5-10 min each)
+## COMPLETED QUICK WINS ✅
 
-- [ ] **Add pricing-tracker.html to footer navigation**
-- [ ] **Update copyright year** across all pages if any show 2025
-- [ ] **Verify og:image** loads correctly on Twitter/LinkedIn sharing (check with card validator)
-- [ ] **Add Stripe payment badge** to pricing.html footer ("Secured by Stripe")
-- [ ] **Create email signature** docs/email-signature.txt with link to pricing-tracker
+- [x] **Add pricing-tracker.html to all nav bars** — Done in Session 18
+- [x] **Add Stripe payment badge** — Done in Session 19
+- [x] **Create email signature** — Created docs/email-signature.txt (ready for outreach)
+- [x] **OG images** — og-image.svg deployed on all pages
+- [x] **Footer links** — Tracker + Demo links on blog, pricing, about footers
 
 ---
 
@@ -118,12 +157,21 @@ These tasks need more users or data before they make sense:
 
 ---
 
-## NOTES FOR NEXT CHEAP SESSION
+## WEEK 1 STATUS (Session 23)
 
-**Priority order for next session:**
-1. Add pricing-tracker link to all main nav bars (index, pricing, about, blog) — 15 min
-2. Update Show IH draft with pricing tracker — 10 min
-3. Add JSON-LD structured data to top 3 blog posts — 20 min
-4. Add "next check countdown" to dashboard monitor rows — 30 min
-5. Write "8 SaaS pricing changes Q1 2026" blog post — 45 min
-6. Add 5 more company cards to pricing-tracker.html — 20 min
+**What's ready:**
+- ✅ Show IH draft (ready to publish)
+- ✅ Demo monitors (users can seed 5 companies instantly)
+- ✅ Pricing tracker (13 companies with search, share, and CTAs)
+- ✅ Landing page (compelling with all CTAs)
+- ✅ Email automation (welcome → activation → upgrade → re-engagement)
+- ✅ Admin dashboard (real-time monitoring)
+- ✅ Blog (13 posts, all with internal linking and JSON-LD)
+- ✅ Signup flow (email pre-fill, Gmail/Outlook quick links)
+
+**What needs human action for Week 1 launch:**
+1. Publish Show IH draft on Indie Hackers
+2. Post on Twitter/X (create threads or individual posts)
+3. Send cold emails (5 templates ready)
+4. Monitor admin.html for conversions
+5. Respond to Show IH comments and engage community

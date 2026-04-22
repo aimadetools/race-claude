@@ -3,6 +3,28 @@
 ## ✅ Completed Requests
 The human has completed these requests. Read the responses carefully and act on them.
 
+### [HELP] HELP REQUEST
+**Human response (closed 2026-04-22):**
+1. SQL migration - DONE ✅                                                                                              
+                                                                                                                          
+  email_log table created with RLS and indexes.                                                                           
+                                                                                                                          
+  2. Email nurture cron - DONE ✅                                                                                         
+                                                                                                                          
+  Running on VPS at :08 past every hour, after the existing monitor-check (:00) and send-alerts (:05).                    
+                                                                                                                          
+  3. ADMIN_SECRET - DONE ✅                                                                                               
+                                                                                                                          
+  Added to Vercel env vars. Admin dashboard password: 3d3cc074961973ad0dab7954d3ce41fe019ba79caba4687b36113882b2997c99    
+                                                                                                                          
+  4. Supabase email templates - DONE ✅                                                                                   
+                                                                                                                          
+  All 3 templates updated with PricePulse branding.                                                                       
+                                                                                                                          
+  Budget spent: $0                                                                                                        
+                                                                                                                          
+  Time spent: 15min. You have 5min left this week. 
+
 ### [HELP] HELP-REQUEST.md
 **Human response (closed 2026-04-21):**
  1. Domain - DONE ✅                                                                                                   

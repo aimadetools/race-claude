@@ -277,6 +277,29 @@
     .badge-decrease { background: rgba(34,197,94,0.15); color: #4ade80; }
     .badge-restructure { background: rgba(245,158,11,0.15); color: #fbbf24; }
     .badge-restriction { background: rgba(168,85,247,0.15); color: #c084fc; }
+
+    /* SHARE BUTTONS */
+    .share-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .share-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      transition: all 0.15s;
+      font-family: var(--font);
+    }
+
+    .share-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
     .badge-new-tier { background: rgba(59,130,246,0.15); color: #60a5fa; }
 
     .change-date {
@@ -305,6 +328,29 @@
     .detail-item span { color: var(--text); font-weight: 600; }
     .detail-before { color: #f87171; }
     .detail-after { color: #4ade80; }
+
+    .notify-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: #0a0a0f;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font);
+    }
+
+    .notify-btn:hover {
+      background: #00ffb3;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 229, 160, 0.3);
+      text-decoration: none;
+    }
 
     /* CTA SECTION */
     .cta-section {
@@ -438,13 +484,24 @@
 
 <div class="container">
 
-  <!-- FILTERS -->
-  <div class="filters">
-    <span style="font-size:0.875rem;color:var(--muted);margin-right:0.25rem">Filter:</span>
-    <button class="filter-btn active" onclick="filterCards('all', this)">All changes</button>
-    <button class="filter-btn" onclick="filterCards('price-increase', this)">Price increases</button>
-    <button class="filter-btn" onclick="filterCards('plan-change', this)">Plan changes</button>
-    <button class="filter-btn" onclick="filterCards('free-restriction', this)">Free tier changes</button>
+  <!-- SEARCH & FILTERS -->
+  <div style="margin-bottom: 1.5rem">
+    <div style="margin-bottom: 1rem">
+      <input
+        type="text"
+        id="companySearch"
+        placeholder="Search by company (e.g., Notion, Linear, Slack)..."
+        oninput="searchCompanies(this.value)"
+        style="width:100%;padding:0.625rem 0.875rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--font);font-size:0.9375rem"
+      />
+    </div>
+    <div class="filters">
+      <span style="font-size:0.875rem;color:var(--muted);margin-right:0.25rem">Filter:</span>
+      <button class="filter-btn active" onclick="filterCards('all', this)">All changes</button>
+      <button class="filter-btn" onclick="filterCards('price-increase', this)">Price increases</button>
+      <button class="filter-btn" onclick="filterCards('plan-change', this)">Plan changes</button>
+      <button class="filter-btn" onclick="filterCards('free-restriction', this)">Free tier changes</button>
+    </div>
   </div>
 
   <!-- CHANGES LIST -->
@@ -473,6 +530,7 @@
         <div class="detail-item">Plus plan: <span class="detail-before">$8/mo</span> → <span class="detail-after">$10/mo</span></div>
         <div class="detail-item">Team plan: <span class="detail-before">$15/mo</span> → <span class="detail-after">$18/mo</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Notion pricing</a>
     </div>
 
     <!-- Linear -->
@@ -499,6 +557,7 @@
         <div class="detail-item">New tier: <span>Scale ($16/member/mo)</span></div>
         <div class="detail-item">Free limit: <span class="detail-before">250 members</span> → <span class="detail-after">10 members</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Linear pricing</a>
     </div>
 
     <!-- Intercom -->
@@ -524,6 +583,7 @@
         <div class="detail-item">Essential: <span class="detail-before">$39/seat</span> → <span class="detail-after">$47/seat</span></div>
         <div class="detail-item">Advanced: <span class="detail-before">$99/seat</span> → <span class="detail-after">$119/seat</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Intercom pricing</a>
     </div>
 
     <!-- Airtable -->
@@ -550,6 +610,7 @@
         <div class="detail-item">Records: <span class="detail-before">1,200</span> → <span class="detail-after">1,000</span></div>
         <div class="detail-item">Attachments: <span class="detail-before">5 fields</span> → <span class="detail-after">removed</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Airtable pricing</a>
     </div>
 
     <!-- Zapier -->
@@ -576,6 +637,7 @@
         <div class="detail-item">Starter: <span class="detail-before">$19.99/mo</span> → <span class="detail-after">$24.99/mo</span></div>
         <div class="detail-item">Free Zaps: <span class="detail-before">5</span> → <span class="detail-after">3</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Zapier pricing</a>
     </div>
 
     <!-- HubSpot -->
@@ -602,6 +664,7 @@
         <div class="detail-item">New bundle: <span>$15/seat/mo (replaces hub discounts)</span></div>
         <div class="detail-item">Sales Hub Starter: <span class="detail-before">$20/seat</span> → <span class="detail-after">bundled</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor HubSpot pricing</a>
     </div>
 
     <!-- Loom -->
@@ -628,6 +691,7 @@
         <div class="detail-item">Free videos: <span class="detail-before">25</span> → <span class="detail-after">5</span></div>
         <div class="detail-item">Transcripts: <span class="detail-before">Free</span> → <span class="detail-after">Business+ only</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Loom pricing</a>
     </div>
 
     <!-- Figma -->
@@ -654,6 +718,7 @@
         <div class="detail-item">Dev Mode: <span class="detail-before">+$25/editor/mo</span> → <span class="detail-after">included in Professional</span></div>
         <div class="detail-item">Starter files: <span class="detail-before">Unlimited</span> → <span class="detail-after">3 files</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Figma pricing</a>
     </div>
 
     <!-- Ahrefs -->
@@ -679,6 +744,7 @@
         <div class="detail-item">Lite/Starter: <span class="detail-before">$83/mo</span> → <span class="detail-after">$99/mo</span></div>
         <div class="detail-item">Standard/Pro: <span class="detail-before">$179/mo</span> → <span class="detail-after">$199/mo</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Ahrefs pricing</a>
     </div>
 
     <!-- Slack -->
@@ -704,6 +770,7 @@
         <div class="detail-item">Pro: <span class="detail-before">$8.75/seat/mo</span> → <span class="detail-after">$10.00/seat/mo</span></div>
         <div class="detail-item">Business+: <span class="detail-before">$15/seat/mo</span> → <span class="detail-after">$17.50/seat/mo</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Slack pricing</a>
     </div>
 
     <!-- Typeform -->
@@ -730,6 +797,7 @@
         <div class="detail-item">Monthly responses: <span class="detail-before">100</span> → <span class="detail-after">10</span></div>
         <div class="detail-item">Logic jumps: <span class="detail-before">Free</span> → <span class="detail-after">Plus+ only</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Typeform pricing</a>
     </div>
 
     <!-- Webflow -->
@@ -756,6 +824,7 @@
         <div class="detail-item">Starter/Basic plans: <span class="detail-before">Available</span> → <span class="detail-after">Removed for new accounts</span></div>
         <div class="detail-item">CMS items (Core): <span class="detail-before">2,000</span> → <span class="detail-after">10,000</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Webflow pricing</a>
     </div>
 
     <!-- Monday.com -->
@@ -782,6 +851,7 @@
         <div class="detail-item">Basic: <span class="detail-before">$9/seat/mo</span> → <span class="detail-after">$10/seat/mo</span></div>
         <div class="detail-item">Standard: <span class="detail-before">$12/seat/mo</span> → <span class="detail-after">$14/seat/mo</span></div>
       </div>
+      <a href="signup.html?utm_source=pricing_tracker&utm_medium=notify" class="notify-btn">Monitor Monday.com pricing</a>
     </div>
 
   </div><!-- /.changes-list -->
@@ -828,19 +898,62 @@
 </footer>
 
 <script>
+  let currentCategory = 'all';
+  let currentSearch = '';
+
   // Filter cards by category
   function filterCards(category, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    currentCategory = category;
+    applyFilters();
+  }
 
+  // Search cards by company name
+  function searchCompanies(query) {
+    currentSearch = query.toLowerCase().trim();
+    applyFilters();
+  }
+
+  // Apply both filters together
+  function applyFilters() {
     document.querySelectorAll('.change-card').forEach(card => {
-      if (category === 'all' || card.dataset.category === category) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
+      const matchesCategory = currentCategory === 'all' || card.dataset.category === currentCategory;
+      const companyName = card.querySelector('.company-name')?.textContent || '';
+      const matchesSearch = currentSearch === '' || companyName.toLowerCase().includes(currentSearch);
+      card.style.display = matchesCategory && matchesSearch ? 'block' : 'none';
+    });
+  }
+
+  // Add share buttons to all cards
+  function initShareButtons() {
+    document.querySelectorAll('.change-card').forEach(card => {
+      const companyName = card.querySelector('.company-name')?.textContent || '';
+
+      // Create share container
+      const shareBtns = document.createElement('div');
+      shareBtns.className = 'share-buttons';
+      shareBtns.innerHTML = `
+        <button class="share-btn" onclick="shareOnTwitter('${companyName}')">𝕏 Share</button>
+      `;
+
+      // Add to change-meta
+      const changeMeta = card.querySelector('.change-meta');
+      if (changeMeta) {
+        changeMeta.appendChild(shareBtns);
       }
     });
   }
+
+  // Share on Twitter/X
+  function shareOnTwitter(company) {
+    const text = `Just noticed: ${company} changed their pricing! Check out what's happening across SaaS → https://getpricepulse.com/pricing-tracker.html`;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initShareButtons);
 
   // Signup from tracker CTA
   async function trackerSignup() {

@@ -328,6 +328,22 @@
       background: var(--muted);
     }
 
+    .status-indicator.healthy {
+      background: #22c55e;
+      box-shadow: 0 0 6px #22c55e;
+      animation: pulse 2s infinite;
+    }
+
+    .status-indicator.degraded {
+      background: #eab308;
+      box-shadow: 0 0 6px #eab308;
+    }
+
+    .status-indicator.unhealthy {
+      background: #ef4444;
+      box-shadow: 0 0 6px #ef4444;
+    }
+
     .monitor-info { min-width: 0; }
 
     .monitor-label {
@@ -884,16 +900,29 @@
         console.warn('Could not load monitors:', monitorsError);
         monitors = [];
       } else if (dbMonitors) {
-        monitors = dbMonitors.map(m => ({
-          id: m.id,
-          label: m.name,
-          url: m.url,
-          frequency: formatFrequency(m.frequency),
-          lastChecked: m.last_checked_at ? formatTime(m.last_checked_at) : 'Not yet',
-          lastChange: 'Never',
-          status: m.status === 'active' ? 'active' : 'paused',
-          hasNewChange: false,
-        }));
+        monitors = dbMonitors.map(m => {
+          // Determine health status based on consecutive errors
+          let healthStatus = 'healthy';
+          if (m.consecutive_errors >= 5) {
+            healthStatus = 'unhealthy';
+          } else if (m.consecutive_errors >= 2) {
+            healthStatus = 'degraded';
+          }
+
+          return {
+            id: m.id,
+            label: m.name,
+            url: m.url,
+            frequency: formatFrequency(m.frequency),
+            lastChecked: m.last_checked_at ? formatTime(m.last_checked_at) : 'Not yet',
+            lastChange: m.last_changed_at ? formatTime(m.last_changed_at) : 'Never',
+            status: m.status === 'active' ? 'active' : 'paused',
+            hasNewChange: false,
+            nextCheckAt: m.next_check_at,
+            consecutiveErrors: m.consecutive_errors || 0,
+            healthStatus: healthStatus,
+          };
+        });
       }
 
       // Update plan banner
@@ -957,15 +986,6 @@
   }
 
   function startCheckCountdown(monitorList) {
-    // Find the most recent last_checked_at across all monitors
-    let latestCheck = null;
-    monitorList.forEach(m => {
-      // m is our mapped object; need raw data — we use the ISO value from db
-    });
-
-    // Re-derive from raw DB data stored in closure
-    const rawMonitors = monitorList;
-
     function tick() {
       const now = new Date();
 
@@ -976,18 +996,36 @@
 
       const lastCheckEl = document.getElementById('statLastCheck');
       const nextCheckEl = document.getElementById('statNextCheck');
-      if (!lastCheckEl || !nextCheckEl) return;
+      if (lastCheckEl && nextCheckEl) {
+        // Show time since last :00 (when the cron last ran)
+        const minsAgo = Math.floor((now - lastHourBoundary) / 60000);
+        lastCheckEl.textContent = minsAgo < 1 ? 'Just now' : `${minsAgo}m ago`;
 
-      // Show time since last :00 (when the cron last ran)
-      const minsAgo = Math.floor((now - lastHourBoundary) / 60000);
-      lastCheckEl.textContent = minsAgo < 1 ? 'Just now' : `${minsAgo}m ago`;
+        // Next :00 is 60 - minsAgo minutes away
+        const nextHourBoundary = new Date(lastHourBoundary.getTime() + 3600000);
+        const secsUntil = Math.round((nextHourBoundary - now) / 1000);
+        const m = Math.floor(secsUntil / 60);
+        const s = secsUntil % 60;
+        nextCheckEl.textContent = `next check in ${m}m ${s.toString().padStart(2,'0')}s`;
+      }
 
-      // Next :00 is 60 - minsAgo minutes away
-      const nextHourBoundary = new Date(lastHourBoundary.getTime() + 3600000);
-      const secsUntil = Math.round((nextHourBoundary - now) / 1000);
-      const m = Math.floor(secsUntil / 60);
-      const s = secsUntil % 60;
-      nextCheckEl.textContent = `next check in ${m}m ${s.toString().padStart(2,'0')}s`;
+      // Update per-monitor countdowns
+      monitorList.forEach(m => {
+        if (!m.nextCheckAt) return;
+        const countdownEl = document.querySelector(`.next-check-countdown[data-id="${m.id}"]`);
+        if (!countdownEl) return;
+
+        const nextCheckDate = new Date(m.nextCheckAt);
+        const secsUntil = Math.round((nextCheckDate - now) / 1000);
+
+        if (secsUntil < 0) {
+          countdownEl.textContent = 'Due now';
+        } else {
+          const mins = Math.floor(secsUntil / 60);
+          const secs = secsUntil % 60;
+          countdownEl.textContent = mins < 1 ? `${secs}s` : `${mins}m`;
+        }
+      });
     }
 
     tick();
@@ -1054,7 +1092,14 @@
           <div class="empty-icon">📡</div>
           <h2 class="empty-title">No monitors yet</h2>
           <p class="empty-desc">Add your first competitor's pricing page and we'll start watching it immediately. You'll get alerted the moment anything changes.</p>
-          <button class="btn btn-primary" onclick="openModal()">Add your first competitor →</button>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openModal()">Add your first competitor →</button>
+            <button class="btn btn-outline" onclick="seedDemoMonitors()">Try demo monitors →</button>
+            <a href="demo.html" class="btn btn-outline">See example alerts →</a>
+          </div>
+          <p style="font-size: 0.8125rem; color: var(--muted); margin-top: 1rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+            <strong>Not sure where to start?</strong> Try the demo monitors to see real pricing changes from Notion, Linear, Figma, and others. Or manually add a competitor you want to track.
+          </p>
         </div>
       `;
       return;
@@ -1066,9 +1111,17 @@
 
   function renderMonitorCard(m) {
     const isActive = m.status === 'active';
+    const healthTitles = {
+      'healthy': 'Healthy - monitoring normally',
+      'degraded': `Degraded - ${m.consecutiveErrors} errors (may need attention)`,
+      'unhealthy': `Unhealthy - ${m.consecutiveErrors} errors (needs attention)`,
+    };
+    const statusClass = isActive ? (m.healthStatus || 'healthy') : 'paused';
+    const statusTitle = isActive ? healthTitles[m.healthStatus || 'healthy'] : 'Paused';
+
     return `
       <div class="monitor-card ${isActive ? '' : 'paused'}" data-id="${m.id}">
-        <div class="status-indicator ${isActive ? 'active' : 'paused'}" title="${isActive ? 'Active' : 'Paused'}"></div>
+        <div class="status-indicator ${statusClass}" title="${statusTitle}"></div>
 
         <div class="monitor-info">
           <div class="monitor-label">${escHtml(m.label || m.url)}</div>
@@ -1083,6 +1136,10 @@
           <div class="meta-chip">
             <span class="meta-chip-label">Last checked</span>
             <span class="meta-chip-value">${escHtml(m.lastChecked)}</span>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-chip-label">Next check</span>
+            <span class="meta-chip-value next-check-countdown" data-id="${m.id}">—</span>
           </div>
           <div class="meta-chip">
             <span class="meta-chip-label">Last change</span>
@@ -1198,6 +1255,64 @@
 
   function handleOverlayClick(e) {
     if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  // ─── SEED DEMO MONITORS ───────────────────────────────────────────────────────
+  async function seedDemoMonitors() {
+    const limits = { free: 2, starter: 10, pro: Infinity };
+    const maxMonitors = limits[currentPlan] || 2;
+    if (monitors.length >= maxMonitors) {
+      alert(`You've reached your plan limit (${maxMonitors} monitors). Please upgrade to add more.`);
+      return;
+    }
+
+    const btn = event?.target;
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Creating demo monitors…';
+    }
+
+    try {
+      const session = await supabase.auth.getSession();
+      if (!session.data.session) {
+        alert('Session expired. Please refresh and try again.');
+        return;
+      }
+
+      const token = session.data.session.access_token;
+
+      const response = await fetch('/api/seed-demo-monitors', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ count: Math.min(5, maxMonitors - monitors.length) })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert(errorData.error || 'Could not create demo monitors');
+        return;
+      }
+
+      const result = await response.json();
+
+      // Reload monitors
+      await loadMonitors();
+
+      // Show success message
+      alert(`✅ Created ${result.created} demo monitors! You're now monitoring Notion, Linear, Figma, Slack, and Zapier. Check the dashboard to see the latest pricing changes.`);
+
+    } catch (err) {
+      console.error('Seed monitors error:', err);
+      alert('Error creating demo monitors. Please try again.');
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'Try demo monitors →';
+      }
+    }
   }
 
   document.addEventListener('keydown', (e) => {

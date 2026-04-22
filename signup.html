@@ -616,6 +616,20 @@
     el.classList.remove('visible');
   }
 
+  // Pre-fill email from URL param (e.g., from pricing-tracker.html)
+  function preFillEmail() {
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    if (email) {
+      document.getElementById('email').value = decodeURIComponent(email);
+      // Focus on password field for faster form completion
+      setTimeout(() => document.getElementById('password').focus(), 100);
+    }
+  }
+
+  // Call on page load
+  document.addEventListener('DOMContentLoaded', preFillEmail);
+
   async function handleSignup(e) {
     e.preventDefault();
     hideError();
