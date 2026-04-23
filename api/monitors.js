@@ -24,6 +24,105 @@ function getAuthedClient(authHeader) {
   });
 }
 
+// Seed demo monitors (from seed-demo-monitors.js)
+async function handleSeedDemo(req, res, user) {
+  const supabase = getAuthedClient(req.headers.authorization);
+  if (!supabase) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  try {
+    // Get plan limit
+    const { data: subscription, error: subError } = await supabase
+      .from('subscriptions')
+      .select('plan')
+      .eq('user_id', user.id)
+      .single();
+
+    if (subError || !subscription) {
+      return res.status(400).json({ error: 'User subscription not found' });
+    }
+
+    // Check current monitor count
+    const { count } = await supabase
+      .from('monitors')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', user.id)
+      .eq('status', 'active');
+
+    const currentCount = count || 0;
+    const plan = subscription.plan;
+    const limits = { free: 2, starter: 10, pro: 999 };
+    const planLimit = limits[plan] || 2;
+    const availableSlots = planLimit - currentCount;
+
+    const seedMonitors = [
+      { name: 'Notion Pricing', url: 'https://www.notion.so/pricing', category: 'Productivity' },
+      { name: 'Linear Pricing', url: 'https://linear.app/pricing', category: 'Project Management' },
+      { name: 'Figma Pricing', url: 'https://www.figma.com/pricing', category: 'Design' },
+      { name: 'Slack Pricing', url: 'https://slack.com/pricing', category: 'Communication' },
+      { name: 'Zapier Pricing', url: 'https://zapier.com/pricing', category: 'Automation' },
+      { name: 'Intercom Pricing', url: 'https://www.intercom.com/pricing', category: 'Customer Support' },
+      { name: 'HubSpot Pricing', url: 'https://www.hubspot.com/pricing', category: 'CRM' },
+      { name: 'Airtable Pricing', url: 'https://airtable.com/pricing', category: 'Database' },
+      { name: 'Loom Pricing', url: 'https://www.loom.com/pricing', category: 'Video' },
+      { name: 'Typeform Pricing', url: 'https://www.typeform.com/pricing', category: 'Forms' },
+      { name: 'Webflow Pricing', url: 'https://webflow.com/pricing', category: 'Web Design' },
+      { name: 'Monday.com Pricing', url: 'https://monday.com/pricing', category: 'Work OS' },
+      { name: 'Ahrefs Pricing', url: 'https://ahrefs.com/pricing', category: 'SEO Tools' }
+    ];
+
+    const requestedCount = Math.min(
+      (req.body?.count || 5),
+      availableSlots,
+      seedMonitors.length
+    );
+
+    if (requestedCount <= 0) {
+      return res.status(400).json({
+        error: `Plan limit reached. Current: ${currentCount}/${planLimit}. Upgrade to add more monitors.`
+      });
+    }
+
+    const now = new Date().toISOString();
+    const monitorsToCreate = seedMonitors.slice(0, requestedCount).map(m => ({
+      user_id: user.id,
+      name: m.name,
+      url: m.url,
+      frequency: plan === 'free' ? 'daily' : 'hourly',
+      status: 'active',
+      consecutive_errors: 0,
+      next_check_at: now,
+      created_at: now,
+      updated_at: now,
+    }));
+
+    const { data: created, error: createError } = await supabase
+      .from('monitors')
+      .insert(monitorsToCreate)
+      .select();
+
+    if (createError) {
+      return res.status(500).json({ error: `Could not create monitors: ${createError.message}` });
+    }
+
+    return res.status(201).json({
+      success: true,
+      created: created.length,
+      message: `Created ${created.length} demo monitors. Start monitoring competitor pricing!`,
+      monitors: created.map(m => ({
+        id: m.id,
+        name: m.name,
+        url: m.url,
+        frequency: m.frequency
+      }))
+    });
+  } catch (err) {
+    console.error('Seed monitors error:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
 export default async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -55,6 +154,11 @@ export default async function handler(req, res) {
 
   // ── POST ─────────────────────────────────────────────────────────────────
   if (req.method === 'POST') {
+    // Route to seed-demo-monitors logic if ?action=seed
+    if (req.query?.action === 'seed') {
+      return handleSeedDemo(req, res, user);
+    }
+
     const { name, url, frequency = 'daily', selector } = req.body || {};
 
     if (!name || !url) {

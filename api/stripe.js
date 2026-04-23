@@ -1,16 +1,35 @@
-// api/stripe-webhook.js — Compatibility endpoint
-// Delegates all requests to api/stripe.js for backward compatibility with Stripe's webhook URL config.
-// The actual implementation is in stripe.js which handles both checkout and webhooks.
+// api/stripe.js — Vercel serverless function
+// Handles both Stripe checkout creation and webhook events.
+//
+// POST /api/stripe (checkout)
+//   Body: { planId: 'starter' | 'pro' }
+//   Auth: Supabase JWT via Authorization header
+//
+// POST /api/stripe (webhook)
+//   Stripe webhook events (checkout.session.completed, subscription events, etc)
+//   Auth: Stripe signature verification via stripe-signature header
 
-import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
+import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
+// Detect if this is a webhook request (has stripe-signature header)
+function isWebhookRequest(req) {
+  return !!req.headers['stripe-signature'];
+}
 
 function getServiceClient() {
-  return createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
-    auth: { persistSession: false }
+  return createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_KEY,
+    { auth: { persistSession: false } }
+  );
+}
+
+function getAuthedClient(authHeader) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) return null;
+  const token = authHeader.slice(7);
+  return createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY, {
+    global: { headers: { Authorization: `Bearer ${token}` } },
   });
 }
 
@@ -20,6 +39,78 @@ function planFromPriceId(priceId) {
   if (priceId === process.env.STRIPE_PRICE_ID_PRO) return 'pro';
   return 'starter';
 }
+
+// ===== CHECKOUT HANDLER =====
+
+const PLAN_PRICE_MAP = {
+  starter: process.env.STRIPE_PRICE_ID_STARTER,
+  pro: process.env.STRIPE_PRICE_ID_PRO,
+};
+
+async function handleCheckout(req, res) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  // Authenticate user via Supabase JWT
+  const supabase = getAuthedClient(req.headers.authorization);
+  if (!supabase) return res.status(401).json({ error: 'Unauthorized' });
+
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) return res.status(401).json({ error: 'Invalid session' });
+
+  // Parse JSON body manually since bodyParser is disabled
+  let body = {};
+  if (req.body instanceof Buffer || typeof req.body === 'string') {
+    try {
+      body = JSON.parse(req.body.toString());
+    } catch (e) {
+      return res.status(400).json({ error: 'Invalid JSON body' });
+    }
+  } else {
+    body = req.body || {};
+  }
+
+  const { planId } = body;
+  if (!planId) return res.status(400).json({ error: 'planId required' });
+
+  const priceId = PLAN_PRICE_MAP[planId];
+  if (!priceId) {
+    return res.status(400).json({ error: `Unknown planId "${planId}". Valid: starter, pro` });
+  }
+
+  try {
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const baseUrl = process.env.APP_URL || 'https://race-claude.vercel.app';
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      customer_email: user.email,
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: `${baseUrl}/dashboard.html?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/pricing.html?checkout=cancelled`,
+      allow_promotion_codes: true,
+      metadata: {
+        supabase_user_id: user.id,
+        plan_id: planId,
+      },
+      subscription_data: {
+        metadata: {
+          supabase_user_id: user.id,
+          plan_id: planId,
+        },
+      },
+    });
+
+    return res.status(200).json({ url: session.url });
+  } catch (err) {
+    console.error('[stripe-checkout] Error:', err.message);
+    return res.status(500).json({ error: 'Failed to create checkout session' });
+  }
+}
+
+// ===== WEBHOOK HANDLERS =====
 
 async function handleCheckoutCompleted(session, supabase) {
   const userId = session.metadata?.supabase_user_id;
@@ -106,22 +197,13 @@ async function handlePaymentFailed(invoice, supabase) {
   else console.warn(`[stripe-webhook] invoice.payment_failed: user ${userId} → past_due`);
 }
 
-export const config = {
-  api: { bodyParser: false },
-};
-
-export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-
-  if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_WEBHOOK_SECRET) {
-    return res.status(503).json({ error: 'Stripe not configured' });
-  }
-
+async function handleWebhook(req, res) {
   const sig = req.headers['stripe-signature'];
   if (!sig) return res.status(400).json({ error: 'Missing stripe-signature header' });
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+  // Read raw body for signature verification (from node request stream)
   let rawBody;
   try {
     const chunks = [];
@@ -164,4 +246,28 @@ export default async function handler(req, res) {
   }
 
   return res.status(200).json({ received: true });
+}
+
+// ===== MAIN HANDLER =====
+
+export const config = {
+  api: { bodyParser: false }, // Required for Stripe signature verification on webhooks
+};
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return res.status(503).json({ error: 'Stripe not configured' });
+  }
+
+  // Route based on request type
+  if (isWebhookRequest(req)) {
+    if (!process.env.STRIPE_WEBHOOK_SECRET) {
+      return res.status(503).json({ error: 'Stripe webhook not configured' });
+    }
+    return handleWebhook(req, res);
+  } else {
+    return handleCheckout(req, res);
+  }
 }

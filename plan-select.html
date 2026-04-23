@@ -697,7 +697,7 @@
       } else if (planId === 'starter' || planId === 'pro') {
         // Redirect to Stripe Checkout via our API
         try {
-          const checkoutRes = await fetch('/api/stripe-checkout', {
+          const checkoutRes = await fetch('/api/stripe', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

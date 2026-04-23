@@ -1285,7 +1285,7 @@
 
       const token = session.data.session.access_token;
 
-      const response = await fetch('/api/seed-demo-monitors', {
+      const response = await fetch('/api/monitors?action=seed', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
