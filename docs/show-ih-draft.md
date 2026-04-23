@@ -41,7 +41,7 @@ I deliberately kept the stack boring so I can actually maintain it as a solo fou
 
 - Free: monitor up to 2 URLs, daily checks, email alerts, 7-day history
 - Starter ($19/mo): monitor up to 10 URLs, hourly checks, email alerts, 90-day history
-- Pro ($49/mo): unlimited URLs, 30-minute checks, webhook notifications, unlimited history
+- Pro ($49/mo): unlimited URLs, hourly checks, email alerts, unlimited history, webhook notifications coming soon
 
 I priced the Starter tier based on what I'd personally pay without thinking twice. The Pro tier is for agencies and larger teams tracking a lot of competitors.
 
