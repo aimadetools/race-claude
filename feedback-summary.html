@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Summary — PricePulse Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --green: #00e5a0;
+      --yellow: #f59e0b;
+      --red: #ef4444;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 { font-size: 1.875rem; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); margin-bottom: 2rem; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label { color: var(--muted); font-size: 0.875rem; }
+
+    .chart-section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-title { font-weight: 700; margin-bottom: 1.5rem; }
+
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .bar-label { width: 150px; font-size: 0.875rem; }
+
+    .bar-container {
+      flex: 1;
+      background: var(--bg3);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 32px;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green), #00b87a);
+      display: flex;
+      align-items: center;
+      padding: 0 0.75rem;
+      color: #0a0a0f;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .bar-count { width: 50px; text-align: right; font-size: 0.875rem; color: var(--muted); }
+
+    .feedback-list {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .feedback-item {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 80px 1fr 120px;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .feedback-item:last-child { border-bottom: none; }
+
+    .feedback-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.375rem 0.75rem;
+      border-radius: 6px;
+      text-align: center;
+      width: 80px;
+    }
+
+    .badge-feature { background: rgba(0, 229, 160, 0.1); color: var(--green); }
+    .badge-pricing { background: rgba(245, 158, 11, 0.1); color: var(--yellow); }
+    .badge-bug { background: rgba(239, 68, 68, 0.1); color: var(--red); }
+    .badge-ux { background: rgba(59, 130, 246, 0.1); color: #93c5fd; }
+
+    .feedback-text { font-size: 0.9375rem; line-height: 1.5; color: var(--text); }
+    .feedback-text strong { color: var(--text); }
+
+    .feedback-details { font-size: 0.8125rem; color: var(--muted); margin-top: 0.5rem; }
+
+    .rating { color: var(--yellow); }
+
+    .satisfaction-chart {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
+      height: 60px;
+    }
+
+    .satisfaction-bar {
+      flex: 1;
+      background: var(--green);
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: #0a0a0f;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
+    .empty { text-align: center; color: var(--muted); padding: 3rem 2rem; }
+
+    .refresh-btn {
+      background: var(--green);
+      border: none;
+      color: #0a0a0f;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+
+    .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+<h1>📊 Feedback Summary</h1>
+<p class="subtitle">Real-time user feedback analysis for Week 1 launch</p>
+
+<div style="margin-bottom: 2rem;">
+  <button class="refresh-btn" onclick="loadFeedback()" id="refreshBtn">🔄 Refresh</button>
+</div>
+
+<!-- SUMMARY STATS -->
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value" id="totalCount">0</div>
+    <div class="stat-label">Total feedback responses</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" id="avgSatisfaction">—</div>
+    <div class="stat-label">Avg satisfaction rating</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" id="followupCount">0</div>
+    <div class="stat-label">Want follow-up</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" id="pricingIssues">0</div>
+    <div class="stat-label">Pricing concerns</div>
+  </div>
+</div>
+
+<!-- SATISFACTION DISTRIBUTION -->
+<div class="chart-section">
+  <div class="chart-title">Satisfaction Distribution</div>
+  <div class="satisfaction-chart" id="satisfactionChart">
+    <div class="satisfaction-bar" style="height: 20%; min-height: 16px;" title="Not at all (1)">
+      <span id="rating-1">0</span>
+    </div>
+    <div class="satisfaction-bar" style="height: 40%; min-height: 16px;" title="Somewhat (2)">
+      <span id="rating-2">0</span>
+    </div>
+    <div class="satisfaction-bar" style="height: 60%; min-height: 16px;" title="Pretty good (3)">
+      <span id="rating-3">0</span>
+    </div>
+    <div class="satisfaction-bar" style="height: 100%; min-height: 16px;" title="Love it (4)">
+      <span id="rating-4">0</span>
+    </div>
+  </div>
+  <div style="display: flex; margin-top: 1rem; font-size: 0.75rem; color: var(--muted);">
+    <div style="flex: 1;">😞 Not at all</div>
+    <div style="flex: 1;">😐 Somewhat</div>
+    <div style="flex: 1;">😊 Pretty good</div>
+    <div style="flex: 1;">😍 Love it</div>
+  </div>
+</div>
+
+<!-- FEEDBACK BY CATEGORY -->
+<div class="chart-section">
+  <div class="chart-title">Feedback by Category</div>
+  <div class="bar-chart" id="categoryChart">
+    <div class="bar-row">
+      <div class="bar-label">Feature requests</div>
+      <div class="bar-container"><div class="bar-fill" id="bar-feature"></div></div>
+      <div class="bar-count" id="count-feature">0</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Pricing objections</div>
+      <div class="bar-container"><div class="bar-fill" id="bar-pricing"></div></div>
+      <div class="bar-count" id="count-pricing">0</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Bug reports</div>
+      <div class="bar-container"><div class="bar-fill" id="bar-bug"></div></div>
+      <div class="bar-count" id="count-bug">0</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">UX improvements</div>
+      <div class="bar-container"><div class="bar-fill" id="bar-ux"></div></div>
+      <div class="bar-count" id="count-ux">0</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Other</div>
+      <div class="bar-container"><div class="bar-fill" id="bar-other"></div></div>
+      <div class="bar-count" id="count-other">0</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP FEATURE REQUESTS -->
+<div class="chart-section">
+  <div class="chart-title">Top Feature Requests</div>
+  <div class="bar-chart" id="featureChart">
+    <!-- Populated dynamically -->
+  </div>
+</div>
+
+<!-- TOP PRICING ISSUES -->
+<div class="chart-section">
+  <div class="chart-title">Top Pricing Issues</div>
+  <div class="bar-chart" id="pricingIssuesChart">
+    <!-- Populated dynamically -->
+  </div>
+</div>
+
+<!-- RECENT FEEDBACK -->
+<div class="feedback-list">
+  <div class="chart-title">Recent Feedback (Last 10)</div>
+  <div id="feedbackItems">
+    <div class="empty">No feedback yet. Check back during Week 1 launch.</div>
+  </div>
+</div>
+
+<script>
+  const categories = {
+    'feature-request': 'Feature Request',
+    'pricing-objection': 'Pricing Objection',
+    'bug': 'Bug Report',
+    'ux-feedback': 'UX Improvement',
+    'competitor': 'Missing Competitor',
+    'praise': 'Praise',
+    'other': 'Other'
+  };
+
+  const features = {
+    'slack': 'Slack integration',
+    'webhook': 'Webhook for alerts',
+    'csv': 'CSV export',
+    'api': 'API access',
+    '30min': '30-min checks',
+    'historical': 'Historical changes',
+    'comparison': 'Side-by-side comparison',
+    'dashboard-alerts': 'Dashboard alerts',
+    'other-feature': 'Other'
+  };
+
+  const pricingIssues = {
+    'too-expensive': 'Too expensive',
+    'free-too-limited': 'Free tier too limited',
+    'upgrade-gap': 'Upgrade gap ($19 jump)',
+    'frequency-too-low': 'Need more than daily',
+    'need-trial': 'Want free trial'
+  };
+
+  async function loadFeedback() {
+    const btn = document.getElementById('refreshBtn');
+    btn.disabled = true;
+    btn.textContent = '⏳ Loading...';
+
+    try {
+      // NOTE: This is a placeholder. In production, you'd need to:
+      // 1. Create a protected /api/feedback-summary endpoint
+      // 2. Query the feedback table
+      // 3. Return aggregated stats
+
+      // For now, show placeholder message
+      document.getElementById('feedbackItems').innerHTML = `
+        <div class="empty">
+          📝 <strong>Feedback Summary Ready</strong><br/>
+          <small>To enable real-time feedback analytics:</small><br/>
+          <small>1. Create /api/feedback-summary endpoint (query feedback table with ADMIN_SECRET auth)</small><br/>
+          <small>2. Add SELECT on feedback table in RLS policy</small><br/>
+          <small>3. Refresh to see results</small>
+        </div>
+      `;
+
+      btn.disabled = false;
+      btn.textContent = '🔄 Refresh';
+    } catch (err) {
+      console.error('Failed to load feedback:', err);
+      btn.disabled = false;
+      btn.textContent = '🔄 Refresh';
+    }
+  }
+
+  // Load on page load
+  document.addEventListener('DOMContentLoaded', loadFeedback);
+</script>
+
+</body>
+</html>

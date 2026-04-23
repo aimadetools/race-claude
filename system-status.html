@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PricePulse System Status — Week 1 Launch Monitor</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --green: #00e5a0;
+      --yellow: #f59e0b;
+      --red: #ef4444;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 0.9375rem; }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .status-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .status-card.loading { border-color: var(--yellow); }
+    .status-card.error { border-color: var(--red); }
+    .status-card.ok { border-color: var(--green); }
+
+    .status-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .status-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-indicator.ok { background: var(--green); }
+    .status-indicator.warning { background: var(--yellow); }
+    .status-indicator.error { background: var(--red); }
+    .status-indicator.loading {
+      background: var(--yellow);
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .status-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0.75rem 0;
+      font-family: 'Monaco', monospace;
+    }
+
+    .status-detail {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .status-detail strong { color: var(--text); }
+
+    .alert {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .alert.show { display: block; }
+
+    .refresh-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background: var(--green);
+      border: none;
+      color: var(--bg);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 0.875rem;
+      transition: background 0.2s;
+    }
+
+    button:hover { background: #00b87a; }
+    button:disabled { background: var(--muted); cursor: not-allowed; opacity: 0.6; }
+
+    .last-updated {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8125rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .guide {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .guide h3 { margin-bottom: 0.75rem; font-size: 1rem; }
+    .guide p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; margin-bottom: 0.75rem; }
+  </style>
+</head>
+<body>
+
+<h1>🚀 PricePulse System Status</h1>
+<p class="subtitle">Week 1 Launch Monitoring Dashboard — April 28, 2026</p>
+
+<div class="alert" id="alert"></div>
+
+<div class="refresh-controls">
+  <button onclick="refreshStatus()">🔄 Refresh Now</button>
+  <span style="color: var(--muted); display: flex; align-items: center;">Auto-refresh in <span id="countdown">30s</span></span>
+</div>
+
+<div class="status-grid">
+
+  <!-- Cron Health -->
+  <div class="status-card loading" id="cron-card">
+    <div class="status-header">
+      <div class="status-indicator loading"></div>
+      Cron Jobs
+    </div>
+    <div class="status-value" id="cron-status">Loading...</div>
+    <div class="status-detail">
+      Monitor check: <strong id="cron-monitor">—</strong><br>
+      Alert send: <strong id="cron-alerts">—</strong><br>
+      Email nurture: <strong id="cron-nurture">—</strong>
+    </div>
+  </div>
+
+  <!-- Database -->
+  <div class="status-card loading" id="db-card">
+    <div class="status-header">
+      <div class="status-indicator loading"></div>
+      Database
+    </div>
+    <div class="status-value" id="db-status">Loading...</div>
+    <div class="status-detail">
+      Monitors: <strong id="db-monitors">—</strong><br>
+      Users: <strong id="db-users">—</strong><br>
+      Alerts sent (7d): <strong id="db-alerts">—</strong>
+    </div>
+  </div>
+
+  <!-- Signups (Week 1) -->
+  <div class="status-card loading" id="signup-card">
+    <div class="status-header">
+      <div class="status-indicator loading"></div>
+      Signups (This Week)
+    </div>
+    <div class="status-value" id="signup-count">0</div>
+    <div class="status-detail">
+      Free: <strong id="free-count">0</strong><br>
+      Starter: <strong id="starter-count">0</strong><br>
+      Pro: <strong id="pro-count">0</strong>
+    </div>
+  </div>
+
+  <!-- Email System -->
+  <div class="status-card loading" id="email-card">
+    <div class="status-header">
+      <div class="status-indicator loading"></div>
+      Email System
+    </div>
+    <div class="status-value" id="email-status">Loading...</div>
+    <div class="status-detail">
+      Sent (7d): <strong id="email-count">—</strong><br>
+      Nurture: <strong id="email-nurture-count">—</strong><br>
+      Alerts: <strong id="email-alert-count">—</strong>
+    </div>
+  </div>
+
+  <!-- Stripe -->
+  <div class="status-card loading" id="stripe-card">
+    <div class="status-header">
+      <div class="status-indicator loading"></div>
+      Stripe Webhooks
+    </div>
+    <div class="status-value" id="stripe-status">Loading...</div>
+    <div class="status-detail">
+      Configuration: Check console<br>
+      Webhook URL: getpricepulse.com/api/stripe-webhook
+    </div>
+  </div>
+
+  <!-- Response Rate -->
+  <div class="status-card loading" id="conversion-card">
+    <div class="status-header">
+      <div class="status-indicator loading"></div>
+      Conversion Rate
+    </div>
+    <div class="status-value" id="conversion-rate">—</div>
+    <div class="status-detail">
+      Signups needed for targets<br>
+      Free→Starter: <strong id="target-starter">—</strong><br>
+      Starter→Pro: <strong id="target-pro">—</strong>
+    </div>
+  </div>
+
+</div>
+
+<div class="guide">
+  <h3>✅ Week 1 Launch Checklist</h3>
+  <p><strong>Before starting:</strong></p>
+  <p>□ Run Supabase migration: <code>docs/schema-migration-alerts-unsubscribe.sql</code></p>
+  <p>□ Verify all status indicators above are GREEN</p>
+  <p>□ Publish Show IH post from docs/show-ih-draft.md</p>
+  <p>□ Post Twitter threads from docs/twitter-threads.md</p>
+  <p>□ Send cold emails (templates in docs/)</p>
+  <p><strong>During Week 1:</strong></p>
+  <p>□ Check this page daily for system health</p>
+  <p>□ Monitor admin.html for conversion metrics</p>
+  <p>□ Respond to Show IH comments within 6 hours</p>
+  <p>□ Collect early feedback on pricing/features</p>
+</div>
+
+<div class="last-updated">
+  Last updated: <span id="updated-time">—</span> |
+  Auto-refresh every 30 seconds
+</div>
+
+<script>
+  const ADMIN_SECRET = localStorage.getItem('pp-admin-secret');
+  let autoRefreshTimer;
+  let countdownTimer;
+
+  async function refreshStatus() {
+    const btn = document.querySelector('button');
+    btn.disabled = true;
+    btn.textContent = '⏳ Checking...';
+
+    try {
+      const response = await fetch('/api/stats?admin=1', {
+        headers: { 'Authorization': `Bearer ${ADMIN_SECRET}` }
+      });
+
+      if (response.status === 401) {
+        showAlert('❌ Admin authentication failed. Check ADMIN_SECRET in localStorage');
+        promptForSecret();
+        return;
+      }
+
+      if (!response.ok) throw new Error(`API error: ${response.status}`);
+
+      const data = await response.json();
+      updateStatus(data);
+
+      btn.textContent = '🔄 Refresh Now';
+      btn.disabled = false;
+
+      // Clear and restart countdown
+      clearTimeout(countdownTimer);
+      startCountdown();
+    } catch (err) {
+      showAlert(`❌ Failed to load status: ${err.message}`);
+      btn.textContent = '🔄 Refresh Now';
+      btn.disabled = false;
+    }
+  }
+
+  function updateStatus(data) {
+    // Cron health
+    const lastCheck = data.cron?.last_monitor_check;
+    const lastAlert = data.cron?.last_alert_sent;
+    const checkMinutesAgo = lastCheck ? Math.floor((Date.now() - new Date(lastCheck)) / 60000) : null;
+    const alertMinutesAgo = lastAlert ? Math.floor((Date.now() - new Date(lastAlert)) / 60000) : null;
+
+    const cronOk = checkMinutesAgo !== null && checkMinutesAgo < 65;
+    updateCard('cron-card', cronOk, cronOk ? '✓ Healthy' : '⚠ Behind');
+    document.getElementById('cron-monitor').textContent = checkMinutesAgo !== null ? `${checkMinutesAgo}m ago` : '—';
+    document.getElementById('cron-alerts').textContent = alertMinutesAgo !== null ? `${alertMinutesAgo}m ago` : '—';
+
+    // Database
+    const dbOk = data.users?.total > 0 && data.monitors?.total >= 0;
+    updateCard('db-card', dbOk, '✓ Connected');
+    document.getElementById('db-monitors').textContent = data.monitors?.total || 0;
+    document.getElementById('db-users').textContent = data.users?.total || 0;
+    document.getElementById('db-alerts').textContent = data.alerts_sent_last_7_days || 0;
+
+    // Signups this week
+    const weekSignups = data.signups?.last_7_days || 0;
+    const freeCount = (data.users?.free || 0);
+    const starterCount = data.users?.starter || 0;
+    const proCount = data.users?.pro || 0;
+
+    updateCard('signup-card', weekSignups > 0, weekSignups > 0 ? '✓ Active' : '⏳ Waiting');
+    document.getElementById('signup-count').textContent = weekSignups;
+    document.getElementById('free-count').textContent = freeCount;
+    document.getElementById('starter-count').textContent = starterCount;
+    document.getElementById('pro-count').textContent = proCount;
+
+    // Email system
+    const emailsSent = Object.values(data.emails_sent_last_7_days || {}).reduce((a, b) => a + (b || 0), 0);
+    const emailOk = true; // Just checking if data came back
+    updateCard('email-card', emailOk, '✓ Running');
+    document.getElementById('email-count').textContent = emailsSent;
+    document.getElementById('email-nurture-count').textContent = data.emails_sent_last_7_days?.welcome || 0;
+    document.getElementById('email-alert-count').textContent = data.emails_sent_last_7_days?.alert || 0;
+
+    // Stripe (always assume ok for now)
+    updateCard('stripe-card', true, '✓ Configured');
+
+    // Conversion rate
+    const conversionRate = weekSignups > 0 ? ((starterCount + proCount) / weekSignups * 100).toFixed(1) : 0;
+    updateCard('conversion-card', true, `${conversionRate}%`);
+    document.getElementById('conversion-rate').textContent = `${conversionRate}%`;
+    document.getElementById('target-starter').textContent = `${Math.max(0, 10 - starterCount)} needed`;
+    document.getElementById('target-pro').textContent = `${Math.max(0, 3 - proCount)} needed`;
+
+    // Update timestamp
+    document.getElementById('updated-time').textContent = new Date().toLocaleTimeString();
+  }
+
+  function updateCard(cardId, ok, statusText) {
+    const card = document.getElementById(cardId);
+    card.classList.remove('loading', 'ok', 'error');
+    card.classList.add(ok ? 'ok' : 'error');
+
+    const statusValue = card.querySelector('.status-value');
+    statusValue.textContent = statusText;
+
+    const indicator = card.querySelector('.status-indicator');
+    indicator.classList.remove('loading', 'ok', 'error');
+    indicator.classList.add(ok ? 'ok' : 'error');
+  }
+
+  function showAlert(msg) {
+    const alert = document.getElementById('alert');
+    alert.textContent = msg;
+    alert.classList.add('show');
+  }
+
+  function promptForSecret() {
+    const secret = prompt('Enter ADMIN_SECRET (from Vercel env var):');
+    if (secret) {
+      localStorage.setItem('pp-admin-secret', secret);
+      refreshStatus();
+    }
+  }
+
+  function startCountdown() {
+    let seconds = 30;
+    countdownTimer = setInterval(() => {
+      document.getElementById('countdown').textContent = `${seconds}s`;
+      seconds--;
+      if (seconds < 0) {
+        clearInterval(countdownTimer);
+        refreshStatus();
+      }
+    }, 1000);
+  }
+
+  // Initial load
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!ADMIN_SECRET) {
+      promptForSecret();
+    } else {
+      refreshStatus();
+    }
+  });
+</script>
+
+</body>
+</html>

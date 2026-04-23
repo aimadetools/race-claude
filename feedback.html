@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Feedback — PricePulse</title>
+  <meta name="description" content="Help us improve PricePulse. Share your feedback, feature requests, and pricing objections.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* FORM */
+    .form-section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group:last-child { margin-bottom: 0; }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .required { color: #ef4444; }
+
+    input[type="email"],
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.9375rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="email"]:focus,
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .checkbox-item:hover {
+      border-color: var(--accent);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      margin-top: 0.25rem;
+      cursor: pointer;
+      accent-color: var(--accent);
+    }
+
+    .checkbox-label {
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .checkbox-label strong { display: block; margin-bottom: 0.25rem; }
+    .checkbox-label small { color: var(--muted); }
+
+    .rating-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .rating-btn {
+      flex: 1;
+      padding: 1rem;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .rating-btn:hover { border-color: var(--accent); }
+    .rating-btn.selected {
+      background: var(--accent);
+      color: #0a0a0f;
+      border-color: var(--accent);
+    }
+
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.875rem 1.5rem;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0f;
+    }
+
+    .btn-primary:hover { background: var(--accent2); }
+
+    .btn-secondary {
+      background: var(--bg3);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover { border-color: var(--accent); }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* SUCCESS STATE */
+    .success-message {
+      background: rgba(0, 229, 160, 0.1);
+      border: 1px solid rgba(0, 229, 160, 0.3);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      display: none;
+    }
+
+    .success-message.show { display: block; }
+    .success-message h2 { color: var(--accent); margin-bottom: 0.5rem; }
+    .success-message p { color: var(--muted); font-size: 0.9375rem; }
+
+    /* ERROR STATE */
+    .error-message {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      color: #fca5a5;
+      margin-bottom: 1.5rem;
+      display: none;
+      font-size: 0.875rem;
+    }
+
+    .error-message.show { display: block; }
+
+    /* INFO */
+    .info-box {
+      background: rgba(0, 229, 160, 0.05);
+      border: 1px solid rgba(0, 229, 160, 0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      color: var(--muted);
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <span>📡</span> PricePulse
+  </a>
+</nav>
+
+<div class="container">
+
+  <h1>Share Your Feedback</h1>
+  <p class="subtitle">
+    We're building PricePulse in public and would love to hear what you think. Your feedback shapes what we build next.
+  </p>
+
+  <div class="error-message" id="errorMsg"></div>
+
+  <!-- FORM -->
+  <form id="feedbackForm" style="display: block;">
+    <!-- Category -->
+    <div class="form-section">
+      <div class="form-group">
+        <label>What type of feedback? <span class="required">*</span></label>
+        <select id="category" required>
+          <option value="">Select one...</option>
+          <option value="feature-request">Feature request</option>
+          <option value="pricing-objection">Pricing objection</option>
+          <option value="bug">Bug or issue</option>
+          <option value="competitor">Missing competitor</option>
+          <option value="ux-feedback">UX improvement</option>
+          <option value="praise">General praise</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <!-- Satisfaction -->
+      <div class="form-group">
+        <label>How satisfied are you with PricePulse so far? <span class="required">*</span></label>
+        <div class="rating-group" id="satisfaction">
+          <button type="button" class="rating-btn" value="1" onclick="selectRating(this)">😞 Not at all</button>
+          <button type="button" class="rating-btn" value="2" onclick="selectRating(this)">😐 Somewhat</button>
+          <button type="button" class="rating-btn" value="3" onclick="selectRating(this)">😊 Pretty good</button>
+          <button type="button" class="rating-btn" value="4" onclick="selectRating(this)">😍 Love it</button>
+        </div>
+        <input type="hidden" id="satisfactionValue" name="satisfaction" required>
+      </div>
+    </div>
+
+    <!-- Details -->
+    <div class="form-section">
+      <div class="form-group">
+        <label>Your feedback <span class="required">*</span></label>
+        <textarea id="message" placeholder="Tell us what's on your mind... (min 10 characters)" required></textarea>
+      </div>
+
+      <!-- Pricing Objection Followup -->
+      <div class="form-group" id="pricingGroup" style="display: none;">
+        <label>What's the main pricing issue?</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="pricing-issue" value="too-expensive">
+            <div class="checkbox-label">
+              <strong>Too expensive</strong>
+              <small>Even Free tier doesn't justify value</small>
+            </div>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="pricing-issue" value="free-too-limited">
+            <div class="checkbox-label">
+              <strong>Free tier too limited</strong>
+              <small>2 competitors/day not enough</small>
+            </div>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="pricing-issue" value="upgrade-gap">
+            <div class="checkbox-label">
+              <strong>Upgrade gap</strong>
+              <small>$19 jump is too steep</small>
+            </div>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="pricing-issue" value="frequency-too-low">
+            <div class="checkbox-label">
+              <strong>Frequency too low</strong>
+              <small>Need more than daily for Free</small>
+            </div>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="pricing-issue" value="need-trial">
+            <div class="checkbox-label">
+              <strong>Want a free trial</strong>
+              <small>Try Pro features before paying</small>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Features wanted -->
+      <div class="form-group" id="featuresGroup" style="display: none;">
+        <label>Top feature you'd want next?</label>
+        <select id="topFeature">
+          <option value="">Select one...</option>
+          <option value="slack">Slack integration for alerts</option>
+          <option value="webhook">Webhook for custom alerts</option>
+          <option value="csv">CSV export of changes</option>
+          <option value="api">API access for automation</option>
+          <option value="30min">30-min checks (not just hourly)</option>
+          <option value="historical">Full historical changes view</option>
+          <option value="comparison">Side-by-side price comparison</option>
+          <option value="dashboard-alerts">Dashboard alerts (not email)</option>
+          <option value="other-feature">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="form-section">
+      <div class="form-group">
+        <label>Email <span class="required">*</span></label>
+        <input type="email" id="email" placeholder="you@company.com" required>
+        <div class="info-box">
+          We'll only use this to follow up on your feedback if needed
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Company (optional)</label>
+        <input type="text" id="company" placeholder="Your company name">
+      </div>
+
+      <div class="form-group">
+        <label>Can we follow up? <span class="required">*</span></label>
+        <select id="followup" required>
+          <option value="">Select one...</option>
+          <option value="yes">Yes, reach out if interested</option>
+          <option value="no">No, keep my feedback anonymous</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="button-group">
+      <button type="submit" class="btn btn-primary" id="submitBtn">Send Feedback →</button>
+      <button type="button" class="btn btn-secondary" onclick="window.location.href='/'">Close</button>
+    </div>
+  </form>
+
+  <!-- SUCCESS -->
+  <div class="success-message" id="successMsg">
+    <h2>✓ Thank you!</h2>
+    <p>Your feedback helps us build a better product. We'll review it right away and reach out if we have questions.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    <a href="index.html">PricePulse</a> ·
+    <a href="pricing.html">Pricing</a> ·
+    <a href="about.html">About</a> ·
+    <a href="privacy.html">Privacy</a>
+  </p>
+</footer>
+
+<script>
+  // Show pricing/features section based on category
+  document.getElementById('category').addEventListener('change', function(e) {
+    const isPricing = e.target.value === 'pricing-objection';
+    const isFeature = e.target.value === 'feature-request';
+    document.getElementById('pricingGroup').style.display = isPricing ? 'block' : 'none';
+    document.getElementById('featuresGroup').style.display = isFeature ? 'block' : 'none';
+  });
+
+  // Rating selection
+  function selectRating(btn) {
+    const group = btn.parentElement;
+    group.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    document.getElementById('satisfactionValue').value = btn.value;
+  }
+
+  // Form submission
+  document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = '⏳ Sending...';
+
+    const payload = {
+      category: document.getElementById('category').value,
+      satisfaction: document.getElementById('satisfactionValue').value,
+      message: document.getElementById('message').value,
+      email: document.getElementById('email').value,
+      company: document.getElementById('company').value || null,
+      followup: document.getElementById('followup').value,
+      pricing_issues: Array.from(document.querySelectorAll('input[name="pricing-issue"]:checked'))
+        .map(cb => cb.value),
+      top_feature: document.getElementById('topFeature').value || null,
+      submitted_at: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error(`API error: ${res.status}`);
+
+      // Show success
+      document.getElementById('feedbackForm').style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+
+      // Redirect after 3 seconds
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 3000);
+
+    } catch (err) {
+      const errorMsg = document.getElementById('errorMsg');
+      errorMsg.textContent = `❌ Failed to send feedback: ${err.message}`;
+      errorMsg.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Send Feedback →';
+    }
+  });
+</script>
+
+</body>
+</html>
