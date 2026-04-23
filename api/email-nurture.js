@@ -15,6 +15,8 @@
 // Required env vars: CRON_SECRET, RESEND_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY
 // Optional: RESEND_FROM (default: PricePulse <hello@getpricepulse.com>)
 
+import { createHmac } from 'crypto';
+
 const RESEND_API_URL = 'https://api.resend.com/emails';
 const FROM_ADDRESS = process.env.RESEND_FROM || 'PricePulse <hello@getpricepulse.com>';
 const APP_URL = process.env.APP_URL || 'https://getpricepulse.com';
@@ -282,7 +284,6 @@ export default async function handler(req, res) {
 
 function generateUnsubscribeLink(userId) {
   // Create an unsubscribe token: userId:timestamp:hmac(userId:timestamp)
-  const { createHmac } = require('crypto');
   const timestamp = Math.floor(Date.now() / 1000);
   const secret = process.env.CRON_SECRET || 'default-secret';
   const signature = createHmac('sha256', secret)
@@ -407,6 +408,7 @@ function buildWelcomeHtml(firstName, userId) {
 }
 
 function buildFirstMonitorHtml(firstName, competitorName, userId) {
+  const unsubscribeLink = generateUnsubscribeLink(userId);
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -459,7 +461,8 @@ function buildFirstMonitorHtml(firstName, competitorName, userId) {
 <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb">
   <p style="margin:0;font-size:12px;color:#9ca3af;line-height:1.6">
     PricePulse — Competitor pricing intelligence for SaaS founders<br>
-    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a>
+    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a> ·
+    <a href="${unsubscribeLink}" style="color:#9ca3af;text-decoration:underline">Unsubscribe</a>
   </p>
 </td></tr>
 
@@ -471,6 +474,7 @@ function buildFirstMonitorHtml(firstName, competitorName, userId) {
 }
 
 function buildActivationNudgeHtml(firstName, userId) {
+  const unsubscribeLink = generateUnsubscribeLink(userId);
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -517,7 +521,8 @@ function buildActivationNudgeHtml(firstName, userId) {
 <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb">
   <p style="margin:0;font-size:12px;color:#9ca3af">
     PricePulse — Competitor pricing intelligence for SaaS founders<br>
-    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a>
+    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a> ·
+    <a href="${unsubscribeLink}" style="color:#9ca3af;text-decoration:underline">Unsubscribe</a>
   </p>
 </td></tr>
 
@@ -529,6 +534,7 @@ function buildActivationNudgeHtml(firstName, userId) {
 }
 
 function buildUpgradePromptHtml(firstName, userId) {
+  const unsubscribeLink = generateUnsubscribeLink(userId);
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -580,7 +586,8 @@ function buildUpgradePromptHtml(firstName, userId) {
 <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb">
   <p style="margin:0;font-size:12px;color:#9ca3af">
     PricePulse — Competitor pricing intelligence for SaaS founders<br>
-    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a>
+    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a> ·
+    <a href="${unsubscribeLink}" style="color:#9ca3af;text-decoration:underline">Unsubscribe</a>
   </p>
 </td></tr>
 
@@ -592,6 +599,7 @@ function buildUpgradePromptHtml(firstName, userId) {
 }
 
 function buildReengagementHtml(firstName, userId) {
+  const unsubscribeLink = generateUnsubscribeLink(userId);
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -641,7 +649,8 @@ function buildReengagementHtml(firstName, userId) {
 <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb">
   <p style="margin:0;font-size:12px;color:#9ca3af">
     PricePulse — Competitor pricing intelligence for SaaS founders<br>
-    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a>
+    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a> ·
+    <a href="${unsubscribeLink}" style="color:#9ca3af;text-decoration:underline">Unsubscribe</a>
   </p>
 </td></tr>
 

@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://getpricepulse.com/blog.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -37,6 +37,18 @@
     <priority>0.7</priority>
   </url>
   <!-- Blog posts — sorted by publish date descending -->
+  <url>
+    <loc>https://getpricepulse.com/blog/advanced-competitor-analysis-pricing-data.html</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/blog/15-saas-competitors-to-monitor.html</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
   <url>
     <loc>https://getpricepulse.com/blog/how-to-build-competitor-pricing-watchlist.html</loc>
     <lastmod>2026-04-22</lastmod>

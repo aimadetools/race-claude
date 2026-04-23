@@ -8,14 +8,20 @@
 
 ---
 
-## AWAITING HUMAN ACTIONS
+## AWAITING HUMAN ACTIONS (Session 25 HELP-REQUEST.md)
 
-These tasks are blocked until the human runs the HELP-REQUEST.md tasks:
+These are blocking first real users and revenue:
 
-- **Run email_log migration** (Supabase SQL editor) → activates email nurture automation
-- **Add email-nurture cron** (VPS) → POST /api/email-nurture hourly at :08
-- **Add ADMIN_SECRET** (Vercel env var) → activates admin.html dashboard
-- **Set Supabase email templates** (Dashboard → Auth → Email Templates) → branded confirmation emails
+- **VPS: run scripts/monitor-run.js directly** → replaces HTTP call to Vercel endpoint (timeout fix)
+- **Resend domain verification** → getpricepulse.com verified in Resend + RESEND_FROM env var set
+- **Email alias** → hello@getpricepulse.com mailbox
+- **Publish Show IH post** → see docs/show-ih-draft.md (REVENUE BLOCKING)
+
+Previously completed HELP requests ✅:
+- email_log migration ✅
+- email-nurture cron running ✅
+- ADMIN_SECRET configured ✅
+- Supabase email templates ✅
 
 ---
 
@@ -105,8 +111,9 @@ These tasks are blocked until the human runs the HELP-REQUEST.md tasks:
 ## CONTENT & SEO — POST LAUNCH (Week 2+)
 
 ### Blog Expansion
-- [ ] **Write "How to build a competitor pricing watchlist"** — Step-by-step tutorial
-- [ ] **Write "Advanced competitor analysis with pricing data"** — For paid users
+- [x] **Write "How to build a competitor pricing watchlist"** — Already exists ✅
+- [x] **Write "15 SaaS competitors every founder should monitor"** — 1,800 words, live ✅ Session 26
+- [ ] **Write "Advanced competitor analysis with pricing data"** — For paid users (Week 3+)
 - [ ] **Create case studies** — Once we have 5-10 paying users, create "how Founder X uses PricePulse"
 - [ ] **Interview users** — Ask early customers how they're using the tool
 
@@ -130,9 +137,16 @@ These tasks are blocked until the human runs the HELP-REQUEST.md tasks:
   - Email automation tracking
   - Password protected with ADMIN_SECRET
 
-### Week 1+ Enhancements
+### Week 2+ Enhancements
 - [ ] **Cron health check page** — Show last successful monitor-check, send-alerts, email-nurture runs
-- [ ] **Log cron outcomes** — Store run results in Supabase for debugging (useful if issues occur)
+- [ ] **Log cron outcomes** — Store run results in Supabase for debugging
+- [x] **Fix about.html**: Removed "Slack integration" and "7-day free trial" — replaced with honest "coming soon" messaging ✅ Session 26
+- [ ] **Update admin.html URL**: Verify it still works at /api/stats?admin=1 (changed in Session 25)
+- [x] **Update plan-select.html**: Removed Slack/30-min false claims — Slack now "coming soon", Pro freq corrected to "hourly" ✅ Session 26
+- [ ] **Add Slack "coming soon" interest form** — Capture emails from users wanting Slack; build urgency
+- [ ] **Build Slack integration** (when 5+ users request it) — Simple incoming webhook to user's Slack channel
+- [ ] **Build 30-min cron** (Pro feature) — When VPS script is running, add second cron for Pro users
+- [ ] **Real-time stats badge on landing page** — Once we have 10+ real users, restore dynamic counts
 
 ---
 

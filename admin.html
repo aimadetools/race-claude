@@ -426,6 +426,12 @@
         </div>
       </div>
 
+      <!-- Cron health -->
+      <div class="section" id="cron-section">
+        <div class="section-header">System Health</div>
+        <div id="cron-health" style="padding:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;"></div>
+      </div>
+
       <!-- Recent signups -->
       <div class="section">
         <div class="section-header">Recent Signups <span class="badge" id="signups-badge"></span></div>
@@ -481,7 +487,7 @@
     document.getElementById('stats-content').style.display = 'none';
 
     try {
-      const res = await fetch('/api/admin-stats', {
+      const res = await fetch('/api/stats?admin=1', {
         headers: { 'Authorization': `Bearer ${secret}` }
       });
 
@@ -592,6 +598,44 @@
       document.getElementById('email-stats').innerHTML =
         '<div class="no-data">email_log table not found — run the migration from docs/schema-migration-email-log.sql</div>';
     }
+
+    // Cron health
+    const cronItems = [
+      {
+        label: 'Monitor Check (VPS cron)',
+        ts: d.cron?.last_monitor_check,
+        maxAgeHours: 2,
+        tip: 'Should run every hour at :00',
+      },
+      {
+        label: 'Alert Delivery',
+        ts: d.cron?.last_alert_sent,
+        maxAgeHours: 48,
+        tip: 'Healthy if any alert sent in last 48h (fires only when changes detected)',
+      },
+    ];
+
+    const cronHtml = cronItems.map(item => {
+      if (!item.ts) {
+        return `<div class="stat-card" style="flex:1;min-width:200px;">
+          <div class="stat-label">${item.label}</div>
+          <div class="stat-value" style="font-size:1.2rem;color:var(--muted)">No data</div>
+          <div class="stat-sub" style="color:var(--muted)">${item.tip}</div>
+        </div>`;
+      }
+      const ageMs = Date.now() - new Date(item.ts).getTime();
+      const ageHrs = ageMs / 3600000;
+      const healthy = ageHrs <= item.maxAgeHours;
+      const color = healthy ? 'var(--accent)' : 'var(--red,#ef4444)';
+      const statusText = healthy ? 'Healthy' : 'Stale';
+      return `<div class="stat-card" style="flex:1;min-width:200px;">
+        <div class="stat-label">${item.label}</div>
+        <div class="stat-value" style="font-size:1.2rem;color:${color}">${statusText}</div>
+        <div class="stat-sub">Last: ${timeAgo(item.ts)} · ${item.tip}</div>
+      </div>`;
+    }).join('');
+
+    document.getElementById('cron-health').innerHTML = cronHtml;
 
     // Recent signups table
     document.getElementById('signups-badge').textContent = `${d.recent_signups.length} recent`;

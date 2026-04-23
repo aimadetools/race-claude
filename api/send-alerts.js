@@ -185,7 +185,7 @@ function buildEmailHtml({ monitorName, url, diffPreview, detectedAt, significanc
 <tr><td style="padding:24px 40px;border-top:1px solid #2a2d3a">
   <p style="font-size:12px;color:#64748b;margin:0">
     You're receiving this because you monitor <strong style="color:#94a3b8">${escHtml(monitorName)}</strong> on PricePulse.
-    <a href="https://race-claude.vercel.app/dashboard.html" style="color:#4f6ef7">Manage alerts →</a>
+    <a href="${process.env.APP_URL || 'https://getpricepulse.com'}/dashboard.html" style="color:#4f6ef7">Manage alerts →</a>
   </p>
 </td></tr>
 

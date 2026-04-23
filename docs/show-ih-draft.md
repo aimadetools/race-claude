@@ -29,10 +29,11 @@ The email shows you exactly what changed, highlighted, with a timestamp. You're 
 **Tech stack**
 
 Pretty minimal by design:
-- GitHub Actions for cron scheduling (free tier handles our current monitoring frequency)
+- A VPS running an hourly cron that POSTs to the monitoring endpoint
 - Supabase for storing page snapshots, user data, and alert history
 - Static HTML + Vercel for the frontend — no framework, just fast
 - Resend for transactional email
+- node-fetch + cheerio for page fetching and content extraction
 
 I deliberately kept the stack boring so I can actually maintain it as a solo founder. No Next.js, no Prisma, no layers I don't need yet.
 
@@ -87,7 +88,7 @@ A: Google Alerts monitors for new web content mentioning a search term — it wo
 
 **Q: How do you handle JavaScript-rendered pages?**
 
-A: This is the real technical challenge and I won't pretend I've fully solved it. Most SaaS pricing pages are server-rendered or use standard JS frameworks that hydrate quickly — those work fine. For heavy client-side renders, we run a headless browser (Playwright) that waits for the pricing content to settle before capturing. This adds latency to the check, which is why hourly checks are a Pro feature and not free. There are still edge cases — some pages use aggressive bot detection that blocks headless browsers. When we can't reliably monitor a URL, we tell you rather than silently miss changes. Working on improving this over time.
+A: This is the real technical challenge and I won't pretend I've fully solved it. Most SaaS pricing pages are server-rendered or use standard JS frameworks where the pricing content is in the initial HTML response — those work reliably. For pages that rely on heavy client-side rendering, the current implementation may miss changes that only appear after JS executes. We filter content with a pricing-aware CSS selector allowlist (looking for elements with class names like "pricing", "plan", "price", "amount", etc.) which captures the signal even on JS-heavy pages as long as the relevant HTML is present in the initial response. It's not perfect — headless browser support is on the roadmap for pages that require full JS execution. When we can't reliably detect a change, we'd rather miss it than spam you with false positives.
 
 ---
 

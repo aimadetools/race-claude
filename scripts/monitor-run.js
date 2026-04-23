@@ -10,8 +10,8 @@ import crypto from 'crypto';
 import { extractPricingContent, computeDiff, scoreDiff } from './noise-filter.js';
 
 const DRY_RUN = process.env.DRY_RUN === 'true';
-const BATCH_SIZE = 20;       // URLs to check per run (stay within Actions 6-min limit)
-const FETCH_TIMEOUT_MS = 15_000;
+const BATCH_SIZE = 10;       // URLs to check per run (stay within Vercel 30s limit)
+const FETCH_TIMEOUT_MS = 7_000; // 7s per fetch; 10 fetches ≈ 15s typical, 70s worst-case
 const MIN_SIGNIFICANCE = 0.3; // Diffs below this score are silently discarded
 
 const supabase = createClient(
