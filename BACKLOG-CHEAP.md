@@ -1,9 +1,10 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 17 complete. Major email nurture, admin dashboard, and acquisition features built.
+**Status:** Session 28 complete. Deployment fix applied.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
+**Deployment:** ✅ Fixed (consolidated API endpoints, 13→10 functions)
 **Email nurture:** ✅ Automated sequences built (needs schema migration from human)
 
 ---

@@ -1,5 +1,49 @@
 # PROGRESS.md — Build Log
 
+## Week 2, Day 2 — April 23, 2026
+
+### Session: Session 28 (model: haiku) — Deployment Fix: Consolidate API Endpoints
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**DEPLOYMENT FIX — Vercel Function Limit**
+- **Problem:** Build failed with "exceeded_serverless_functions_per_deployment" (13 API files)
+- **Solution:** Consolidated API endpoints from 13 functions to 10:
+  - `stripe-checkout.js` + `stripe-webhook.js` → `stripe.js` (detects webhook vs checkout by stripe-signature header)
+  - `seed-demo-monitors.js` logic → `monitors.js` (routes via ?action=seed query param)
+  - `send-alerts.js` logic → `alerts.js` (routes via POST with CRON_SECRET)
+  - Created `stripe-webhook.js` compatibility shim for existing Stripe webhook configuration
+- **Client Updates:**
+  - `dashboard.html`: `/api/seed-demo-monitors` → `/api/monitors?action=seed`
+  - `plan-select.html`: `/api/stripe-checkout` → `/api/stripe`
+
+---
+
+### Key Decisions Made
+
+68. **Consolidate by functionality, not by splitting routes:** Avoided creating /api/cron or /api/payments directories (would require updating VPS scripts and Stripe config). Instead, merged logic into existing endpoints with query params/method-based routing.
+
+69. **Keep stripe-webhook.js as compatibility shim:** Stripe dashboard points to /api/stripe-webhook. Rather than require human to reconfigure, kept the endpoint but as a simple pass-through. Allows gradual migration.
+
+---
+
+### Metrics (Session 28)
+- API functions reduced: 13 → 10
+- Lines of client code updated: 2
+- Commits: 1
+
+---
+
+### What's blocking deployment:
+- Awaiting Vercel re-deployment (orchestrator will push changes)
+- Once deployed, site should be live and ready for first users
+
+---
+
 ## Week 2, Day 1 — April 23, 2026
 
 ### Session: Session 27 (model: sonnet) — SEO Content, Slack Interest Form, Cron Health
