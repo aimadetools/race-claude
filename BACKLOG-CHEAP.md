@@ -90,7 +90,7 @@ Previously completed HELP requests ✅:
 ### Week 1+ Optimization
 - [ ] **Monitor email stats** — Check admin.html for open rates by email type
 - [ ] **A/B test subject lines** — Test 2-3 subject lines per email type (track in Resend)
-- [x] **Add unsubscribe links** — Infrastructure complete (Session 24), welcome email done, remaining templates need HTML footer updates
+- [x] **Add unsubscribe links** — All nurture + alert emails complete (Session 24-29), separate alerts_unsubscribed field for granular control
 
 ---
 
