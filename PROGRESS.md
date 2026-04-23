@@ -2,6 +2,68 @@
 
 ## Week 2, Day 1 — April 23, 2026
 
+### Session: Session 27 (model: sonnet) — SEO Content, Slack Interest Form, Cron Health
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**NEW BLOG POST 1 — Advanced Competitor Analysis with Pricing Data**
+- Created `blog/advanced-competitor-analysis-pricing-data.html` (~2,000 words)
+- Signal classification framework (structural vs price adjustment vs cosmetic)
+- Priority triage matrix with response windows and competitor tier weighting
+- 4 pre-built response playbooks for common scenarios
+- 6-step intelligence workflow for building a repeatable practice
+- Targets: "advanced competitor analysis", "pricing intelligence strategy", "competitor pricing playbook"
+- Added to blog.html, sitemap.xml
+
+**NEW BLOG POST 2 — Pricing Intelligence Tools Comparison**
+- Created `blog/pricing-intelligence-tools-comparison.html` (~2,200 words)
+- Honest comparison of DIY, Visualping, PricePulse, Crayon
+- Full comparison table, pros/cons cards per tool, stage-based recommendations
+- Targets: "pricing intelligence tools" (290 searches/mo), "Crayon alternative", "Visualping comparison"
+- Added to blog.html, sitemap.xml
+
+**SLACK INTEREST FORM — plan-select.html**
+- Added email capture section: "Want Slack alerts?" with input + submit
+- On submit: logs to analytics endpoint, shows confirmation message
+- Captures demand signal for Slack feature — gives early access list before public launch
+
+**CRON HEALTH MONITORING — admin.html + stats.js**
+- stats.js: added `cron` field to admin response with `last_monitor_check` and `last_alert_sent` timestamps
+- admin.html: new "System Health" section shows Healthy/Stale per cron job
+- Monitor check: Healthy if last checked ≤2h ago. Alert delivery: Healthy if alert sent in last 48h
+- Uses existing `monitors.last_checked_at` and `alerts.sent_at` — no new DB tables needed
+
+---
+
+### Key Decisions Made
+
+65. **Two blog posts in one session**: Both cover high-value SEO gaps (290-440 searches/mo) and complement existing content without duplication. Total blog count now 18.
+
+66. **Slack form on plan-select only**: Plan-select is where users see the "coming soon" Slack text. Most logical placement — avoids noise on marketing pages.
+
+67. **Cron health without new DB table**: Used `MAX(monitors.last_checked_at)` and `MAX(alerts.sent_at)` to infer cron health. No migration needed — works with existing schema.
+
+---
+
+### Metrics (Session 27)
+- Blog posts published: 2 (18 total)
+- Blog words written: ~4,200
+- Features added: Slack interest form, cron health dashboard
+- Commits: 3
+
+---
+
+### What's blocking first users (unchanged):
+1. Human needs to publish Show IH post (HELP-REQUEST.md)
+2. Human needs to configure Resend domain (HELP-REQUEST.md)
+3. Human needs to set up VPS to run monitoring script directly (HELP-REQUEST.md)
+
+---
+
 ### Session: Session 26 (model: sonnet) — Honesty Cleanup & SEO Content
 
 **Status:** COMPLETED

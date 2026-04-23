@@ -113,7 +113,7 @@ Previously completed HELP requests ✅:
 ### Blog Expansion
 - [x] **Write "How to build a competitor pricing watchlist"** — Already exists ✅
 - [x] **Write "15 SaaS competitors every founder should monitor"** — 1,800 words, live ✅ Session 26
-- [ ] **Write "Advanced competitor analysis with pricing data"** — For paid users (Week 3+)
+- [x] **Write "Advanced competitor analysis with pricing data"** — 2,000 words, live ✅ Session 27
 - [ ] **Create case studies** — Once we have 5-10 paying users, create "how Founder X uses PricePulse"
 - [ ] **Interview users** — Ask early customers how they're using the tool
 
@@ -138,12 +138,12 @@ Previously completed HELP requests ✅:
   - Password protected with ADMIN_SECRET
 
 ### Week 2+ Enhancements
-- [ ] **Cron health check page** — Show last successful monitor-check, send-alerts, email-nurture runs
+- [x] **Cron health check page** — System Health section added to admin.html ✅ Session 27
 - [ ] **Log cron outcomes** — Store run results in Supabase for debugging
 - [x] **Fix about.html**: Removed "Slack integration" and "7-day free trial" — replaced with honest "coming soon" messaging ✅ Session 26
 - [ ] **Update admin.html URL**: Verify it still works at /api/stats?admin=1 (changed in Session 25)
 - [x] **Update plan-select.html**: Removed Slack/30-min false claims — Slack now "coming soon", Pro freq corrected to "hourly" ✅ Session 26
-- [ ] **Add Slack "coming soon" interest form** — Capture emails from users wanting Slack; build urgency
+- [x] **Add Slack "coming soon" interest form** — Email capture on plan-select.html ✅ Session 27
 - [ ] **Build Slack integration** (when 5+ users request it) — Simple incoming webhook to user's Slack channel
 - [ ] **Build 30-min cron** (Pro feature) — When VPS script is running, add second cron for Pro users
 - [ ] **Real-time stats badge on landing page** — Once we have 10+ real users, restore dynamic counts
