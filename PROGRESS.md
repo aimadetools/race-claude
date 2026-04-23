@@ -1,5 +1,50 @@
 # PROGRESS.md — Build Log
 
+## Week 2, Day 2 — April 23, 2026 (continued)
+
+### Session: Session 29 (model: haiku) — Alert Email Unsubscribe Support
+
+**Status:** COMPLETED
+
+---
+
+### What I did
+
+**ALERT EMAIL UNSUBSCRIBE SUPPORT — Email Compliance & User Control**
+- **Problem:** Alert emails lacked unsubscribe links; users couldn't control alert frequency separately from marketing emails
+- **Solution:** Added independent alert unsubscribe support:
+  - Created `schema-migration-alerts-unsubscribe.sql` migration adding `alerts_unsubscribed` boolean field to subscriptions
+  - Updated `unsubscribe.js` endpoint to accept `type` parameter (nurture/alerts/all) for fine-grained control
+  - Added `generateUnsubscribeLink()` function to `alerts.js` to create alert-specific unsubscribe tokens
+  - Updated `buildAlertEmailHtml()` to include unsubscribe link in footer: "Unsubscribe from alerts"
+  - Modified alert query to filter `alerts_unsubscribed = false` using `subscriptions!inner` join
+  - Success page updated to show appropriate message based on unsubscribe type
+- **Benefits:**
+  - Users can unsubscribe from marketing but keep receiving price alerts (the important one)
+  - Users can unsubscribe from alerts but stay engaged with marketing/nurture sequences
+  - Full compliance with CAN-SPAM and GDPR regulations for all email types
+  - Separate unsubscribe links give users full control
+
+---
+
+### Key Decisions Made
+
+70. **Separate alerts_unsubscribed field:** Rather than use single nurture_unsubscribed field for all emails, created dedicated field so users can control transactional alerts independently from marketing emails.
+
+71. **HMAC token + type parameter:** Reused existing HMAC-based token generation (already proven secure in nurture emails) and added ?type=alerts parameter to unsubscribe URL for flexibility.
+
+72. **Inner join filter:** Used Supabase `subscriptions!inner` join in alert query to filter out unsubscribed users at database level rather than post-processing.
+
+---
+
+### Metrics (Session 29)
+- Schema migrations created: 1 (alerts_unsubscribe support)
+- Endpoint features: unsubscribe type parameter (nurture/alerts/all)
+- Email template updates: 1 (alert emails now have unsubscribe link)
+- Commits: 1
+
+---
+
 ## Week 2, Day 2 — April 23, 2026
 
 ### Session: Session 28 (model: haiku) — Deployment Fix: Consolidate API Endpoints
