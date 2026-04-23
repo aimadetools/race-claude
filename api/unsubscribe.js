@@ -1,13 +1,17 @@
 /**
- * GET /api/unsubscribe?token={token}
+ * GET /api/unsubscribe?token={token}&type={type}
  *
- * One-click unsubscribe from nurture emails.
+ * One-click unsubscribe from emails.
  * Token can be:
  *   1. Simple unsubscribe token (format: userId:timestamp:signature)
  *      where signature = HMAC-SHA256(userId:timestamp, CRON_SECRET)
  *   2. JWT (user's auth token, encoded as URL-safe base64)
  *
- * Marks user as opted-out from nurture sequences.
+ * type parameter (optional, defaults to 'nurture'):
+ *   - 'nurture': unsubscribe from marketing/nurture emails only
+ *   - 'alerts': unsubscribe from price alert emails only
+ *   - 'all': unsubscribe from both
+ *
  * Returns: HTML page confirming unsubscribe (200 OK) or error (400/401)
  */
 
@@ -73,15 +77,57 @@ export default async function handler(req, res) {
       return res.status(400).send(errorPage('Invalid unsubscribe link', 'Could not process unsubscribe.'));
     }
 
-    // Mark user as unsubscribed from nurture emails
+    // Determine which email types to unsubscribe from
+    const type = req.query.type || 'nurture';
+    const updateData = {};
+
+    if (type === 'nurture' || type === 'all') {
+      updateData.nurture_unsubscribed = true;
+    }
+    if (type === 'alerts' || type === 'all') {
+      updateData.alerts_unsubscribed = true;
+    }
+
+    // Mark user as unsubscribed
     const { error: updateError } = await supabase
       .from('subscriptions')
-      .update({ nurture_unsubscribed: true })
+      .update(updateData)
       .eq('user_id', userId);
 
     if (updateError) {
       console.error('Unsubscribe update error:', updateError);
       return res.status(500).send(errorPage('Error unsubscribing', 'Something went wrong. Please try again.'));
+    }
+
+    // Generate appropriate success message based on type
+    let title = 'Unsubscribed';
+    let message = '';
+    if (type === 'nurture') {
+      message = `
+        <p class="success">You've been unsubscribed from PricePulse nurture emails.</p>
+        <div class="info">
+          <p>You'll no longer receive welcome, activation, upgrade, or re-engagement emails. You'll still get:</p>
+          <p style="font-size: 14px; margin-top: 8px;">✓ Price change alerts for your monitors<br>✓ Account/billing notifications</p>
+          <p style="font-size: 14px; margin-top: 16px;">Questions? Email hello@getpricepulse.com</p>
+        </div>
+      `;
+    } else if (type === 'alerts') {
+      message = `
+        <p class="success">You've been unsubscribed from PricePulse alert emails.</p>
+        <div class="info">
+          <p>You'll no longer receive price change alerts. You'll still get:</p>
+          <p style="font-size: 14px; margin-top: 8px;">✓ Marketing and engagement emails<br>✓ Account/billing notifications</p>
+          <p style="font-size: 14px; margin-top: 16px;">You can still view alerts in your dashboard. Questions? Email hello@getpricepulse.com</p>
+        </div>
+      `;
+    } else if (type === 'all') {
+      message = `
+        <p class="success">You've been unsubscribed from all PricePulse emails.</p>
+        <div class="info">
+          <p>You'll no longer receive price alerts, nurture emails, or other communications. You can resubscribe anytime from your account settings.</p>
+          <p style="font-size: 14px; margin-top: 16px;">Questions? Email hello@getpricepulse.com</p>
+        </div>
+      `;
     }
 
     // Success response
@@ -102,13 +148,8 @@ export default async function handler(req, res) {
       </head>
       <body>
         <div class="container">
-          <h1>Unsubscribed</h1>
-          <p class="success">You've been unsubscribed from PricePulse nurture emails.</p>
-          <div class="info">
-            <p>You'll no longer receive welcome, activation, upgrade, or re-engagement emails. You'll still get:</p>
-            <p style="font-size: 14px; margin-top: 8px;">✓ Price change alerts for your monitors<br>✓ Account/billing notifications</p>
-            <p style="font-size: 14px; margin-top: 16px;">Questions? Email hello@getpricepulse.com</p>
-          </div>
+          <h1>${title}</h1>
+          ${message}
         </div>
       </body>
       </html>

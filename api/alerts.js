@@ -7,12 +7,14 @@
 // POST /api/alerts { secret: string } — send pending alerts (cron job)
 
 import { createClient } from '@supabase/supabase-js';
+import { createHmac } from 'crypto';
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
 const RESEND_API_URL = 'https://api.resend.com/emails';
 const FROM_ADDRESS = process.env.RESEND_FROM || 'PricePulse <alerts@getpricepulse.com>';
+const APP_URL = process.env.APP_URL || 'https://getpricepulse.com';
 const BATCH_LIMIT = 50;
 
 function getAuthedClient(authHeader) {
@@ -37,11 +39,23 @@ function escHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
-function buildAlertEmailHtml({ monitorName, url, diffPreview, detectedAt, significance }) {
+function generateUnsubscribeLink(userId) {
+  // Create unsubscribe token: userId:timestamp:hmac(userId:timestamp)
+  const timestamp = Math.floor(Date.now() / 1000);
+  const secret = process.env.CRON_SECRET || 'default-secret';
+  const signature = createHmac('sha256', secret)
+    .update(`${userId}:${timestamp}`)
+    .digest('hex');
+  const token = `${userId}:${timestamp}:${signature}`;
+  return `${APP_URL}/api/unsubscribe?token=${token}&type=alerts`;
+}
+
+function buildAlertEmailHtml({ monitorName, url, diffPreview, detectedAt, significance, userId }) {
   const date = new Date(detectedAt).toLocaleString('en-US', {
     month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC'
   });
   const confidenceLabel = significance >= 0.8 ? 'High' : significance >= 0.5 ? 'Medium' : 'Low';
+  const unsubscribeLink = generateUnsubscribeLink(userId);
 
   return `<!DOCTYPE html>
 <html>
@@ -76,7 +90,7 @@ function buildAlertEmailHtml({ monitorName, url, diffPreview, detectedAt, signif
   <a href="${escHtml(url)}" style="display:inline-block;background:linear-gradient(135deg,#4f6ef7,#7c3aed);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600">View pricing page →</a>
 </td></tr>
 <tr><td style="padding:24px 40px;border-top:1px solid #2a2d3a">
-  <p style="font-size:12px;color:#64748b;margin:0">You're receiving this because you monitor <strong style="color:#94a3b8">${escHtml(monitorName)}</strong> on PricePulse. <a href="${process.env.APP_URL || 'https://getpricepulse.com'}/dashboard.html" style="color:#4f6ef7">Manage alerts →</a></p>
+  <p style="font-size:12px;color:#64748b;margin:0">You're receiving this because you monitor <strong style="color:#94a3b8">${escHtml(monitorName)}</strong> on PricePulse. <a href="${APP_URL}/dashboard.html" style="color:#4f6ef7">Manage alerts →</a> · <a href="${unsubscribeLink}" style="color:#64748b;text-decoration:underline">Unsubscribe from alerts</a></p>
 </td></tr>
 </table>
 </td></tr>
@@ -108,10 +122,12 @@ async function handleSendAlerts(req, res) {
     .select(`
       id, channel, user_id, monitor_id,
       monitors ( name, url, alert_email ),
-      diffs ( diff_lines, significance_score, detected_at )
+      diffs ( diff_lines, significance_score, detected_at ),
+      subscriptions!inner ( alerts_unsubscribed )
     `)
     .eq('status', 'pending')
     .eq('channel', 'email')
+    .eq('subscriptions.alerts_unsubscribed', false)
     .order('created_at', { ascending: true })
     .limit(BATCH_LIMIT);
 
@@ -152,6 +168,7 @@ async function handleSendAlerts(req, res) {
       diffPreview,
       detectedAt: diff?.detected_at || new Date().toISOString(),
       significance: diff?.significance_score || 1.0,
+      userId: alert.user_id,
     });
 
     try {
