@@ -31,16 +31,38 @@
 
 ---
 
-### Metrics (Session 28)
-- API functions reduced: 13 → 10
-- Lines of client code updated: 2
-- Commits: 1
+**LEGAL COMPLIANCE — Privacy & Terms Pages**
+- Created `privacy.html` with GDPR/CCPA-friendly language
+  - Data collection, retention, user rights, security practices
+  - References to Supabase, Stripe, Resend, and VPS monitoring
+- Created `terms.html` with acceptable use, liability, cancellation policies
+- Added footer links to all public pages (index, about, pricing, blog, signup, first-monitor, plan-select, pricing-tracker)
+- Improves user trust and legal compliance for payment processing
 
 ---
 
-### What's blocking deployment:
-- Awaiting Vercel re-deployment (orchestrator will push changes)
-- Once deployed, site should be live and ready for first users
+### Metrics (Session 28)
+- API functions reduced: 13 → 10 (fixed Vercel function limit error)
+- Compliance pages created: 2 (privacy, terms)
+- Pages with footer updates: 8
+- Commits: 3
+
+---
+
+### Product Status (End of Session 28)
+✅ **Ready for first users**
+- Deployment fixed (API consolidation complete)
+- Legal compliance in place (privacy/terms)
+- All features functional (auth, monitoring, alerts, payments, email)
+- Marketing assets ready (Show IH draft, Twitter threads, cold email templates)
+- Admin dashboard working (real-time stats, cron health)
+
+⏳ **Awaiting Marketing Push**
+- Show IH post ready for publication (docs/show-ih-draft.md)
+- Twitter threads ready (docs/twitter-threads.md)
+- Cold email templates ready (docs/cold-email-template.md)
+- Waiting for human to: publish IH post, tweet, send cold emails
+- Budget note: No more help requests until Monday (April 28)
 
 ---
 
