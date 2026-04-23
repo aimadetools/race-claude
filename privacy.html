@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — PricePulse</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1, h2 { color: #fff; margin-top: 24px; margin-bottom: 12px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 20px; margin-top: 32px; }
+
+    p, li { margin-bottom: 12px; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    ul { margin-left: 20px; }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .last-updated {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <a href="/" class="back-link">← Back to PricePulse</a>
+
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last updated: April 2026</p>
+
+  <h2>What We Collect</h2>
+  <p>When you sign up for PricePulse, we collect:</p>
+  <ul>
+    <li><strong>Account data:</strong> Email address, name (optional), password hash</li>
+    <li><strong>Monitor data:</strong> URLs you choose to monitor, monitor names, monitoring preferences</li>
+    <li><strong>Usage data:</strong> Which competitors you monitor, when you access your dashboard, which alerts you view</li>
+    <li><strong>Payment data:</strong> Handled by Stripe (we never see your card details)</li>
+  </ul>
+
+  <h2>How We Use Your Data</h2>
+  <ul>
+    <li><strong>To provide the service:</strong> Monitor the URLs you specify and send you alerts</li>
+    <li><strong>To send emails:</strong> Alert notifications, welcome email, occasional feature announcements</li>
+    <li><strong>To improve PricePulse:</strong> Understand which features are used, fix bugs, make the product better</li>
+    <li><strong>For billing:</strong> Process subscriptions via Stripe</li>
+  </ul>
+
+  <h2>Where Your Data Is Stored</h2>
+  <ul>
+    <li><strong>Supabase:</strong> User accounts, monitors, alerts, pricing snapshots (hosted on AWS US East)</li>
+    <li><strong>Resend:</strong> Email delivery service for alerts and newsletters</li>
+    <li><strong>Stripe:</strong> Payment processing (PCI compliant)</li>
+    <li><strong>VPS:</strong> Monitoring engine stores temporary copies of competitor pricing pages</li>
+  </ul>
+
+  <h2>Data Retention</h2>
+  <ul>
+    <li><strong>Free plan:</strong> 7-day pricing history</li>
+    <li><strong>Starter plan:</strong> 90-day pricing history</li>
+    <li><strong>Pro plan:</strong> Unlimited pricing history</li>
+    <li><strong>User account data:</strong> Retained until you delete your account</li>
+    <li><strong>Email logs:</strong> Retained for 1 year for delivery analytics</li>
+  </ul>
+
+  <h2>Your Rights</h2>
+  <ul>
+    <li><strong>Access:</strong> You can request a copy of all data we hold about you</li>
+    <li><strong>Deletion:</strong> You can request account deletion at any time (email hello@getpricepulse.com)</li>
+    <li><strong>Unsubscribe:</strong> Every email has an unsubscribe link — use it anytime</li>
+    <li><strong>Portability:</strong> You can request your monitor list and alert history</li>
+  </ul>
+
+  <h2>Cookies & Tracking</h2>
+  <p>We use minimal cookies:</p>
+  <ul>
+    <li><strong>Session cookies:</strong> Keep you logged in to your account</li>
+    <li><strong>No tracking cookies:</strong> We don't use Google Analytics or other third-party trackers</li>
+    <li><strong>No ads:</strong> We don't sell your data or serve ads</li>
+  </ul>
+
+  <h2>Security</h2>
+  <ul>
+    <li>All data transmitted over HTTPS (encrypted)</li>
+    <li>Passwords are hashed and salted (never stored in plain text)</li>
+    <li>Database has row-level security (you can only see your own monitors)</li>
+    <li>API endpoints require authentication before processing</li>
+  </ul>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this policy occasionally. If we make material changes, we'll notify you via email or by posting prominently on our site.</p>
+
+  <h2>Questions?</h2>
+  <p>Email us at <a href="mailto:hello@getpricepulse.com">hello@getpricepulse.com</a></p>
+</div>
+</body>
+</html>
