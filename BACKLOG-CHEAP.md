@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 28 complete. Deployment fix applied.
+**Status:** Session 39 complete. Pricing tracker expanded, new SEO blog posts added.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -23,6 +23,18 @@ Previously completed HELP requests ✅:
 - email-nurture cron running ✅
 - ADMIN_SECRET configured ✅
 - Supabase email templates ✅
+
+---
+
+## COMPLETED (Sessions 18-23+) ✅
+
+### Session 39 (April 24, 2026)
+- [x] **Expand pricing tracker from 30 → 40 companies** — Added Monday.com, Intercom, Typeform, Calendly, Mailchimp, HubSpot, Slack, Jira, GitHub Copilot, Webflow
+- [x] **Update all count references** — Updated index.html, pricing-tracker.html, docs/show-ih-draft.md, blog.html
+- [x] **Write "40 SaaS pricing changes" blog post** — 2,000 words analyzing 40 verified pricing changes (18 increases, 12 free restrictions, 10 restructures)
+- [x] **Write "The free tier is dead" blog post** — 1,500 words analyzing 12 companies that killed/restricted free tiers
+- [x] **Add posts to blog grid** — Featured at top as newest content
+- [x] **Mobile responsiveness audit** — All pages verified responsive with viewport meta, max-width containers, media queries
 
 ---
 
