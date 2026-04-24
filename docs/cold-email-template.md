@@ -16,7 +16,7 @@ Most founders don't — they find out by accident. Or worse, from a customer chu
 
 I built a tool that monitors competitor pricing pages 24/7 and alerts you the moment anything changes. Price increases, plan restructures, feature moves — you see it first.
 
-It's called PricePulse. We're currently tracking 13+ major SaaS companies — check out the live tracker here: https://getpricepulse.com/pricing-tracker.html
+It's called PricePulse. We're currently tracking 40 major SaaS companies — check out the live tracker here: https://getpricepulse.com/pricing-tracker.html
 
 Free tier covers 2 competitors (daily checks). $19/mo for 10 competitors with hourly monitoring.
 
