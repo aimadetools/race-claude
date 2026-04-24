@@ -38,6 +38,18 @@
   </url>
   <!-- Blog posts — sorted by publish date descending -->
   <url>
+    <loc>https://getpricepulse.com/blog/40-saas-pricing-changes-2025-2026.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/blog/saas-free-tier-removal-2025.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://getpricepulse.com/blog/pricing-intelligence-tools-comparison.html</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -147,7 +159,7 @@
   </url>
   <url>
     <loc>https://getpricepulse.com/pricing-tracker.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
