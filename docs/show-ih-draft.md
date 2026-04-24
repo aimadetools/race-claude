@@ -49,7 +49,7 @@ I priced the Starter tier based on what I'd personally pay without thinking twic
 
 Rather than just telling you the product works, I built a public page that shows the data: **[getpricepulse.com/pricing-tracker.html](https://getpricepulse.com/pricing-tracker.html)**
 
-It tracks real pricing changes across 30 SaaS companies — Intercom, Figma, Salesforce, Zendesk, Pipedrive, Loom, Shopify, Adobe Creative Cloud, Hootsuite, Atlassian, Canva, GitHub Copilot, Mailchimp, and others. Each card shows what changed, when, and what the strategic signal is. This is the same kind of diff PricePulse sends you when a competitor you're monitoring changes their pricing.
+It tracks real pricing changes across 40 SaaS companies — Notion, Linear, Figma, Shopify, Adobe, Salesforce, Zendesk, Pipedrive, Semrush, ConvertKit, Monday.com, Intercom, Typeform, Calendly, Mailchimp, HubSpot, Slack, Jira, GitHub Copilot, Webflow, and more. Each card shows what changed, when, and what the strategic signal is. This is the same kind of diff PricePulse sends you when a competitor you're monitoring changes their pricing.
 
 It updates as we detect new changes. Think of it as a live feed of the SaaS pricing landscape, powered by the same monitoring engine that runs on your competitors when you sign up.
 
