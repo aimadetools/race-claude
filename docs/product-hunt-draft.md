@@ -60,7 +60,7 @@ A competitor adds a tier that undercuts you. Too late — customers already noti
 **PricePulse monitors competitor pricing pages 24/7.**
 
 1. **Add URLs** — point us at competitor pricing pages
-2. **We check continuously** — hourly, daily, or every 30 minutes depending on your plan
+2. **We check continuously** — hourly or daily depending on your plan
 3. **Noise filtering** — we extract pricing-relevant content, filter cookie banners, ad rotations, testimonial carousels
 4. **Instant alerts** — email the moment pricing changes, with a clean diff showing exactly what changed
 5. **Full history** — track competitor pricing evolution over weeks or months
@@ -79,7 +79,7 @@ A competitor adds a tier that undercuts you. Too late — customers already noti
 
 - **Free**: 2 competitors, daily checks, 7-day history, email alerts
 - **Starter** ($19/mo): 10 competitors, hourly checks, 90-day history, email alerts
-- **Pro** ($49/mo): Unlimited competitors, 30-minute checks, unlimited history, webhooks
+- **Pro** ($49/mo): Unlimited competitors, hourly checks, unlimited history, webhooks coming soon
 
 ## The Tech
 

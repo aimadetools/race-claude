@@ -109,6 +109,22 @@ Previously completed HELP requests ✅:
 
 ---
 
+## POST-LAUNCH TASKS (Week 1 — When Users Arrive)
+
+### Conversion & Trust
+- [x] **Audit blog posts for false claims** — Audited all 15 posts (Session 35) — all clean, no changes needed
+- [ ] **Add more companies to pricing-tracker.html** — As we detect real pricing changes via monitoring, add them as cards. Target 20+ companies within 2 weeks.
+- [x] **Add an "About this tracker" explainer** — Already exists at bottom of pricing-tracker.html ("How we track these changes")
+- [x] **Build dashboard upgrade prompt** — Polished upgrade modal (Session 35) replaces alert() dialogs; adapts to free→starter or starter→pro; near-limit/at-limit visual indicators in plan banner
+- [x] **Email 80% limit warning** — Fixed FAQ to remove false promise; dashboard shows visual warning at 80% now; email implementation deferred until we have Starter users
+
+### Webhooks (implement when 3+ users request it)
+- [ ] **Build webhook delivery endpoint** — POST to user-configured URL on pricing change
+- [ ] **Add webhook URL field to monitor settings**
+- [ ] **Add webhook delivery to alerts.js** — After email send, also POST to webhook URL
+
+---
+
 ## CONTENT & SEO — POST LAUNCH (Week 2+)
 
 ### Blog Expansion

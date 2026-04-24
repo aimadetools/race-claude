@@ -800,6 +800,29 @@
   <div class="footer-copy">© 2026 PricePulse. Built in public.</div>
 </footer>
 
+<!-- UPGRADE MODAL -->
+<div class="modal-overlay" id="upgradeModalOverlay" onclick="if(event.target===this)closeUpgradeModal()">
+  <div class="modal" role="dialog" aria-modal="true" style="max-width:440px;text-align:center">
+    <button class="modal-close" onclick="closeUpgradeModal()" aria-label="Close">&times;</button>
+    <div style="font-size:2rem;margin-bottom:0.75rem">📊</div>
+    <h2 class="modal-title" id="upgradeLimitTitle">You've used all your monitors</h2>
+    <p class="modal-sub" id="upgradeLimitDesc">Free plan includes 2 monitors. Upgrade to Starter for 10 monitors with hourly checks — so you never miss a competitor pricing change.</p>
+    <div style="background:var(--accent-glow);border:1px solid rgba(0,229,160,0.2);border-radius:12px;padding:1.25rem 1.5rem;margin:1.25rem 0;text-align:left">
+      <div style="font-size:0.8rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem">Starter — $19/mo</div>
+      <div style="display:flex;flex-direction:column;gap:0.4rem;font-size:0.9rem">
+        <div>&#10003; <strong>10 monitors</strong> (vs 2 on Free)</div>
+        <div>&#10003; <strong>Hourly checks</strong> (vs daily on Free)</div>
+        <div>&#10003; Instant email alerts on every change</div>
+        <div>&#10003; Full alert history</div>
+      </div>
+    </div>
+    <div class="modal-actions" style="flex-direction:column;gap:0.6rem">
+      <a href="plan-select.html?plan=starter" class="btn btn-primary btn-modal-submit" style="text-align:center;text-decoration:none;display:block">Upgrade to Starter &rarr; $19/mo</a>
+      <button onclick="closeUpgradeModal()" class="btn btn-ghost" style="font-size:0.85rem;color:var(--muted)">Maybe later</button>
+    </div>
+  </div>
+</div>
+
 <!-- ADD MONITOR MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -836,7 +859,7 @@
         <select id="monitorFreq" name="frequency" onchange="updateFrequencyNote()">
           <option value="daily">Every 24 hours (Free plan)</option>
           <option value="hourly" id="freq-hourly" disabled>Every hour (Starter plan)</option>
-          <option value="30min" id="freq-30min" disabled>Every 30 minutes (Pro plan)</option>
+          <option value="30min" id="freq-30min" disabled>Every 30 minutes (coming soon)</option>
         </select>
       </div>
 
@@ -952,6 +975,9 @@
       } else if (checkoutResult === 'cancelled') {
         showCheckoutToast('info', 'Checkout cancelled — you can upgrade any time from the plan banner.');
         history.replaceState(null, '', 'dashboard.html');
+      } else if (urlParams.get('onboarded') === 'true') {
+        showCheckoutToast('success', '🎉 Your first monitor is live! We\'ll email you the moment prices change.');
+        history.replaceState(null, '', 'dashboard.html');
       }
 
     } catch (err) {
@@ -1050,7 +1076,13 @@
     if (maxMonitors === '∞') {
       planDesc.innerHTML = `<strong>Unlimited monitors.</strong> You're on the ${planLabel} plan.`;
     } else {
-      planDesc.innerHTML = `<strong>${used} of ${maxMonitors} monitors used.</strong> ${used >= maxMonitors ? 'Upgrade to track more competitors.' : 'Upgrade for more monitors and faster checks.'}`;
+      const atLimit = used >= maxMonitors;
+      const nearLimit = !atLimit && used / maxMonitors >= 0.8;
+      let msg;
+      if (atLimit) msg = '<span style="color:#fca5a5">At limit.</span> Upgrade to track more competitors.';
+      else if (nearLimit) msg = '<span style="color:#fbbf24">Almost at limit.</span> Upgrade before you run out.';
+      else msg = 'Upgrade for more monitors and faster checks.';
+      planDesc.innerHTML = `<strong>${used} of ${maxMonitors} monitors used.</strong> ${msg}`;
     }
   }
 
@@ -1060,7 +1092,7 @@
     const notes = {
       daily: '⚡ Free plan: checks run every 24 hours',
       hourly: '⚡ Starter plan: checks run every hour (real-time monitoring)',
-      '30min': '⚡ Pro plan: checks run every 30 minutes (maximum detection speed)',
+      '30min': '⚡ 30-minute checks — coming soon',
     };
     document.getElementById('frequencyNote').textContent = notes[freq] || notes['daily'];
   }
@@ -1232,12 +1264,32 @@
   }
 
   // ─── MODAL ────────────────────────────────────────────────────────────────────
+  function openUpgradeModal() {
+    const limits = { free: 2, starter: 10, pro: Infinity };
+    const maxMonitors = limits[currentPlan] || 2;
+    const el = document.getElementById('upgradeLimitDesc');
+    if (currentPlan === 'free') {
+      el.textContent = `Free plan includes ${maxMonitors} monitors. Upgrade to Starter for 10 monitors with hourly checks — so you never miss a competitor pricing change.`;
+    } else if (currentPlan === 'starter') {
+      el.textContent = `Starter plan includes ${maxMonitors} monitors. Upgrade to Pro for unlimited monitors.`;
+      document.querySelector('#upgradeModalOverlay a').href = 'plan-select.html?plan=pro';
+      document.querySelector('#upgradeModalOverlay a').textContent = 'Upgrade to Pro \u2192 $49/mo';
+    }
+    document.getElementById('upgradeModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeUpgradeModal() {
+    document.getElementById('upgradeModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   function openModal() {
     // Check plan limits
     const limits = { free: 2, starter: 10, pro: Infinity };
     const maxMonitors = limits[currentPlan] || 2;
     if (monitors.length >= maxMonitors) {
-      alert(`You've reached your plan limit (${maxMonitors} monitors). Please upgrade to add more.`);
+      openUpgradeModal();
       return;
     }
 
@@ -1266,7 +1318,7 @@
     const limits = { free: 2, starter: 10, pro: Infinity };
     const maxMonitors = limits[currentPlan] || 2;
     if (monitors.length >= maxMonitors) {
-      alert(`You've reached your plan limit (${maxMonitors} monitors). Please upgrade to add more.`);
+      openUpgradeModal();
       return;
     }
 
@@ -1358,10 +1410,8 @@
     const limits = { free: 2, starter: 10, pro: Infinity };
     const maxMonitors = limits[currentPlan] || 2;
     if (monitors.length >= maxMonitors) {
-      errEl.textContent = `You've reached your plan limit (${maxMonitors} monitors). Upgrade to add more.`;
-      errEl.classList.add('visible');
-      btn.disabled = false;
-      btn.textContent = 'Add monitor →';
+      closeModal();
+      openUpgradeModal();
       return;
     }
 

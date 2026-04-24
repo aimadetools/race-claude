@@ -27,8 +27,8 @@ After confirming your email, you'll see the plan selection screen.
 - Best value for the price
 
 **Pro Plan** ($49/month)
-- Great for: Serious competitive intelligence operations
-- Checks: Every 30 minutes (48x per day)
+- Great for: Agencies and teams monitoring many competitors
+- Checks: Hourly (same as Starter)
 - Monitors: Unlimited
 - Includes: Slack/webhook integrations (coming soon)
 
@@ -113,7 +113,7 @@ We filter out 97% of noise (cookie banners, dates, review counts). But if you ge
 ### "How fast are the alerts?"
 - Free plan: Once per day (same day as the change)
 - Starter: Within 1 hour typically
-- Pro: Within 30 minutes typically
+- Pro: Within 1 hour typically (same speed as Starter, but with unlimited monitors)
 
 ### "Can I monitor a URL that requires login?"
 Not yet — we can only monitor public-facing pages. We're working on auth support.
@@ -136,7 +136,7 @@ Upgrade anytime. You'll immediately start getting hourly checks instead of daily
 
 **Upgrade to Pro if you:**
 - Monitor 10+ competitors
-- Need real-time alerts (30 minutes)
+- Need unlimited monitor capacity
 - Want webhook/Slack integrations (coming soon)
 
 ## Next Steps
