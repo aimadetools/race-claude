@@ -29,9 +29,9 @@ Here's how to get your first alert in the next 2 hours:
 **Step 2:** Click "Add Monitor"
 **Step 3:** Paste in your competitor's pricing page URL (e.g., https://competitor.com/pricing)
 **Step 4:** Choose daily checks
-**Step 5:** Done. We'll check it hourly and email you if anything changes.
+**Step 5:** Done. We'll check it daily and email you if anything changes.
 
-Most competitors change prices quietly, mid-quarter. The free tier catches them just fine.
+Most competitors change prices quietly, mid-quarter. The free tier catches them just fine. Upgrade to Starter ($19/mo) for hourly checks if you need faster detection.
 
 Questions? Reply to this email anytime.
 

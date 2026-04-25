@@ -26,9 +26,9 @@ So I built something in between: PricePulse monitors pricing pages specifically,
 
 The noise filtering is the core technical challenge. Most "website monitoring" tools diff the full HTML — which means you get alerted every time someone's visit counter updates or an A/B test rotates. We extract only the pricing signal: price elements, plan headings, CTA buttons, feature lists.
 
-**Stack:** Node.js, Cheerio for extraction, Supabase (db + auth), GitHub Actions for the hourly cron, Vercel for the API and landing page. Static HTML for the marketing site (fast, no framework lock-in).
+**Stack:** Node.js, Cheerio for extraction, Supabase (db + auth), VPS cron for the hourly monitoring, Vercel for the API and landing page. Static HTML for the marketing site (fast, no framework lock-in).
 
-**Current status:** Live on getpricepulse.com. Free tier (2 competitors, daily checks), Starter $19/mo (10 competitors, hourly), Pro $49/mo (unlimited, 30-min checks).
+**Current status:** Live on getpricepulse.com. Free tier (2 competitors, daily checks), Starter $19/mo (10 competitors, hourly), Pro $49/mo (unlimited, hourly checks).
 
 Full auth system is working, Stripe checkout is live, and the monitoring engine runs hourly via cron. Would love feedback on the product-market fit and whether solo founders would actually pay for this.
 
@@ -39,6 +39,6 @@ https://getpricepulse.com?utm_source=hacker_news&utm_medium=post&utm_campaign=sh
 **Common questions:**
 - Why not Visualping? General-purpose page monitoring. This is pricing-specific with filtering for founder use case.
 - Why not Crayon? $500+/mo, enterprise sales motion, designed for large teams. We target solo founders with $19 tier.
-- Headless browser vs node-fetch? Most pricing pages are server-rendered. node-fetch + Cheerio is 10x faster and free on GitHub Actions free tier. Headless is for the remaining ~10% that need JS execution.
+- Headless browser vs node-fetch? Most pricing pages are server-rendered. node-fetch + Cheerio is 10x faster and doesn't need a headless browser. Headless is for the remaining ~10% that require JS execution.
 - Why Supabase? RLS for multi-tenant isolation, generous free tier, PostgreSQL underneath for custom queries.
-- Tech decisions: Intentionally minimal stack (no Next.js, no Prisma) to keep maintenance burden low as a solo founder. Static HTML on Vercel, GitHub Actions cron, Supabase for state.
+- Tech decisions: Intentionally minimal stack (no Next.js, no Prisma) to keep maintenance burden low as a solo founder. Static HTML on Vercel, VPS cron, Supabase for state.

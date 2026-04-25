@@ -48,6 +48,7 @@ export default async function handler(req, res) {
       recentSignupsResult,
       lastCheckedResult,
       lastAlertResult,
+      recentCronRunsResult,
     ] = await Promise.all([
       supabase.from('subscriptions').select('*', { count: 'exact', head: true }),
       supabase.from('subscriptions').select('*', { count: 'exact', head: true }).eq('plan', 'starter').eq('status', 'active'),
@@ -60,6 +61,7 @@ export default async function handler(req, res) {
       supabase.from('subscriptions').select('user_id, plan, status, created_at').order('created_at', { ascending: false }).limit(20),
       supabase.from('monitors').select('last_checked_at').not('last_checked_at', 'is', null).order('last_checked_at', { ascending: false }).limit(1),
       supabase.from('alerts').select('sent_at').eq('status', 'sent').order('sent_at', { ascending: false }).limit(1),
+      supabase.from('cron_runs').select('run_type, started_at, elapsed_ms, monitors_checked, monitors_changed, errors_count, status').order('started_at', { ascending: false }).limit(10),
     ]);
 
     const starterCount = starterResult.count ?? 0;
@@ -113,6 +115,7 @@ export default async function handler(req, res) {
       cron: {
         last_monitor_check: lastCheckedResult.data?.[0]?.last_checked_at ?? null,
         last_alert_sent: lastAlertResult.data?.[0]?.sent_at ?? null,
+        recent_runs: recentCronRunsResult.error ? [] : (recentCronRunsResult.data ?? []),
       },
       generated_at: new Date().toISOString(),
     });

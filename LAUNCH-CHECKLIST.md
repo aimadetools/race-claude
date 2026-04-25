@@ -119,7 +119,7 @@ SELECT * FROM pg_indexes WHERE tablename='subscriptions' AND indexname LIKE '%al
 
 **Key stats to mention:**
 - Free tier: 2 competitors, daily checks
-- Pricing tracker: 13 companies with live changes
+- Pricing tracker: 40 companies with live changes
 - Demo available at getpricepulse.com/demo.html
 - No credit card required
 
@@ -214,7 +214,7 @@ Verify all are set in Vercel:
 
 ### Pricing Tracker
 - [ ] https://getpricepulse.com/pricing-tracker.html loads
-- [ ] 13 company cards visible with "Monitor [Company]" buttons
+- [ ] 40 company cards visible with "Monitor [Company]" buttons
 - [ ] Search/filter by company works
 - [ ] Share buttons work (Twitter intent opens)
 - [ ] CTA button prominent

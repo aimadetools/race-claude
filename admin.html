@@ -430,6 +430,9 @@
       <div class="section" id="cron-section">
         <div class="section-header">System Health</div>
         <div id="cron-health" style="padding:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;"></div>
+        <div id="cron-runs-container" style="padding:0 1.5rem 1.5rem">
+          <div class="no-data">No cron run history yet.</div>
+        </div>
       </div>
 
       <!-- Recent signups -->
@@ -636,6 +639,29 @@
     }).join('');
 
     document.getElementById('cron-health').innerHTML = cronHtml;
+
+    // Recent cron runs table
+    const recentRuns = d.cron?.recent_runs ?? [];
+    if (recentRuns.length > 0) {
+      const runRows = recentRuns.map(r => {
+        const statusColor = r.status === 'success' ? 'var(--accent)' : r.status === 'partial' ? '#f59e0b' : 'var(--red,#ef4444)';
+        const elapsed = r.elapsed_ms != null ? `${(r.elapsed_ms / 1000).toFixed(1)}s` : '—';
+        return `<tr>
+          <td data-label="Type">${escHtml(r.run_type)}</td>
+          <td data-label="Started">${timeAgo(r.started_at)}</td>
+          <td data-label="Checked">${r.monitors_checked ?? 0}</td>
+          <td data-label="Changed">${r.monitors_changed ?? 0}</td>
+          <td data-label="Errors">${r.errors_count ?? 0}</td>
+          <td data-label="Elapsed">${elapsed}</td>
+          <td data-label="Status"><span style="color:${statusColor};font-weight:600">${r.status}</span></td>
+        </tr>`;
+      }).join('');
+      document.getElementById('cron-runs-container').innerHTML = `
+        <table>
+          <thead><tr><th>Type</th><th>Started</th><th>Checked</th><th>Changed</th><th>Errors</th><th>Elapsed</th><th>Status</th></tr></thead>
+          <tbody>${runRows}</tbody>
+        </table>`;
+    }
 
     // Recent signups table
     document.getElementById('signups-badge').textContent = `${d.recent_signups.length} recent`;

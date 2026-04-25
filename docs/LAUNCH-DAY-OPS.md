@@ -6,6 +6,11 @@ This guide covers what to do on launch day to maximize your chances of a success
 
 ## MORNING CHECKLIST (8am-9am Monday)
 
+### 0. Run Supabase Migration (one-time, takes 30 seconds)
+- Go to your Supabase project → SQL editor
+- Paste and run contents of `docs/schema-migration-cron-runs.sql`
+- This creates the `cron_runs` table so admin.html can show cron run history
+
 ### 1. Verify the Site is Live
 ```bash
 curl -I https://www.getpricepulse.com
@@ -62,11 +67,13 @@ curl -X POST https://getpricepulse.com/api/seed-demo-monitors \
 - In each thread, include: `getpricepulse.com?utm_source=twitter&utm_campaign=launch`
 
 ### STEP 4: Cold Emails (10:00am)
-- Send first batch from `/home/race/race-claude/docs/cold-email-templates/`
-- Start with 25 emails (first 25 companies in cold-email-list.txt)
-- Subject line: Include their competitor name (personalization)
-- Expect 5-10% response rate
-- **Set calendar reminder:** Follow-up emails at 3-day and 7-day marks
+- Use templates from `/home/race/race-claude/docs/cold-email-template.md`
+- Build prospect list: Search Indie Hackers, Product Hunt, Twitter for SaaS founders with 3-10 competitors
+- Start with 20-25 emails (personalize each with competitor name in subject line)
+- Template 1 ("The Short One") has the highest response rate — use first
+- Subject line example: "Quick question about [Their competitor]'s pricing"
+- Expect 3-5% response rate
+- **Set calendar reminder:** Follow-up emails at 3-day and 7-day marks (see Template 5 for follow-up copy)
 
 ### STEP 5: Slack Communities (11:00am)
 - Share your IH post link in:

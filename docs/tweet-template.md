@@ -100,7 +100,7 @@ honest feedback welcome 👇
 
 ```
 built the monitoring engine with:
-- GitHub Actions for cron (free tier ✓)
+- VPS cron for hourly monitoring
 - Supabase for storage (free tier ✓)
 - node-fetch + Cheerio for parsing (10x faster than Puppeteer)
 - custom noise filter to avoid alert spam

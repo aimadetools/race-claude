@@ -195,13 +195,11 @@ Three-email sequence sent to new users after signup:
             </tr>
         </table>
 
-        <p><strong>🎁 Special offer:</strong> Start a 7-day free trial of Starter. If you don't love it, cancel anytime. No credit card needed.</p>
+        <p><strong>Ready to upgrade?</strong> Starter is $19/month — cancel anytime, no questions asked.</p>
 
         <p style="text-align: center; margin-top: 30px;">
-            <a href="https://getpricepulse.com/pricing" class="cta-button">Start Your Free Trial</a>
+            <a href="https://getpricepulse.com/pricing.html" class="cta-button">View Pricing Plans</a>
         </p>
-
-        <p>P.S. — Annual billing saves you 17% ($38/year). We'll apply that discount if you upgrade to annual after your trial.</p>
 
         <p>Questions? <a href="mailto:hello@getpricepulse.com">Reply to this email</a> or read our <a href="https://getpricepulse.com/pricing.html">pricing FAQ</a>.</p>
 

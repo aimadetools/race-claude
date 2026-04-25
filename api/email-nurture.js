@@ -364,7 +364,7 @@ function buildWelcomeHtml(firstName, userId) {
 <tr><td style="padding:40px">
   <p style="font-size:16px;color:#1a1a2e;margin:0 0 20px">Hey ${firstName},</p>
   <p style="font-size:15px;color:#374151;line-height:1.6;margin:0 0 24px">
-    Thanks for signing up! You've joined hundreds of SaaS founders who get early warning on competitor pricing moves.
+    Thanks for signing up! PricePulse monitors competitor pricing pages 24/7 so you don't have to.
   </p>
 
   <div style="background:#f0fdf4;border-left:4px solid #00e5a0;border-radius:4px;padding:16px 20px;margin:0 0 28px">

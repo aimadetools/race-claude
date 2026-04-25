@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // scripts/monitor-run.js
-// Main monitoring loop — run by GitHub Actions every hour.
+// Main monitoring loop — run by VPS cron every hour at :00.
 // Fetches active monitors from Supabase, checks each URL for changes,
 // stores snapshots, and queues alerts on diffs.
 
@@ -43,7 +43,42 @@ async function main() {
     }
   }
 
-  console.log(`[monitor-run] Done — checked=${checked} changed=${changed} errors=${errors} elapsed=${Date.now() - startedAt}ms`);
+  const elapsedMs = Date.now() - startedAt;
+  console.log(`[monitor-run] Done — checked=${checked} changed=${changed} errors=${errors} elapsed=${elapsedMs}ms`);
+
+  if (!DRY_RUN) {
+    await logCronRun({
+      run_type: 'monitor_check',
+      started_at: startedAt.toISOString(),
+      elapsed_ms: elapsedMs,
+      monitors_checked: checked,
+      monitors_changed: changed,
+      errors_count: errors,
+      status: errors > 0 && checked === 0 ? 'error' : errors > 0 ? 'partial' : 'success',
+    });
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+// Log a cron run outcome to Supabase (best-effort, never throws)
+// ──────────────────────────────────────────────────────────────
+async function logCronRun(data) {
+  try {
+    const { error } = await supabase.from('cron_runs').insert({
+      run_type:         data.run_type,
+      started_at:       data.started_at,
+      finished_at:      new Date().toISOString(),
+      elapsed_ms:       data.elapsed_ms,
+      monitors_checked: data.monitors_checked ?? 0,
+      monitors_changed: data.monitors_changed ?? 0,
+      errors_count:     data.errors_count ?? 0,
+      status:           data.status ?? 'success',
+      notes:            data.notes ?? null,
+    });
+    if (error) console.warn('[monitor-run] logCronRun warning:', error.message);
+  } catch (err) {
+    console.warn('[monitor-run] logCronRun failed (non-fatal):', err.message);
+  }
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -305,7 +340,7 @@ function sleep(ms) {
 // ──────────────────────────────────────────────────────────────
 // Export for use as a module (e.g. from api/monitor-check.js)
 // When run directly as a script, call main() immediately.
-export { main };
+export { main, logCronRun };
 
 if (process.argv[1] && process.argv[1].endsWith('monitor-run.js')) {
   main().catch(err => {

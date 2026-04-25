@@ -150,6 +150,65 @@
             color: #999;
             margin-top: 8px;
         }
+        .live-badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .live-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .live-stat {
+            text-align: center;
+            padding: 16px;
+            background: #f5f7ff;
+            border-radius: 8px;
+            border-top: 3px solid #667eea;
+        }
+        .live-stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .live-stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+        }
+        .admin-unlock {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .admin-unlock input {
+            flex: 1;
+            max-width: 320px;
+        }
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 13px;
+        }
+        .refresh-note {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+        }
     </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -160,6 +219,42 @@
     <div class="container">
         <h1>🚀 PricePulse Launch Metrics</h1>
         <div class="subtitle">Track your first week of growth in real-time</div>
+
+        <!-- Live Database Stats -->
+        <div class="section">
+            <h2>⚡ Live Database Stats <span class="live-badge">LIVE</span></h2>
+            <div class="live-grid" id="liveGrid">
+                <div class="live-stat">
+                    <div class="live-stat-label">Total Users</div>
+                    <div class="live-stat-value" id="liveUsers">—</div>
+                </div>
+                <div class="live-stat">
+                    <div class="live-stat-label">Free Users</div>
+                    <div class="live-stat-value" id="liveFree">—</div>
+                </div>
+                <div class="live-stat">
+                    <div class="live-stat-label">Starter ($19)</div>
+                    <div class="live-stat-value" id="liveStarter">—</div>
+                </div>
+                <div class="live-stat">
+                    <div class="live-stat-label">Pro ($49)</div>
+                    <div class="live-stat-value" id="livePro">—</div>
+                </div>
+                <div class="live-stat">
+                    <div class="live-stat-label">Live MRR</div>
+                    <div class="live-stat-value" id="liveMrr">—</div>
+                </div>
+                <div class="live-stat">
+                    <div class="live-stat-label">Active Monitors</div>
+                    <div class="live-stat-value" id="liveMonitors">—</div>
+                </div>
+            </div>
+            <div class="admin-unlock">
+                <input type="password" id="adminSecret" placeholder="Admin secret (for MRR + plan breakdown)" />
+                <button class="btn-sm" onclick="fetchAdminStats()">Fetch Live Stats</button>
+            </div>
+            <div class="refresh-note" id="liveRefreshNote">Public stats auto-refresh every 5 min. Enter admin secret for MRR + plan breakdown.</div>
+        </div>
 
         <!-- Key Metrics -->
         <div class="grid">
@@ -288,6 +383,84 @@
     </div>
 
     <script>
+        // Live stats — fetch from API
+        const API_BASE = 'https://www.getpricepulse.com';
+
+        async function fetchPublicStats() {
+            try {
+                const res = await fetch(API_BASE + '/api/stats');
+                if (!res.ok) return;
+                const data = await res.json();
+                // Public endpoint only returns total_monitors and total_users
+                document.getElementById('liveMonitors').textContent = data.total_monitors ?? '—';
+                // If admin stats not loaded yet, show total users from public endpoint
+                if (document.getElementById('liveUsers').textContent === '—') {
+                    document.getElementById('liveUsers').textContent = data.total_users ?? '—';
+                }
+            } catch (e) { /* silent fail */ }
+        }
+
+        async function fetchAdminStats() {
+            const secret = document.getElementById('adminSecret').value.trim();
+            if (!secret) { alert('Enter your admin secret first.'); return; }
+
+            // Store in sessionStorage so it persists on refresh
+            sessionStorage.setItem('adminSecret', secret);
+
+            try {
+                const res = await fetch(API_BASE + '/api/stats?admin=1', {
+                    headers: { 'Authorization': 'Bearer ' + secret }
+                });
+                if (res.status === 401) {
+                    document.getElementById('liveRefreshNote').textContent = '❌ Wrong admin secret — check your Vercel env vars.';
+                    return;
+                }
+                if (!res.ok) { throw new Error('HTTP ' + res.status); }
+                const data = await res.json();
+
+                document.getElementById('liveUsers').textContent = data.users?.total ?? '—';
+                document.getElementById('liveFree').textContent = data.users?.free ?? '—';
+                document.getElementById('liveStarter').textContent = data.users?.starter ?? '—';
+                document.getElementById('livePro').textContent = data.users?.pro ?? '—';
+                document.getElementById('liveMrr').textContent = '$' + (data.mrr ?? 0);
+                document.getElementById('liveMonitors').textContent = data.monitors?.active ?? '—';
+
+                const note = document.getElementById('liveRefreshNote');
+                note.textContent = '✅ Last fetched: ' + new Date().toLocaleTimeString() + ' — auto-refreshes every 5 min';
+
+                // Sync manual MRR/totals with live data
+                if (data.mrr != null) {
+                    document.getElementById('mrr').textContent = '$' + data.mrr;
+                }
+                if (data.users?.total != null) {
+                    document.getElementById('totalSignups').textContent = data.users.total;
+                }
+                const paid = (data.users?.starter ?? 0) + (data.users?.pro ?? 0);
+                if (paid >= 0) {
+                    document.getElementById('paidConversions').textContent = paid;
+                    const total = data.users?.total ?? 0;
+                    const rate = total > 0 ? Math.round((paid / total) * 100) : 0;
+                    document.getElementById('conversionRate').textContent = rate + '%';
+                }
+            } catch (e) {
+                document.getElementById('liveRefreshNote').textContent = '❌ Fetch failed: ' + e.message;
+            }
+        }
+
+        // Auto-refresh: use stored admin secret if available
+        async function autoRefresh() {
+            await fetchPublicStats();
+            const stored = sessionStorage.getItem('adminSecret');
+            if (stored) {
+                document.getElementById('adminSecret').value = stored;
+                await fetchAdminStats();
+            }
+        }
+
+        // Initial fetch + every 5 minutes
+        autoRefresh();
+        setInterval(autoRefresh, 5 * 60 * 1000);
+
         // Set today's date
         document.getElementById('date').valueAsDate = new Date();
 

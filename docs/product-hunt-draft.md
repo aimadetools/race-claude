@@ -254,13 +254,13 @@ Monitor competitor pricing for multiple clients. Add data to strategy reports.
 "Visualping catches everything (90% noise for pricing pages). Crayon is $500+/month and built for enterprises. We're $19/month, signal-only, built specifically for founder use case."
 
 ### If asked "Why should I trust you?"
-"Fair question. The core tech is boring on purpose — GitHub Actions + Supabase. No VC, no hype, just me building what I'd want to use. Early access is free to test."
+"Fair question. The core tech is boring on purpose — VPS cron + Supabase. No VC, no hype, just me building what I'd want to use. Early access is free to test."
 
 ### If asked about security/privacy
 "No data selling. RLS on all tables means your monitoring data is visible only to you. HTTPS everywhere. Stripe handles payments securely."
 
 ### If asked about uptime/reliability
-"Monitoring engine runs on GitHub Actions (99.9% uptime). API on Vercel (99.99% uptime). Failures are logged and we alert you. Current status: https://getpricepulse.com/status.html?utm_source=product_hunt&utm_medium=post&utm_campaign=ph_launch"
+"Monitoring engine runs on VPS cron (99.9% uptime). API on Vercel (99.99% uptime). Failures are logged and we alert you. Current status: https://getpricepulse.com/status.html?utm_source=product_hunt&utm_medium=post&utm_campaign=ph_launch"
 
 ### If asked about roadmap
 "Short term: Slack/webhook notifications, Zapier integration. Medium term: historical pricing analytics, AI pricing recommendations. What matters to you?"

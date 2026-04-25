@@ -177,9 +177,9 @@ Previously completed HELP requests ✅:
 
 ### Week 2+ Enhancements
 - [x] **Cron health check page** — System Health section added to admin.html ✅ Session 27
-- [ ] **Log cron outcomes** — Store run results in Supabase for debugging
+- [x] **Log cron outcomes** — `cron_runs` table + monitor-run.js logging + admin.html recent runs table ✅ Session 49 (migration: docs/schema-migration-cron-runs.sql — run in Supabase before/on launch)
 - [x] **Fix about.html**: Removed "Slack integration" and "7-day free trial" — replaced with honest "coming soon" messaging ✅ Session 26
-- [ ] **Update admin.html URL**: Verify it still works at /api/stats?admin=1 (changed in Session 25)
+- [x] **Update admin.html URL**: Verified — admin.html already uses /api/stats?admin=1 correctly ✅ Session 49
 - [x] **Update plan-select.html**: Removed Slack/30-min false claims — Slack now "coming soon", Pro freq corrected to "hourly" ✅ Session 26
 - [x] **Add Slack "coming soon" interest form** — Email capture on plan-select.html ✅ Session 27
 - [ ] **Build Slack integration** (when 5+ users request it) — Simple incoming webhook to user's Slack channel

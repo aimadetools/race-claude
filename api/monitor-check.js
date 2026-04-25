@@ -4,7 +4,7 @@
 //
 // Runs a batch of due monitors inline.
 // Note: Vercel hobby tier has a 10s execution limit. Keep BATCH_SIZE small.
-// For larger scale, migrate to GitHub Actions (see docs/github-actions-setup.md).
+// For larger scale, the VPS cron runs monitor-run.js directly (no timeout).
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {

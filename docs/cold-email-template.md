@@ -43,7 +43,7 @@ That's what inspired PricePulse.
 
 It monitors competitor pricing pages and alerts you via email the moment anything changes. No noise. Just signal. Price changed? You know. Plan structure changed? You know.
 
-Want to see what we're tracking? Check the public tracker: https://getpricepulse.com/pricing-tracker.html (13+ companies, real pricing changes in 2026)
+Want to see what we're tracking? Check the public tracker: https://getpricepulse.com/pricing-tracker.html (40+ companies, real pricing changes in 2026)
 
 Most founders using it are tracking 3-5 competitors.
 

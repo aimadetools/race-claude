@@ -22,7 +22,7 @@ So I built PricePulse.
 
 **What it does**
 
-You add your competitors' pricing page URLs. PricePulse monitors them continuously (checking multiple times per day), diffs the content each time, filters out noise like cookie banners and testimonial carousels, and sends you an email the moment something meaningful changes — price, plan name, feature, limit, anything.
+You add your competitors' pricing page URLs. PricePulse monitors them on a schedule (daily on the free plan, hourly on paid), diffs the content each time, filters out noise like cookie banners and testimonial carousels, and sends you an email the moment something meaningful changes — price, plan name, feature, limit, anything.
 
 The email shows you exactly what changed, highlighted, with a timestamp. You're not opening tabs anymore. You're just reading a one-paragraph alert that says "Competitor X just moved custom reports from Starter to Pro."
 

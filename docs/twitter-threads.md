@@ -127,7 +127,7 @@ That week, I built PricePulse.
 
 Now I know the *moment* anything changes.
 
-https://getpricepulse.com?utm_source=twitter&utm_medium=thread&utm_campaign=case_study (free trial, 2 competitors)
+https://getpricepulse.com?utm_source=twitter&utm_medium=thread&utm_campaign=case_study (free plan, 2 competitors)
 ```
 
 ---
