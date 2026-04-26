@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competitive Pricing Analysis: The Complete Guide for SaaS Founders (2026)</title>
+  <meta name="description" content="Learn how to do competitive pricing analysis for your SaaS: the 7 key metrics, the tools, and a step-by-step framework to turn pricing intelligence into a growth lever.">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://getpricepulse.com/blog/competitive-pricing-analysis-saas.html">
+  <meta property="og:title" content="Competitive Pricing Analysis: The Complete Guide for SaaS Founders (2026)">
+  <meta property="og:description" content="Learn how to do competitive pricing analysis for your SaaS: the 7 key metrics, the tools, and a step-by-step framework.">
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg">
+  <meta property="og:site_name" content="PricePulse">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Competitive Pricing Analysis: The Complete Guide for SaaS Founders (2026)">
+  <meta name="twitter:description" content="Learn how to do competitive pricing analysis for your SaaS: the 7 key metrics, the tools, and a step-by-step framework.">
+  <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://getpricepulse.com/blog/competitive-pricing-analysis-saas.html">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Competitive Pricing Analysis: The Complete Guide for SaaS Founders (2026)",
+    "description": "Learn how to do competitive pricing analysis for your SaaS: the 7 key metrics, the tools, and a step-by-step framework to turn pricing intelligence into a growth lever.",
+    "image": "https://getpricepulse.com/og-image.svg",
+    "datePublished": "2026-04-26",
+    "dateModified": "2026-04-26",
+    "author": {
+      "@type": "Organization",
+      "name": "PricePulse"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PricePulse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://getpricepulse.com/og-image.svg"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --accent: #8b5cf6;
+      --bg: #0f172a;
+      --bg-secondary: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #cbd5e1;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 2rem;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .toc {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+    }
+
+    .toc h2 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .toc ul {
+      list-style: none;
+    }
+
+    .toc li {
+      margin-bottom: 0.5rem;
+    }
+
+    .toc a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .toc a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    ul, ol {
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .comparison-table th {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .comparison-table td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .callout {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--warning);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .callout.success {
+      border-left-color: var(--success);
+    }
+
+    .callout.danger {
+      border-left-color: var(--danger);
+    }
+
+    .callout.info {
+      border-left-color: var(--primary);
+    }
+
+    .metric-card {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .metric-number {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 2rem;
+      font-weight: 700;
+      margin-right: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .metric-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .metric-body {
+      margin-top: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .step-card {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .step-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-box h3 {
+      color: var(--text);
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-box p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tag-list {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.5rem; }
+      nav { flex-wrap: wrap; gap: 0.5rem; }
+      nav a { margin-right: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Competitive Pricing Analysis</h1>
+  <p>The Complete Guide for SaaS Founders (2026)</p>
+</header>
+
+<nav>
+  <a href="https://getpricepulse.com">PricePulse</a>
+  <div>
+    <a href="https://getpricepulse.com/blog.html">Blog</a>
+    <a href="https://getpricepulse.com/pricing-tracker.html">Pricing Tracker</a>
+    <a href="https://getpricepulse.com/signup.html">Start Free</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="meta-info">
+    <span>April 26, 2026</span>
+    <span>14 min read</span>
+    <span>By PricePulse</span>
+  </div>
+
+  <div class="tag-list">
+    <span class="tag">Pricing Strategy</span>
+    <span class="tag">Competitive Intelligence</span>
+    <span class="tag">SaaS Growth</span>
+  </div>
+
+  <p>Most SaaS founders check their competitors' pricing page once when they launch — and then forget about it for 18 months. Meanwhile, competitors quietly raise prices, kill free tiers, restructure tiers, and test annual discounts. You only find out when a prospect mentions it in a demo call.</p>
+
+  <p>Competitive pricing analysis isn't a one-time exercise. It's an ongoing intelligence process. When you do it right, you know what competitors are charging before your prospects do — and you can position, respond, and adjust before the market moves against you.</p>
+
+  <p>This guide covers everything: the 7 metrics that actually matter, how to build a monitoring system that scales, and the tools founders use to do this without spending 5 hours a week on manual research.</p>
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#what">1. What is competitive pricing analysis?</a></li>
+      <li><a href="#why">2. Why most founders do it wrong</a></li>
+      <li><a href="#metrics">3. The 7 metrics that actually matter</a></li>
+      <li><a href="#how">4. How to build a competitive pricing intelligence system</a></li>
+      <li><a href="#tools">5. Tools: manual vs automated</a></li>
+      <li><a href="#framework">6. The 5-step analysis framework</a></li>
+      <li><a href="#signals">7. How to respond to competitor pricing signals</a></li>
+      <li><a href="#common-mistakes">8. Common mistakes to avoid</a></li>
+    </ul>
+  </div>
+
+  <h2 id="what">1. What is competitive pricing analysis?</h2>
+
+  <p>Competitive pricing analysis is the process of systematically tracking, understanding, and responding to how your competitors price their products. It goes beyond knowing that Competitor X charges $49/month — it means understanding <em>why</em> they charge that, <em>how</em> it's changed over time, and <em>what signals</em> they're sending to the market.</p>
+
+  <p>For SaaS founders specifically, competitive pricing analysis covers:</p>
+
+  <ul>
+    <li><strong>Plan structure</strong> — How many tiers, what's in each, how they segment users</li>
+    <li><strong>Price points</strong> — Monthly vs annual pricing, per-seat vs flat vs usage-based</li>
+    <li><strong>Free tier strategy</strong> — What's included free, what's gated, how generous limits are</li>
+    <li><strong>Price changes over time</strong> — When they raised or cut prices, by how much</li>
+    <li><strong>Positioning signals</strong> — What they emphasize, what they hide, who they're targeting</li>
+  </ul>
+
+  <div class="callout info">
+    <strong>The key insight:</strong> Pricing pages are the most intentional pages on any SaaS website. Every word, every plan name, every limit is a deliberate signal. Learning to read those signals gives you a competitive edge that most founders ignore.
+  </div>
+
+  <h2 id="why">2. Why most founders do it wrong</h2>
+
+  <p>Most founders "do competitive pricing research" by visiting competitor pricing pages when they're building their own pricing strategy, taking notes in a Google Doc, and then moving on. This has three fatal flaws:</p>
+
+  <h3>It's a snapshot, not a feed</h3>
+  <p>Pricing pages change constantly. <a href="https://getpricepulse.com/blog/40-saas-pricing-changes-2025-2026.html">We tracked 40 SaaS companies through 2025–2026</a> and found pricing changes happening every 3–6 months on average. Your one-time research is out of date within 90 days.</p>
+
+  <h3>It focuses on price, not structure</h3>
+  <p>Founders obsess over price points ($19 vs $29 vs $49) while missing the more important structural signals: what's gated, what's free, what's unlimited, and what's conspicuously absent from the pricing page entirely.</p>
+
+  <h3>It doesn't surface the "why"</h3>
+  <p>A competitor raising prices isn't just a data point — it's a signal. Did they just close a Series A and shift upmarket? Did they run an analysis showing price elasticity? Did they kill a free tier because conversion was too low? The pricing change itself is the evidence; your job is to interpret it.</p>
+
+  <div class="callout danger">
+    <strong>The real cost of bad competitive pricing analysis:</strong> Leaving money on the table by underpricing. Losing deals because you didn't know a competitor cut prices. Positioning yourself as "enterprise" when competitors just went mass-market. These are recoverable mistakes — but only if you catch them early.
+  </div>
+
+  <h2 id="metrics">3. The 7 metrics that actually matter</h2>
+
+  <p>Not all pricing data is equally useful. After analyzing pricing pages for 40+ SaaS companies, here are the 7 metrics that actually inform positioning and strategy:</p>
+
+  <div class="metric-card">
+    <div>
+      <span class="metric-number">1</span>
+      <span class="metric-title">Price-to-value ratio by tier</span>
+    </div>
+    <div class="metric-body">
+      <p>Don't just track the price — track what's <em>included</em> at each price. A $49/month tool with 10 seats and unlimited projects is very different from a $49/month tool with 1 seat and 5 projects. Calculate implied "value per dollar" and compare that ratio across competitors.</p>
+      <p><strong>What to track:</strong> Seats/users per tier, project/workspace limits, storage, API calls, integrations, support level.</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div>
+      <span class="metric-number">2</span>
+      <span class="metric-title">Free tier generosity</span>
+    </div>
+    <div class="metric-body">
+      <p>The free tier is a distribution and positioning decision, not just a marketing tactic. A generous free tier means the competitor is betting on conversion-at-scale. A restrictive free tier (or none) means they're betting on upmarket sales. Tracking this over time shows you which way they're pivoting.</p>
+      <p><strong>What to track:</strong> Free tier limits (users, projects, storage, features), what's gated behind paid, how long the free tier has been unchanged.</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div>
+      <span class="metric-number">3</span>
+      <span class="metric-title">Annual discount percentage</span>
+    </div>
+    <div class="metric-body">
+      <p>The annual discount is both a cash flow tool and a commitment signal. A 20% annual discount is standard. If a competitor offers 40%, they're aggressively buying annual commitments — probably because they have a churn problem. If they reduce the annual discount, they're signaling confidence in monthly retention.</p>
+      <p><strong>What to track:</strong> Annual vs monthly price, effective discount percentage, whether annual-only plans exist.</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div>
+      <span class="metric-number">4</span>
+      <span class="metric-title">Pricing model type</span>
+    </div>
+    <div class="metric-body">
+      <p>Per-seat, per-project, flat-rate, usage-based — these aren't just billing choices, they're signals about who the product is built for and how the company expects to grow revenue. A per-seat model assumes team adoption. Flat-rate assumes solo users. Usage-based assumes high-growth enterprise customers.</p>
+      <p><strong>What to track:</strong> Primary billing axis, expansion revenue model, whether they've switched models over time (a big strategic signal).</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div>
+      <span class="metric-number">5</span>
+      <span class="metric-title">Price change frequency and direction</span>
+    </div>
+    <div class="metric-body">
+      <p>A competitor that raises prices every 12–18 months is gaining pricing power — they have retention, word-of-mouth, and enough demand to absorb price sensitivity. A competitor that cuts prices suddenly is either growing aggressively or struggling with churn. Track the direction and frequency of changes, not just the current number.</p>
+      <p><strong>What to track:</strong> Date of last price change, percentage change, direction (increase/decrease), what triggered it if discernible.</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div>
+      <span class="metric-number">6</span>
+      <span class="metric-title">Feature gating strategy</span>
+    </div>
+    <div class="metric-body">
+      <p>What features does a competitor lock behind higher tiers? This reveals their upsell strategy and their assumptions about what buyers value most. If API access is gated at the highest tier, they're targeting developers as high-value customers. If SSO is gated at enterprise, they're selling to IT teams specifically.</p>
+      <p><strong>What to track:</strong> Which features are gated at each tier, changes in what's gated (adding/removing features from tiers signals repositioning).</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div>
+      <span class="metric-number">7</span>
+      <span class="metric-title">Pricing page structure changes</span>
+    </div>
+    <div class="metric-body">
+      <p>The layout, copy, and emphasis on a pricing page are A/B tested and deliberate. When a competitor adds a "Most Popular" badge to a higher tier, they're trying to shift the anchor. When they remove the free tier from the main pricing page (but keep it accessible), they're deemphasizing free. When they add a "Book a demo" CTA next to Enterprise, they're expanding upmarket.</p>
+      <p><strong>What to track:</strong> Plan names, highlighted plan, CTA changes, removal/addition of plans, copy changes on key features.</p>
+    </div>
+  </div>
+
+  <h2 id="how">4. How to build a competitive pricing intelligence system</h2>
+
+  <p>The goal is to move from reactive (noticing changes after users tell you) to proactive (knowing about changes before users do). Here's the system architecture that works for indie SaaS founders:</p>
+
+  <h3>Layer 1: Automated monitoring (the foundation)</h3>
+  <p>Set up automated alerts for every competitor's pricing page. You want to know within hours if anything changes. This is table stakes — without it, you're flying blind.</p>
+
+  <p>For each competitor, monitor:</p>
+  <ul>
+    <li>The main pricing page URL</li>
+    <li>Any "Enterprise" or "Custom" pricing page</li>
+    <li>The signup/plan selection page (often shows real prices that differ from marketing page)</li>
+  </ul>
+
+  <h3>Layer 2: Monthly review (the analysis)</h3>
+  <p>Once a month, do a structured review of all competitor pricing pages. Don't just check prices — read the copy, look at what's emphasized, check whether plan names changed. Spend 30–45 minutes doing this systematically.</p>
+
+  <h3>Layer 3: Quarterly strategic review (the response)</h3>
+  <p>Every quarter, synthesize what you've learned. Are competitors consistently moving upmarket? Killing free tiers? Expanding feature sets? This pattern-level analysis informs your roadmap and pricing strategy, not just tactical responses.</p>
+
+  <div class="callout success">
+    <strong>Time cost comparison:</strong><br>
+    Manual monitoring: 2–3 hours/week (checking pages, taking notes, maintaining spreadsheets)<br>
+    Automated monitoring: 30 minutes/month (reviewing alerts, doing structured analysis)<br><br>
+    The automated approach isn't just faster — it's more reliable. You don't miss changes because you "forgot to check."
+  </div>
+
+  <h2 id="tools">5. Tools: manual vs automated</h2>
+
+  <p>There's a spectrum of approaches to competitive pricing monitoring, ranging from pure manual to fully automated. Here's the honest breakdown:</p>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Approach</th>
+        <th>Time Cost</th>
+        <th>Coverage</th>
+        <th>Reliability</th>
+        <th>Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Spreadsheet + calendar reminders</strong></td>
+        <td>3–5 hrs/week</td>
+        <td>3–5 competitors max</td>
+        <td>Low (human forgets)</td>
+        <td>Pre-revenue, no budget</td>
+      </tr>
+      <tr>
+        <td><strong>Visualping</strong></td>
+        <td>1–2 hrs/week</td>
+        <td>5–20 URLs</td>
+        <td>Medium (lots of noise)</td>
+        <td>General page monitoring</td>
+      </tr>
+      <tr>
+        <td><strong>PricePulse</strong></td>
+        <td>30 min/month</td>
+        <td>Up to 50 monitors</td>
+        <td>High (noise-filtered)</td>
+        <td>SaaS pricing specifically</td>
+      </tr>
+      <tr>
+        <td><strong>Crayon / Klue</strong></td>
+        <td>2–3 hrs/week setup + review</td>
+        <td>Broad CI coverage</td>
+        <td>High but over-broad</td>
+        <td>Enterprise sales teams ($500+/mo)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>For most indie SaaS founders, the choice is between a spreadsheet (free but unreliable) and a dedicated pricing monitor like PricePulse ($19/month). Enterprise CI platforms like Crayon or Klue are designed for sales teams doing competitive battle cards — overkill for founders who just want to know when a competitor changes their prices.</p>
+
+  <p>See also: <a href="https://getpricepulse.com/blog/best-competitor-price-tracking-software-saas.html">Best competitor price tracking software for SaaS (2026)</a> for a full comparison.</p>
+
+  <h2 id="framework">6. The 5-step analysis framework</h2>
+
+  <p>When you get an alert (or do your monthly review), use this framework to extract maximum signal:</p>
+
+  <div class="step-card">
+    <div class="step-label">Step 1</div>
+    <div class="step-title">Document the change precisely</div>
+    <p>What exactly changed? Price point? Feature gating? Plan names? Free tier limits? Copy? Don't just note "they changed their pricing page" — capture the before/after diff with specifics.</p>
+  </div>
+
+  <div class="step-card">
+    <div class="step-label">Step 2</div>
+    <div class="step-title">Cross-reference with external signals</div>
+    <p>Check if the pricing change coincides with other signals: a funding announcement, a blog post about their "next chapter," a job posting for an enterprise sales rep, or a significant product launch. Pricing changes rarely happen in isolation.</p>
+  </div>
+
+  <div class="step-card">
+    <div class="step-label">Step 3</div>
+    <div class="step-title">Identify the strategic hypothesis</div>
+    <p>Form a hypothesis about <em>why</em> they made this change. Common hypotheses: "Moving upmarket after funding," "Improving gross margin," "Testing price elasticity," "Responding to churn," "Matching a new competitor." Write it down — even if you're wrong, the exercise sharpens your thinking.</p>
+  </div>
+
+  <div class="step-card">
+    <div class="step-label">Step 4</div>
+    <div class="step-title">Assess impact on your positioning</div>
+    <p>Does this change affect how you compete? If they raised prices, does that open an underpriced gap you can exploit? If they killed their free tier, does that give you a free-tier acquisition advantage? If they added enterprise features, does that clarify that you're not competing on that axis?</p>
+  </div>
+
+  <div class="step-card">
+    <div class="step-label">Step 5</div>
+    <div class="step-title">Decide on a response (or consciously not responding)</div>
+    <p>Most pricing changes don't require a response. But you should make that decision deliberately. Document your conclusion: "No action needed" or "We should adjust X because Y." The act of deciding creates accountability and builds institutional knowledge about your pricing strategy.</p>
+  </div>
+
+  <h2 id="signals">7. How to respond to competitor pricing signals</h2>
+
+  <p>Not all pricing changes call for the same response. Here's a playbook for the most common scenarios:</p>
+
+  <h3>Competitor raises prices significantly (20%+)</h3>
+  <p>This is a gift. It creates displaced customers who were happy at the old price and are now looking for alternatives. Your immediate actions:</p>
+  <ul>
+    <li>Update any comparison content to highlight the new price gap</li>
+    <li>Add messaging to your site: "Looking for a [Competitor] alternative?" </li>
+    <li>Consider a targeted SEO post: "[Competitor] just raised prices — here are your options"</li>
+    <li>Reach out to your existing prospects who mentioned [Competitor] as an alternative</li>
+  </ul>
+
+  <h3>Competitor cuts prices significantly</h3>
+  <p>Don't panic — analyze first. Price cuts often signal weakness (high churn, slow growth) not strength. Questions to ask:</p>
+  <ul>
+    <li>Is this a temporary promotional cut or a permanent restructure?</li>
+    <li>Are they narrowing the gap or undercutting you entirely?</li>
+    <li>Have they cut features as well, or just prices?</li>
+  </ul>
+  <p>If they've undercut you permanently and it affects your positioning, you have three options: match (risky, margin war), differentiate on value (usually right), or go upmarket and cede the low-price segment.</p>
+
+  <h3>Competitor kills their free tier</h3>
+  <p>This is the most common recent trend among SaaS companies. It creates a large pool of formerly-free users who need an alternative. <a href="https://getpricepulse.com/blog/saas-free-tier-removal-2025.html">We documented 12 companies that killed free tiers in 2025</a>. If you have a free tier and they've just eliminated theirs, lean into that advantage immediately.</p>
+
+  <h3>Competitor launches enterprise tier</h3>
+  <p>They're moving upmarket. This typically means they're no longer competing with you for the same customers — which is actually good news for indie founders. Update your positioning to emphasize what you do that they no longer care about: simplicity, quick setup, indie-friendly pricing.</p>
+
+  <h3>Competitor restructures tiers completely</h3>
+  <p>This is the hardest to respond to because it can mean many things. Do the analysis in step 3 above (strategic hypothesis) before acting. Usually this signals a product pivot or a new buyer persona — understanding which one determines your response.</p>
+
+  <h2 id="common-mistakes">8. Common mistakes to avoid</h2>
+
+  <h3>Mistake 1: Anchoring to competitors instead of value</h3>
+  <p>Competitive pricing analysis should inform your pricing, not determine it. If you're just copying competitors' price points, you're leaving money on the table (if they're underpriced) or pricing yourself out of the market (if they're overpriced for your positioning). Use competitive data as one input, not the only input.</p>
+
+  <h3>Mistake 2: Monitoring too many competitors equally</h3>
+  <p>Most businesses have 2–3 actual direct competitors and 5–10 tangential ones. Monitor the direct competitors closely (weekly checks) and the tangential ones less frequently (monthly). Don't give every competitor equal attention.</p>
+
+  <h3>Mistake 3: Reacting to every change</h3>
+  <p>Not every pricing change requires a response. A competitor adding a minor feature to their Pro tier doesn't mean you need to change anything. Save your energy for meaningful strategic shifts. The discipline to <em>not</em> react is as important as knowing when to act.</p>
+
+  <h3>Mistake 4: Not tracking changes over time</h3>
+  <p>A single pricing page snapshot tells you little. A 12-month history of changes tells you everything. You need to track <em>when</em> changes happened, not just what the current state is. This is where manual spreadsheets fail — you lose the history.</p>
+
+  <h3>Mistake 5: Ignoring pricing page copy changes</h3>
+  <p>Founders track price numbers but ignore the copy. When a competitor changes "Starter" to "Growth," or adds "Best for teams" to a tier, or replaces "Get started free" with "Book a demo" — these are as strategically significant as price changes. Read the page, not just the numbers.</p>
+
+  <div class="callout success">
+    <strong>The competitive advantage most founders miss:</strong> Because most founders check competitor pricing pages manually and infrequently, <em>consistent automated monitoring</em> is a genuine competitive advantage. You'll know about pricing changes hours after they happen, while competitors find out weeks later from a prospect in a demo call.
+  </div>
+
+  <div class="cta-box">
+    <h3>Start monitoring competitors' pricing pages today</h3>
+    <p>PricePulse monitors up to 50 competitor pricing pages 24/7 and alerts you immediately when anything changes. Noise-filtered, SaaS-specific, $19/month. No sales calls required.</p>
+    <a href="https://getpricepulse.com/signup.html" class="btn">Start free — monitor 2 competitors</a>
+    <p style="margin-top:1rem;font-size:0.9rem;color:var(--text-muted)">Free plan includes 2 monitors · No credit card required</p>
+  </div>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="https://getpricepulse.com/blog/how-to-monitor-competitor-pricing.html">How to monitor competitor pricing (3 methods compared)</a></li>
+    <li><a href="https://getpricepulse.com/blog/best-competitor-price-tracking-software-saas.html">Best competitor price tracking software for SaaS (2026)</a></li>
+    <li><a href="https://getpricepulse.com/blog/saas-pricing-changes-2026.html">SaaS pricing changes in 2026: what's happening and why</a></li>
+    <li><a href="https://getpricepulse.com/blog/pricing-intelligence-tools-comparison.html">Pricing intelligence tools comparison: Crayon vs Visualping vs PricePulse</a></li>
+    <li><a href="https://getpricepulse.com/blog/how-to-respond-price-cut.html">How to respond when a competitor cuts their prices</a></li>
+    <li><a href="https://getpricepulse.com/blog/when-to-raise-saas-prices.html">When to raise your SaaS prices</a></li>
+  </ul>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 PricePulse · <a href="https://getpricepulse.com">Home</a> · <a href="https://getpricepulse.com/blog.html">Blog</a> · <a href="https://getpricepulse.com/pricing-tracker.html">Pricing Tracker</a> · <a href="https://getpricepulse.com/pricing.html">Pricing</a></p>
+</footer>
+
+</body>
+</html>
