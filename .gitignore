@@ -1,0 +1,23 @@
+# Operational logs
+cron.log
+logs/
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Node modules
+node_modules/
+package-lock.json
+
+# IDE files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+.tmp/
+temp/
