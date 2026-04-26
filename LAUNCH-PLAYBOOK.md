@@ -9,6 +9,7 @@
 | Phase | When | What to Do | Guide | Duration |
 |-------|------|-----------|-------|----------|
 | **SETUP** | Sunday 4/27 evening | Prepare your environment, passwords, browser tabs | [Launch Environment Setup](docs/launch-environment-setup.md) | 1–2 hours |
+| **VERIFY** | Monday 9:00–9:15 AM | Run technical verification checklist before going live | [Technical Verification](docs/launch-technical-verification.md) | 15 min |
 | **PRE-LAUNCH** | Monday 8–9:30 AM | Review checklist, open tabs, verify site works | [Monday Launch Checklist](MONDAY-LAUNCH-CHECKLIST.md) (Section 1) | 30 min |
 | **GO-LIVE** | Monday 9:30–10:00 AM | Publish Show IH, start tracking metrics | [Monday Launch Checklist](MONDAY-LAUNCH-CHECKLIST.md) (Section 2) | 30 min |
 | **DAY 1 EXECUTION** | Monday 10 AM–6 PM | Engage, send cold emails, monitor metrics hourly | [Launch Day Success Signals](docs/launch-day-success-signals.md) | Full day |
@@ -45,15 +46,21 @@
 
 ### Monday, April 28 (Morning Prep)
 
-**Time: 8:00–9:30 AM**
+**Time: 8:00–9:15 AM**
 1. Open [MONDAY-LAUNCH-CHECKLIST.md](MONDAY-LAUNCH-CHECKLIST.md) Section 1
-2. Follow "CRITICAL PATH — Morning Setup (9:00–9:30 AM)"
+2. **Run technical verification** — Open [Technical Verification Checklist](docs/launch-technical-verification.md)
+   - Test homepage, pricing, dashboard pages load
+   - Test signup flow (create test account)
+   - Verify admin dashboard accessible
+   - Verify email system working (check confirmation email)
+   - **Mark checklist as complete BEFORE proceeding**
+3. Follow "CRITICAL PATH — Morning Setup (9:00–9:30 AM)"
    - Open metrics tracker
    - Open admin.html in browser
    - Prepare cold email batch 1
-3. Open all critical browser tabs
+4. Open all critical browser tabs
 
-**Result:** You're ready to launch. All systems set. Calm and focused.
+**Result:** You're ready to launch. All systems verified. Calm and focused.
 
 ---
 
