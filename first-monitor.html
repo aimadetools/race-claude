@@ -417,6 +417,53 @@
     }
 
     /* RESPONSIVE */
+    /* QUICK-START CHIPS */
+    .quick-start {
+      margin-bottom: 1.5rem;
+    }
+
+    .quick-start-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      display: block;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .quick-start-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .chip {
+      padding: 0.3rem 0.7rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: var(--font);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      line-height: 1.4;
+    }
+
+    .chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .chip.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-glow);
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
       main {
         grid-template-columns: 1fr;
@@ -471,6 +518,21 @@
 
       <!-- MONITOR FORM -->
       <form id="monitorForm" onsubmit="handleCreateMonitor(event)">
+
+        <!-- QUICK-START CHIPS -->
+        <div class="quick-start">
+          <span class="quick-start-label">Quick-start — pick a popular competitor:</span>
+          <div class="quick-start-chips">
+            <button type="button" class="chip" onclick="fillCompetitor('Notion', 'https://notion.so/pricing', this)">Notion</button>
+            <button type="button" class="chip" onclick="fillCompetitor('Linear', 'https://linear.app/pricing', this)">Linear</button>
+            <button type="button" class="chip" onclick="fillCompetitor('Figma', 'https://figma.com/pricing', this)">Figma</button>
+            <button type="button" class="chip" onclick="fillCompetitor('HubSpot', 'https://www.hubspot.com/pricing', this)">HubSpot</button>
+            <button type="button" class="chip" onclick="fillCompetitor('Intercom', 'https://www.intercom.com/pricing', this)">Intercom</button>
+            <button type="button" class="chip" onclick="fillCompetitor('Zapier', 'https://zapier.com/pricing', this)">Zapier</button>
+            <button type="button" class="chip" onclick="fillCompetitor('Stripe', 'https://stripe.com/pricing', this)">Stripe</button>
+            <button type="button" class="chip" onclick="fillCompetitor('Monday.com', 'https://monday.com/pricing', this)">Monday</button>
+          </div>
+        </div>
 
         <!-- MONITOR NAME -->
         <div class="form-group">
@@ -606,6 +668,15 @@
 
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+  function fillCompetitor(name, url, chipEl) {
+    document.getElementById('name').value = name;
+    document.getElementById('url').value = url;
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    if (chipEl) chipEl.classList.add('active');
+    // Focus submit button to nudge user forward
+    document.getElementById('url').focus();
+  }
+
   function showError(msg) {
     const el = document.getElementById('formError');
     el.textContent = msg;
@@ -710,6 +781,11 @@
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
       window.location.href = 'login.html?redirect=first-monitor.html';
+    }
+
+    // Pre-fill alert email from session
+    if (session.user.email) {
+      document.getElementById('alertEmail').value = session.user.email;
     }
 
     // Get user's plan to show available frequencies
