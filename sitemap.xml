@@ -38,6 +38,12 @@
   </url>
   <!-- Blog posts — sorted by publish date descending -->
   <url>
+    <loc>https://getpricepulse.com/blog/is-it-legal-monitor-competitor-pricing.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://getpricepulse.com/blog/why-track-small-price-changes.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
