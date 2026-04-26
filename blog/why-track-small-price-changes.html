@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why You Should Track Small Price Changes (Even $1-$5 Moves) | PricePulse</title>
+  <meta name="description" content="Small price changes ($1-$5 moves) signal major competitive shifts. Learn why monitoring competitor price increases matters for SaaS founders." />
+  <meta property="og:title" content="Why Small Price Changes Matter for SaaS Founders | PricePulse" />
+  <meta property="og:description" content="Why tracking competitor price changes—even small $1-$5 increases—is critical for SaaS founders making pricing decisions." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://getpricepulse.com/blog/why-track-small-price-changes.html" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Why Small Price Changes Matter for SaaS Founders | PricePulse" />
+  <meta name="twitter:description" content="Why tracking competitor price changes—even small $1-$5 increases—is critical for SaaS founders." />
+  <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="article:published_time" content="2026-04-26" />
+  <meta name="article:modified_time" content="2026-04-26" />
+  <link rel="canonical" href="https://getpricepulse.com/blog/why-track-small-price-changes.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #0a0a0f; --bg2: #12121a; --bg3: #1a1a26;
+      --border: #2a2a3d; --text: #e8e8f0; --muted: #8888a8;
+      --accent: #00e5a0; --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,15,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.5} }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s ease; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-links a:hover::after { width: 100%; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+    .mobile-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 0; z-index: 99; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { padding: 0.75rem 2rem; color: var(--muted); font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--text); background: var(--bg2); }
+    @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
+    .back-to-top { position: fixed; bottom: 2rem; right: 2rem; display: none; width: 40px; height: 40px; background: var(--accent); color: #0a0a0f; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2rem; z-index: 99; }
+    .back-to-top.show { display: flex; align-items: center; justify-content: center; }
+    .btn { display: inline-flex; align-items: center; padding: 0.6rem 1.4rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: none; font-family: var(--font); }
+    .btn-primary { background: var(--accent); color: #0a0a0f; }
+    .btn-primary:hover { background: #00ffb3; text-decoration: none; }
+
+    main { max-width: 800px; margin: 0 auto; padding: 7rem 2rem 5rem; }
+    article { margin-bottom: 4rem; }
+    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.2; }
+    h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--accent); }
+    h3 { font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; }
+    p { margin-bottom: 1rem; color: var(--text); }
+    .meta { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
+    .cta-box { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 2rem 0; text-align: center; }
+    .cta-box p { margin-bottom: 1rem; color: var(--muted); }
+    strong { color: var(--accent); }
+    blockquote { border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 1.5rem 0; color: var(--muted); font-style: italic; }
+    code { background: var(--bg3); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.9rem; }
+    ul { margin: 1rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    .highlight { background: rgba(0,229,160,0.1); padding: 1.5rem; border-radius: var(--radius); margin: 1.5rem 0; }
+    footer { border-top: 1px solid var(--border); padding-top: 3rem; margin-top: 4rem; text-align: center; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo"><span class="logo-dot"></span> PricePulse</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/pricing-tracker.html">Tracker</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/login.html" class="btn btn-primary">Log in</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/pricing-tracker.html">Tracker</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/login.html">Log in</a>
+  </div>
+
+  <main>
+    <article>
+      <h1>Why You Should Track Small Price Changes (Even $1–$5 Moves)</h1>
+      <p class="meta">April 26, 2026 • 5 min read</p>
+
+      <p>Most founders obsess over the big pricing moves: when a competitor drops their entire tier from $99 to $79, or kills their free plan entirely. Those are obvious signals, and they demand a response.</p>
+
+      <p>But here's what founders miss: <strong>the small price changes matter more</strong>.</p>
+
+      <p>A $1 increase on a $9/month plan. A $5 bump to a $49/month tier. A hidden fee introduced to the annual plan. These moves are quiet. They don't trigger emails. They don't show up in news feeds. But they signal something critical about your competitor's strategy—and if you're not watching, you'll be left flat-footed when your own customers notice the gap.</p>
+
+      <h2>Small price increases signal confidence (and demand)</h2>
+
+      <p>Healthy SaaS companies raise prices. A lot. They raise them when:</p>
+      <ul>
+        <li><strong>Customer demand exceeds capacity.</strong> If more people want your product than you can reasonably support, raising prices is the responsible move.</li>
+        <li><strong>The market is willing to pay.</strong> If your churn stays flat after a $5 increase, that's data: you had pricing power.</li>
+        <li><strong>Your cost basis changed.</strong> New infrastructure costs, improved features, expanded support—these justify price increases.</li>
+      </ul>
+
+      <p>When a competitor raises prices by $1–$5, they're not panicking. They're not desperate. <strong>They're confident</strong>. They've calculated that the customers they keep are worth more than the customers they might lose.</p>
+
+      <p>What does that mean for you? It means your competitor believes the market can bear higher prices. It means their unit economics improved. <strong>It means the competitive landscape just shifted, and your pricing might be out of sync.</strong></p>
+
+      <h2>The anchoring effect: small changes create big psychology shifts</h2>
+
+      <p>Behavioral economics teaches us that small changes in price create disproportionate psychological impacts. Your customers don't compare in absolute dollar terms—they compare in relative terms.</p>
+
+      <p>If your competitor goes from $49 to $54 (10% increase) and you stay at $49, you're no longer "the premium option"—you're the cheaper option. Your customer is silently thinking: "Why is Competitor X charging more? They must have better features."</p>
+
+      <p><strong>That thought alone can erode your positioning, even if the $5 difference is economically meaningless.</strong></p>
+
+      <p>Conversely, if your competitor drops $99 to $94 (5% decrease), your $99 tier suddenly feels expensive. You're now fighting the "overpriced" narrative in your prospect's head, not because of actual value, but because of a $5 anchor point they saw first.</p>
+
+      <h2>Small changes reveal strategy shifts earlier</h2>
+
+      <p>Here's the real insight: small price changes happen BEFORE big ones.</p>
+
+      <p>When Linear increased prices in 2024, it didn't happen overnight. They tested. They ran experiments. They moved a $29 tier to $35. They adjusted an annual discount from 2 months free to 1.5 months free. These were small moves, testing the market, measuring churn, validating customer sentiment.</p>
+
+      <p>By tracking these small changes, you see the direction your competitor is heading. You're not reacting to the full launch of their new pricing—you're anticipating it. <strong>You're getting a 4-6 week head start on understanding their strategy.</strong></p>
+
+      <p>That head start matters. You can brief your sales team. You can document objections early. You can plan your own response before your competitor's change goes mainstream.</p>
+
+      <h2>Small changes are how subscription companies optimize forever</h2>
+
+      <p>Most high-performing SaaS companies don't overhaul pricing annually. They do what's called "continuous optimization"—small, frequent adjustments to find the maximum revenue per customer.</p>
+
+      <p>A $2 increase to the Starter tier. Bundling a feature previously included in the Pro tier. Adding a new enterprise tier at $299/month. None of these are dramatic, but together, they're how successful companies compound revenue growth.</p>
+
+      <p><strong>If you only track major pricing revamps, you're missing 80% of the strategic signal.</strong> You're missing how your competitors actually run their pricing machine.</p>
+
+      <h2>The practical signal: monitor price changes at every tier</h2>
+
+      <p>Start tracking price changes at every level of your competitor's pricing page:</p>
+
+      <ul>
+        <li><strong>Entry-tier changes:</strong> Increasing the free plan limit or lowering a Starter price signals acquisition strategy (fighting for share) or defense (protecting against cheaper competitors).</li>
+        <li><strong>Mid-tier adjustments:</strong> The $29–$49 range is where most SaaS revenue lives. Changes here are intentional and calculated.</li>
+        <li><strong>Annual discount adjustments:</strong> From "2 months free" to "1.5 months free" is a 25% discount reduction. It signals confidence and improving LTV.</li>
+        <li><strong>Feature gating changes:</strong> Moving a feature from Starter to Pro is a price increase in disguise—no dollar change, but reduced value at lower tiers.</li>
+      </ul>
+
+      <p>These changes don't always require a full pricing tracker. But <strong>if you're not noticing them, you're operating blind</strong>—especially if you're setting prices or managing customer expectations.</p>
+
+      <h2>Track them automatically</h2>
+
+      <p>The simplest way to track small price changes is to let software do it. <a href="/">PricePulse monitors your competitors' pricing pages hourly or daily</a>, sending you alerts the moment anything changes—$1 increases, feature moves, annual discount tweaks, all of it.</p>
+
+      <p>You see the change before your sales team gets a customer question about it. You see the change before your product team scrambles to understand the competitive shift. <strong>You see it first, which means you can decide on a response while your competitor is still rolling out theirs.</strong></p>
+
+      <div class="cta-box">
+        <h3 style="margin-top: 0; color: var(--text);">Monitor your competitors' pricing automatically</h3>
+        <p>Stop checking competitor pricing pages manually. Get instant alerts when anything changes—no matter how small.</p>
+        <a href="/signup.html" class="btn btn-primary">Start free →</a>
+      </div>
+
+      <h2>The bottom line</h2>
+
+      <p>Small price changes look insignificant in isolation. But they're the breadcrumbs of strategy. They tell you which direction your competitors are moving, how confident they are, and where the market is heading.</p>
+
+      <p><strong>If you're only paying attention to the big moves, you're always reacting. If you track the small ones, you're always anticipating.</strong> That's the difference between a reactive pricing team and a proactive one.</p>
+
+      <p>Start watching. The signal is in the noise.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PricePulse. <a href="/privacy.html">Privacy</a> • <a href="/terms.html">Terms</a></p>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+  <script>
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      const hamburger = document.querySelector('.hamburger');
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    }
+
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('show', window.scrollY > 300);
+    });
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why You Should Track Small Price Changes (Even $1–$5 Moves)",
+    "description": "Small price changes ($1-$5 moves) signal major competitive shifts. Learn why monitoring competitor price increases matters for SaaS founders.",
+    "image": "https://getpricepulse.com/og-image.svg",
+    "author": {
+      "@type": "Organization",
+      "@name": "PricePulse"
+    },
+    "datePublished": "2026-04-26",
+    "dateModified": "2026-04-26",
+    "keywords": "SaaS pricing, competitor pricing strategy, price tracking, behavioral economics"
+  }
+  </script>
+</body>
+</html>
