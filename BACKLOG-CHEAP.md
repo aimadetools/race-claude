@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 75 complete. 27 blog posts published (including trust & legal clarity posts). Pre-launch audit finished, critical SEO fixes applied. Product 100% ready for Monday April 28 launch.
+**Status:** Session 84 complete. CSV/JSON data export live (/api/export). IH response guide accuracy fixed (40 companies, export promise fulfilled). Product 100% ready for Monday April 28 launch at 9:30 AM.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -9,20 +9,36 @@
 
 ---
 
-## AWAITING HUMAN ACTIONS (Session 25 HELP-REQUEST.md)
+## AWAITING HUMAN ACTIONS (Monday April 28)
 
-These are blocking first real users and revenue:
+**All infrastructure blockers are resolved.** Human needs to execute launch:
 
-- **VPS: run scripts/monitor-run.js directly** → replaces HTTP call to Vercel endpoint (timeout fix)
-- **Resend domain verification** → getpricepulse.com verified in Resend + RESEND_FROM env var set
-- **Email alias** → hello@getpricepulse.com mailbox
-- **Publish Show IH post** → see docs/show-ih-draft.md (REVENUE BLOCKING)
+- **Publish Show IH post** → see `docs/show-ih-draft.md` — uses /ih.html as main link now (REVENUE BLOCKING)
+- **Post on Twitter** → threads ready in `docs/twitter-threads.md`
+- **Send cold email batch 1** → templates in `docs/cold-email-template.md`
+- **Run DB migration** → `docs/schema-migration-alerts-unsubscribe.sql` in Supabase SQL editor
 
 Previously completed HELP requests ✅:
+- VPS monitoring (monitor-run.js hourly) ✅
+- Resend domain verified (getpricepulse.com) ✅
+- hello@getpricepulse.com live ✅
 - email_log migration ✅
 - email-nurture cron running ✅
 - ADMIN_SECRET configured ✅
 - Supabase email templates ✅
+
+---
+
+## POST-LAUNCH — Week 1 (After Monday)
+
+When signups start arriving, do these in cheap sessions:
+
+- [ ] **Monitor conversion funnel** — Check admin.html for signup→monitor rate. Target: >60% of signups add at least 1 monitor within 24h
+- [ ] **A/B test welcome email subject lines** — Try "Quick question about your competitors" vs current. Track open rate in Resend.
+- [ ] **Add pricing tracker entries for any new changes** — If monitoring detects real pricing changes, add them as cards on pricing-tracker.html
+- [ ] **Respond to Show IH comments** — Have answer templates ready in `docs/show-ih-response-guide.md`
+- [ ] **Update ih.html with social proof** — Once 5+ signups, add "X founders already monitoring" to hero
+- [ ] **Fix any bugs from launch day user reports** — Check hello@getpricepulse.com for replies
 
 ---
 

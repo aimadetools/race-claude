@@ -737,7 +737,10 @@
     <!-- HEADER -->
     <div class="page-header">
       <h1 class="page-title">Your Monitors <span id="monitorCount"></span></h1>
-      <button class="btn btn-primary" onclick="openModal()">+ Add Monitor</button>
+      <div style="display:flex;gap:0.5rem;align-items:center">
+        <button class="btn btn-outline btn-sm" onclick="exportMonitors()" id="exportBtn" title="Export your monitors as CSV">↓ Export</button>
+        <button class="btn btn-primary" onclick="openModal()">+ Add Monitor</button>
+      </div>
     </div>
 
     <!-- STATS ROW -->
@@ -1311,6 +1314,40 @@
 
   function handleOverlayClick(e) {
     if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  // ─── EXPORT MONITORS ──────────────────────────────────────────────────────────
+  async function exportMonitors() {
+    const btn = document.getElementById('exportBtn');
+    const origText = btn.textContent;
+    btn.textContent = 'Exporting…';
+    btn.disabled = true;
+    try {
+      const { data: sessionData } = await supabase.auth.getSession();
+      const token = sessionData?.session?.access_token;
+      if (!token) { alert('Please sign in to export.'); return; }
+
+      const res = await fetch('/api/export', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (!res.ok) throw new Error('Export failed');
+
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'pricepulse-monitors.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      alert('Export failed. Please try again.');
+      console.error('Export error:', err);
+    } finally {
+      btn.textContent = origText;
+      btn.disabled = false;
+    }
   }
 
   // ─── SEED DEMO MONITORS ───────────────────────────────────────────────────────

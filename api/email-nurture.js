@@ -386,8 +386,14 @@ function buildWelcomeHtml(firstName, userId) {
     Go to Dashboard →
   </a>
 
-  <p style="font-size:14px;color:#6b7280;line-height:1.6;margin:0">
+  <p style="font-size:14px;color:#6b7280;line-height:1.6;margin:0 0 24px">
     On the free plan, you can monitor 2 competitors. Need more? <a href="${APP_URL}/pricing.html" style="color:#00b87a">Upgrade anytime</a>.
+  </p>
+
+  <p style="font-size:14px;color:#374151;line-height:1.6;margin:0">
+    One thing to set expectations: you won't hear from the product until a competitor actually changes their pricing. That might be tomorrow, or it might be in three weeks — depends on your competitors. But when it happens, you'll know immediately instead of finding out months later.<br><br>
+    If you have any questions or feedback (especially if something doesn't work), reply to this email. I read everything.<br><br>
+    — the founder
   </p>
 </td></tr>
 
@@ -395,7 +401,7 @@ function buildWelcomeHtml(firstName, userId) {
 <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb">
   <p style="margin:0;font-size:12px;color:#9ca3af;line-height:1.6">
     You're receiving this because you signed up for PricePulse.<br>
-    Questions? Reply to this email — we read every one.<br>
+    Questions? Reply to this email — I read every one.<br>
     <a href="${unsubscribeLink}" style="color:#9ca3af;text-decoration:underline">Unsubscribe from nurture emails</a>
   </p>
 </td></tr>
@@ -512,8 +518,13 @@ function buildActivationNudgeHtml(firstName, userId) {
     Add Your First Monitor →
   </a>
 
-  <p style="font-size:13px;color:#6b7280;margin:0">
+  <p style="font-size:13px;color:#6b7280;margin:0 0 16px">
     Free plan includes 2 monitors with daily checks. No credit card required.
+  </p>
+
+  <p style="font-size:14px;color:#374151;line-height:1.6;margin:0">
+    If you ran into any friction signing up or the product isn't doing what you expected, reply to this email and tell me. I'm actively fixing things.<br><br>
+    — the founder
   </p>
 </td></tr>
 

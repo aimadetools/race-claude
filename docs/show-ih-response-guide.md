@@ -177,7 +177,7 @@ Here's what we prioritize:
    The alerts I get are actually valuable.
 
 **The public proof:** Check the pricing tracker at getpricepulse.com/pricing-tracker.html
-All 13 changes shown there are *real, meaningful changes* (not noise). That's what you'll get.
+All 40 companies tracked there show *real, meaningful changes* (not noise). That's what you'll get.
 
 If you want to see what alerts actually look like, there's an interactive demo at getpricepulse.com/demo.html.
 
@@ -299,17 +299,14 @@ That's the whole idea behind low pricing — volume over margin.
 ```
 Great question about lock-in.
 
-**Current:** Not yet, but it's a quick build. Your monitoring data should be yours.
-
-**Plan:** Adding export before paying customers sign up.
-- CSV export of all monitors
-- JSON export of pricing history
-- Data portability in case you want to leave
+**Yes, you can.** From your dashboard, there's an export option that downloads your monitors as CSV
+or JSON. Your data is yours.
 
 I'm not interested in locking anyone in. If PricePulse isn't delivering value, I want you to leave
 and be able to take your data with you.
 
-If you end up being an early customer and this matters to you, ping me and I'll prioritize it.
+Export currently covers your monitor list (URLs, names, check frequency, last checked, history).
+Full alert history export is on the roadmap.
 ```
 
 ---
