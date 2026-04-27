@@ -117,6 +117,21 @@ async function handleSendAlerts(req, res) {
 
   const supabase = getServiceClient();
 
+  // Check if alerts_unsubscribed column exists (added by schema-migration-alerts-unsubscribe.sql)
+  const { data: schemaCheck, error: schemaErr } = await supabase
+    .from('subscriptions')
+    .select('alerts_unsubscribed')
+    .limit(1);
+
+  if (schemaErr?.message?.includes('column') || schemaErr?.message?.includes('alerts_unsubscribed')) {
+    console.warn('[send-alerts] Missing alerts_unsubscribed column', schemaErr?.message);
+    return res.status(200).json({
+      ok: false,
+      message: 'Database schema incomplete — alerts_unsubscribed column missing. Run docs/schema-migration-alerts-unsubscribe.sql in Supabase SQL editor.',
+      details: 'This migration adds the alerts_unsubscribed column to subscriptions table for email compliance.',
+    });
+  }
+
   const { data: pending, error: fetchErr } = await supabase
     .from('alerts')
     .select(`

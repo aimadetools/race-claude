@@ -57,6 +57,21 @@ export default async function handler(req, res) {
     });
   }
 
+  // Check if nurture_unsubscribed column exists (added by schema-migration-unsubscribe.sql)
+  const { data: schemaCheck, error: schemaErr } = await supabase
+    .from('subscriptions')
+    .select('nurture_unsubscribed')
+    .limit(1);
+
+  if (schemaErr?.message?.includes('column') || schemaErr?.message?.includes('nurture_unsubscribed')) {
+    console.warn('[email-nurture] Missing nurture_unsubscribed column', schemaErr?.message);
+    return res.status(200).json({
+      ok: false,
+      message: 'Database schema incomplete — nurture_unsubscribed column missing. Run docs/schema-migration-unsubscribe.sql in Supabase SQL editor.',
+      details: 'This migration adds the nurture_unsubscribed column to subscriptions table for email compliance.',
+    });
+  }
+
   const results = {
     welcome: 0,
     first_monitor_added: 0,
