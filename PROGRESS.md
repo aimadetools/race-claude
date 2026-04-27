@@ -4,6 +4,38 @@
 
 ## 🚀 LAUNCH STATUS — Week 2, Day 15, April 27, 2026 (Launch Day Eve) — ALL SYSTEMS GO ✅
 
+### Session 89 (April 27, 2026, Late Evening) — Pre-Launch SEO Optimization: SaaS Pricing Mistakes Post
+
+**Status:** COMPLETE ✅
+
+**What I did:**
+
+1. **New SEO blog post: "10 SaaS Pricing Mistakes Founders Make (And How to Avoid Them)"** ✅
+   - File: `blog/10-saas-pricing-mistakes-founders-make.html` (~2,000 words)
+   - Target keywords: "SaaS pricing mistakes", "pricing errors", "common pricing mistakes"
+   - High-intent content: readers searching these keywords are actively trying to fix pricing
+   - Format: 10 common mistakes as numbered cards + explanations + "how to fix" + "monitoring angle"
+   - Covers: underpricing, ignoring competitors, over-generous free plans, wrong tier packaging, price increase timing, value anchoring, pricing strategy, churn impact, testing, fairness vs outcomes
+   - Real examples: Notion, Slack, HubSpot, Intercom, GitHub Copilot, Typeform
+   - Each mistake card includes "monitoring angle" — why tracking competitors reveals the mistake
+   - CTAs to signup.html and pricing-tracker.html
+   - Internal links to: when-to-raise, how-to-raise, saas-pricing-models, competitive-pricing-analysis, 40-saas-pricing-changes
+   - Added to `blog.html` grid (31 posts total) and `sitemap.xml` (31 blog URLs now indexed)
+
+**Why this matters (Pre-Launch):**
+- Blog posts indexed before launch build SEO authority before the Show IH post goes live
+- "SaaS pricing mistakes" is a high-search-volume, high-intent keyword with less competition than "SaaS pricing"
+- Natural tie-in to Show IH engagement: readers wondering if they're pricing right can reference this post
+- Drives inbound link value as the guide is shareable/linkable
+
+**Key Metrics (Session 89)**
+- Files created: 1 (`blog/10-saas-pricing-mistakes-founders-make.html`)
+- Blog posts total: 31 (up from 30)
+- Commits: 1
+- Time to launch: 16 hours remaining
+
+---
+
 ### Session 88 (April 27, 2026) — New SEO Blog Post: How to Raise SaaS Prices
 
 **Status:** COMPLETE ✅
