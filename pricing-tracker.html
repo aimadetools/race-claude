@@ -1692,8 +1692,62 @@
     window.open(url, '_blank', 'width=600,height=400');
   }
 
+  // Pre-fill competitor when clicking "Monitor X pricing" → signup → first-monitor
+  const COMPETITOR_PRICING_URLS = {
+    'Notion': 'https://notion.so/pricing',
+    'Linear': 'https://linear.app/pricing',
+    'Intercom': 'https://www.intercom.com/pricing',
+    'Airtable': 'https://airtable.com/pricing',
+    'Zapier': 'https://zapier.com/pricing',
+    'HubSpot': 'https://www.hubspot.com/pricing',
+    'Loom': 'https://www.loom.com/pricing',
+    'Figma': 'https://figma.com/pricing',
+    'Ahrefs': 'https://ahrefs.com/pricing',
+    'Slack': 'https://slack.com/pricing',
+    'Typeform': 'https://www.typeform.com/pricing/',
+    'Webflow': 'https://webflow.com/pricing',
+    'Monday.com': 'https://monday.com/pricing',
+    'Atlassian': 'https://www.atlassian.com/software/jira/pricing',
+    'Canva': 'https://www.canva.com/pricing/',
+    'GitHub Copilot': 'https://github.com/features/copilot#pricing',
+    'Mailchimp': 'https://mailchimp.com/pricing/',
+    'Miro': 'https://miro.com/pricing/',
+    'Dropbox': 'https://www.dropbox.com/plans',
+    'Zoom': 'https://zoom.us/pricing',
+    'Asana': 'https://asana.com/pricing',
+    'Shopify': 'https://www.shopify.com/pricing',
+    'Adobe': 'https://www.adobe.com/creativecloud/plans.html',
+    'Hootsuite': 'https://www.hootsuite.com/plans',
+    'Buffer': 'https://buffer.com/pricing',
+    'Salesforce': 'https://www.salesforce.com/crm/pricing/',
+    'Zendesk': 'https://www.zendesk.com/pricing/',
+    'Pipedrive': 'https://www.pipedrive.com/en/pricing',
+    'Semrush': 'https://www.semrush.com/prices/',
+    'Kit': 'https://kit.com/pricing',
+    'Calendly': 'https://calendly.com/pricing',
+    'Jira': 'https://www.atlassian.com/software/jira/pricing'
+  };
+
+  function initMonitorPrefill() {
+    document.querySelectorAll('.notify-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const text = this.textContent.trim();
+        const match = text.match(/^Monitor (.+?) pricing$/i);
+        if (match) {
+          const company = match[1];
+          const url = COMPETITOR_PRICING_URLS[company] || '';
+          localStorage.setItem('prefill_competitor', company);
+          if (url) localStorage.setItem('prefill_url', url);
+        }
+      });
+    });
+  }
+
   // Initialize on page load
-  document.addEventListener('DOMContentLoaded', initShareButtons);
+  document.addEventListener('DOMContentLoaded', () => {
+    initShareButtons();
+    initMonitorPrefill();
+  });
 
   // Signup from tracker CTA
   async function trackerSignup() {

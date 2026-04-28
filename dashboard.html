@@ -529,6 +529,35 @@
 
     input::placeholder { color: var(--muted); }
 
+    .modal-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+    .modal-chips-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+    }
+    .mchip {
+      padding: 0.28rem 0.65rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-family: var(--font);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      line-height: 1.4;
+    }
+    .mchip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+    .mchip.active { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); font-weight: 600; }
+
     .modal-note {
       background: var(--accent-glow);
       border: 1px solid rgba(0, 229, 160, 0.2);
@@ -914,6 +943,19 @@
     <div class="modal-success" id="modalSuccess"></div>
 
     <form id="addMonitorForm" onsubmit="handleAddMonitor(event)">
+      <div style="margin-bottom:1rem">
+        <div class="modal-chips-label">Quick-add a popular SaaS:</div>
+        <div class="modal-chips">
+          <button type="button" class="mchip" onclick="fillModalChip('Notion','https://notion.so/pricing',this)">Notion</button>
+          <button type="button" class="mchip" onclick="fillModalChip('Linear','https://linear.app/pricing',this)">Linear</button>
+          <button type="button" class="mchip" onclick="fillModalChip('Figma','https://figma.com/pricing',this)">Figma</button>
+          <button type="button" class="mchip" onclick="fillModalChip('Stripe','https://stripe.com/pricing',this)">Stripe</button>
+          <button type="button" class="mchip" onclick="fillModalChip('HubSpot','https://www.hubspot.com/pricing',this)">HubSpot</button>
+          <button type="button" class="mchip" onclick="fillModalChip('Intercom','https://www.intercom.com/pricing',this)">Intercom</button>
+          <button type="button" class="mchip" onclick="fillModalChip('Zapier','https://zapier.com/pricing',this)">Zapier</button>
+          <button type="button" class="mchip" onclick="fillModalChip('Slack','https://slack.com/pricing',this)">Slack</button>
+        </div>
+      </div>
       <div class="form-group">
         <label for="monitorUrl">Pricing page URL</label>
         <input
@@ -1053,6 +1095,11 @@
       const urlParams = new URLSearchParams(window.location.search);
       const checkoutResult = urlParams.get('checkout');
       if (checkoutResult === 'success') {
+        // New paid user with no monitors yet — send them through onboarding
+        if (monitors.length === 0) {
+          window.location.href = 'first-monitor.html';
+          return;
+        }
         showCheckoutToast('success', `🎉 You're now on the ${currentPlan.charAt(0).toUpperCase() + currentPlan.slice(1)} plan! Your monitors are upgrading now.`);
         history.replaceState(null, '', 'dashboard.html');
       } else if (checkoutResult === 'cancelled') {
@@ -1239,6 +1286,7 @@
       let msg;
       if (atLimit) msg = '<span style="color:#fca5a5">At limit.</span> Upgrade to track more competitors.';
       else if (nearLimit) msg = '<span style="color:#fbbf24">Almost at limit.</span> Upgrade before you run out.';
+      else if (used > 0) msg = `<span style="color:var(--accent)">You have ${maxMonitors - used} free slot${maxMonitors - used > 1 ? 's' : ''} left</span> — add another competitor now.`;
       else msg = 'Upgrade for more monitors and faster checks.';
       planDesc.innerHTML = `<strong>${used} of ${maxMonitors} monitors used.</strong> ${msg}`;
     }
@@ -1442,6 +1490,14 @@
     document.body.style.overflow = '';
   }
 
+  function fillModalChip(name, url, chipEl) {
+    document.getElementById('monitorUrl').value = url;
+    document.getElementById('monitorLabel').value = name;
+    document.querySelectorAll('.mchip').forEach(c => c.classList.remove('active'));
+    if (chipEl) chipEl.classList.add('active');
+    document.getElementById('monitorUrl').focus();
+  }
+
   function openModal() {
     // Check plan limits
     const limits = { free: 2, starter: 10, pro: Infinity };
@@ -1464,6 +1520,7 @@
     document.getElementById('modalSuccess').classList.remove('visible');
     document.getElementById('addMonitorBtn').disabled = false;
     document.getElementById('addMonitorBtn').textContent = 'Add monitor →';
+    document.querySelectorAll('.mchip').forEach(c => c.classList.remove('active'));
     document.body.style.overflow = '';
   }
 

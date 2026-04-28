@@ -57,19 +57,16 @@ export default async function handler(req, res) {
     });
   }
 
-  // Check if nurture_unsubscribed column exists (added by schema-migration-unsubscribe.sql)
-  const { data: schemaCheck, error: schemaErr } = await supabase
+  // Check if nurture_unsubscribed column exists (added by schema-migration-unsubscribe.sql).
+  // If missing, proceed without the filter — no one has opted out yet anyway.
+  const { error: schemaErr } = await supabase
     .from('subscriptions')
     .select('nurture_unsubscribed')
     .limit(1);
-
-  if (schemaErr?.message?.includes('column') || schemaErr?.message?.includes('nurture_unsubscribed')) {
-    console.warn('[email-nurture] Missing nurture_unsubscribed column', schemaErr?.message);
-    return res.status(200).json({
-      ok: false,
-      message: 'Database schema incomplete — nurture_unsubscribed column missing. Run docs/schema-migration-unsubscribe.sql in Supabase SQL editor.',
-      details: 'This migration adds the nurture_unsubscribed column to subscriptions table for email compliance.',
-    });
+  const hasNurtureColumn = !schemaErr?.message?.includes('nurture_unsubscribed')
+    && !schemaErr?.message?.includes('column');
+  if (!hasNurtureColumn) {
+    console.warn('[email-nurture] nurture_unsubscribed column missing — proceeding without unsubscribe filter');
   }
 
   const results = {
@@ -90,13 +87,10 @@ export default async function handler(req, res) {
     const windowStart = new Date(now.getTime() - 3 * 60 * 60 * 1000).toISOString();
     const windowEnd = new Date(now.getTime() - 1 * 60 * 60 * 1000).toISOString();
 
-    const { data: candidates } = await supabase
-      .from('subscriptions')
-      .select('user_id')
-      .gte('created_at', windowStart)
-      .lte('created_at', windowEnd)
-      .eq('nurture_unsubscribed', false)
-      .limit(BATCH_LIMIT);
+    let welcomeQ = supabase.from('subscriptions').select('user_id')
+      .gte('created_at', windowStart).lte('created_at', windowEnd);
+    if (hasNurtureColumn) welcomeQ = welcomeQ.eq('nurture_unsubscribed', false);
+    const { data: candidates } = await welcomeQ.limit(BATCH_LIMIT);
 
     for (const sub of candidates || []) {
       if (await alreadySent(supabase, sub.user_id, 'welcome')) continue;
@@ -148,13 +142,15 @@ export default async function handler(req, res) {
 
       const firstName = nameFromEmail(email);
       const competitorName = monitor.name;
-      // Check if user is unsubscribed
-      const { data: sub } = await supabase
-        .from('subscriptions')
-        .select('nurture_unsubscribed')
-        .eq('user_id', monitor.user_id)
-        .single();
-      if (sub?.nurture_unsubscribed) { processed.add(monitor.user_id); continue; }
+      // Check if user is unsubscribed (only if column exists)
+      if (hasNurtureColumn) {
+        const { data: sub } = await supabase
+          .from('subscriptions')
+          .select('nurture_unsubscribed')
+          .eq('user_id', monitor.user_id)
+          .single();
+        if (sub?.nurture_unsubscribed) { processed.add(monitor.user_id); continue; }
+      }
 
       const sent = await sendEmail(
         email,
@@ -179,13 +175,10 @@ export default async function handler(req, res) {
     const windowStart = new Date(now.getTime() - 48 * 60 * 60 * 1000).toISOString();
     const windowEnd = new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString();
 
-    const { data: candidates } = await supabase
-      .from('subscriptions')
-      .select('user_id')
-      .gte('created_at', windowStart)
-      .lte('created_at', windowEnd)
-      .eq('nurture_unsubscribed', false)
-      .limit(BATCH_LIMIT);
+    let nudgeQ = supabase.from('subscriptions').select('user_id')
+      .gte('created_at', windowStart).lte('created_at', windowEnd);
+    if (hasNurtureColumn) nudgeQ = nudgeQ.eq('nurture_unsubscribed', false);
+    const { data: candidates } = await nudgeQ.limit(BATCH_LIMIT);
 
     for (const sub of candidates || []) {
       if (await alreadySent(supabase, sub.user_id, 'activation_nudge')) continue;
@@ -217,13 +210,10 @@ export default async function handler(req, res) {
   // ── 5. Upgrade prompt ─────────────────────────────────────────────────────
   // Target: free users with exactly 2 monitors (at limit) who haven't been prompted.
   {
-    const { data: freeUsers } = await supabase
-      .from('subscriptions')
-      .select('user_id')
-      .eq('plan', 'free')
-      .eq('status', 'active')
-      .eq('nurture_unsubscribed', false)
-      .limit(100); // Process more candidates, filter by monitor count
+    let upgradeQ = supabase.from('subscriptions').select('user_id')
+      .eq('plan', 'free').eq('status', 'active');
+    if (hasNurtureColumn) upgradeQ = upgradeQ.eq('nurture_unsubscribed', false);
+    const { data: freeUsers } = await upgradeQ.limit(100); // Process more candidates, filter by monitor count
 
     const candidates = [];
     for (const sub of freeUsers || []) {
@@ -259,12 +249,9 @@ export default async function handler(req, res) {
     const cutoff = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString();
 
     // Get users who signed up more than 14 days ago
-    const { data: oldUsers } = await supabase
-      .from('subscriptions')
-      .select('user_id')
-      .lte('created_at', cutoff)
-      .eq('nurture_unsubscribed', false)
-      .limit(100);
+    let reengageQ = supabase.from('subscriptions').select('user_id').lte('created_at', cutoff);
+    if (hasNurtureColumn) reengageQ = reengageQ.eq('nurture_unsubscribed', false);
+    const { data: oldUsers } = await reengageQ.limit(100);
 
     const candidates = [];
     for (const sub of oldUsers || []) {
@@ -309,12 +296,10 @@ export default async function handler(req, res) {
         const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
 
         // Find users who haven't received a digest in 6+ days
-        const { data: digestCandidates } = await supabase
-          .from('subscriptions')
-          .select('user_id, plan')
-          .or(`last_weekly_digest_at.is.null,last_weekly_digest_at.lt.${sixDaysAgo}`)
-          .eq('nurture_unsubscribed', false)
-          .limit(BATCH_LIMIT);
+        let digestQ = supabase.from('subscriptions').select('user_id, plan')
+          .or(`last_weekly_digest_at.is.null,last_weekly_digest_at.lt.${sixDaysAgo}`);
+        if (hasNurtureColumn) digestQ = digestQ.eq('nurture_unsubscribed', false);
+        const { data: digestCandidates } = await digestQ.limit(BATCH_LIMIT);
 
         for (const sub of digestCandidates || []) {
           const { data: authUser } = await supabase.auth.admin.getUserById(sub.user_id);

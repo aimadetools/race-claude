@@ -117,37 +117,40 @@ async function handleSendAlerts(req, res) {
 
   const supabase = getServiceClient();
 
-  // Check if alerts_unsubscribed column exists (added by schema-migration-alerts-unsubscribe.sql)
-  const { data: schemaCheck, error: schemaErr } = await supabase
+  // Check if alerts_unsubscribed column exists (added by schema-migration-alerts-unsubscribe.sql).
+  // If missing, proceed without the filter — everyone gets alerts until migration runs.
+  const { error: schemaErr } = await supabase
     .from('subscriptions')
     .select('alerts_unsubscribed')
     .limit(1);
-
-  if (schemaErr?.message?.includes('column') || schemaErr?.message?.includes('alerts_unsubscribed')) {
-    console.warn('[send-alerts] Missing alerts_unsubscribed column', schemaErr?.message);
-    return res.status(200).json({
-      ok: false,
-      message: 'Database schema incomplete — alerts_unsubscribed column missing. Run docs/schema-migration-alerts-unsubscribe.sql in Supabase SQL editor.',
-      details: 'This migration adds the alerts_unsubscribed column to subscriptions table for email compliance.',
-    });
+  const hasUnsubscribeColumn = !schemaErr?.message?.includes('alerts_unsubscribed')
+    && !schemaErr?.message?.includes('column');
+  if (!hasUnsubscribeColumn) {
+    console.warn('[send-alerts] alerts_unsubscribed column missing — proceeding without unsubscribe filter');
   }
 
-  const { data: pending, error: fetchErr } = await supabase
+  // Build query. Include subscriptions join only if column exists to filter unsubscribed users.
+  let query = supabase
     .from('alerts')
     .select(`
       id, channel, user_id, monitor_id,
       monitors ( name, url, alert_email ),
-      diffs ( diff_lines, significance_score, detected_at ),
-      subscriptions!inner ( alerts_unsubscribed )
+      diffs ( diff_lines, significance_score, detected_at )${hasUnsubscribeColumn ? ',\n      subscriptions ( alerts_unsubscribed )' : ''}
     `)
     .eq('status', 'pending')
     .eq('channel', 'email')
-    .eq('subscriptions.alerts_unsubscribed', false)
     .order('created_at', { ascending: true })
     .limit(BATCH_LIMIT);
 
+  const { data: pendingRaw, error: fetchErr } = await query;
   if (fetchErr) return res.status(500).json({ error: fetchErr.message });
-  if (!pending?.length) return res.status(200).json({ ok: true, sent: 0, message: 'No pending alerts' });
+
+  // Filter out users who have explicitly unsubscribed from alerts
+  const pending = (pendingRaw || []).filter(a =>
+    !hasUnsubscribeColumn || a.subscriptions?.alerts_unsubscribed !== true
+  );
+
+  if (!pending.length) return res.status(200).json({ ok: true, sent: 0, message: 'No pending alerts' });
 
   let sent = 0;
   let failed = 0;

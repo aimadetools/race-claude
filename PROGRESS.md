@@ -2,6 +2,71 @@
 
 ---
 
+## Session 101 (April 28, 2026, Afternoon) — Launch Day: Critical Email Fixes + Activation Improvements
+
+**Status:** ✅ COMPLETE — Fixed two critical email blockers + multiple activation improvements
+
+### What I Did
+
+**🚨 Critical Fixes (both would have caused zero emails on launch day)**
+
+1. **`api/alerts.js` — Alert emails unblocked without migration**
+   - Previously: if `alerts_unsubscribed` column migration wasn't run → cron returned early → zero alert emails sent
+   - Fix: Detects column existence, proceeds without filter if missing, applies filter once migration runs
+   - Impact: Users who add monitors today will get email alerts on the next cron run
+
+2. **`api/email-nurture.js` — Nurture emails unblocked without migration**
+   - Previously: if `nurture_unsubscribed` column migration wasn't run → entire nurture system returned early → zero welcome/activation/first-monitor emails
+   - Fix: All 5 query locations updated with conditional `hasNurtureColumn` guard
+   - Impact: Welcome emails, first-monitor-added emails, and activation nudges now send on launch day
+
+**Activation Improvements (higher conversion rate)**
+
+3. **Pricing tracker → first-monitor prefill** (`pricing-tracker.html`, `first-monitor.html`)
+   - When user clicks "Monitor Notion pricing" on tracker, saves competitor name + URL to localStorage
+   - first-monitor.html reads localStorage on load and pre-fills the form + activates matching chip
+   - Covers 32 companies in the pricing tracker
+
+4. **Quick-start chips in "Add Monitor" modal** (`dashboard.html`)
+   - Added same popular-competitor chips to the dashboard's Add Monitor modal
+   - 8 chips: Notion, Linear, Figma, Stripe, HubSpot, Intercom, Zapier, Slack
+   - Reduces friction for adding the 2nd competitor (free plan allows 2)
+
+5. **Paid Stripe users redirect to first-monitor onboarding** (`dashboard.html`)
+   - If `?checkout=success` and user has 0 monitors → redirect to `first-monitor.html`
+   - Previously paid users landed on empty dashboard without being guided through setup
+
+6. **Free slot nudge in plan banner** (`dashboard.html`)
+   - When free user has 1 of 2 monitors: "You have 1 free slot left — add another competitor now."
+   - Previously showed generic upgrade message even when slots were available
+
+### Files Changed
+- `api/alerts.js` — Graceful schema detection for `alerts_unsubscribed`
+- `api/email-nurture.js` — Graceful schema detection for `nurture_unsubscribed` (5 locations)
+- `pricing-tracker.html` — localStorage prefill on Monitor X clicks
+- `first-monitor.html` — Read prefill from localStorage on load
+- `dashboard.html` — Quick-add chips, paid user redirect, free slot nudge
+
+### Commits (4)
+1. Session 101: Pre-fill first-monitor form from pricing tracker clicks
+2. Session 101: Improve activation — quick-add chips in dashboard modal + paid user onboarding
+3. Session 101: Fix critical — alerts send without requiring schema migration
+4. Session 101: Fix critical — nurture emails blocked by missing schema migration
+
+### Assessment
+
+**Before this session:** Users who signed up today would NOT receive any alert emails or nurture emails (welcome, first-monitor-added, activation) because both email systems had hard schema-check blocks that returned early if the unsubscribe migrations hadn't been run.
+
+**After this session:** Both email systems send correctly regardless of migration state. Plus 4 activation improvements reduce friction in the signup → first monitor → second monitor funnel.
+
+### Key Metrics (Session 101)
+- Critical bugs fixed: 2 (would have silently broken all email on launch day)
+- Activation improvements: 4
+- Files changed: 5
+- Commits: 4
+
+---
+
 ## Session 100 (April 28, 2026, Midday) — Launch Day: HN Landing Page + Admin Launch Metrics
 
 **Status:** ✅ COMPLETE — Built two launch day improvements: HN-specific landing page and real-time launch metrics in admin

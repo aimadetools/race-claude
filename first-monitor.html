@@ -788,6 +788,21 @@
       document.getElementById('alertEmail').value = session.user.email;
     }
 
+    // Pre-fill from pricing tracker "Monitor X pricing" click
+    const prefillName = localStorage.getItem('prefill_competitor');
+    const prefillUrl = localStorage.getItem('prefill_url');
+    if (prefillName) {
+      document.getElementById('name').value = prefillName;
+      if (prefillUrl) document.getElementById('url').value = prefillUrl;
+      document.querySelectorAll('.chip').forEach(c => {
+        if (c.textContent.trim().toLowerCase() === prefillName.toLowerCase()) {
+          c.classList.add('active');
+        }
+      });
+      localStorage.removeItem('prefill_competitor');
+      localStorage.removeItem('prefill_url');
+    }
+
     // Get user's plan to show available frequencies
     const { data: sub } = await supabase
       .from('subscriptions')
