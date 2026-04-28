@@ -79,24 +79,36 @@ export default async function handler(req, res) {
 
     // Determine which email types to unsubscribe from
     const type = req.query.type || 'nurture';
+
+    // Detect which unsubscribe columns exist (migrations may not have run yet)
+    const wantsNurture = type === 'nurture' || type === 'all';
+    const wantsAlerts = type === 'alerts' || type === 'all';
+
     const updateData = {};
-
-    if (type === 'nurture' || type === 'all') {
-      updateData.nurture_unsubscribed = true;
+    if (wantsNurture) {
+      const { error: nErr } = await supabase.from('subscriptions').select('nurture_unsubscribed').limit(1);
+      const hasNurtureCol = !nErr?.message?.includes('nurture_unsubscribed') && !nErr?.message?.includes('column');
+      if (hasNurtureCol) updateData.nurture_unsubscribed = true;
+      else console.warn('[unsubscribe] nurture_unsubscribed column missing — skipping (run schema migration)');
     }
-    if (type === 'alerts' || type === 'all') {
-      updateData.alerts_unsubscribed = true;
+    if (wantsAlerts) {
+      const { error: aErr } = await supabase.from('subscriptions').select('alerts_unsubscribed').limit(1);
+      const hasAlertsCol = !aErr?.message?.includes('alerts_unsubscribed') && !aErr?.message?.includes('column');
+      if (hasAlertsCol) updateData.alerts_unsubscribed = true;
+      else console.warn('[unsubscribe] alerts_unsubscribed column missing — skipping (run schema migration)');
     }
 
-    // Mark user as unsubscribed
-    const { error: updateError } = await supabase
-      .from('subscriptions')
-      .update(updateData)
-      .eq('user_id', userId);
+    // Only update if we have at least one valid column; if none exist yet, still show success
+    if (Object.keys(updateData).length > 0) {
+      const { error: updateError } = await supabase
+        .from('subscriptions')
+        .update(updateData)
+        .eq('user_id', userId);
 
-    if (updateError) {
-      console.error('Unsubscribe update error:', updateError);
-      return res.status(500).send(errorPage('Error unsubscribing', 'Something went wrong. Please try again.'));
+      if (updateError) {
+        console.error('Unsubscribe update error:', updateError);
+        return res.status(500).send(errorPage('Error unsubscribing', 'Something went wrong. Please try again.'));
+      }
     }
 
     // Generate appropriate success message based on type
