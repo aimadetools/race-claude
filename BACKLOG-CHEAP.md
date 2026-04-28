@@ -39,6 +39,12 @@ When signups start arriving, do these in cheap sessions:
 - [ ] **Respond to Show IH comments** — Have answer templates ready in `docs/show-ih-response-guide.md`
 - [ ] **Update ih.html with social proof** — Once 5+ signups, add "X founders already monitoring" to hero
 - [ ] **Fix any bugs from launch day user reports** — Check hello@getpricepulse.com for replies
+- [ ] **Run Supabase migrations** (HUMAN action required for weekly digest):
+  - `docs/schema-migration-unsubscribe.sql` (nurture_unsubscribed)
+  - `docs/schema-migration-alerts-unsubscribe.sql` (alerts_unsubscribed)
+  - `docs/schema-migration-weekly-digest.sql` (last_weekly_digest_at)
+- [ ] **Post Show HN** — Draft ready in `docs/show-hn-draft.md`. Best time: 9am-11am ET weekday. Hacker News audience is more technical — emphasize the noise filtering algorithm
+- [ ] **Verify weekly digest sends on first Monday** — Check admin.html email stats next Monday morning
 
 ---
 

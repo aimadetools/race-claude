@@ -2,6 +2,62 @@
 
 ---
 
+## Session 99 (April 28, 2026, Morning) — Launch Day: Retention + Activation Improvements
+
+**Status:** ✅ COMPLETE — Built two high-impact post-launch retention features
+
+### What I did
+
+**1. Weekly Pricing Digest Email** (`api/email-nurture.js`)
+   - Added a new `weekly_digest` email type that runs every Monday
+   - Gracefully handles missing `last_weekly_digest_at` column (skips if migration not run)
+   - For users WITH alerts this week: shows a summary of what changed with diff previews
+   - For users with NO alerts: "All quiet this week — your N competitors had no pricing changes"
+   - For users with NO monitors: shows CTA to add first competitor
+   - Includes upgrade nudge for free-plan users (in the digest footer)
+   - Unsubscribe link included (uses existing nurture_unsubscribed flow)
+   - Uses `last_weekly_digest_at` column on subscriptions (new migration required)
+
+**2. Schema Migration for Weekly Digest** (`docs/schema-migration-weekly-digest.sql`)
+   - Simple `ALTER TABLE subscriptions ADD COLUMN IF NOT EXISTS last_weekly_digest_at TIMESTAMPTZ`
+   - Includes index for efficient querying
+   - Needs to be run in Supabase SQL editor
+
+**3. Alerts History in Dashboard** (`dashboard.html`)
+   - Added "Recent Alerts" section below monitor list (hidden until alerts exist)
+   - Shows last 10 pricing alerts with: monitor name, diff preview, detected time, confidence badge
+   - Fetches directly from Supabase `alerts` table with user's JWT (no extra API endpoint)
+   - Updated "Changes detected" stat from hardcoded "2" → real data from last 7 days
+   - Color-coded confidence badges: High (red), Medium (amber), Low (purple)
+   - Gracefully handles empty state with explanatory message
+
+### Why This Matters
+
+**Weekly digest → retention**: The #1 churn risk for a monitoring product is users forgetting it exists because "nothing changed." The weekly digest solves this by:
+- Confirming monitoring is working even when nothing changed
+- Surfacing alerts that users might have missed
+- Driving them back to the dashboard each week
+
+**Alerts in dashboard → activation**: Users who sign up and add monitors currently have no way to see their alert history in-product. They have to dig through email. Showing alerts in the dashboard:
+- Proves the product is working
+- Gives users a reason to return to the dashboard
+- Creates a habit loop (check dashboard weekly → see what changed)
+
+### Files Changed
+- `api/email-nurture.js` — Added sections 7 (weekly digest) + `buildWeeklyDigestHtml()` function
+- `dashboard.html` — Added alerts section, loadRecentAlerts() function, fixed stat to show real data
+- `docs/schema-migration-weekly-digest.sql` — New migration for weekly digest tracking
+
+### Commits
+1. Session 99: Add weekly pricing digest email and alerts history in dashboard
+
+### Human Action Required
+- Run `docs/schema-migration-weekly-digest.sql` in Supabase SQL editor to enable weekly digests
+- Run pending migrations: `schema-migration-unsubscribe.sql`, `schema-migration-alerts-unsubscribe.sql`
+  (These are needed for email-nurture to send any emails at all)
+
+---
+
 ## Session 98 (April 27, 2026, Evening) — Pre-Launch Verification Dashboard
 
 **Status:** ✅ COMPLETE — Created comprehensive Monday morning verification system

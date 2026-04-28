@@ -78,6 +78,7 @@ export default async function handler(req, res) {
     activation_nudge: 0,
     upgrade_prompt: 0,
     reengagement: 0,
+    weekly_digest: 0,
     errors: 0,
   };
 
@@ -290,7 +291,88 @@ export default async function handler(req, res) {
     }
   }
 
-  const total = results.welcome + results.activation_nudge + results.upgrade_prompt + results.reengagement;
+  // ── 7. Weekly pricing digest (Mondays only) ──────────────────────────────
+  // Sends a personalized weekly summary of monitoring status to all active users.
+  // Uses last_weekly_digest_at column (requires schema-migration-weekly-digest.sql).
+  // Safe to skip if column doesn't exist yet — won't block other emails.
+  {
+    const dayOfWeek = new Date().getDay(); // 0=Sunday, 1=Monday
+    if (dayOfWeek === 1) {
+      // Check if last_weekly_digest_at column exists
+      const { error: weeklyColErr } = await supabase
+        .from('subscriptions')
+        .select('last_weekly_digest_at')
+        .limit(1);
+
+      if (!weeklyColErr?.message?.includes('column') && !weeklyColErr?.message?.includes('last_weekly_digest_at')) {
+        const sixDaysAgo = new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString();
+        const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+
+        // Find users who haven't received a digest in 6+ days
+        const { data: digestCandidates } = await supabase
+          .from('subscriptions')
+          .select('user_id, plan')
+          .or(`last_weekly_digest_at.is.null,last_weekly_digest_at.lt.${sixDaysAgo}`)
+          .eq('nurture_unsubscribed', false)
+          .limit(BATCH_LIMIT);
+
+        for (const sub of digestCandidates || []) {
+          const { data: authUser } = await supabase.auth.admin.getUserById(sub.user_id);
+          const email = authUser?.user?.email;
+          if (!email) continue;
+
+          // Get user's active monitors
+          const { data: monitors } = await supabase
+            .from('monitors')
+            .select('id, name, url, status')
+            .eq('user_id', sub.user_id)
+            .eq('status', 'active');
+
+          const monitorCount = monitors?.length || 0;
+
+          // Get alerts from last 7 days for this user's monitors
+          let weekAlerts = [];
+          if (monitorCount > 0) {
+            const monitorIds = monitors.map(m => m.id);
+            const { data: alerts } = await supabase
+              .from('alerts')
+              .select('monitor_id, diff_preview, detected_at, significance')
+              .in('monitor_id', monitorIds)
+              .eq('status', 'sent')
+              .gte('sent_at', sevenDaysAgo)
+              .order('detected_at', { ascending: false })
+              .limit(10);
+            weekAlerts = alerts || [];
+          }
+
+          const firstName = nameFromEmail(email);
+          const weekStr = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+          const subject = weekAlerts.length > 0
+            ? `${weekAlerts.length} pricing change${weekAlerts.length > 1 ? 's' : ''} detected this week`
+            : `Your ${monitorCount} competitor${monitorCount !== 1 ? 's' : ''} had no pricing changes this week`;
+
+          const sent = await sendEmail(
+            email,
+            subject,
+            buildWeeklyDigestHtml(firstName, sub.user_id, monitorCount, weekAlerts, monitors || [], weekStr, sub.plan)
+          );
+
+          if (sent) {
+            // Update last_weekly_digest_at
+            await supabase
+              .from('subscriptions')
+              .update({ last_weekly_digest_at: new Date().toISOString() })
+              .eq('user_id', sub.user_id);
+            results.weekly_digest++;
+          } else {
+            results.errors++;
+          }
+        }
+      }
+    }
+  }
+
+  const total = results.welcome + results.activation_nudge + results.upgrade_prompt + results.reengagement + (results.weekly_digest || 0);
   console.log('[email-nurture] Done:', results);
   return res.status(200).json({ ok: true, sent: total, ...results });
 }
@@ -739,4 +821,144 @@ function buildCompareRow(feature, freeVal, starterVal) {
       <td style="padding:10px 16px;font-size:14px;color:#00b87a;font-weight:600;text-align:center">${starterVal}</td>
     </tr>
   `;
+}
+
+function escForHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function buildWeeklyDigestHtml(firstName, userId, monitorCount, weekAlerts, monitors, weekStr, plan) {
+  const unsubscribeLink = generateUnsubscribeLink(userId);
+  const hasAlerts = weekAlerts.length > 0;
+  const headerBg = hasAlerts
+    ? 'background:linear-gradient(135deg,#4f6ef7,#7c3aed)'
+    : 'background:linear-gradient(135deg,#00e5a0,#00b87a)';
+  const headerIcon = hasAlerts ? '⚡' : '📡';
+  const headerTitle = hasAlerts
+    ? `${weekAlerts.length} pricing change${weekAlerts.length > 1 ? 's' : ''} detected this week`
+    : 'All quiet this week';
+  const headerSub = hasAlerts
+    ? `Here's what changed among your monitored competitors`
+    : `Your ${monitorCount} competitor${monitorCount !== 1 ? 's' : ''} held their pricing steady`;
+
+  // Build alert rows
+  const alertRows = weekAlerts.slice(0, 5).map(alert => {
+    const monitor = monitors.find(m => m.id === alert.monitor_id);
+    const monitorName = monitor ? escForHtml(monitor.name) : 'Competitor';
+    const detected = new Date(alert.detected_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const diffText = alert.diff_preview
+      ? escForHtml(alert.diff_preview).slice(0, 200)
+      : 'Pricing page content changed';
+    return `
+    <div style="background:#f8f9ff;border-left:3px solid #4f6ef7;border-radius:4px;padding:14px 16px;margin:0 0 12px">
+      <div style="font-size:13px;font-weight:600;color:#4f6ef7;margin-bottom:4px">${monitorName}</div>
+      <div style="font-size:13px;color:#374151;line-height:1.5;white-space:pre-wrap">${diffText}</div>
+      <div style="font-size:11px;color:#9ca3af;margin-top:6px">Detected ${detected}</div>
+    </div>`;
+  }).join('');
+
+  // Build monitor list (when no alerts)
+  const monitorList = monitors.slice(0, 6).map(m =>
+    `<tr><td style="padding:8px 0;font-size:14px;color:#374151;border-bottom:1px solid #f3f4f6">
+      <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#00e5a0;margin-right:8px"></span>
+      ${escForHtml(m.name)}
+    </td></tr>`
+  ).join('');
+
+  // Upgrade nudge for free users
+  const upgradeSection = plan === 'free' ? `
+  <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:16px 20px;margin:0 0 24px">
+    <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#92400e">Want hourly checks instead of daily?</p>
+    <p style="margin:0;font-size:13px;color:#78350f;line-height:1.5">
+      Upgrade to Starter for $19/month to monitor 10 competitors with hourly checks.
+      <a href="${APP_URL}/plan-select.html" style="color:#d97706;text-decoration:underline">Upgrade now →</a>
+    </p>
+  </div>` : '';
+
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:40px 20px">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden">
+
+<!-- Header -->
+<tr><td style="${headerBg};padding:32px 40px">
+  <div style="font-size:28px;margin-bottom:8px">${headerIcon}</div>
+  <h1 style="margin:0;font-size:22px;font-weight:700;color:#fff">${headerTitle}</h1>
+  <p style="margin:6px 0 0;font-size:14px;color:rgba(255,255,255,0.8)">Week of ${weekStr} · PricePulse weekly digest</p>
+</td></tr>
+
+<!-- Sub-header -->
+<tr><td style="background:#fafafa;padding:16px 40px;border-bottom:1px solid #e5e7eb">
+  <p style="margin:0;font-size:14px;color:#6b7280">${headerSub}</p>
+</td></tr>
+
+<!-- Body -->
+<tr><td style="padding:32px 40px">
+  <p style="font-size:16px;color:#1a1a2e;margin:0 0 20px">Hey ${firstName},</p>
+
+  ${hasAlerts ? `
+  <p style="font-size:15px;color:#374151;line-height:1.6;margin:0 0 20px">
+    PricePulse detected ${weekAlerts.length} pricing change${weekAlerts.length > 1 ? 's' : ''} among your monitored competitors this week.
+    Here's a summary:
+  </p>
+  ${alertRows}
+  <a href="${APP_URL}/dashboard.html"
+     style="display:block;background:#4f6ef7;color:#fff;text-align:center;text-decoration:none;font-weight:700;font-size:15px;padding:14px 24px;border-radius:8px;margin:20px 0 28px">
+    View full alert details →
+  </a>
+  ` : `
+  <p style="font-size:15px;color:#374151;line-height:1.6;margin:0 0 20px">
+    Good news: none of your monitored competitors changed their pricing this week.
+    PricePulse is watching — you'll hear from us the moment something changes.
+  </p>
+
+  ${monitorCount > 0 ? `
+  <div style="margin:0 0 24px">
+    <p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 10px">Currently monitoring (${monitorCount}):</p>
+    <table width="100%" cellpadding="0" cellspacing="0">${monitorList}</table>
+  </div>
+  ` : `
+  <div style="background:#f0fdf4;border-left:4px solid #00e5a0;border-radius:4px;padding:14px 16px;margin:0 0 24px">
+    <p style="margin:0;font-size:14px;font-weight:600;color:#065f46">You haven't added any competitors yet.</p>
+    <p style="margin:6px 0 0;font-size:13px;color:#047857">
+      Add your first competitor's pricing page and PricePulse will alert you the moment anything changes.
+    </p>
+  </div>
+  `}
+
+  <a href="${APP_URL}/dashboard.html"
+     style="display:block;background:#00e5a0;color:#0a0a0f;text-align:center;text-decoration:none;font-weight:700;font-size:15px;padding:14px 24px;border-radius:8px;margin:0 0 24px">
+    ${monitorCount === 0 ? 'Add your first competitor →' : 'View your dashboard →'}
+  </a>
+  `}
+
+  ${upgradeSection}
+
+  <p style="font-size:13px;color:#6b7280;line-height:1.6;margin:0">
+    This is your weekly digest from PricePulse. You'll get one every Monday.
+    If you spot anything off or have feedback, reply to this email — I read everything.
+  </p>
+</td></tr>
+
+<!-- Footer -->
+<tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb">
+  <p style="margin:0;font-size:12px;color:#9ca3af;line-height:1.6">
+    PricePulse — Competitor pricing intelligence for SaaS founders<br>
+    <a href="${APP_URL}" style="color:#9ca3af">getpricepulse.com</a> ·
+    <a href="${unsubscribeLink}" style="color:#9ca3af;text-decoration:underline">Unsubscribe from digest emails</a>
+  </p>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>`;
 }
