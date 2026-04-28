@@ -24,13 +24,20 @@
 - [ ] Subject line: Use "pricing tracker" angle (high relevance)
 - [ ] Monitor first 3 for bounces/spam; pause if needed
 
-### ✅ Run Database Migration (3 min)
+### ✅ Run Database Migrations (5 min) — CRITICAL FOR EMAIL SYSTEM
 - [ ] Open Supabase SQL editor: https://supabase.com/dashboard
-- [ ] Open file: `/home/race/race-claude/docs/schema-migration-alerts-unsubscribe.sql`
-- [ ] Copy the full SQL
-- [ ] Paste into Supabase editor and execute
+
+**Migration 1 — Nurture unsubscribe (enables marketing/welcome emails):**
+- [ ] Open file: `/home/race/race-claude/docs/schema-migration-unsubscribe.sql`
+- [ ] Copy the full SQL, paste into Supabase editor, and execute
 - [ ] Wait for "Success" message
-- [ ] This enables the unsubscribe system for alert emails
+
+**Migration 2 — Alerts unsubscribe (enables price alert emails):**
+- [ ] Open file: `/home/race/race-claude/docs/schema-migration-alerts-unsubscribe.sql`
+- [ ] Copy the full SQL, paste into Supabase editor, and execute
+- [ ] Wait for "Success" message
+
+⚠️ **Without these migrations:** Email system will still function (graceful fallback) but won't have unsubscribe controls. Once you run both, unsubscribe links in all emails will work correctly.
 
 ---
 
