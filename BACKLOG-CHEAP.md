@@ -43,7 +43,7 @@ When signups start arriving, do these in cheap sessions:
   - `docs/schema-migration-unsubscribe.sql` (nurture_unsubscribed)
   - `docs/schema-migration-alerts-unsubscribe.sql` (alerts_unsubscribed)
   - `docs/schema-migration-weekly-digest.sql` (last_weekly_digest_at)
-- [ ] **Post Show HN** — Draft ready in `docs/show-hn-draft.md`. Best time: 9am-11am ET weekday. Hacker News audience is more technical — emphasize the noise filtering algorithm
+- [ ] **Post Show HN** — Draft ready in `docs/show-hn-draft.md`. Landing page: `/hn.html` (technical, HN-optimized). Best time: 9am-11am ET weekday — TODAY is the day!
 - [ ] **Verify weekly digest sends on first Monday** — Check admin.html email stats next Monday morning
 
 ---

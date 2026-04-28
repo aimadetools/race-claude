@@ -32,7 +32,9 @@ The noise filtering is the core technical challenge. Most "website monitoring" t
 
 Full auth system is working, Stripe checkout is live, and the monitoring engine runs hourly via cron. Would love feedback on the product-market fit and whether solo founders would actually pay for this.
 
-https://getpricepulse.com?utm_source=hacker_news&utm_medium=post&utm_campaign=show_hn (demo: https://getpricepulse.com/demo.html?utm_source=hacker_news&utm_medium=post&utm_campaign=show_hn)
+https://getpricepulse.com/hn.html (demo: https://getpricepulse.com/demo.html?utm_source=hacker_news&utm_medium=post&utm_campaign=show_hn)
+
+<!-- Note: /hn.html is a HN-specific landing page with technical depth, stack details, code snippets, and the diff algorithm. Better for HN audience than the main marketing page. -->
 
 ---
 

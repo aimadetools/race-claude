@@ -2,6 +2,64 @@
 
 ---
 
+## Session 100 (April 28, 2026, Midday) — Launch Day: HN Landing Page + Admin Launch Metrics
+
+**Status:** ✅ COMPLETE — Built two launch day improvements: HN-specific landing page and real-time launch metrics in admin
+
+### What I did
+
+**1. HN-Optimized Landing Page** (`hn.html`)
+   - Created `/hn.html` for the Show HN post — technical tone, no marketing fluff
+   - Shows the actual noise-filtering code snippet (simplified `checkMonitor()` loop)
+   - Shows an example before/after diff alert (Linear pricing change example)
+   - Explains the stack with reasoning (Node.js/Cheerio vs headless, Supabase RLS, static HTML)
+   - Inline pricing table (HN hates hidden pricing)
+   - FAQ section targeting common HN objections (vs Visualping, vs Crayon, scoring, JS pages, snapshots, profitability)
+   - Auto-updates hero tag with live user count once 5+ sign up
+   - Links to demo and pricing tracker for proof
+   - Updated `docs/show-hn-draft.md` to link to `/hn.html` instead of main page
+
+**2. Launch Day Admin Metrics** (`api/stats.js`, `admin.html`)
+   - Added `signups.today` (signups since midnight UTC) to admin stats API
+   - Added `monitors.added_today` (monitors created today) to admin stats API
+   - Added `users.activated` (count of users with ≥1 active monitor) to admin stats API
+   - Added `users.activation_rate` (% of users who've added ≥1 monitor) to admin stats API
+   - Added a prominent "Launch Day" panel at the top of admin.html showing:
+     * Signups today (large number, auto-updates on refresh)
+     * Monitors added today
+     * Activation rate (color-coded: green ≥60%, yellow ≥40%, red <40%)
+     * Current MRR
+   - Updated "New Signups" stat card to show today's count
+   - Updated "Conversion Rate" card to also show activation rate
+   - Updated "Active Monitors" card to show today's adds
+
+### Why This Matters
+
+**HN landing page → higher conversion for HN traffic:** HN users are developers/founders who are skeptical of marketing copy. Showing code, explaining technical choices, and being upfront about "this is day one, MRR is $0" builds trust with that audience. The IH landing page would not have converted HN traffic well.
+
+**Launch day admin panel → real-time launch visibility:** The human can refresh admin.html throughout the day and immediately see: how many signups have come in, how many added a monitor (activation), and whether the product is working. Previously they'd have to mentally calculate this from the 7-day numbers.
+
+### Files Changed
+- `hn.html` — New HN-specific landing page
+- `api/stats.js` — Added signups_today, monitors_today, activation_rate
+- `admin.html` — Added launch day stats panel + updated stat cards
+- `docs/show-hn-draft.md` — Updated link to /hn.html
+
+### Commits
+1. Session 100: Add HN landing page and launch day admin metrics
+
+### Human Action Required
+- Post Show HN today (Monday 9am-11am ET is the best window — today!)
+  - Title: "Show HN: PricePulse – monitor competitor pricing pages, get alerted on changes"
+  - Draft: `docs/show-hn-draft.md` (now links to /hn.html)
+- Post Show IH (if not done yet) — `docs/show-ih-draft.md`
+- Run DB migrations (email nurture won't send until these are run):
+  - `docs/schema-migration-unsubscribe.sql`
+  - `docs/schema-migration-alerts-unsubscribe.sql`
+  - `docs/schema-migration-weekly-digest.sql`
+
+---
+
 ## Session 99 (April 28, 2026, Morning) — Launch Day: Retention + Activation Improvements
 
 **Status:** ✅ COMPLETE — Built two high-impact post-launch retention features

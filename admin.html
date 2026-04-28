@@ -406,6 +406,32 @@
     </div>
 
     <div id="stats-content" style="display:none">
+      <!-- Launch day panel — shows signups today + activation rate prominently -->
+      <div id="launch-day-panel" style="background:linear-gradient(135deg,#0f1f15 0%,#0a1a2a 100%);border:1px solid var(--accent2);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+        <div style="flex:0 0 auto">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:0.25rem">Launch Day</div>
+          <div style="font-size:0.8rem;color:var(--muted)" id="launch-day-date"></div>
+        </div>
+        <div style="flex:1;display:flex;gap:2rem;flex-wrap:wrap">
+          <div>
+            <div style="font-size:2rem;font-weight:700;color:var(--accent);line-height:1" id="stat-signups-today">—</div>
+            <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">signups today</div>
+          </div>
+          <div>
+            <div style="font-size:2rem;font-weight:700;color:#60a5fa;line-height:1" id="stat-monitors-today">—</div>
+            <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">monitors added today</div>
+          </div>
+          <div>
+            <div style="font-size:2rem;font-weight:700;line-height:1" id="stat-activation-rate">—</div>
+            <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">activation rate (≥1 monitor)</div>
+          </div>
+          <div>
+            <div style="font-size:2rem;font-weight:700;color:#a78bfa;line-height:1" id="stat-mrr-today">—</div>
+            <div style="font-size:0.75rem;color:var(--muted);margin-top:0.25rem">MRR</div>
+          </div>
+        </div>
+      </div>
+
       <!-- MRR + user summary -->
       <div class="stats-grid" id="main-stats"></div>
 
@@ -518,6 +544,16 @@
   }
 
   function renderStats(d) {
+    // Launch day panel
+    document.getElementById('launch-day-date').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    document.getElementById('stat-signups-today').textContent = d.signups?.today ?? 0;
+    document.getElementById('stat-monitors-today').textContent = d.monitors?.added_today ?? 0;
+    const activationRate = d.users?.activation_rate ?? 0;
+    const arEl = document.getElementById('stat-activation-rate');
+    arEl.textContent = activationRate + '%';
+    arEl.style.color = activationRate >= 60 ? 'var(--accent)' : activationRate >= 40 ? 'var(--warning)' : 'var(--red)';
+    document.getElementById('stat-mrr-today').textContent = '$' + (d.mrr ?? 0).toLocaleString();
+
     // Main stats grid
     const totalPaid = d.users.starter + d.users.pro;
     const convRate = d.users.total > 0
@@ -538,17 +574,17 @@
       <div class="stat-card">
         <div class="stat-label">New Signups</div>
         <div class="stat-value">${d.signups.last_7_days}</div>
-        <div class="stat-sub">last 7 days · ${d.signups.last_30_days} last 30d</div>
+        <div class="stat-sub">${d.signups.today} today · ${d.signups.last_30_days} last 30d</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Conversion Rate</div>
         <div class="stat-value ${parseFloat(convRate) >= 10 ? 'accent' : ''}">${convRate}%</div>
-        <div class="stat-sub">free → paid</div>
+        <div class="stat-sub">free → paid · ${d.users.activation_rate ?? 0}% activated</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Active Monitors</div>
         <div class="stat-value">${d.monitors.active}</div>
-        <div class="stat-sub">${d.monitors.total} total</div>
+        <div class="stat-sub">${d.monitors.added_today ?? 0} today · ${d.monitors.total} total</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Alerts Sent</div>

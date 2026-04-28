@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PricePulse — SaaS competitor pricing monitor</title>
+  <meta name="description" content="Monitor competitor pricing pages hourly. Noise-filtered alerts: only get emailed when actual pricing changes, not cookie banners or dates." />
+  <meta property="og:title" content="PricePulse — Competitor pricing monitor for SaaS founders" />
+  <meta property="og:description" content="Hourly checks. Noise-filtered diffs. Email alerts only when pricing actually changes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getpricepulse.com/hn.html" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://getpricepulse.com/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0, 229, 160, 0.15);
+      --red: #ef4444;
+      --amber: #f59e0b;
+      --blue: #60a5fa;
+      --code-bg: #0d1117;
+      --code-border: #30363d;
+      --radius: 10px;
+      --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Nav */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent);
+      color: #000 !important;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+    .nav-cta:hover { background: var(--accent2); text-decoration: none !important; }
+
+    /* Hero */
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-glow);
+      border: 1px solid rgba(0,229,160,0.25);
+      border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+    .hero-lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .hero-lead strong { color: var(--text); }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--accent2); text-decoration: none; }
+    .btn-secondary {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 0.65rem 0;
+    }
+    .btn-secondary:hover { color: var(--text); text-decoration: none; }
+
+    /* Prose sections */
+    .prose {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .prose h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .prose p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose p strong { color: var(--text); }
+    .prose ul {
+      margin: 0.75rem 0 1rem 1.25rem;
+      color: var(--muted);
+    }
+    .prose li {
+      margin-bottom: 0.4rem;
+      line-height: 1.65;
+    }
+    .prose li strong { color: var(--text); }
+
+    /* Code blocks */
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+    code {
+      font-family: var(--mono);
+    }
+    pre code { color: #e6edf3; }
+    .tok-kw { color: #ff7b72; }
+    .tok-fn { color: #d2a8ff; }
+    .tok-str { color: #a5d6ff; }
+    .tok-cmt { color: #8b949e; font-style: italic; }
+    .tok-num { color: #79c0ff; }
+    .tok-const { color: #ffa657; }
+    .tok-op { color: #ff7b72; }
+
+    /* Diff example */
+    .diff-example {
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 1.25rem 0;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+    }
+    .diff-header {
+      background: #161b22;
+      border-bottom: 1px solid var(--code-border);
+      padding: 0.6rem 1rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .diff-body { padding: 0.75rem 0; }
+    .diff-line {
+      padding: 0.15rem 1rem;
+      line-height: 1.6;
+    }
+    .diff-ctx { color: #8b949e; }
+    .diff-add { background: rgba(63,185,80,0.15); color: #3fb950; }
+    .diff-del { background: rgba(248,81,73,0.15); color: #f85149; }
+    .diff-add::before { content: '+ '; }
+    .diff-del::before { content: '- '; }
+    .diff-ctx::before { content: '  '; }
+
+    /* Stack badges */
+    .stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .stack-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text);
+      font-family: var(--mono);
+    }
+    .stack-item .stack-role {
+      color: var(--muted);
+      font-size: 0.72rem;
+      margin-left: 0.35rem;
+    }
+
+    /* Pricing table */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .plan-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+    .plan-card.featured {
+      border-color: var(--accent2);
+    }
+    .plan-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .plan-price {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.25rem;
+    }
+    .plan-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+    .plan-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .plan-features {
+      list-style: none;
+      font-size: 0.8rem;
+    }
+    .plan-features li {
+      color: var(--muted);
+      padding: 0.2rem 0;
+    }
+    .plan-features li::before {
+      content: '✓ ';
+      color: var(--accent);
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .faq-a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .faq-a strong { color: var(--text); }
+    .faq-a code {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.1rem 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    /* CTA footer */
+    .cta-section {
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .cta-section p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.75rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <span class="nav-logo">📡 PricePulse</span>
+    <div class="nav-links">
+      <a href="demo.html?utm_source=hn">Demo</a>
+      <a href="pricing-tracker.html?utm_source=hn">Price tracker</a>
+      <a href="signup.html?utm_source=hn" class="nav-cta">Try free</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="container">
+  <section class="hero">
+    <div class="hero-tag">
+      <span>▲</span> Show HN
+    </div>
+    <h1>Monitor competitor pricing pages.<br>Get alerted when prices actually change.</h1>
+    <p class="hero-lead">
+      I built this after missing two competitor price drops because I forgot to check their pricing pages.
+      Existing tools (Visualping, Crayon) were either too noisy or too expensive.
+      So I built something in between: <strong>hourly checks + noise filtering</strong> so you only get emailed when the actual price changes — not when a cookie banner updates.
+    </p>
+    <div class="hero-actions">
+      <a href="signup.html?utm_source=hn&utm_medium=landing&utm_campaign=show_hn" class="btn-primary">Start monitoring free →</a>
+      <a href="demo.html?utm_source=hn" class="btn-secondary">See the demo ↗</a>
+    </div>
+  </section>
+
+  <!-- How it works — technical -->
+  <section class="prose">
+    <h2>How it works</h2>
+    <p>
+      Four steps: fetch → normalize → diff → score. If the score is above a threshold, send the alert.
+    </p>
+    <pre><code><span class="tok-cmt">// Simplified core loop (monitor-check.js)</span>
+<span class="tok-kw">async function</span> <span class="tok-fn">checkMonitor</span>(monitor) {
+  <span class="tok-kw">const</span> html = <span class="tok-kw">await</span> <span class="tok-fn">fetchPage</span>(monitor.url);
+  <span class="tok-kw">const</span> current = <span class="tok-fn">normalizeForDiff</span>(html);   <span class="tok-cmt">// strip noise</span>
+  <span class="tok-kw">const</span> prev    = monitor.last_snapshot;
+
+  <span class="tok-kw">if</span> (!prev) {
+    <span class="tok-kw">await</span> <span class="tok-fn">saveSnapshot</span>(monitor.id, current);
+    <span class="tok-kw">return</span>;
+  }
+
+  <span class="tok-kw">const</span> score = <span class="tok-fn">diffScore</span>(prev, current);   <span class="tok-cmt">// 0.0 – 1.0</span>
+  <span class="tok-kw">if</span> (score >= <span class="tok-num">0.15</span>) {
+    <span class="tok-kw">await</span> <span class="tok-fn">sendAlert</span>(monitor, prev, current, score);
+  }
+  <span class="tok-kw">await</span> <span class="tok-fn">saveSnapshot</span>(monitor.id, current);
+}</code></pre>
+
+    <p>
+      The noise filtering lives in <code>normalizeForDiff()</code>. It uses Cheerio to strip or normalize:
+    </p>
+    <ul>
+      <li><strong>Dates and timestamps</strong> — regex-replaced with <code>DATE_TOKEN</code></li>
+      <li><strong>Social proof counters</strong> — "Trusted by 10,000+ teams" → replaced with a stable token</li>
+      <li><strong>Cookie / consent banners</strong> — removed by class/id patterns</li>
+      <li><strong>Navigation and footers</strong> — stripped (rarely contain pricing)</li>
+      <li><strong>Ad slots and tracking pixels</strong> — removed</li>
+      <li><strong>Whitespace normalization</strong> — collapse runs, trim lines</li>
+    </ul>
+    <p>
+      After normalization, the diff score is a weighted combination of Levenshtein distance on the normalized text
+      and a structural check for price-specific patterns (<code>/\$[\d,]+/</code>, <code>/\/mo/i</code>, plan heading changes).
+      Structural changes (a price number changing) get a 3× weight multiplier so you don't need a perfect text diff to trigger an alert.
+    </p>
+  </section>
+
+  <!-- What an alert looks like -->
+  <section class="prose">
+    <h2>What the alert email looks like</h2>
+    <p>
+      When a meaningful change is detected, you get an email with a before/after diff of the normalized pricing text.
+      Score, timestamp, and a link to the live page are included.
+    </p>
+    <div class="diff-example">
+      <div class="diff-header">
+        <span>competitor-pricing-change · Linear · 2026-04-14 08:12 UTC</span>
+        <span style="color:var(--red)">score: 0.72</span>
+      </div>
+      <div class="diff-body">
+        <div class="diff-line diff-ctx">## Plus plan</div>
+        <div class="diff-line diff-del">$8 / user / month (billed annually)</div>
+        <div class="diff-line diff-add">$10 / user / month (billed annually)</div>
+        <div class="diff-line diff-ctx">&nbsp;</div>
+        <div class="diff-line diff-ctx">## Business plan</div>
+        <div class="diff-line diff-del">$16 / user / month (billed annually)</div>
+        <div class="diff-line diff-add">$20 / user / month (billed annually)</div>
+        <div class="diff-line diff-ctx">&nbsp;</div>
+        <div class="diff-line diff-ctx">Free tier: up to 5 members</div>
+      </div>
+    </div>
+    <p>
+      No noise — no cookie banner updates, no visit counter increments. Just the actual pricing change.
+    </p>
+  </section>
+
+  <!-- Stack -->
+  <section class="prose">
+    <h2>Stack</h2>
+    <p>
+      Intentionally minimal. Chosen to keep maintenance low as a solo founder — no framework lock-in,
+      no managed infra I can't debug at 2am.
+    </p>
+    <div class="stack-list">
+      <div class="stack-item">Node.js<span class="stack-role">runtime</span></div>
+      <div class="stack-item">Cheerio<span class="stack-role">HTML parsing</span></div>
+      <div class="stack-item">node-fetch<span class="stack-role">page fetching</span></div>
+      <div class="stack-item">Supabase<span class="stack-role">db + auth + RLS</span></div>
+      <div class="stack-item">Vercel<span class="stack-role">API + static hosting</span></div>
+      <div class="stack-item">VPS cron<span class="stack-role">hourly monitor runs</span></div>
+      <div class="stack-item">Resend<span class="stack-role">transactional email</span></div>
+      <div class="stack-item">Stripe<span class="stack-role">payments</span></div>
+    </div>
+    <p>
+      <strong>Why not a headless browser?</strong> About 90% of SaaS pricing pages are server-rendered.
+      node-fetch + Cheerio is 10–20× faster and doesn't require a browser process running on the VPS.
+      For JS-heavy pages, there's a <code>requires_js</code> flag that routes to a Playwright fallback (not yet enabled for free tier).
+    </p>
+    <p>
+      <strong>Why Supabase?</strong> Row-Level Security handles multi-tenant isolation for free.
+      Each user can only see their own monitors/alerts without any application-level query filtering —
+      the DB enforces it at the policy level. PostgreSQL underneath, so no ORM lock-in.
+    </p>
+    <p>
+      <strong>Why static HTML?</strong> The marketing site is plain HTML/CSS/JS.
+      No React, no Next.js, no build step. Vercel just serves the files.
+      Loads in &lt;300ms cold, costs nothing at the scale I'm at.
+    </p>
+  </section>
+
+  <!-- Pricing -->
+  <section class="prose">
+    <h2>Pricing</h2>
+    <p>Three tiers. Free forever is a real free tier, not a trial.</p>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-desc">Forever. No credit card.</div>
+        <ul class="plan-features">
+          <li>2 competitors</li>
+          <li>Daily checks</li>
+          <li>Email alerts</li>
+        </ul>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">$19<span>/mo</span></div>
+        <div class="plan-desc">For founders tracking a handful of competitors.</div>
+        <ul class="plan-features">
+          <li>10 competitors</li>
+          <li>Hourly checks</li>
+          <li>Email alerts</li>
+          <li>Alert history</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">$49<span>/mo</span></div>
+        <div class="plan-desc">For teams tracking a whole market.</div>
+        <ul class="plan-features">
+          <li>Unlimited competitors</li>
+          <li>Hourly checks</li>
+          <li>Email alerts</li>
+          <li>Alert history</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ — HN-targeted -->
+  <section class="prose">
+    <h2>Anticipated questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Why not just use Visualping / Distill / ChangeTower?</div>
+      <div class="faq-a">
+        General-purpose page monitors diff the full rendered HTML — which means you get alerted every time
+        a cookie banner updates, a date changes, or an A/B test rotates variant.
+        For pricing pages specifically, that noise makes the signal useless within a week.
+        PricePulse normalizes first, then diffs — so the <strong>noise filter is the product</strong>.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Why not Crayon / Klue / Kompyte?</div>
+      <div class="faq-a">
+        Those are competitive intelligence platforms at <strong>$500–$1,500+/month</strong>, aimed at enterprise sales teams.
+        They do much more (battlecards, positioning docs, Slack integrations) — but for a solo founder who
+        just wants to know when a competitor changes their pricing page, it's massive overkill.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How does the scoring work? Can I tune the threshold?</div>
+      <div class="faq-a">
+        The score is a weighted combination: <strong>text similarity</strong> (normalized Levenshtein on the stripped content)
+        plus a <strong>price-pattern detector</strong> that gives 3× weight to changes matching
+        <code>/\$[\d,]+/</code>, <code>/€[\d,]+/</code>, <code>/£[\d,]+/</code>, or <code>/\/(?:mo|month|yr|year)/i</code>.
+        The default threshold is <code>0.15</code>. Per-monitor threshold tuning is on the roadmap.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What about JS-rendered pages (React/Next.js SPAs)?</div>
+      <div class="faq-a">
+        Most SaaS pricing pages are server-rendered for SEO reasons, so <code>node-fetch + Cheerio</code> covers ~90% of cases.
+        For the rest, there's a <code>requires_js</code> flag per monitor that routes to a Playwright-based fetcher.
+        Currently in beta, available on request.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do you store full page snapshots?</div>
+      <div class="faq-a">
+        Only the <strong>normalized text</strong> after stripping noise — not the full HTML.
+        This keeps storage manageable (avg ~2–5 KB per snapshot vs 50–200 KB for full HTML)
+        and avoids storing third-party scripts. Snapshots are in Supabase (PostgreSQL <code>TEXT</code> column),
+        one row per monitor check.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What's the business model / are you profitable?</div>
+      <div class="faq-a">
+        This is day one of public launch. MRR is $0. The monitoring engine has been running on my own competitors
+        for months and the alerts are accurate. The free tier (2 monitors, daily checks) costs me roughly
+        $0.002/user/day in compute — sustainable on the VPS I already run.
+        Paid tiers cover Vercel, Supabase, Resend, and my time.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is the source available?</div>
+      <div class="faq-a">
+        Not currently — it's a bootstrapped SaaS, not an open source project. But I'm happy to answer
+        technical questions in the thread or at <a href="mailto:hello@getpricepulse.com">hello@getpricepulse.com</a>.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Try it — free tier is real</h2>
+    <p>2 competitors, daily checks, forever. No credit card.</p>
+    <a href="signup.html?utm_source=hn&utm_medium=landing&utm_campaign=show_hn" class="btn-primary">Start monitoring free →</a>
+    <div style="margin-top:1.25rem;font-size:0.85rem;color:var(--muted)">
+      Or try the <a href="demo.html?utm_source=hn">interactive demo</a> first · See <a href="pricing-tracker.html?utm_source=hn">40 real pricing changes</a> we've tracked
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <a href="/">getpricepulse.com</a> ·
+    <a href="privacy.html">Privacy</a> ·
+    <a href="mailto:hello@getpricepulse.com">hello@getpricepulse.com</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Forward UTM params to all signup links
+  var utmStr = window.location.search;
+  if (utmStr && utmStr.includes('utm')) {
+    document.querySelectorAll('a[href*="signup.html"]').forEach(function (a) {
+      var base = a.href.split('?')[0];
+      a.href = base + utmStr;
+    });
+  }
+
+  // Auto-update hero label with live user count once 5+ founders sign up
+  var THRESHOLD = 5;
+  fetch('/api/stats')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (!data || data.total_users < THRESHOLD) return;
+      var tag = document.querySelector('.hero-tag');
+      if (!tag) return;
+      tag.innerHTML = '<span>▲</span> Show HN &nbsp;·&nbsp; ' + data.total_users + ' founders monitoring';
+    })
+    .catch(function () {});
+})();
+</script>
+
+</body>
+</html>

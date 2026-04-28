@@ -33,6 +33,8 @@ export default async function handler(req, res) {
 
   if (isAdmin) {
     // Full admin stats — no edge caching (real-time data)
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
     const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
     const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
 
@@ -40,10 +42,13 @@ export default async function handler(req, res) {
       totalUsersResult,
       starterResult,
       proResult,
+      signupsTodayResult,
       signups7dResult,
       signups30dResult,
       activeMonitorsResult,
       totalMonitorsResult,
+      monitorsTodayResult,
+      usersWithMonitorsResult,
       alertsSent7dResult,
       recentSignupsResult,
       lastCheckedResult,
@@ -53,10 +58,13 @@ export default async function handler(req, res) {
       supabase.from('subscriptions').select('*', { count: 'exact', head: true }),
       supabase.from('subscriptions').select('*', { count: 'exact', head: true }).eq('plan', 'starter').eq('status', 'active'),
       supabase.from('subscriptions').select('*', { count: 'exact', head: true }).eq('plan', 'pro').eq('status', 'active'),
+      supabase.from('subscriptions').select('*', { count: 'exact', head: true }).gte('created_at', todayStart),
       supabase.from('subscriptions').select('*', { count: 'exact', head: true }).gte('created_at', sevenDaysAgo),
       supabase.from('subscriptions').select('*', { count: 'exact', head: true }).gte('created_at', thirtyDaysAgo),
       supabase.from('monitors').select('*', { count: 'exact', head: true }).eq('status', 'active'),
       supabase.from('monitors').select('*', { count: 'exact', head: true }),
+      supabase.from('monitors').select('*', { count: 'exact', head: true }).gte('created_at', todayStart),
+      supabase.from('monitors').select('user_id', { count: 'exact' }).eq('status', 'active'),
       supabase.from('alerts').select('*', { count: 'exact', head: true }).eq('status', 'sent').gte('sent_at', sevenDaysAgo),
       supabase.from('subscriptions').select('user_id, plan, status, created_at').order('created_at', { ascending: false }).limit(20),
       supabase.from('monitors').select('last_checked_at').not('last_checked_at', 'is', null).order('last_checked_at', { ascending: false }).limit(1),
@@ -67,6 +75,15 @@ export default async function handler(req, res) {
     const starterCount = starterResult.count ?? 0;
     const proCount = proResult.count ?? 0;
     const mrr = (starterCount * 19) + (proCount * 49);
+    const totalUsers = totalUsersResult.count ?? 0;
+
+    // Activation rate: % of users who have at least 1 active monitor
+    // usersWithMonitorsResult returns rows (not count), so deduplicate user_ids
+    const usersWithMonitorIds = new Set(
+      (usersWithMonitorsResult.data ?? []).map(r => r.user_id)
+    );
+    const activatedUsers = usersWithMonitorIds.size;
+    const activationRate = totalUsers > 0 ? Math.round((activatedUsers / totalUsers) * 100) : 0;
 
     const emailsResult = await supabase
       .from('email_log')
@@ -95,19 +112,23 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       users: {
-        total: totalUsersResult.count ?? 0,
-        free: (totalUsersResult.count ?? 0) - starterCount - proCount,
+        total: totalUsers,
+        free: totalUsers - starterCount - proCount,
         starter: starterCount,
         pro: proCount,
+        activated: activatedUsers,
+        activation_rate: activationRate,
       },
       mrr,
       signups: {
+        today: signupsTodayResult.count ?? 0,
         last_7_days: signups7dResult.count ?? 0,
         last_30_days: signups30dResult.count ?? 0,
       },
       monitors: {
         active: activeMonitorsResult.count ?? 0,
         total: totalMonitorsResult.count ?? 0,
+        added_today: monitorsTodayResult.count ?? 0,
       },
       alerts_sent_last_7_days: alertsSent7dResult.count ?? 0,
       emails_sent_last_7_days: emailsByType,
