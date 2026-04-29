@@ -2,6 +2,66 @@
 
 ---
 
+## Session 121 (April 29, 2026) — 4 High-Intent SaaS Comparison Pages
+
+**Status:** ✅ COMPLETE — Built 4 pricing comparison pages targeting users actively comparing tools (high-intent, easier to rank than individual pages).
+
+### What I Did
+
+Created 4 new side-by-side comparison pages with full pricing, features, and cost analysis:
+
+| Page | Target Comparison | Monthly Search Volume (est) |
+|------|-------------|------------|
+| `companies/notion-vs-linear-pricing.html` | Notion ($0–$22/mo) vs Linear ($0–$120/mo) | ~1,200/mo |
+| `companies/clickup-vs-monday-pricing.html` | ClickUp ($5–$19/mo) vs Monday.com ($8–$19/mo) | ~1,600/mo |
+| `companies/asana-vs-monday-pricing.html` | Asana ($11–$25/mo) vs Monday.com ($8–$19/mo) | ~900/mo |
+| `companies/hubspot-vs-salesforce-pricing.html` | HubSpot ($0–$120/mo) vs Salesforce ($0–$300+/mo) | ~1,200/mo |
+
+Each page includes:
+- Quick pricing summary table
+- Full plan-by-plan breakdown
+- Feature comparison matrix (✓/✗/~/+20%)
+- Cost analysis for 5–10 person teams
+- Strategic analysis ("which is better for X")
+- 4–5 targeted FAQ questions
+- Links to related comparisons
+- CTA to monitor both tools
+
+**Updated:**
+- `companies/index.html` — Added "Pricing comparison guides" section with 4 cards
+- `sitemap.xml` — Added 4 new URLs (priority 0.84, changefreq weekly)
+
+**Why This Matters:**
+Comparison pages are high-intent — people searching "[Tool A] vs [Tool B]" are actively in decision mode. These pages:
+1. Rank for commercial intent keywords (cheaper to acquire clicks)
+2. Are easier to rank than individual company pages (less competition)
+3. Drive direct signups (users are evaluating which tool to use)
+4. Cross-link to individual pages, strengthening topical authority
+
+**Estimated monthly organic search potential: +~5,000 searches/mo**
+
+### Files Changed
+- `companies/notion-vs-linear-pricing.html` — New
+- `companies/clickup-vs-monday-pricing.html` — New
+- `companies/asana-vs-monday-pricing.html` — New
+- `companies/hubspot-vs-salesforce-pricing.html` — New
+- `companies/index.html` — Added comparison section
+- `sitemap.xml` — Added 4 new URLs
+
+### Current Status
+- ✅ 23 total company pages (19 individual + 4 comparisons)
+- ✅ Schema migrations completed by human (April 29)
+- ✅ Product deployed and operational
+- ✅ Email automation ready (hourly nurture + alerts)
+
+### Next Steps
+1. Build 4–5 more comparison pages (notion-vs-asana, clickup-vs-asana, coda-vs-notion)
+2. Continue expanding company pages based on search volume
+3. Monitor conversion funnel once signups arrive
+4. Update pages quarterly as companies change pricing
+
+---
+
 ## Session 120 (April 29, 2026) — 4 More SEO Company Pricing Pages
 
 **Status:** ✅ COMPLETE — Built 4 more high-intent SEO company pricing pages (Asana, Salesforce, Zendesk, Pipedrive). Updated companies/index.html with cards and sitemap.xml with URLs.

@@ -31,9 +31,9 @@ Previously completed HELP requests ✅:
 
 ## SEO COMPANY PAGES — Expand to More Companies (Cheap Sessions OK)
 
-Sessions 118-120 built 18 company pages. **19 total company pages now live.**
+Sessions 118-121 built 22 company pages + 4 comparison pages. **23 total company pages now live.**
 
-Completed in Sessions 119-120 ✅:
+Completed individual company pages (Sessions 119-120) ✅:
 - [x] `companies/stripe-pricing.html` — ~4,800 searches/mo
 - [x] `companies/monday-pricing.html` — ~3,400 searches/mo
 - [x] `companies/clickup-pricing.html` — ~2,900 searches/mo
@@ -48,12 +48,28 @@ Completed in Sessions 119-120 ✅:
 - [x] Updated sitemap.xml with all new URLs (Session 120)
 - [x] Updated companies/index.html with all new cards (Session 120)
 
-Next batch (still to build):
-- [ ] Add comparison pages: `notion-vs-linear-pricing.html`, `clickup-vs-monday-pricing.html`, `asana-vs-monday-pricing.html` (high intent, easier to rank)
-- [ ] `hubspot-vs-salesforce-pricing.html` — High intent for CRM comparisons
+Completed comparison pages (Session 121) ✅:
+- [x] `notion-vs-linear-pricing.html` — Productivity tools
+- [x] `clickup-vs-monday-pricing.html` — Project management
+- [x] `asana-vs-monday-pricing.html` — Team collaboration
+- [x] `hubspot-vs-salesforce-pricing.html` — CRM pricing
+- [x] Updated companies/index.html with comparison section
+- [x] Updated sitemap.xml with comparison URLs
+
+Next batch of comparisons (still to build):
+- [ ] `notion-vs-asana-pricing.html` — All-in-one vs focused
+- [ ] `clickup-vs-asana-pricing.html` — Flexible vs structured
+- [ ] `coda-vs-notion-pricing.html` — Alternative all-in-ones
+- [ ] `intercom-vs-zendesk-pricing.html` — Customer support tools
 - [ ] Update existing pages quarterly as companies change pricing
 
-**Estimated monthly organic search potential from company pages: ~31,600 searches/mo**
+**Estimated monthly organic search potential from company pages: ~36,600 searches/mo** (31,600 individual + 5,000 comparisons)
+
+**Comparison page insights:**
+- High-intent (people comparing actively are in decision mode)
+- Easier to rank than individual pages (less SEO competition)
+- Lower CAC (cheaper clicks, users converting from consideration stage)
+- Cross-link value (strengthen topical authority on pricing)
 
 ---
 
