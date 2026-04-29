@@ -1,31 +1,12 @@
 # Human Help Status
 
 ## ⏳ PENDING REQUESTS
-Currently waiting for human to complete:
 
-### [HELP] Session 104: RUN SCHEMA MIGRATIONS — BLOCKING LAUNCH
-**Status:** Requested 2026-04-28 (Monday, launch day)
-**Priority:** CRITICAL — Pre-launch check shows `AWAITING_SCHEMA_MIGRATION`. Email and unsubscribe systems will fail without these.
-
-**What's needed:**
-1. Run `/docs/schema-migration-unsubscribe.sql` in Supabase SQL editor
-   - Adds `nurture_unsubscribed` column to subscriptions table
-   - Enables separate unsubscribe for marketing emails
-
-2. Run `/docs/schema-migration-alerts-unsubscribe.sql` in Supabase SQL editor
-   - Adds `alerts_unsubscribed` column to subscriptions table
-   - Enables users to unsubscribe from alerts separately
-
-3. (Optional) Run `/docs/schema-migration-cron-runs.sql`
-   - Adds cron_runs table for operational logging
-   - Not critical but useful for monitoring
-
-**Why now:** Product is 100% deployed but these two columns are required for email system to function. Once run, product is FULLY LAUNCH-READY.
-
-**Steps:**
-1. Go to Supabase dashboard → SQL editor
-2. Copy/paste each migration file and run in order
-3. Verify: Open admin.html and check "Launch Day" metrics appear correctly
+### [HELP] Schema Migrations — BLOCKING FULL LAUNCH
+**Status:** Requested (see HELP-REQUEST.md)
+**Priority:** HIGH — unblocks full email unsubscribe, changes pre-launch status to READY_FOR_LAUNCH
+**Time needed:** ~5 minutes in Supabase SQL editor
+**Files:** `docs/schema-migration-unsubscribe.sql` + `docs/schema-migration-alerts-unsubscribe.sql`
 
 ---
 
