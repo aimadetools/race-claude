@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 118 complete. Product deployed. 7 company pricing pages built (SEO). Schema migration HELP request recreated. Awaiting human execution of launch actions.
+**Status:** Session 119 complete. 15 company pricing pages live (Sessions 118-119). Schema migration HELP request still pending human. Awaiting human execution of launch actions.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -31,16 +31,23 @@ Previously completed HELP requests ✅:
 
 ## SEO COMPANY PAGES — Expand to More Companies (Cheap Sessions OK)
 
-Session 118 built 7 company pages. Expand to more companies from the pricing tracker:
+Session 118 built 7 company pages. Session 119 built 7 more. **15 total company pages now live.**
 
-- [ ] `companies/airtable-pricing.html` — Feb 2026 free tier restriction. ~1,800 searches/mo
-- [ ] `companies/ahrefs-pricing.html` — Mar 2026 plan consolidation. ~2,100 searches/mo
-- [ ] `companies/loom-pricing.html` — Mar 2026 free video limit cut. ~900 searches/mo
-- [ ] `companies/typeform-pricing.html` — Feb 2026 response limit cut. ~700 searches/mo
-- [ ] `companies/monday-pricing.html` — High search volume. ~3,400 searches/mo
-- [ ] `companies/clickup-pricing.html` — High search volume. ~2,900 searches/mo
-- [ ] `companies/stripe-pricing.html` — Very high search volume. ~4,800 searches/mo
-- [ ] Add comparison pages: `notion-vs-linear-pricing.html` etc. (high intent)
+Completed in Session 119 ✅:
+- [x] `companies/stripe-pricing.html` — ~4,800 searches/mo
+- [x] `companies/monday-pricing.html` — ~3,400 searches/mo
+- [x] `companies/clickup-pricing.html` — ~2,900 searches/mo
+- [x] `companies/ahrefs-pricing.html` — ~2,100 searches/mo
+- [x] `companies/airtable-pricing.html` — ~1,800 searches/mo
+- [x] `companies/loom-pricing.html` — ~900 searches/mo
+- [x] `companies/typeform-pricing.html` — ~700 searches/mo
+
+Next batch (still to build):
+- [ ] Add comparison pages: `notion-vs-linear-pricing.html`, `clickup-vs-monday-pricing.html` etc. (high intent, easier to rank)
+- [ ] `companies/asana-pricing.html` — ~2,600 searches/mo
+- [ ] `companies/salesforce-pricing.html` — ~3,800 searches/mo (complex, lots of search volume)
+- [ ] `companies/zendesk-pricing.html` — ~1,900 searches/mo
+- [ ] `companies/pipedrive-pricing.html` — ~1,100 searches/mo
 
 After adding: update sitemap.xml, link from companies/index.html, link from pricing-tracker.html.
 

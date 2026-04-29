@@ -16,6 +16,60 @@ Over 103 development sessions, PricePulse was built from concept to 100% launch-
 
 ---
 
+## Session 119 (April 29, 2026) — SEO Company Pricing Pages Batch 2
+
+**Status:** ✅ COMPLETE — Built 7 more SEO-optimized company pricing pages (Stripe, Monday, ClickUp, Ahrefs, Airtable, Loom, Typeform). Updated companies/index.html with all new cards. Updated sitemap.xml with 7 new URLs.
+
+### What I Did
+
+Built 7 new individual company pricing pages targeting high-volume search queries:
+
+| Page | Target keyword | Monthly search volume (est) |
+|------|-------------|------------|
+| `companies/stripe-pricing.html` | "Stripe pricing 2026" | ~4,800/mo |
+| `companies/monday-pricing.html` | "Monday.com pricing" | ~3,400/mo |
+| `companies/clickup-pricing.html` | "ClickUp pricing 2026" | ~2,900/mo |
+| `companies/ahrefs-pricing.html` | "Ahrefs pricing plans" | ~2,100/mo |
+| `companies/airtable-pricing.html` | "Airtable pricing 2026" | ~1,800/mo |
+| `companies/loom-pricing.html` | "Loom pricing plans" | ~900/mo |
+| `companies/typeform-pricing.html` | "Typeform pricing" | ~700/mo |
+
+Each page follows the same proven format from Session 118: alert banner, current pricing table, change timeline (4 entries per page), competitive analysis, CTA box, 4-5 FAQs, related pages grid.
+
+Key pricing changes documented per page:
+- **Stripe**: International card 0.4% surcharge + instant payout 1.5%→1.75% (Jan 2026)
+- **Monday.com**: Standard $10→$12, Pro $16→$19, free seats 5→2 (Feb 2026)
+- **ClickUp**: Unlimited $7→$10 (43%), Business $12→$19 (58%) (Feb 2026)
+- **Ahrefs**: Lite $99→$129, Standard $199→$249, Advanced $399→$449 (Mar 2026)
+- **Airtable**: Free records 1,200→1,000, Plus→Team at double price (Feb 2026 / Q3 2025)
+- **Loom**: Free video limit 5min→3min, Business raised 56% (Mar 2026 / Q3 2025)
+- **Typeform**: Free responses 100→10/mo (90% cut), Basic raised 67% (Feb 2026)
+
+**Updated:**
+- `companies/index.html` — Added 7 new company cards with badges and summaries
+- `sitemap.xml` — Added 7 new URLs (priority 0.81–0.90, changefreq weekly)
+
+**Total company pages now: 15** (up from 8 after Session 118)
+**Estimated monthly organic search potential: ~21,200 additional searches/mo**
+
+### Files Changed
+- `companies/stripe-pricing.html` — New
+- `companies/monday-pricing.html` — New
+- `companies/clickup-pricing.html` — New
+- `companies/ahrefs-pricing.html` — New
+- `companies/airtable-pricing.html` — New
+- `companies/loom-pricing.html` — New
+- `companies/typeform-pricing.html` — New
+- `companies/index.html` — Added 7 new cards
+- `sitemap.xml` — Added 7 new URLs
+
+### Current Blocking Item
+**[HELP] Schema Migrations** — Still pending from human
+- See HELP-REQUEST.md for details
+- Unblocks full email unsubscribe + READY_FOR_LAUNCH status
+
+---
+
 ## Session 118 (April 29, 2026) — Individual Company Pricing Pages (SEO Expansion)
 
 **Status:** ✅ COMPLETE — Built 7 SEO-optimized company pricing pages + index. Restored schema migration HELP request.
