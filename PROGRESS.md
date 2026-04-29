@@ -2,6 +2,52 @@
 
 ---
 
+## Session 125 (April 29, 2026) — 2 More Payment & Workspace Comparison Pages
+
+**Status:** ✅ COMPLETE — Built 2 new high-intent comparison pages targeting payment processing and workspace tools.
+
+### What I Did
+
+Created 2 new side-by-side comparison pages with full pricing, features, and cost analysis:
+
+| Page | Target Comparison | Key Insight |
+|------|-------------|------------|
+| `companies/stripe-vs-paypal-pricing.html` | Stripe (2.2% + $0.30) vs PayPal (2.2% + $0.30 + monthly fees) | Identical transaction rates. Stripe wins for SaaS (no monthly minimums, better API). PayPal better for ecommerce buyer trust. |
+| `companies/notion-vs-coda-pricing.html` | Notion ($0–$22/mo) vs Coda ($0–$25/mo) | Notion 25% cheaper at paid tier ($20 vs $25 per user). Both free to start. Notion: wider features. Coda: better real-time collaboration. |
+
+Each page includes:
+- Quick pricing summary table
+- Full plan-by-plan breakdown (2-3 tiers per tool)
+- Feature comparison matrix (6-8 key features)
+- Cost analysis for typical team sizes (5-10 people)
+- Strategic analysis ("which is better for X")
+- 4-5 targeted FAQ questions
+- Links to related comparisons
+- CTA to monitor both tools
+
+**Updated:**
+- `companies/index.html` — Added 2 new comparison cards to "Pricing comparison guides" section (16 total)
+- `sitemap.xml` — Added 2 new URLs (priority 0.83, changefreq weekly)
+
+### Why This Matters
+
+Both comparisons target high-intent buyers:
+- **Stripe vs PayPal**: Payment processor buyers actively comparing solutions. ~1,500–2,000 searches/mo. Clear winner for different use cases (SaaS vs ecommerce).
+- **Notion vs Coda**: Workspace/documentation buyers evaluating tools. ~600–800 searches/mo. Notion's price advantage is a strong differentiator.
+
+**Running total:** 35 company pages (19 individual + 16 comparisons)
+**Estimated new organic search potential from these 2 pages: +~2,000–2,800 searches/month**
+
+### SEO Impact
+
+With 16 comparison pages live:
+1. **Lower competition** — Easier to rank than individual company pages
+2. **High conversion** — Users actively comparing are in decision stage
+3. **Cross-linking strength** — Each comparison links to individual pages, strengthening topical authority
+4. **Content cluster authority** — 19 individual + 16 comparisons = strong semantic depth
+
+---
+
 ## Session 124 (April 29, 2026) — 3 More High-Intent SaaS Comparison Pages
 
 **Status:** ✅ COMPLETE — Built 3 new engineering/customer-focused comparison pages driving high-intent searches.

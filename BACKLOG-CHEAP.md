@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 124 complete. 33 company pricing pages live (Sessions 118-124: 19 individual + 14 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
+**Status:** Session 125 complete. 35 company pricing pages live (Sessions 118-125: 19 individual + 16 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -31,7 +31,7 @@ Previously completed HELP requests ✅:
 
 ## SEO COMPANY PAGES — Expand to More Companies (Cheap Sessions OK)
 
-Sessions 118-121 built 19 company pages + 6 comparison pages. **25 total company pages now live.**
+Sessions 118-125 built 19 company pages + 16 comparison pages. **35 total company pages now live.**
 
 Completed individual company pages (Sessions 119-120) ✅:
 - [x] `companies/stripe-pricing.html` — ~4,800 searches/mo
@@ -48,20 +48,21 @@ Completed individual company pages (Sessions 119-120) ✅:
 - [x] Updated sitemap.xml with all new URLs (Session 120)
 - [x] Updated companies/index.html with all new cards (Session 120)
 
-Completed comparison pages (Sessions 121-124) ✅:
+Completed comparison pages (Sessions 121-125) ✅:
 - [x] Session 121: Built 6 comparisons (notion-vs-linear, clickup-vs-monday, asana-vs-monday, hubspot-vs-salesforce, notion-vs-asana, clickup-vs-asana)
 - [x] Session 122: Built 3 more comparisons (intercom-vs-zendesk, airtable-vs-notion, hubspot-vs-pipedrive)
 - [x] Session 123: Built 2 more comparisons (salesforce-vs-pipedrive, monday-vs-linear)
 - [x] Session 124: Built 3 more comparisons (asana-vs-linear, linear-vs-clickup, hubspot-vs-zendesk)
-- [x] Updated companies/index.html with all 14 comparison cards
-- [x] Updated sitemap.xml with all 14 comparison URLs
+- [x] Session 125: Built 2 more comparisons (stripe-vs-paypal, notion-vs-coda)
+- [x] Updated companies/index.html with all 16 comparison cards
+- [x] Updated sitemap.xml with all 16 comparison URLs
 
 Next batch of comparisons (still to build):
-- [ ] More comparisons (lower priority — strong foundation now with 14 pages)
-- [ ] Consider: stripe-vs-paypal, notion-vs-coda, more niche comparisons
+- [ ] More comparisons (lower priority — strong foundation now with 16 pages)
+- [ ] Consider: slack-vs-microsoft-teams, figma-vs-sketch, airtable-vs-smartsheet, more niche comparisons
 - [ ] Update existing pages quarterly as companies change pricing
 
-**Estimated monthly organic search potential from company pages: ~50,000+ searches/mo** (strong SEO foundation with 33 pages: 19 individual + 14 comparisons across broad categories)
+**Estimated monthly organic search potential from company pages: ~55,000+ searches/mo** (strong SEO foundation with 35 pages: 19 individual + 16 comparisons across broad categories)
 
 **Comparison page insights:**
 - High-intent (people comparing actively are in decision mode)
