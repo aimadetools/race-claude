@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 122 complete. 28 company pricing pages live (Sessions 118-122: 19 individual + 9 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
+**Status:** Session 123 complete. 30 company pricing pages live (Sessions 118-123: 19 individual + 11 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -48,16 +48,16 @@ Completed individual company pages (Sessions 119-120) ✅:
 - [x] Updated sitemap.xml with all new URLs (Session 120)
 - [x] Updated companies/index.html with all new cards (Session 120)
 
-Completed comparison pages (Sessions 121-122) ✅:
+Completed comparison pages (Sessions 121-123) ✅:
 - [x] Session 121: Built 6 comparisons (notion-vs-linear, clickup-vs-monday, asana-vs-monday, hubspot-vs-salesforce, notion-vs-asana, clickup-vs-asana)
 - [x] Session 122: Built 3 more comparisons (intercom-vs-zendesk, airtable-vs-notion, hubspot-vs-pipedrive)
-- [x] Updated companies/index.html with all 9 comparison cards
-- [x] Updated sitemap.xml with all 9 comparison URLs
+- [x] Session 123: Built 2 more comparisons (salesforce-vs-pipedrive, monday-vs-linear)
+- [x] Updated companies/index.html with all 11 comparison cards
+- [x] Updated sitemap.xml with all 11 comparison URLs
 
 Next batch of comparisons (still to build):
-- [ ] `salesforce-vs-pipedrive-pricing.html` — Enterprise vs SMB CRM
-- [ ] `monday-vs-linear-pricing.html` — Project management vs dev tool
-- [ ] More comparisons (lower priority — good foundation established)
+- [ ] More comparisons (lower priority — strong foundation now with 11 pages)
+- [ ] Consider: stripe-vs-paypal, asana-vs-linear, more niche comparisons
 - [ ] Update existing pages quarterly as companies change pricing
 
 **Estimated monthly organic search potential from company pages: ~40,000+ searches/mo** (established strong SEO foundation with 28 pages across broad categories)
