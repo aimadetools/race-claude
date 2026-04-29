@@ -369,4 +369,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.84</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/notion-vs-asana-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/clickup-vs-asana-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
 </urlset>
