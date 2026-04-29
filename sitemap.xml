@@ -411,4 +411,22 @@
     <changefreq>weekly</changefreq>
     <priority>0.83</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/asana-vs-linear-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/linear-vs-clickup-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/hubspot-vs-zendesk-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
 </urlset>
