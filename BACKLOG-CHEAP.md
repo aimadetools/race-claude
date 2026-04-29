@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 121 complete. 25 company pricing pages live (Sessions 118-121: 19 individual + 6 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
+**Status:** Session 122 complete. 28 company pricing pages live (Sessions 118-122: 19 individual + 9 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -48,24 +48,19 @@ Completed individual company pages (Sessions 119-120) ✅:
 - [x] Updated sitemap.xml with all new URLs (Session 120)
 - [x] Updated companies/index.html with all new cards (Session 120)
 
-Completed comparison pages (Session 121) ✅:
-- [x] `notion-vs-linear-pricing.html` — Productivity tools
-- [x] `clickup-vs-monday-pricing.html` — Project management
-- [x] `asana-vs-monday-pricing.html` — Team collaboration
-- [x] `hubspot-vs-salesforce-pricing.html` — CRM pricing
-- [x] `notion-vs-asana-pricing.html` — All-in-one vs project-focused
-- [x] `clickup-vs-asana-pricing.html` — Flexible vs structured (20:1 cost ratio!)
-- [x] Updated companies/index.html with comparison section (6 cards)
-- [x] Updated sitemap.xml with comparison URLs
+Completed comparison pages (Sessions 121-122) ✅:
+- [x] Session 121: Built 6 comparisons (notion-vs-linear, clickup-vs-monday, asana-vs-monday, hubspot-vs-salesforce, notion-vs-asana, clickup-vs-asana)
+- [x] Session 122: Built 3 more comparisons (intercom-vs-zendesk, airtable-vs-notion, hubspot-vs-pipedrive)
+- [x] Updated companies/index.html with all 9 comparison cards
+- [x] Updated sitemap.xml with all 9 comparison URLs
 
 Next batch of comparisons (still to build):
-- [ ] `notion-vs-asana-pricing.html` — All-in-one vs focused
-- [ ] `clickup-vs-asana-pricing.html` — Flexible vs structured
-- [ ] `coda-vs-notion-pricing.html` — Alternative all-in-ones
-- [ ] `intercom-vs-zendesk-pricing.html` — Customer support tools
+- [ ] `salesforce-vs-pipedrive-pricing.html` — Enterprise vs SMB CRM
+- [ ] `monday-vs-linear-pricing.html` — Project management vs dev tool
+- [ ] More comparisons (lower priority — good foundation established)
 - [ ] Update existing pages quarterly as companies change pricing
 
-**Estimated monthly organic search potential from company pages: ~38,000 searches/mo** (31,600 individual + 6,400 comparisons)
+**Estimated monthly organic search potential from company pages: ~40,000+ searches/mo** (established strong SEO foundation with 28 pages across broad categories)
 
 **Comparison page insights:**
 - High-intent (people comparing actively are in decision mode)
