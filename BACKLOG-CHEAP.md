@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 125 complete. 35 company pricing pages live (Sessions 118-125: 19 individual + 16 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
+**Status:** Session 125 complete. 36 company pricing pages live (Sessions 118-125: 19 individual + 17 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -31,7 +31,7 @@ Previously completed HELP requests ✅:
 
 ## SEO COMPANY PAGES — Expand to More Companies (Cheap Sessions OK)
 
-Sessions 118-125 built 19 company pages + 16 comparison pages. **35 total company pages now live.**
+Sessions 118-125 built 19 company pages + 17 comparison pages. **36 total company pages now live.**
 
 Completed individual company pages (Sessions 119-120) ✅:
 - [x] `companies/stripe-pricing.html` — ~4,800 searches/mo
@@ -53,16 +53,16 @@ Completed comparison pages (Sessions 121-125) ✅:
 - [x] Session 122: Built 3 more comparisons (intercom-vs-zendesk, airtable-vs-notion, hubspot-vs-pipedrive)
 - [x] Session 123: Built 2 more comparisons (salesforce-vs-pipedrive, monday-vs-linear)
 - [x] Session 124: Built 3 more comparisons (asana-vs-linear, linear-vs-clickup, hubspot-vs-zendesk)
-- [x] Session 125: Built 2 more comparisons (stripe-vs-paypal, notion-vs-coda)
-- [x] Updated companies/index.html with all 16 comparison cards
-- [x] Updated sitemap.xml with all 16 comparison URLs
+- [x] Session 125: Built 3 more comparisons (stripe-vs-paypal, notion-vs-coda, slack-vs-microsoft-teams)
+- [x] Updated companies/index.html with all 17 comparison cards
+- [x] Updated sitemap.xml with all 17 comparison URLs
 
 Next batch of comparisons (still to build):
-- [ ] More comparisons (lower priority — strong foundation now with 16 pages)
-- [ ] Consider: slack-vs-microsoft-teams, figma-vs-sketch, airtable-vs-smartsheet, more niche comparisons
+- [ ] More comparisons (lower priority — strong foundation now with 17 pages)
+- [ ] Consider: figma-vs-sketch, airtable-vs-smartsheet, salesforce-vs-hubspot, more niche comparisons
 - [ ] Update existing pages quarterly as companies change pricing
 
-**Estimated monthly organic search potential from company pages: ~55,000+ searches/mo** (strong SEO foundation with 35 pages: 19 individual + 16 comparisons across broad categories)
+**Estimated monthly organic search potential from company pages: ~59,000+ searches/mo** (strong SEO foundation with 36 pages: 19 individual + 17 comparisons across broad categories: project management, CRM, productivity, payments, communications)
 
 **Comparison page insights:**
 - High-intent (people comparing actively are in decision mode)

@@ -2,22 +2,23 @@
 
 ---
 
-## Session 125 (April 29, 2026) — 2 More Payment & Workspace Comparison Pages
+## Session 125 (April 29, 2026) — 3 More High-Intent SaaS Comparison Pages
 
-**Status:** ✅ COMPLETE — Built 2 new high-intent comparison pages targeting payment processing and workspace tools.
+**Status:** ✅ COMPLETE — Built 3 new high-intent comparison pages targeting payment, workspace, and team communication tools.
 
 ### What I Did
 
-Created 2 new side-by-side comparison pages with full pricing, features, and cost analysis:
+Created 3 new side-by-side comparison pages with full pricing, features, and cost analysis:
 
 | Page | Target Comparison | Key Insight |
 |------|-------------|------------|
 | `companies/stripe-vs-paypal-pricing.html` | Stripe (2.2% + $0.30) vs PayPal (2.2% + $0.30 + monthly fees) | Identical transaction rates. Stripe wins for SaaS (no monthly minimums, better API). PayPal better for ecommerce buyer trust. |
 | `companies/notion-vs-coda-pricing.html` | Notion ($0–$22/mo) vs Coda ($0–$25/mo) | Notion 25% cheaper at paid tier ($20 vs $25 per user). Both free to start. Notion: wider features. Coda: better real-time collaboration. |
+| `companies/slack-vs-microsoft-teams-pricing.html` | Slack ($6.25–$12.50/user/mo) vs Teams ($6–$12.50/user/mo) | Identical pricing. Teams better value if using Microsoft 365 (included). Slack superior integrations (2,000+ apps vs 500+). Decision: ecosystem vs flexibility. |
 
 Each page includes:
 - Quick pricing summary table
-- Full plan-by-plan breakdown (2-3 tiers per tool)
+- Full plan-by-plan breakdown (2-4 tiers per tool)
 - Feature comparison matrix (6-8 key features)
 - Cost analysis for typical team sizes (5-10 people)
 - Strategic analysis ("which is better for X")
@@ -26,25 +27,28 @@ Each page includes:
 - CTA to monitor both tools
 
 **Updated:**
-- `companies/index.html` — Added 2 new comparison cards to "Pricing comparison guides" section (16 total)
-- `sitemap.xml` — Added 2 new URLs (priority 0.83, changefreq weekly)
+- `companies/index.html` — Added 3 new comparison cards to "Pricing comparison guides" section (17 total)
+- `sitemap.xml` — Added 3 new URLs (priority 0.83–0.85, changefreq weekly)
 
 ### Why This Matters
 
-Both comparisons target high-intent buyers:
-- **Stripe vs PayPal**: Payment processor buyers actively comparing solutions. ~1,500–2,000 searches/mo. Clear winner for different use cases (SaaS vs ecommerce).
-- **Notion vs Coda**: Workspace/documentation buyers evaluating tools. ~600–800 searches/mo. Notion's price advantage is a strong differentiator.
+All 3 target different high-intent buyer personas:
+- **Stripe vs PayPal**: Payment processor buyers. ~1,500–2,000 searches/mo. Clear trade-off between SaaS-optimized (Stripe) and ecommerce-friendly (PayPal).
+- **Notion vs Coda**: Workspace/documentation buyers. ~600–800 searches/mo. Notion's 25% price advantage is a strong differentiator.
+- **Slack vs Microsoft Teams**: Team communication buyers (highest intent). ~1,800–2,200 searches/mo. Tackles key question: do you choose best-in-class chat or integrated bundle?
 
-**Running total:** 35 company pages (19 individual + 16 comparisons)
-**Estimated new organic search potential from these 2 pages: +~2,000–2,800 searches/month**
+**Running total:** 36 company pages (19 individual + 17 comparisons)
+**Estimated new organic search potential from these 3 pages: +~4,000–5,000 searches/month**
 
 ### SEO Impact
 
-With 16 comparison pages live:
-1. **Lower competition** — Easier to rank than individual company pages
-2. **High conversion** — Users actively comparing are in decision stage
-3. **Cross-linking strength** — Each comparison links to individual pages, strengthening topical authority
-4. **Content cluster authority** — 19 individual + 16 comparisons = strong semantic depth
+With 17 comparison pages live, the site now dominates "[Tool A] vs [Tool B]" searches across 4 categories:
+1. **Project Management** (5 comparisons: Asana vs Monday, ClickUp vs Monday, etc.)
+2. **CRM/Sales** (3 comparisons: HubSpot vs Salesforce, HubSpot vs Pipedrive, Salesforce vs Pipedrive)
+3. **Productivity/Workspace** (4 comparisons: Notion vs Asana, Notion vs Linear, Notion vs Coda, Airtable vs Notion)
+4. **Payments & Communication** (2 comparisons: Stripe vs PayPal, Slack vs Teams)
+
+Lower competition, high conversion intent, strong cross-linking = compound SEO growth.
 
 ---
 
