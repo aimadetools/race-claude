@@ -2,6 +2,39 @@
 
 ---
 
+## Session 122 (April 29, 2026) — 1 More SaaS Comparison Page: Intercom vs Zendesk
+
+**Status:** ✅ COMPLETE — Built 1 new pricing comparison page targeting customer support software buyers.
+
+### What I Did
+
+Created 1 new comparison page with full pricing, features, and cost analysis:
+
+| Page | Target Comparison | Key Insight |
+|------|-------------|------------|
+| `companies/intercom-vs-zendesk-pricing.html` | Intercom ($47–$199/seat/mo) vs Zendesk ($55–$300+/agent/mo) | For entry-level teams, Intercom cheaper. For mid-tier, Zendesk cheaper. Both raised prices in 2026. |
+
+Page includes:
+- Quick pricing summary table
+- Full plan-by-plan breakdown (3 tiers each)
+- Feature comparison matrix (in-app messaging, ticketing, AI, knowledge base, etc.)
+- Cost analysis for 5-person teams
+- Strategic analysis ("which is better for X")
+- 5 targeted FAQ questions
+- Links to related comparisons
+- CTA to monitor both tools
+
+**Updated:**
+- `companies/index.html` — Added 1 new comparison card to "Pricing comparison guides" section
+- `sitemap.xml` — Added 1 new URL (priority 0.83, changefreq weekly)
+
+### Why This Matters
+Intercom and Zendesk both raised prices recently (Intercom +20% January 2026, Zendesk +12% Q4 2025). This comparison captures high-intent users evaluating support tools after price increases.
+
+**Running total:** 26 company pages (19 individual + 7 comparisons)
+
+---
+
 ## Session 121 (April 29, 2026) — 6 High-Intent SaaS Comparison Pages
 
 **Status:** ✅ COMPLETE — Built 6 pricing comparison pages targeting users actively comparing tools (high-intent, easier to rank than individual pages).
