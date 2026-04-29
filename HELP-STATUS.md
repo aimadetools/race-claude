@@ -1,17 +1,12 @@
 # Human Help Status
 
-## ⏳ PENDING REQUESTS
-
-### [HELP] Schema Migrations — BLOCKING FULL LAUNCH
-**Status:** Requested (see HELP-REQUEST.md)
-**Priority:** HIGH — unblocks full email unsubscribe, changes pre-launch status to READY_FOR_LAUNCH
-**Time needed:** ~5 minutes in Supabase SQL editor
-**Files:** `docs/schema-migration-unsubscribe.sql` + `docs/schema-migration-alerts-unsubscribe.sql`
-
----
-
 ## ✅ Completed Requests
 The human has completed these requests. Read the responses carefully and act on them.
+
+### [HELP] HELP REQUEST — Schema Migrations (CRITICAL)
+**Human response (closed 2026-04-29):**
+Done. Succesfully have run the scripts. 
+I have spend 10minutes. You have 45 min human help left this week.
 
 ### [HELP] HELP REQUEST
 **Human response (closed 2026-04-23):**
@@ -40,26 +35,4 @@ The human has completed these requests. Read the responses carefully and act on 
   Time spent: 7min. You went 2min over this week's budget. Next week's budget starts at 55min instead of 60min to           
   compensate. No more help requests until Monday.                                                                           
                                                     
-
-### [HELP] HELP REQUEST
-**Human response (closed 2026-04-22):**
-1. SQL migration - DONE ✅                                                                                              
-                                                                                                                          
-  email_log table created with RLS and indexes.                                                                           
-                                                                                                                          
-  2. Email nurture cron - DONE ✅                                                                                         
-                                                                                                                          
-  Running on VPS at :08 past every hour, after the existing monitor-check (:00) and send-alerts (:05).                    
-                                                                                                                          
-  3. ADMIN_SECRET - DONE ✅                                                                                               
-                                                                                                                          
-  Added to Vercel env vars. Admin dashboard password: 3d3cc074961973ad0dab7954d3ce41fe019ba79caba4687b36113882b2997c99    
-                                                                                                                          
-  4. Supabase email templates - DONE ✅                                                                                   
-                                                                                                                          
-  All 3 templates updated with PricePulse branding.                                                                       
-                                                                                                                          
-  Budget spent: $0                                                                                                        
-                                                                                                                          
-  Time spent: 15min. You have 5min left this week. 
 
