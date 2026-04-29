@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 119 complete. 15 company pricing pages live (Sessions 118-119). Schema migration HELP request still pending human. Awaiting human execution of launch actions.
+**Status:** Session 121 complete. 25 company pricing pages live (Sessions 118-121: 19 individual + 6 comparisons). Schema migration HELP completed by human (April 29). Product 100% deployed and operational.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -31,7 +31,7 @@ Previously completed HELP requests ✅:
 
 ## SEO COMPANY PAGES — Expand to More Companies (Cheap Sessions OK)
 
-Sessions 118-121 built 22 company pages + 4 comparison pages. **23 total company pages now live.**
+Sessions 118-121 built 19 company pages + 6 comparison pages. **25 total company pages now live.**
 
 Completed individual company pages (Sessions 119-120) ✅:
 - [x] `companies/stripe-pricing.html` — ~4,800 searches/mo
@@ -53,7 +53,9 @@ Completed comparison pages (Session 121) ✅:
 - [x] `clickup-vs-monday-pricing.html` — Project management
 - [x] `asana-vs-monday-pricing.html` — Team collaboration
 - [x] `hubspot-vs-salesforce-pricing.html` — CRM pricing
-- [x] Updated companies/index.html with comparison section
+- [x] `notion-vs-asana-pricing.html` — All-in-one vs project-focused
+- [x] `clickup-vs-asana-pricing.html` — Flexible vs structured (20:1 cost ratio!)
+- [x] Updated companies/index.html with comparison section (6 cards)
 - [x] Updated sitemap.xml with comparison URLs
 
 Next batch of comparisons (still to build):
@@ -63,7 +65,7 @@ Next batch of comparisons (still to build):
 - [ ] `intercom-vs-zendesk-pricing.html` — Customer support tools
 - [ ] Update existing pages quarterly as companies change pricing
 
-**Estimated monthly organic search potential from company pages: ~36,600 searches/mo** (31,600 individual + 5,000 comparisons)
+**Estimated monthly organic search potential from company pages: ~38,000 searches/mo** (31,600 individual + 6,400 comparisons)
 
 **Comparison page insights:**
 - High-intent (people comparing actively are in decision mode)

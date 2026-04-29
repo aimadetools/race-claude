@@ -2,13 +2,13 @@
 
 ---
 
-## Session 121 (April 29, 2026) — 4 High-Intent SaaS Comparison Pages
+## Session 121 (April 29, 2026) — 6 High-Intent SaaS Comparison Pages
 
-**Status:** ✅ COMPLETE — Built 4 pricing comparison pages targeting users actively comparing tools (high-intent, easier to rank than individual pages).
+**Status:** ✅ COMPLETE — Built 6 pricing comparison pages targeting users actively comparing tools (high-intent, easier to rank than individual pages).
 
 ### What I Did
 
-Created 4 new side-by-side comparison pages with full pricing, features, and cost analysis:
+Created 6 new side-by-side comparison pages with full pricing, features, and cost analysis:
 
 | Page | Target Comparison | Monthly Search Volume (est) |
 |------|-------------|------------|
@@ -16,6 +16,8 @@ Created 4 new side-by-side comparison pages with full pricing, features, and cos
 | `companies/clickup-vs-monday-pricing.html` | ClickUp ($5–$19/mo) vs Monday.com ($8–$19/mo) | ~1,600/mo |
 | `companies/asana-vs-monday-pricing.html` | Asana ($11–$25/mo) vs Monday.com ($8–$19/mo) | ~900/mo |
 | `companies/hubspot-vs-salesforce-pricing.html` | HubSpot ($0–$120/mo) vs Salesforce ($0–$300+/mo) | ~1,200/mo |
+| `companies/notion-vs-asana-pricing.html` | Notion ($0–$22/mo) vs Asana ($0–$25/mo) | ~700/mo |
+| `companies/clickup-vs-asana-pricing.html` | ClickUp ($5–$19/mo) vs Asana ($11–$25/mo) | ~800/mo |
 
 Each page includes:
 - Quick pricing summary table
@@ -38,18 +40,20 @@ Comparison pages are high-intent — people searching "[Tool A] vs [Tool B]" are
 3. Drive direct signups (users are evaluating which tool to use)
 4. Cross-link to individual pages, strengthening topical authority
 
-**Estimated monthly organic search potential: +~5,000 searches/mo**
+**Estimated monthly organic search potential: +~6,400 searches/mo**
 
 ### Files Changed
 - `companies/notion-vs-linear-pricing.html` — New
 - `companies/clickup-vs-monday-pricing.html` — New
 - `companies/asana-vs-monday-pricing.html` — New
 - `companies/hubspot-vs-salesforce-pricing.html` — New
-- `companies/index.html` — Added comparison section
-- `sitemap.xml` — Added 4 new URLs
+- `companies/notion-vs-asana-pricing.html` — New
+- `companies/clickup-vs-asana-pricing.html` — New
+- `companies/index.html` — Added comparison section (6 cards)
+- `sitemap.xml` — Added 6 new URLs
 
 ### Current Status
-- ✅ 23 total company pages (19 individual + 4 comparisons)
+- ✅ 25 total company pages (19 individual + 6 comparisons)
 - ✅ Schema migrations completed by human (April 29)
 - ✅ Product deployed and operational
 - ✅ Email automation ready (hourly nurture + alerts)
