@@ -2,40 +2,49 @@
 
 ---
 
-## Session 122 (April 29, 2026) — 2 More SaaS Comparison Pages
+## Session 122 (April 29, 2026) — 3 More SaaS Comparison Pages
 
-**Status:** ✅ COMPLETE — Built 2 new pricing comparison pages targeting high-intent customer support and productivity tool buyers.
+**Status:** ✅ COMPLETE — Built 3 new pricing comparison pages targeting high-intent SaaS buyers across support, productivity, and CRM categories.
 
 ### What I Did
 
-Created 2 new comparison pages with full pricing, features, and cost analysis:
+Created 3 new comparison pages with full pricing, features, and cost analysis:
 
 | Page | Target Comparison | Key Insight |
 |------|-------------|------------|
 | `companies/intercom-vs-zendesk-pricing.html` | Intercom ($47–$199/seat/mo) vs Zendesk ($55–$300+/agent/mo) | Entry-level: Intercom cheaper. Mid-tier: Zendesk cheaper. Both raised prices in 2026. |
 | `companies/airtable-vs-notion-pricing.html` | Airtable ($0–$20/user/mo) vs Notion ($0–$22/user/mo) | Notion 2x cheaper for teams. Airtable: database specialist. Notion: all-in-one workspace. |
+| `companies/hubspot-vs-pipedrive-pricing.html` | HubSpot ($0–$120/mo flat) vs Pipedrive ($14–$165+/user/mo) | HubSpot: $540/year for small teams. Pipedrive: per-user scaling. HubSpot better for marketing bundle. |
 
 Each page includes:
 - Quick pricing summary table
-- Full plan-by-plan breakdown
-- Feature comparison matrix
-- Cost analysis for typical team sizes (5-person for both)
+- Full plan-by-plan breakdown (2-3 tiers per tool)
+- Feature comparison matrix (6-8 key features)
+- Cost analysis for typical team sizes
 - Strategic analysis ("which is better for X")
 - 5 targeted FAQ questions
 - Links to related comparisons
 - CTA to monitor both tools
 
 **Updated:**
-- `companies/index.html` — Added 2 new comparison cards to "Pricing comparison guides" section
-- `sitemap.xml` — Added 2 new URLs (priority 0.83, changefreq weekly)
+- `companies/index.html` — Added 3 new comparison cards to "Pricing comparison guides" section
+- `sitemap.xml` — Added 3 new URLs (priority 0.83–0.84, changefreq weekly)
 
 ### Why This Matters
-Both comparisons target high-intent users:
-- **Intercom vs Zendesk**: Both recently raised prices (Intercom +20% Jan 2026, Zendesk +12% Q4 2025), triggering re-evaluation
-- **Airtable vs Notion**: Airtable's Feb 2026 free tier cuts (1,200→1,000 records) push users to compare with cheaper alternatives
+All three comparisons target high-intent users at decision points:
+- **Intercom vs Zendesk**: Both raised prices (Intercom +20% Jan 2026, Zendesk +12% Q4 2025)
+- **Airtable vs Notion**: Airtable's Feb 2026 free tier cuts push users to cheaper alternatives
+- **HubSpot vs Pipedrive**: Both restructured pricing Jan 2026, triggering re-evaluation
 
-**Running total:** 27 company pages (19 individual + 8 comparisons)
-**Estimated monthly organic search potential: +~2,000 searches/mo from these 2 comparisons**
+**Running total:** 28 company pages (19 individual + 9 comparisons)
+**Estimated monthly organic search potential: +~3,000–4,000 searches/mo from these 3 comparisons**
+
+### SEO Impact
+Comparison pages are high-ROI for organic search:
+1. **Lower competition** — Easier to rank than individual company pages
+2. **High intent** — People searching "[Tool A] vs [Tool B]" are in decision mode
+3. **Cross-linking** — Each comparison links to individual pages, strengthening topical authority
+4. **Conversion** — Users comparing are closer to signup than pure awareness content
 
 ---
 
