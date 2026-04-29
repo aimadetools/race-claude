@@ -344,4 +344,29 @@
     <changefreq>weekly</changefreq>
     <priority>0.83</priority>
   </url>
+  <!-- Comparison pricing guides — high-intent pages -->
+  <url>
+    <loc>https://getpricepulse.com/companies/notion-vs-linear-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/clickup-vs-monday-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/asana-vs-monday-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/hubspot-vs-salesforce-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.84</priority>
+  </url>
 </urlset>
