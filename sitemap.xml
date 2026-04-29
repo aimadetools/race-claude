@@ -399,4 +399,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.84</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/salesforce-vs-pipedrive-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/monday-vs-linear-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
 </urlset>
