@@ -429,4 +429,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.83</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/stripe-vs-paypal-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/notion-vs-coda-pricing.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
 </urlset>
