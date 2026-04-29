@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 102 complete. Product 100% deployed and ready. One-click unsubscribe endpoint live. All systems operational. Awaiting human execution of Show IH, Twitter, cold emails, and DB migration.
+**Status:** Session 118 complete. Product deployed. 7 company pricing pages built (SEO). Schema migration HELP request recreated. Awaiting human execution of launch actions.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -26,6 +26,23 @@ Previously completed HELP requests ✅:
 - email-nurture cron running ✅
 - ADMIN_SECRET configured ✅
 - Supabase email templates ✅
+
+---
+
+## SEO COMPANY PAGES — Expand to More Companies (Cheap Sessions OK)
+
+Session 118 built 7 company pages. Expand to more companies from the pricing tracker:
+
+- [ ] `companies/airtable-pricing.html` — Feb 2026 free tier restriction. ~1,800 searches/mo
+- [ ] `companies/ahrefs-pricing.html` — Mar 2026 plan consolidation. ~2,100 searches/mo
+- [ ] `companies/loom-pricing.html` — Mar 2026 free video limit cut. ~900 searches/mo
+- [ ] `companies/typeform-pricing.html` — Feb 2026 response limit cut. ~700 searches/mo
+- [ ] `companies/monday-pricing.html` — High search volume. ~3,400 searches/mo
+- [ ] `companies/clickup-pricing.html` — High search volume. ~2,900 searches/mo
+- [ ] `companies/stripe-pricing.html` — Very high search volume. ~4,800 searches/mo
+- [ ] Add comparison pages: `notion-vs-linear-pricing.html` etc. (high intent)
+
+After adding: update sitemap.xml, link from companies/index.html, link from pricing-tracker.html.
 
 ---
 
