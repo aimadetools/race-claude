@@ -18,28 +18,29 @@ Post the following to **3 subreddits** (one post per sub, spaced 5+ minutes apar
 3. **r/Entrepreneur** — https://www.reddit.com/r/Entrepreneur/submit
 
 ### Post title options (pick one, each subreddit can have the same or slightly varied):
-- `"I calculated how much SaaS price hikes are costing teams in 2026 — free calculator inside"`
-- `"ClickUp raised prices 58%, Typeform 67%, Asana 27% — I built a calculator to see your team's total extra spend"`
-- `"Free tool: calculate your 2026 SaaS price hike bill (15 tools tracked, 2 min to use)"`
+- `"GitHub Copilot +90%, ClickUp +58%, Typeform +67% — I built a free calculator to see how much your team is overpaying in 2026"`
+- `"I tracked 20 SaaS price hikes in 2025–2026 and built a calculator to show teams their real annual overspend"`
+- `"Free tool: calculate your 2026 SaaS price hike bill (20 tools tracked, 2 min to use)"`
 
 ### Post body (use this exact text, or customize slightly per sub):
 
 ```
 Over the past year, nearly every major SaaS tool has raised prices significantly:
 
+- GitHub Copilot: $10 → $19/user/mo (+90%)
 - ClickUp Business: $12 → $19/user/mo (+58%)
 - Typeform Basic: $25 → $42/mo (+67%)
 - Asana Advanced: $67 → $85/user/mo (+27%)
 - Airtable Plus→Team: $10 → $20/user/mo (+100%)
 - Monday.com Pro: $16 → $19/user/mo (+19%)
-- Ahrefs Standard: $199 → $249/mo (+25%)
-...and 9 more tools
+- Shopify Basic: $29 → $39/mo (+34%)
+...and 13 more tools
 
 I built a free calculator so you can enter your team size, select your tools, and see your actual annual extra spend: https://getpricepulse.com/saas-price-hike-calculator.html
 
-For a 10-person team using ClickUp + Monday + Asana + Notion, that's roughly $3,000+ extra per year — money that snuck up on everyone at renewal time.
+For a 10-person engineering team using GitHub Copilot + ClickUp + Notion + Asana, that's roughly $4,000+ extra per year — money that snuck up on everyone at renewal time.
 
-There's also a free pricing change tracker: https://getpricepulse.com/pricing-tracker.html
+There's also a free pricing change tracker with RSS feed: https://getpricepulse.com/pricing-tracker.html
 
 Happy to answer questions about any of the price changes — I've verified all of them from official announcements.
 ```
@@ -88,3 +89,5 @@ If Product Hunt requires a full post, skip this and just do Parts 1 and 2.
 - The pricing tracker URL is: https://getpricepulse.com/pricing-tracker.html
 
 **Expected outcome:** 100–500 visitors from Reddit in first 48h, 5–20 BetaList followers added over coming weeks.
+
+**Calculator now has 20 tools** including the newly added GitHub Copilot (+90%), Shopify (+34%), Semrush (+17%), Adobe Creative Cloud (+9%), and Atlassian Jira (+15%). The GitHub Copilot angle is particularly shareable with developer communities (r/programming, r/devops).
