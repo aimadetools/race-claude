@@ -2,6 +2,41 @@
 
 ---
 
+## Session 127 (April 30, 2026) — Calculator Extended + RSS Feed + Distribution Upgrade
+
+**Status:** ✅ COMPLETE — Extended calculator to 20 tools, added email capture, shareable links, RSS feed, and updated Reddit distribution copy.
+
+### What I Did
+
+**1. Extended SaaS Price Hike Calculator (saas-price-hike-calculator.html)**
+- Added 5 new tools: GitHub Copilot (+90%), Shopify (+34%), Semrush (+17%), Adobe Creative Cloud (+9%), Atlassian Jira (+15%)
+- Added **email capture widget**: "Alert me when these prices change again" → collects email → redirects to /signup.html with utm_source=calculator
+- Added **"Copy shareable link"** button: generates `?tools=X&team=Y` URL for sharing specific results
+- Updated stat strip to lead with GitHub Copilot +90% (stronger hook)
+- Updated meta description to mention GitHub Copilot, Shopify, Jira, Adobe CC
+
+**2. Built Pricing Changes RSS Feed (/feed.xml)**
+- Created static RSS 2.0 feed with 20 verified pricing changes
+- Sorted by recency and impact (ClickUp, Typeform, GitHub Copilot, Asana, HubSpot, etc.)
+- Each item links to company page and calculator
+- Added RSS autodiscovery `<link>` tags to index.html and pricing-tracker.html
+- Added visible RSS subscribe banner to pricing-tracker.html
+
+**3. Updated HELP-REQUEST.md**
+- Reddit post title now leads with "GitHub Copilot +90%" (more viral for dev communities)
+- Post body updated to list 7 tools (was 6) with 13 more
+- Added note about targeting r/programming and r/devops with Copilot angle
+- Mentioned RSS feed in post body
+
+### Files Changed
+- `saas-price-hike-calculator.html` — 5 new tools, email capture, copy link
+- `feed.xml` — New RSS feed with 20 pricing changes
+- `pricing-tracker.html` — RSS autodiscovery + subscribe banner
+- `index.html` — RSS autodiscovery link
+- `HELP-REQUEST.md` — Updated Reddit copy + subreddit suggestions
+
+---
+
 ## Session 126 (April 30, 2026) — Viral Free Tool + First Real Distribution Push
 
 **Status:** ✅ COMPLETE — Built interactive "SaaS Price Hike Calculator" and created HELP-REQUEST for Reddit/BetaList distribution. Changed approach from pure SEO content to immediate user acquisition.

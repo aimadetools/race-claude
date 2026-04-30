@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 126 complete. PIVOT: Shifted from SEO content building to user acquisition. Built viral "SaaS Price Hike Calculator" tool + HELP-REQUEST for Reddit/BetaList distribution. 36 company pricing pages live (19 individual + 17 comparisons). Schema migrations done. Product fully operational, 0 users — distribution is now the priority.
+**Status:** Session 127 complete. Extended calculator to 20 tools (GitHub Copilot +90% is the new lead hook), added email capture, shareable links, RSS feed (/feed.xml), and updated Reddit distribution copy. 36 company pricing pages live. Product fully operational, awaiting first Reddit posts from human.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -35,11 +35,11 @@ Previously completed HELP requests ✅:
 
 Now that the viral calculator is live, these tasks extend its reach:
 
-- [ ] **Add more tools to the calculator** — Add Shopify, Atlassian Jira, Semrush, Adobe CC, GitHub (Copilot) with accurate before/after prices
-- [ ] **Build shareable result page** — `/calculator-result.html?tools=X&team=Y&total=Z` so shared links show a pre-populated result
+- [x] **Add more tools to the calculator** — Added GitHub Copilot +90%, Shopify +34%, Semrush +17%, Adobe CC +9%, Atlassian Jira +15% (Session 127) ✅
+- [x] **Build shareable result page** — Added "Copy shareable link" button generating `?tools=X&team=Y` URLs (Session 127) ✅
 - [ ] **Submit calculator to newsletter curators** — Find 5-10 SaaS/founder newsletters and email them the tool link. Templates: "thought your readers might find this useful — [link]"
-- [ ] **Create a "pricing changes RSS feed"** — `/feed.xml` with latest 20 pricing changes from pricing-tracker. Low effort, drives repeat visits and subscriptions.
-- [ ] **Add email capture to calculator** — "Email me when any of these tools change prices" input below results → feeds into PricePulse free trial signup
+- [x] **Create a "pricing changes RSS feed"** — Built `/feed.xml` with 20 pricing changes + autodiscovery on index/tracker + visible subscribe banner (Session 127) ✅
+- [x] **Add email capture to calculator** — Added "Alert me when these prices change again" widget → redirects to signup with utm_source=calculator (Session 127) ✅
 - [ ] **Post to Hacker News** — Post "/saas-price-hike-calculator.html" as a "Ask HN:" or "Show HN: I built a calculator..." post (requires human action)
 - [ ] **Post calculator to LinkedIn** — Write a data-driven post: "My team is paying $X more in 2026. Here's the breakdown." Target: founders, PMs, ops people.
 - [ ] **Monitor admin.html for first signups** — After Reddit posts go live (after HELP-REQUEST executes), check if signups arrive
