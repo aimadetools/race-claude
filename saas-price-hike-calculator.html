@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SaaS Price Hike Calculator 2026 — How Much More Are You Paying?</title>
-  <meta name="description" content="Calculate exactly how much more you're paying in 2026 due to SaaS price hikes. ClickUp raised prices 58%. Monday 20%. Asana 27%. Add your tools and see the real cost." />
+  <meta name="description" content="Calculate exactly how much more you're paying in 2026 due to SaaS price hikes. ClickUp +58%. Typeform +67%. GitHub Copilot +90%. Adobe CC, Shopify, Jira & 15+ more. See your real annual overspend." />
   <meta property="og:title" content="SaaS Price Hike Calculator — See How Much You're Overpaying in 2026" />
-  <meta property="og:description" content="ClickUp +58%. Monday +20%. Asana +27%. Typeform +67%. Calculate your team's extra annual spend from 2025–2026 SaaS price increases." />
+  <meta property="og:description" content="ClickUp +58%. GitHub Copilot +90%. Typeform +67%. Shopify, Jira, Adobe CC & more. Calculate your team's extra annual spend from 2025–2026 SaaS price increases." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getpricepulse.com/saas-price-hike-calculator.html" />
   <meta property="og:site_name" content="PricePulse" />
@@ -349,6 +349,37 @@
       nav .nav-links { display: none; }
     }
 
+    /* EMAIL CAPTURE */
+    .email-capture {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .email-capture h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.375rem; }
+    .email-capture p { font-size: 0.8125rem; color: var(--muted); margin-bottom: 0.875rem; line-height: 1.4; }
+    .email-form { display: flex; gap: 0.5rem; }
+    .email-input {
+      flex: 1; padding: 0.5625rem 0.875rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text);
+      font-family: var(--font); font-size: 0.875rem;
+    }
+    .email-input:focus { outline: none; border-color: var(--accent); }
+    .email-input::placeholder { color: var(--muted); }
+    .email-submit {
+      padding: 0.5625rem 0.875rem; border-radius: 8px;
+      background: var(--accent); color: #0a0a0f;
+      font-family: var(--font); font-size: 0.875rem; font-weight: 700;
+      border: none; cursor: pointer; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .email-submit:hover { background: var(--accent2); }
+    .email-success {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: var(--accent); font-size: 0.875rem; font-weight: 600;
+      padding: 0.5rem 0;
+    }
+
     /* COPY TOAST */
     .toast {
       position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
@@ -388,12 +419,12 @@
   </p>
 
   <div class="stat-strip">
+    <div class="stat-pill"><strong>+90%</strong> GitHub Copilot</div>
     <div class="stat-pill"><strong>+58%</strong> ClickUp Business</div>
     <div class="stat-pill"><strong>+67%</strong> Typeform Basic</div>
     <div class="stat-pill"><strong>+27%</strong> Asana Advanced</div>
-    <div class="stat-pill"><strong>+30%</strong> Ahrefs Lite</div>
-    <div class="stat-pill"><strong>+20%</strong> Intercom Starter</div>
     <div class="stat-pill"><strong>+33%</strong> HubSpot Starter</div>
+    <div class="stat-pill"><strong>+26%</strong> Shopify Basic</div>
   </div>
 </section>
 
@@ -447,8 +478,22 @@
         Post to X / Twitter
       </a>
       <button class="share-btn copy" id="copyBtn" onclick="copyResult()">
-        📋 Copy result
+        📋 Copy result text
       </button>
+      <button class="share-btn copy" id="linkBtn" onclick="copyLink()" style="margin-top:0">
+        🔗 Copy shareable link
+      </button>
+    </div>
+
+    <div class="email-capture" id="emailCapture" style="display:none">
+      <h4>Alert me when these prices change again</h4>
+      <p>Get an instant email the moment any of your selected tools raises prices. Free, no credit card.</p>
+      <div id="emailFormWrap">
+        <div class="email-form">
+          <input type="email" class="email-input" id="alertEmail" placeholder="your@email.com" />
+          <button class="email-submit" onclick="submitAlertEmail()">Notify me</button>
+        </div>
+      </div>
     </div>
 
     <div class="cta-card">
@@ -692,6 +737,66 @@ const TOOLS = [
     custom: true,
     customNote: '+0.4% on intl cards',
     link: '/companies/stripe-pricing.html'
+  },
+  {
+    id: 'github-copilot',
+    name: 'GitHub Copilot',
+    icon: '🤖',
+    plan: 'Individual → Pro+',
+    oldPrice: 10,
+    newPrice: 19,
+    changePercent: 90,
+    date: 'Feb 2025',
+    perUser: true,
+    link: '/pricing-tracker.html'
+  },
+  {
+    id: 'shopify',
+    name: 'Shopify',
+    icon: '🛒',
+    plan: 'Basic plan',
+    oldPrice: 29,
+    newPrice: 39,
+    changePercent: 34,
+    date: 'Apr 2023',
+    perUser: false,
+    link: '/pricing-tracker.html'
+  },
+  {
+    id: 'semrush',
+    name: 'Semrush',
+    icon: '📈',
+    plan: 'Pro plan',
+    oldPrice: 120,
+    newPrice: 140,
+    changePercent: 17,
+    date: 'Jan 2024',
+    perUser: false,
+    link: '/pricing-tracker.html'
+  },
+  {
+    id: 'adobe-cc',
+    name: 'Adobe Creative Cloud',
+    icon: '🎭',
+    plan: 'All Apps/mo',
+    oldPrice: 55,
+    newPrice: 60,
+    changePercent: 9,
+    date: 'Q3 2024',
+    perUser: false,
+    link: '/pricing-tracker.html'
+  },
+  {
+    id: 'jira',
+    name: 'Atlassian Jira',
+    icon: '🔷',
+    plan: 'Standard/user',
+    oldPrice: 7.75,
+    newPrice: 8.90,
+    changePercent: 15,
+    date: 'Jan 2025',
+    perUser: true,
+    link: '/pricing-tracker.html'
   }
 ];
 
@@ -781,6 +886,7 @@ function updateResults() {
   const emptyState = document.getElementById('emptyState');
   const resultsCard = document.getElementById('resultsCard');
   const shareCard = document.getElementById('shareCard');
+  const emailCapture = document.getElementById('emailCapture');
 
   if (selected.length === 0) {
     totalDisplay.className = 'total-display empty';
@@ -791,6 +897,7 @@ function updateResults() {
     breakdownList.style.display = 'none';
     resultsCard.className = 'results-card';
     shareCard.style.display = 'none';
+    emailCapture.style.display = 'none';
     return;
   }
 
@@ -804,6 +911,7 @@ function updateResults() {
   emptyState.style.display = 'none';
   resultsCard.className = 'results-card has-results';
   shareCard.style.display = 'block';
+  emailCapture.style.display = 'block';
 
   const items = selected
     .map(t => ({ tool: t, cost: calcToolCost(t, teamSize) }))
@@ -851,6 +959,32 @@ function copyResult() {
   });
 }
 
+function copyLink() {
+  const teamSize = getTeamSize();
+  const toolIds = Array.from(selectedTools).join(',');
+  if (!toolIds) return;
+  const url = `${window.location.origin}/saas-price-hike-calculator.html?tools=${encodeURIComponent(toolIds)}&team=${teamSize}`;
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.getElementById('linkBtn');
+    btn.textContent = '✓ Link copied!';
+    btn.className = 'share-btn copy copied';
+    setTimeout(() => {
+      btn.textContent = '🔗 Copy shareable link';
+      btn.className = 'share-btn copy';
+    }, 2000);
+  });
+}
+
+function submitAlertEmail() {
+  const email = document.getElementById('alertEmail').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('alertEmail').focus();
+    return;
+  }
+  // Redirect to signup with email pre-filled + calculator source
+  window.location.href = `/signup.html?email=${encodeURIComponent(email)}&utm_source=calculator&utm_medium=tool`;
+}
+
 function showToast() {
   const toast = document.getElementById('toast');
   toast.classList.add('show');
@@ -883,6 +1017,9 @@ function loadFromParams() {
 }
 
 document.getElementById('teamSize').addEventListener('input', updateResults);
+document.getElementById('alertEmail').addEventListener('keydown', e => {
+  if (e.key === 'Enter') submitAlertEmail();
+});
 
 renderTools();
 loadFromParams();
