@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Price Hike Calculator 2026 — How Much More Are You Paying?</title>
+  <meta name="description" content="Calculate exactly how much more you're paying in 2026 due to SaaS price hikes. ClickUp raised prices 58%. Monday 20%. Asana 27%. Add your tools and see the real cost." />
+  <meta property="og:title" content="SaaS Price Hike Calculator — See How Much You're Overpaying in 2026" />
+  <meta property="og:description" content="ClickUp +58%. Monday +20%. Asana +27%. Typeform +67%. Calculate your team's extra annual spend from 2025–2026 SaaS price increases." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getpricepulse.com/saas-price-hike-calculator.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SaaS Price Hike Calculator 2026 — How Much More Are You Paying?" />
+  <meta name="twitter:description" content="ClickUp +58%. Monday +20%. Asana +27%. Find out exactly how much SaaS price hikes are costing your team." />
+  <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg" />
+  <link rel="canonical" href="https://getpricepulse.com/saas-price-hike-calculator.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SaaS Price Hike Calculator 2026",
+    "description": "Interactive calculator showing the annual cost impact of 2025–2026 SaaS price increases on your team",
+    "url": "https://getpricepulse.com/saas-price-hike-calculator.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0,229,160,0.15);
+      --red: #ef4444;
+      --red-bg: rgba(239,68,68,0.12);
+      --red-border: rgba(239,68,68,0.3);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245,158,11,0.12);
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 1.125rem; font-weight: 700; color: var(--text);
+      display: flex; align-items: center; gap: 0.5rem; text-decoration: none;
+    }
+    .logo:hover { text-decoration: none; }
+    .logo-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); font-size: 0.9375rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .btn-cta {
+      background: var(--accent); border-radius: 8px;
+      color: #0a0a0f !important; font-weight: 700; font-size: 0.875rem;
+      padding: 0.5rem 1rem; transition: background 0.15s;
+    }
+    .btn-cta:hover { background: var(--accent2); text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      max-width: 800px; margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--red-bg); border: 1px solid var(--red-border);
+      color: #f87171; border-radius: 100px;
+      font-size: 0.8125rem; font-weight: 600;
+      padding: 0.375rem 0.875rem; margin-bottom: 1.5rem;
+    }
+    .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #f87171; }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.02em; margin-bottom: 1.25rem;
+    }
+    h1 .highlight { color: var(--red); }
+    .hero-sub {
+      font-size: 1.125rem; color: var(--muted);
+      max-width: 580px; margin: 0 auto 2.5rem;
+    }
+
+    /* STAT STRIP */
+    .stat-strip {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .stat-pill {
+      background: var(--red-bg); border: 1px solid var(--red-border);
+      border-radius: 8px; padding: 0.5rem 1rem;
+      font-size: 0.875rem; font-weight: 500; color: #fca5a5;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .stat-pill strong { color: #f87171; font-size: 1rem; font-weight: 700; }
+
+    /* MAIN LAYOUT */
+    .calc-layout {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 2rem 4rem;
+      display: grid; grid-template-columns: 1fr 380px; gap: 2rem;
+      align-items: start;
+    }
+
+    /* TOOL SELECTOR */
+    .section-label {
+      font-size: 0.75rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .team-size-row {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .team-size-row label { font-size: 0.9375rem; font-weight: 500; color: var(--text); flex: 1; }
+    .team-size-row label span { color: var(--muted); font-size: 0.8125rem; font-weight: 400; display: block; }
+    .team-input {
+      width: 80px; padding: 0.5rem 0.75rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text);
+      font-family: var(--font); font-size: 1rem; font-weight: 600;
+      text-align: center;
+    }
+    .team-input:focus { outline: none; border-color: var(--accent); }
+
+    .tools-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+    }
+    .tool-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem;
+      cursor: pointer; transition: all 0.15s;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      user-select: none;
+    }
+    .tool-card:hover { border-color: var(--accent); background: var(--bg3); }
+    .tool-card.selected {
+      border-color: var(--red); background: var(--red-bg);
+    }
+    .tool-card.selected .tool-check { background: var(--red); border-color: var(--red); }
+    .tool-card.selected .tool-check svg { display: block; }
+    .tool-check {
+      width: 20px; height: 20px; border-radius: 4px; flex-shrink: 0;
+      border: 2px solid var(--border); background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .tool-check svg { display: none; width: 12px; height: 12px; }
+    .tool-info { flex: 1; min-width: 0; }
+    .tool-name { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .tool-plan { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.375rem; }
+    .tool-increase {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      color: #f87171; background: var(--red-bg);
+      border-radius: 4px; padding: 0.125rem 0.375rem;
+    }
+    .tool-price-change {
+      font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem;
+    }
+    .tool-date {
+      font-size: 0.6875rem; color: var(--muted); margin-top: 0.25rem;
+      opacity: 0.7;
+    }
+    .per-user-note { font-size: 0.6875rem; color: var(--warning); }
+
+    /* SELECT ALL ROW */
+    .select-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .select-all-btn {
+      font-size: 0.8125rem; color: var(--accent); cursor: pointer;
+      background: none; border: none; font-family: var(--font); padding: 0;
+    }
+    .select-all-btn:hover { text-decoration: underline; }
+    .selected-count { font-size: 0.8125rem; color: var(--muted); }
+
+    /* RESULTS PANEL */
+    .results-panel { position: sticky; top: 80px; }
+
+    .results-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .results-card.has-results { border-color: var(--red); }
+
+    .results-title {
+      font-size: 0.8125rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem;
+    }
+
+    .total-display {
+      text-align: center; padding: 1.5rem 1rem;
+      background: var(--red-bg); border: 1px solid var(--red-border);
+      border-radius: 10px; margin-bottom: 1.25rem;
+    }
+    .total-display.empty {
+      background: var(--bg3); border-color: var(--border);
+    }
+    .total-label { font-size: 0.8125rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .total-amount {
+      font-size: 3rem; font-weight: 800; color: var(--red);
+      line-height: 1; letter-spacing: -0.02em;
+    }
+    .total-amount.empty { color: var(--muted); font-size: 2rem; }
+    .total-per-month {
+      font-size: 0.875rem; color: var(--muted); margin-top: 0.375rem;
+    }
+
+    .breakdown-list { list-style: none; margin-bottom: 1rem; }
+    .breakdown-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border); font-size: 0.875rem;
+    }
+    .breakdown-item:last-child { border-bottom: none; }
+    .breakdown-tool { display: flex; align-items: center; gap: 0.5rem; color: var(--text); }
+    .breakdown-tool-icon { font-size: 1rem; }
+    .breakdown-cost { font-weight: 600; color: #f87171; }
+
+    .empty-state {
+      text-align: center; padding: 2rem 1rem; color: var(--muted);
+      font-size: 0.9375rem;
+    }
+    .empty-state .arrow { font-size: 2rem; margin-bottom: 0.75rem; }
+
+    /* SHARE SECTION */
+    .share-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .share-title { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.875rem; }
+    .share-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      width: 100%; padding: 0.625rem 1rem; border-radius: 8px;
+      font-family: var(--font); font-size: 0.875rem; font-weight: 600;
+      cursor: pointer; border: 1px solid var(--border);
+      transition: all 0.15s; margin-bottom: 0.5rem;
+      text-decoration: none;
+    }
+    .share-btn.twitter {
+      background: #1da1f2; border-color: #1da1f2; color: white;
+    }
+    .share-btn.twitter:hover { background: #1a8cd8; text-decoration: none; }
+    .share-btn.copy {
+      background: var(--bg3); color: var(--text);
+    }
+    .share-btn.copy:hover { background: var(--bg2); border-color: var(--accent); }
+    .share-btn.copy.copied { border-color: var(--accent); color: var(--accent); }
+
+    /* CTA */
+    .cta-card {
+      background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,229,160,0.03));
+      border: 1px solid rgba(0,229,160,0.25);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .cta-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-card p { font-size: 0.875rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
+    .cta-btn {
+      display: block; text-align: center; width: 100%;
+      background: var(--accent); color: #0a0a0f; font-weight: 700;
+      padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.9375rem;
+      transition: background 0.15s;
+    }
+    .cta-btn:hover { background: var(--accent2); text-decoration: none; }
+
+    /* HOW IT WORKS */
+    .how-section {
+      max-width: 800px; margin: 0 auto; padding: 2rem 2rem 4rem;
+      border-top: 1px solid var(--border);
+    }
+    .how-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .how-item { }
+    .how-num {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--accent-glow); color: var(--accent);
+      font-weight: 700; font-size: 0.875rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .how-item h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.375rem; }
+    .how-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.55; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem; text-align: center;
+      color: var(--muted); font-size: 0.875rem;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .calc-layout { grid-template-columns: 1fr; }
+      .results-panel { position: static; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+    }
+
+    /* COPY TOAST */
+    .toast {
+      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #0a0a0f;
+      padding: 0.625rem 1.25rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.875rem;
+      opacity: 0; transition: opacity 0.2s; pointer-events: none;
+      z-index: 200;
+    }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">
+    <span class="logo-dot"></span> PricePulse
+  </a>
+  <div class="nav-links">
+    <a href="/pricing-tracker.html">Price Tracker</a>
+    <a href="/companies/">Company Pages</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/signup.html" class="btn-cta">Get Alerts Free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    2025–2026 SaaS Price Hikes Documented
+  </div>
+  <h1>How much more are you<br><span class="highlight">paying in 2026?</span></h1>
+  <p class="hero-sub">
+    SaaS companies raised prices by 15–67% in 2025–2026.
+    Select the tools your team uses to see your actual annual overspend.
+  </p>
+
+  <div class="stat-strip">
+    <div class="stat-pill"><strong>+58%</strong> ClickUp Business</div>
+    <div class="stat-pill"><strong>+67%</strong> Typeform Basic</div>
+    <div class="stat-pill"><strong>+27%</strong> Asana Advanced</div>
+    <div class="stat-pill"><strong>+30%</strong> Ahrefs Lite</div>
+    <div class="stat-pill"><strong>+20%</strong> Intercom Starter</div>
+    <div class="stat-pill"><strong>+33%</strong> HubSpot Starter</div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<div class="calc-layout">
+  <!-- LEFT: TOOL SELECTOR -->
+  <div>
+    <div class="section-label">Step 1 — Enter your team size</div>
+    <div class="team-size-row">
+      <label>
+        Team size
+        <span>Number of people using these tools</span>
+      </label>
+      <input type="number" id="teamSize" class="team-input" value="5" min="1" max="1000" />
+    </div>
+
+    <div class="section-label">Step 2 — Select your tools</div>
+    <div class="select-row">
+      <span class="selected-count" id="selectedCount">0 tools selected</span>
+      <button class="select-all-btn" onclick="selectAll()" id="selectAllBtn">Select all</button>
+    </div>
+
+    <div class="tools-grid" id="toolsGrid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- RIGHT: RESULTS -->
+  <div class="results-panel">
+    <div class="results-card" id="resultsCard">
+      <div class="results-title">Your 2026 Overspend</div>
+
+      <div class="total-display empty" id="totalDisplay">
+        <div class="total-label">Extra cost per year</div>
+        <div class="total-amount empty" id="totalAmount">$0</div>
+        <div class="total-per-month" id="totalMonth"></div>
+      </div>
+
+      <div id="emptyState" class="empty-state">
+        <div class="arrow">←</div>
+        Select the SaaS tools your team pays for to see your price hike impact
+      </div>
+
+      <ul class="breakdown-list" id="breakdownList" style="display:none"></ul>
+    </div>
+
+    <div class="share-card" id="shareCard" style="display:none">
+      <div class="share-title">Share the shock 😬</div>
+      <a href="#" class="share-btn twitter" id="twitterBtn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.844-8.17-10.656h7.077l4.254 5.622 4.602-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Post to X / Twitter
+      </a>
+      <button class="share-btn copy" id="copyBtn" onclick="copyResult()">
+        📋 Copy result
+      </button>
+    </div>
+
+    <div class="cta-card">
+      <h3>Don't get blindsided by the next hike</h3>
+      <p>Set up free alerts. We monitor your competitors' pricing pages 24/7 and email you the moment anything changes.</p>
+      <a href="/signup.html" class="cta-btn">Monitor competitors free →</a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <h2>How this calculator works</h2>
+  <div class="how-grid">
+    <div class="how-item">
+      <div class="how-num">1</div>
+      <h3>Verified price changes</h3>
+      <p>Every price change is manually verified from official pricing pages, changelogs, and announcement emails. We track 40+ SaaS tools continuously.</p>
+    </div>
+    <div class="how-item">
+      <div class="how-num">2</div>
+      <h3>Annualized cost impact</h3>
+      <p>We calculate the per-user monthly increase × 12 months × your team size, giving you the real annual overspend vs. what you paid in 2025.</p>
+    </div>
+    <div class="how-item">
+      <div class="how-num">3</div>
+      <h3>What you can do</h3>
+      <p>Lock in old pricing before renewals, switch to competitors, or negotiate discounts. PricePulse alerts you the moment any pricing page changes.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    <a href="/">PricePulse</a> ·
+    <a href="/pricing-tracker.html">Pricing Tracker</a> ·
+    <a href="/blog.html">Blog</a> ·
+    <a href="/companies/">Company Pages</a> ·
+    <a href="/pricing.html">Plans</a>
+  </p>
+  <p style="margin-top:0.75rem; opacity:0.6">
+    Price data verified April 2026. Results are estimates based on published list prices.
+    Actual costs may vary based on your contract terms.
+  </p>
+</footer>
+
+<div class="toast" id="toast">Copied to clipboard!</div>
+
+<script>
+const TOOLS = [
+  {
+    id: 'clickup',
+    name: 'ClickUp',
+    icon: '📋',
+    plan: 'Business plan',
+    oldPrice: 12,
+    newPrice: 19,
+    changePercent: 58,
+    date: 'Feb 2026',
+    perUser: true,
+    link: '/companies/clickup-pricing.html'
+  },
+  {
+    id: 'monday',
+    name: 'Monday.com',
+    icon: '📅',
+    plan: 'Pro plan',
+    oldPrice: 16,
+    newPrice: 19,
+    changePercent: 19,
+    date: 'Feb 2026',
+    perUser: true,
+    link: '/companies/monday-pricing.html'
+  },
+  {
+    id: 'asana',
+    name: 'Asana',
+    icon: '✅',
+    plan: 'Advanced plan',
+    oldPrice: 67,
+    newPrice: 85,
+    changePercent: 27,
+    date: 'Jan 2026',
+    perUser: true,
+    link: '/companies/asana-pricing.html'
+  },
+  {
+    id: 'notion',
+    name: 'Notion',
+    icon: '📝',
+    plan: 'Team plan',
+    oldPrice: 15,
+    newPrice: 18,
+    changePercent: 20,
+    date: 'Nov 2025',
+    perUser: true,
+    link: '/companies/notion-pricing.html'
+  },
+  {
+    id: 'slack',
+    name: 'Slack',
+    icon: '💬',
+    plan: 'Pro plan',
+    oldPrice: 7.25,
+    newPrice: 8.75,
+    changePercent: 21,
+    date: 'Q4 2025',
+    perUser: true,
+    link: '/companies/slack-pricing.html'
+  },
+  {
+    id: 'intercom',
+    name: 'Intercom',
+    icon: '🎧',
+    plan: 'Essential/seat',
+    oldPrice: 39,
+    newPrice: 47,
+    changePercent: 20,
+    date: 'Jan 2026',
+    perUser: true,
+    link: '/companies/intercom-pricing.html'
+  },
+  {
+    id: 'zendesk',
+    name: 'Zendesk',
+    icon: '🎫',
+    plan: 'Suite Team/agent',
+    oldPrice: 49,
+    newPrice: 55,
+    changePercent: 12,
+    date: 'Nov 2025',
+    perUser: true,
+    link: '/companies/zendesk-pricing.html'
+  },
+  {
+    id: 'ahrefs',
+    name: 'Ahrefs',
+    icon: '🔍',
+    plan: 'Standard plan',
+    oldPrice: 199,
+    newPrice: 249,
+    changePercent: 25,
+    date: 'Mar 2026',
+    perUser: false,
+    link: '/companies/ahrefs-pricing.html'
+  },
+  {
+    id: 'loom',
+    name: 'Loom',
+    icon: '🎥',
+    plan: 'Business/user',
+    oldPrice: 12.50,
+    newPrice: 19.50,
+    changePercent: 56,
+    date: 'Mar 2026',
+    perUser: true,
+    link: '/companies/loom-pricing.html'
+  },
+  {
+    id: 'typeform',
+    name: 'Typeform',
+    icon: '📋',
+    plan: 'Basic plan',
+    oldPrice: 25,
+    newPrice: 42,
+    changePercent: 67,
+    date: 'Feb 2026',
+    perUser: false,
+    link: '/companies/typeform-pricing.html'
+  },
+  {
+    id: 'pipedrive',
+    name: 'Pipedrive',
+    icon: '📊',
+    plan: 'Professional/user',
+    oldPrice: 79,
+    newPrice: 89,
+    changePercent: 13,
+    date: 'Jan 2026',
+    perUser: true,
+    link: '/companies/pipedrive-pricing.html'
+  },
+  {
+    id: 'salesforce',
+    name: 'Salesforce',
+    icon: '☁️',
+    plan: 'Professional/user',
+    oldPrice: 165,
+    newPrice: 200,
+    changePercent: 21,
+    date: 'Jan 2026',
+    perUser: true,
+    link: '/companies/salesforce-pricing.html'
+  },
+  {
+    id: 'hubspot',
+    name: 'HubSpot',
+    icon: '🧲',
+    plan: 'Starter/seat',
+    oldPrice: 15,
+    newPrice: 20,
+    changePercent: 33,
+    date: 'Jan 2026',
+    perUser: true,
+    link: '/companies/hubspot-pricing.html'
+  },
+  {
+    id: 'airtable',
+    name: 'Airtable',
+    icon: '🗂️',
+    plan: 'Plus→Team/user',
+    oldPrice: 10,
+    newPrice: 20,
+    changePercent: 100,
+    date: 'Q3 2025',
+    perUser: true,
+    link: '/companies/airtable-pricing.html'
+  },
+  {
+    id: 'figma',
+    name: 'Figma',
+    icon: '🎨',
+    plan: 'Professional/editor',
+    oldPrice: 15,
+    newPrice: 25,
+    changePercent: 67,
+    date: 'Q3 2024',
+    perUser: true,
+    link: '/companies/figma-pricing.html'
+  },
+  {
+    id: 'stripe',
+    name: 'Stripe',
+    icon: '💳',
+    plan: 'Intl card surcharge',
+    oldPrice: 0,
+    newPrice: 0,
+    changePercent: 0,
+    date: 'Jan 2026',
+    perUser: false,
+    custom: true,
+    customNote: '+0.4% on intl cards',
+    link: '/companies/stripe-pricing.html'
+  }
+];
+
+let selectedTools = new Set();
+
+function renderTools() {
+  const grid = document.getElementById('toolsGrid');
+  grid.innerHTML = TOOLS.filter(t => !t.custom).map(tool => `
+    <div class="tool-card" id="card-${tool.id}" onclick="toggleTool('${tool.id}')">
+      <div class="tool-check">
+        <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1.5,6 5,9.5 10.5,2.5"/>
+        </svg>
+      </div>
+      <div class="tool-info">
+        <div class="tool-name">${tool.icon} ${tool.name}</div>
+        <div class="tool-plan">${tool.plan} ${tool.perUser ? '· per user' : '· flat rate'}</div>
+        <div class="tool-increase">+${tool.changePercent}%</div>
+        <div class="tool-price-change">$${tool.oldPrice}/mo → $${tool.newPrice}/mo</div>
+        <div class="tool-date">${tool.date}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleTool(id) {
+  if (selectedTools.has(id)) {
+    selectedTools.delete(id);
+    document.getElementById('card-' + id).classList.remove('selected');
+  } else {
+    selectedTools.add(id);
+    document.getElementById('card-' + id).classList.add('selected');
+  }
+  updateResults();
+  updateSelectAllBtn();
+}
+
+function selectAll() {
+  const nonCustom = TOOLS.filter(t => !t.custom);
+  if (selectedTools.size === nonCustom.length) {
+    selectedTools.clear();
+    nonCustom.forEach(t => document.getElementById('card-' + t.id).classList.remove('selected'));
+  } else {
+    nonCustom.forEach(t => {
+      selectedTools.add(t.id);
+      document.getElementById('card-' + t.id).classList.add('selected');
+    });
+  }
+  updateResults();
+  updateSelectAllBtn();
+}
+
+function updateSelectAllBtn() {
+  const nonCustom = TOOLS.filter(t => !t.custom);
+  const btn = document.getElementById('selectAllBtn');
+  btn.textContent = selectedTools.size === nonCustom.length ? 'Deselect all' : 'Select all';
+  document.getElementById('selectedCount').textContent =
+    selectedTools.size === 0 ? 'No tools selected' :
+    selectedTools.size === 1 ? '1 tool selected' :
+    `${selectedTools.size} tools selected`;
+}
+
+function getTeamSize() {
+  const v = parseInt(document.getElementById('teamSize').value);
+  return isNaN(v) || v < 1 ? 1 : v;
+}
+
+function calcToolCost(tool, teamSize) {
+  if (tool.custom) return 0;
+  const users = tool.perUser ? teamSize : 1;
+  return (tool.newPrice - tool.oldPrice) * users * 12;
+}
+
+function formatDollars(n) {
+  if (n >= 1000) return '$' + (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+  return '$' + n.toFixed(0);
+}
+
+function updateResults() {
+  const teamSize = getTeamSize();
+  const selected = TOOLS.filter(t => selectedTools.has(t.id));
+
+  const totalDisplay = document.getElementById('totalDisplay');
+  const totalAmount = document.getElementById('totalAmount');
+  const totalMonth = document.getElementById('totalMonth');
+  const breakdownList = document.getElementById('breakdownList');
+  const emptyState = document.getElementById('emptyState');
+  const resultsCard = document.getElementById('resultsCard');
+  const shareCard = document.getElementById('shareCard');
+
+  if (selected.length === 0) {
+    totalDisplay.className = 'total-display empty';
+    totalAmount.className = 'total-amount empty';
+    totalAmount.textContent = '$0';
+    totalMonth.textContent = '';
+    emptyState.style.display = 'block';
+    breakdownList.style.display = 'none';
+    resultsCard.className = 'results-card';
+    shareCard.style.display = 'none';
+    return;
+  }
+
+  const totalAnnual = selected.reduce((sum, t) => sum + calcToolCost(t, teamSize), 0);
+  const totalMonthly = totalAnnual / 12;
+
+  totalDisplay.className = 'total-display';
+  totalAmount.className = 'total-amount';
+  totalAmount.textContent = formatDollars(totalAnnual);
+  totalMonth.textContent = formatDollars(totalMonthly) + '/month extra';
+  emptyState.style.display = 'none';
+  resultsCard.className = 'results-card has-results';
+  shareCard.style.display = 'block';
+
+  const items = selected
+    .map(t => ({ tool: t, cost: calcToolCost(t, teamSize) }))
+    .sort((a, b) => b.cost - a.cost);
+
+  breakdownList.style.display = 'block';
+  breakdownList.innerHTML = items.map(({tool, cost}) => `
+    <li class="breakdown-item">
+      <span class="breakdown-tool">
+        <span class="breakdown-tool-icon">${tool.icon}</span>
+        <a href="${tool.link}">${tool.name}</a>
+        <small style="color:var(--muted);font-size:0.75rem">+${tool.changePercent}%</small>
+      </span>
+      <span class="breakdown-cost">+${formatDollars(cost)}/yr</span>
+    </li>
+  `).join('');
+
+  // Update Twitter share
+  const toolList = items.slice(0, 3).map(({tool}) => `${tool.name} +${tool.changePercent}%`).join(', ');
+  const tweetText = `My team is paying ${formatDollars(totalAnnual)} more per year just from SaaS price hikes (${toolList}${items.length > 3 ? '...' : ''}).\n\nCalculate yours: https://getpricepulse.com/saas-price-hike-calculator.html`;
+  document.getElementById('twitterBtn').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+}
+
+function copyResult() {
+  const teamSize = getTeamSize();
+  const selected = TOOLS.filter(t => selectedTools.has(t.id));
+  if (selected.length === 0) return;
+
+  const totalAnnual = selected.reduce((sum, t) => sum + calcToolCost(t, teamSize), 0);
+  const items = selected
+    .map(t => `${t.name} +${t.changePercent}% = +${formatDollars(calcToolCost(t, teamSize))}/yr`)
+    .join('\n');
+
+  const text = `SaaS price hikes costing my team ${formatDollars(totalAnnual)}/year extra in 2026:\n${items}\n\nCalculate yours: https://getpricepulse.com/saas-price-hike-calculator.html`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ Copied!';
+    btn.className = 'share-btn copy copied';
+    setTimeout(() => {
+      btn.textContent = '📋 Copy result';
+      btn.className = 'share-btn copy';
+    }, 2000);
+    showToast();
+  });
+}
+
+function showToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// Load from URL params (for shared links)
+function loadFromParams() {
+  const params = new URLSearchParams(window.location.search);
+  const tools = params.get('tools');
+  const team = params.get('team');
+
+  if (team) {
+    const n = parseInt(team);
+    if (!isNaN(n) && n > 0) document.getElementById('teamSize').value = n;
+  }
+
+  if (tools) {
+    tools.split(',').forEach(id => {
+      const tool = TOOLS.find(t => t.id === id);
+      if (tool) {
+        selectedTools.add(id);
+        const card = document.getElementById('card-' + id);
+        if (card) card.classList.add('selected');
+      }
+    });
+    updateResults();
+    updateSelectAllBtn();
+  }
+}
+
+document.getElementById('teamSize').addEventListener('input', updateResults);
+
+renderTools();
+loadFromParams();
+</script>
+</body>
+</html>
