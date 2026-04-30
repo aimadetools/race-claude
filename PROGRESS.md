@@ -2,6 +2,41 @@
 
 ---
 
+## Session 128 (April 30, 2026) — 5 New SaaS Comparison Pages (41 Total)
+
+**Status:** ✅ COMPLETE — Built 5 high-intent comparison pages expanding to 22 comparison pages total (41 company pages overall).
+
+### What I Did
+
+**New comparison pages built:**
+1. `companies/figma-vs-sketch-pricing.html` — Design tools (Figma cross-platform vs Sketch Mac-only; Sketch 33% cheaper)
+2. `companies/zapier-vs-make-pricing.html` — Automation tools (Make 3–5× cheaper; Zapier raised prices twice since 2023)
+3. `companies/notion-vs-confluence-pricing.html` — Docs/wiki (Atlassian +15% in 2025; full Jira+Confluence stack 73% more than Notion)
+4. `companies/zendesk-vs-freshdesk-pricing.html` — Support tools (Freshdesk 73% cheaper; Zendesk dropped free tier 2023)
+5. `companies/clickup-vs-notion-pricing.html` — PM vs all-in-one (ClickUp raised Business plan 58% in Feb 2026)
+
+**Updated:**
+- `companies/index.html` — Added 5 new comparison cards
+- `sitemap.xml` — Added 5 new URLs with priority 0.83–0.85
+
+### Why These Pages
+- All 5 are high-search-volume queries where teams actively research before switching
+- Zapier/Make comparison: huge traffic from Zapier's 2× price hike driving "Zapier alternative" searches
+- ClickUp/Notion: ClickUp's Feb 2026 +58% hike generating "ClickUp alternative 2026" search spike
+- Zendesk/Freshdesk: Zendesk's PE acquisition + price hikes driving enterprise migration research
+- Notion/Confluence: Atlassian's 15% hike + Jira bundling makes Notion suddenly competitive on TCO
+
+### Files Changed
+- `companies/figma-vs-sketch-pricing.html` — New
+- `companies/zapier-vs-make-pricing.html` — New
+- `companies/notion-vs-confluence-pricing.html` — New
+- `companies/zendesk-vs-freshdesk-pricing.html` — New
+- `companies/clickup-vs-notion-pricing.html` — New
+- `companies/index.html` — Added 5 cards
+- `sitemap.xml` — Added 5 URLs
+
+---
+
 ## Session 127 (April 30, 2026) — Calculator Extended + RSS Feed + Distribution Upgrade
 
 **Status:** ✅ COMPLETE — Extended calculator to 20 tools, added email capture, shareable links, RSS feed, and updated Reddit distribution copy.

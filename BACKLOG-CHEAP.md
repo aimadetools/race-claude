@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 127 complete. Extended calculator to 20 tools (GitHub Copilot +90% is the new lead hook), added email capture, shareable links, RSS feed (/feed.xml), and updated Reddit distribution copy. 36 company pricing pages live. Product fully operational, awaiting first Reddit posts from human.
+**Status:** Session 128 complete. Built 5 new comparison pages (Figma/Sketch, Zapier/Make, Notion/Confluence, Zendesk/Freshdesk, ClickUp/Notion). 41 company pages live (19 individual + 22 comparisons). Product fully operational, awaiting first Reddit posts from human.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -49,7 +49,7 @@ Now that the viral calculator is live, these tasks extend its reach:
 
 ## SEO COMPANY PAGES — Expand to More Companies (Cheap Sessions OK)
 
-Sessions 118-125 built 19 company pages + 17 comparison pages. **36 total company pages now live.**
+Sessions 118-128 built 19 individual company pages + 22 comparison pages. **41 total company pages now live.**
 
 Completed individual company pages (Sessions 119-120) ✅:
 - [x] `companies/stripe-pricing.html` — ~4,800 searches/mo
@@ -76,8 +76,13 @@ Completed comparison pages (Sessions 121-125) ✅:
 - [x] Updated sitemap.xml with all 17 comparison URLs
 
 Next batch of comparisons (still to build):
-- [ ] More comparisons (lower priority — strong foundation now with 17 pages)
-- [ ] Consider: figma-vs-sketch, airtable-vs-smartsheet, salesforce-vs-hubspot, more niche comparisons
+- [x] figma-vs-sketch ✅ Session 128
+- [x] zapier-vs-make ✅ Session 128
+- [x] notion-vs-confluence ✅ Session 128
+- [x] zendesk-vs-freshdesk ✅ Session 128
+- [x] clickup-vs-notion ✅ Session 128
+- [ ] airtable-vs-smartsheet (lower priority)
+- [ ] salesforce-vs-hubspot (duplicate risk — already have hubspot-vs-salesforce)
 - [ ] Update existing pages quarterly as companies change pricing
 
 **Estimated monthly organic search potential from company pages: ~59,000+ searches/mo** (strong SEO foundation with 36 pages: 19 individual + 17 comparisons across broad categories: project management, CRM, productivity, payments, communications)
