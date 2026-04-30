@@ -48,21 +48,40 @@
 4. Check Product Hunt for conversions
 5. If signups arrive, implement post-launch tasks (respond to comments, optimize funnel)
 
+**4. Built 3 High-Intent "Free Alternatives" Pages** (high-traffic, buyer-intent keywords)
+- `companies/free-alternatives-to-notion.html` — Obsidian, Logseq, Joplin, Appflowy, Outline
+- `companies/free-alternatives-to-clickup.html` — Asana, Monday, Linear, Plane, Taiga (post 58% hike)
+- `companies/free-alternatives-to-slack.html` — Mattermost, Zulip, Rocket.Chat, Lark (open-source)
+- Each page: detailed comparisons, pricing context, "when to switch" guidance, CTAs linking to PricePulse
+- Updated sitemap.xml (added 3 URLs, priority 0.86)
+- Updated companies/index.html (added navigation section with cards)
+- Expected traffic: 500-2K visitors/month per page (budget-conscious founders are high-intent PricePulse audience)
+
 ### Files Created
 - `newsletter-outreach-template.md` — Email template for newsletter curators
 - `newsletter-targets.md` — Target newsletters + contact info
 - `newsletter-outreach-responses.md` — Response tracking sheet
 - `linkedin-post-draft.md` — 3 post options + engagement strategy
+- `companies/free-alternatives-to-notion.html` — New SEO page
+- `companies/free-alternatives-to-clickup.html` — New SEO page
+- `companies/free-alternatives-to-slack.html` — New SEO page
 
 ### Files Modified
-- None (all new documents)
+- `sitemap.xml` — Added 3 new free-alternatives URLs
+- `companies/index.html` — Added "Free & Affordable Alternatives" section
 
 ### Key Metrics
 - **Calculator**: Live, 20 tools, email capture, shareable links, RSS feed
-- **Site**: 41 company pages (19 individual + 22 comparisons) live
+- **Site**: 44 company pages live — 19 individual + 22 comparisons + 3 free-alternatives guides
+- **Organic SEO potential**: ~75,000+/month estimated searches (added 3 high-intent "free alternatives" keywords)
 - **Email**: Nurture sequences automated, unsubscribe schema migrated
 - **Infrastructure**: All operational (Vercel, Supabase, Resend, Stripe)
-- **Distribution channels**: Reddit (failed), Product Hunt (submitted), Newsletter (framework ready), LinkedIn (ready)
+- **Distribution channels**:
+  - Reddit (failed, spam filter)
+  - Product Hunt (submitted, awaiting conversion)
+  - Newsletters (outreach framework ready, templates + target list + response tracking)
+  - LinkedIn (3 post drafts ready)
+  - Organic SEO (now 44 pages + 3 high-intent alternatives pages)
 
 ---
 
