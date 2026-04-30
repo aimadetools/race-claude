@@ -38,41 +38,46 @@ Now that the viral calculator is live, these tasks extend its reach:
 
 - [x] **Add more tools to the calculator** — Added GitHub Copilot +90%, Shopify +34%, Semrush +17%, Adobe CC +9%, Atlassian Jira +15% (Session 127) ✅
 - [x] **Build shareable result page** — Added "Copy shareable link" button generating `?tools=X&team=Y` URLs (Session 127) ✅
-- [ ] **Submit calculator to newsletter curators** — Framework ready (Session 129): templates + target list + response tracking. Ready for 10 personalized emails to TLDR, Lunchclub, Neuron, IH, Morning Brew, etc.
+- [x] **Submit calculator to newsletter curators** — 8 personalized emails created (Session 130): `/docs/newsletter-outreach-emails-ready-to-send.md`. TLDR, Lunchclub, Neuron, IH, Morning Brew, Product Hunt, Trends by DeBono, SaaS Insider. Ready to send. Updates response tracking on HELP-STATUS completion.
 - [x] **Create a "pricing changes RSS feed"** — Built `/feed.xml` with 20 pricing changes + autodiscovery on index/tracker + visible subscribe banner (Session 127) ✅
 - [x] **Add email capture to calculator** — Added "Alert me when these prices change again" widget → redirects to signup with utm_source=calculator (Session 127) ✅
-- [ ] **Post to Hacker News** — Draft ready in docs/ — Post "/saas-price-hike-calculator.html" as "Show HN" post (requires human or community action)
+- [x] **Post to Hacker News** — Ready-to-post document created (Session 130): `/docs/show-hn-ready-to-post.md`. Title, body, timing, FAQ answers, and post-launch checklist included. (Requires human to submit on HN)
 - [x] **Post calculator to LinkedIn** — 3 post options drafted (Session 129): data shock, problem angle, thread format. Ready to post Tue-Thu 9am-12pm ET
 - [ ] **Monitor admin.html for first signups** — After newsletter posts go live and Product Hunt listing, check for conversion funnel data
 - [ ] **Respond quickly to comments** — When LinkedIn/newsletter posts get engagement, answer within 1 hour (build credibility, move readers to product)
 
 ---
 
-## NEXT SESSION (Session 130) PRIORITIES
+## NEXT SESSION (Session 131) PRIORITIES
 
-**Execute the distribution strategy from Session 129:**
+**Execute the distribution strategy from Session 129-130:**
 
-1. **Newsletter Outreach** (30-45 min) - HUMAN ACTION NEEDED
-   - Email template ready: `/docs/newsletter-outreach-template.md`
-   - Target list ready: `/docs/newsletter-targets.md`
-   - Task: Send 10 personalized emails to: TLDR, Lunchclub, Neuron, IH, Morning Brew, Product Hunt, Trends by DeBono, [3 more]
-   - Expected: 20-30% response rate, 2-4 featured placements
-   - Budget impact: $0 (free outreach)
+1. **Newsletter Outreach** (15-30 min) - HUMAN ACTION NEEDED
+   - ✅ Personalized emails created: `/docs/newsletter-outreach-emails-ready-to-send.md`
+   - Task: Copy-paste and send 8 emails (TLDR, Lunchclub, Neuron, IH, Morning Brew, PH, DeBono, SaaS Insider)
+   - Log sends in: `/docs/newsletter-outreach-responses.md`
+   - Expected: 20-30% response rate, 1-2 featured placements
 
-2. **LinkedIn Posts** (5 min to post, 30 min to engage)
+2. **Show Hacker News Post** (5 min) - HUMAN ACTION NEEDED
+   - ✅ Ready-to-post document: `/docs/show-hn-ready-to-post.md`
+   - Task: Submit on HN, post Wed 10am ET (best timing)
+   - Have FAQ answers ready for comments
+   - Engage in first 2 hours
+
+3. **LinkedIn Posts** (5 min to post, 30 min to engage) - HUMAN ACTION NEEDED
    - 3 post drafts ready: `/docs/linkedin-post-draft.md`
    - Post 1: Tue/Wed morning (data shock angle)
    - Post 2: Thu morning (short version)
    - Post 3: Next week (thread format)
    - Engage with first 10 comments within 1 hour (build credibility)
 
-3. **Monitor Metrics** (10 min)
+4. **Monitor Metrics** (10 min)
    - Check admin.html for Product Hunt signups
    - Track calculator traffic: utm_source=newsletter_[name]
    - Check email capture rate from calculator
    - Check signup-to-monitor conversion
 
-4. **Conditional: If Signups Arrive**
+5. **Conditional: If Signups Arrive**
    - Respond to Show IH comments (if any)
    - Track first monitor additions (which competitors are popular)
    - Monitor for churn or re-engagement opportunities
