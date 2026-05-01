@@ -75,11 +75,21 @@
 - `sitemap.xml` — Added 3 new URLs
 - `companies/index.html` — Added 3 new comparison cards
 
+3. **`companies/github-copilot-vs-codeium-pricing.html`** — AI coding assistants battle (free vs premium)
+   - GitHub Copilot: $10/mo (GPT-4) or $20/mo Pro
+   - Codeium: Free (unlimited) or $20/mo Pro
+   - Annual cost analysis: 10-developer team saves $1,200–$2,280/yr with Codeium free
+   - Feature matrix: Models, speed, IDE support, code search, privacy, self-hosting
+   - Code quality analysis: GPT-4 vs Claude 3.5 vs Llama
+   - Verdict: Most developers should use Codeium free; Copilot for enterprises only
+   - FAQ: Which generates better code? Is Codeium's free tier really unlimited? Privacy concerns?
+   - Expected traffic: 600–900/mo ("GitHub Copilot vs Codeium" hot market keyword 2026)
+
 ### Key Metrics
-- **Total company pages:** 64 (30 individual + 29 comparisons + 3 free-alternatives + 1 leaderboard + 1 index)
-- **New search coverage:** ~8,000–12,000 searches/mo (Asana vs Jira 500-800 + Stripe vs Square 300-500 + Notion vs Jira 400-600 + indexing compound effect)
-- **Total estimated organic potential:** ~145,000–155,000 searches/month (up from 137,000)
-- **Comparison pages:** Now 29 total (highest in the space)
+- **Total company pages:** 65 (30 individual + 30 comparisons + 3 free-alternatives + 1 leaderboard + 1 index)
+- **New search coverage (Session 136):** ~10,000–15,000 searches/mo (Asana vs Jira 500-800 + Stripe vs Square 300-500 + Notion vs Jira 400-600 + Copilot vs Codeium 600-900 + indexing compound effect)
+- **Total estimated organic potential:** ~150,000–160,000 searches/month (up from 137,000)
+- **Comparison pages:** Now 30 total (highest in the space)
 
 ### Next Steps (Session 137+)
 
