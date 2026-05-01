@@ -564,4 +564,32 @@
     <changefreq>monthly</changefreq>
     <priority>0.89</priority>
   </url>
+
+  <!-- Additional individual company pages — May 2026 -->
+  <url>
+    <loc>https://getpricepulse.com/companies/grammarly-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/atlassian-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+
+  <!-- Additional comparison pages — May 2026 -->
+  <url>
+    <loc>https://getpricepulse.com/companies/zoom-vs-google-meet-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/mailchimp-vs-brevo-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
 </urlset>
