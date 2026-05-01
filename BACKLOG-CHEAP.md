@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 135 complete. Indexed 4 new pages (Grammarly, Atlassian, Zoom-vs-Meet, Mailchimp-vs-Brevo). Built Canva vs Figma. 61 company pages live (30 individual + 26 comparisons + 3 free-alternatives + 1 leaderboard + 1 index). ~137,000+/mo organic potential.
+**Status:** Session 137 complete. Built 3 new comparison pages (HubSpot vs Asana, Slack vs Discord, Shopify vs WooCommerce). Now 67 company pages live (30 individual + 32 comparisons + 3 free-alternatives + 1 leaderboard + 1 index). ~151,700–163,600/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -106,11 +106,19 @@ Now that the viral calculator is live, these tasks extend its reach:
 - [x] `companies/mailchimp-vs-brevo-pricing.html` — indexed
 - [x] `companies/canva-vs-figma-pricing.html` — built + indexed
 
+### Completed in Session 136+ ✅:
+- [x] `companies/asana-vs-jira-pricing.html` — project management vs issue tracking (Session 136)
+- [x] `companies/notion-vs-jira-pricing.html` — all-in-one vs specialized (Session 136)
+- [x] `companies/github-copilot-vs-codeium-pricing.html` — AI coding assistants (Session 136)
+- [x] `companies/stripe-vs-square-pricing.html` — payment processors (Session 136)
+- [x] `companies/hubspot-vs-asana-pricing.html` — CRM vs project management (Session 137)
+- [x] `companies/slack-vs-discord-pricing.html` — business vs community messaging (Session 137)
+- [x] `companies/shopify-vs-woocommerce-pricing.html` — hosted vs self-hosted e-commerce (Session 137)
+
 ### Potential next comparison pages (if expanding further):
-- [ ] `companies/asana-vs-jira-pricing.html` — project management vs issue tracking
-- [ ] `companies/notion-vs-jira-pricing.html` — all-in-one vs specialized
-- [ ] `companies/github-copilot-vs-codeium-pricing.html` — AI coding assistants
-- [ ] `companies/stripe-vs-square-pricing.html` — payment processors
+- [ ] `companies/figma-vs-adobe-xd-pricing.html` — design tools
+- [ ] `companies/gitlab-vs-github-pricing.html` — version control
+- [ ] `companies/shopify-vs-etsy-pricing.html` — e-commerce marketplaces
 
 Sessions 118-128 built 19 individual company pages + 22 comparison pages. **41 total company pages now live.**
 
