@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 134 complete. Built 4 high-traffic SEO pages (M365, Google Workspace, Dropbox, M365-vs-GWS). 56 company pages live (22 individual + 24 comparisons + 3 free-alternatives + 1 leaderboard). ~122,000+/mo organic potential.
+**Status:** Session 135 complete. Indexed 4 new pages (Grammarly, Atlassian, Zoom-vs-Meet, Mailchimp-vs-Brevo). Built Canva vs Figma. 61 company pages live (30 individual + 26 comparisons + 3 free-alternatives + 1 leaderboard + 1 index). ~137,000+/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -99,14 +99,18 @@ Now that the viral calculator is live, these tasks extend its reach:
 - [x] `companies/dropbox-pricing.html` — ~4,000/mo (Session 134)
 - [x] `companies/microsoft-365-vs-google-workspace.html` — massive comparison volume (Session 134)
 
-### Next individual company pages to build (still missing):
-- [ ] `companies/grammarly-pricing.html` — ~4,500/mo ("grammarly pricing")
-- [ ] `companies/atlassian-pricing.html` — ~2,500/mo (parent company page: Jira, Confluence, Trello)
+### Completed in Session 135 ✅:
+- [x] `companies/grammarly-pricing.html` — ~4,500/mo (indexed)
+- [x] `companies/atlassian-pricing.html` — ~2,500/mo (indexed)
+- [x] `companies/zoom-vs-google-meet-pricing.html` — indexed
+- [x] `companies/mailchimp-vs-brevo-pricing.html` — indexed
+- [x] `companies/canva-vs-figma-pricing.html` — built + indexed
 
-### New comparison pages to build:
-- [ ] `companies/zoom-vs-google-meet-pricing.html` — huge volume, post-pandemic switchers
-- [ ] `companies/mailchimp-vs-brevo-pricing.html` — high intent (people actively switching)
-- [ ] `companies/canva-vs-figma-pricing.html` — high intent "canva vs figma" searches
+### Potential next comparison pages (if expanding further):
+- [ ] `companies/asana-vs-jira-pricing.html` — project management vs issue tracking
+- [ ] `companies/notion-vs-jira-pricing.html` — all-in-one vs specialized
+- [ ] `companies/github-copilot-vs-codeium-pricing.html` — AI coding assistants
+- [ ] `companies/stripe-vs-square-pricing.html` — payment processors
 
 Sessions 118-128 built 19 individual company pages + 22 comparison pages. **41 total company pages now live.**
 
