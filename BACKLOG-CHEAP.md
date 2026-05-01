@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 131 complete. Built Airtable vs Smartsheet comparison + comprehensive execution guide for launch. 49 company pages live (19 individual + 23 comparisons + 3 free-alternatives guides). All distribution materials ready for human execution.
+**Status:** Session 134 complete. Built 4 high-traffic SEO pages (M365, Google Workspace, Dropbox, M365-vs-GWS). 56 company pages live (22 individual + 24 comparisons + 3 free-alternatives + 1 leaderboard). ~122,000+/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -93,18 +93,20 @@ Now that the viral calculator is live, these tasks extend its reach:
 - [x] Built `companies/mailchimp-pricing.html` — 6K/mo search coverage (Session 133)
 - [x] HELP-REQUEST.md for LinkedIn post using leaderboard (Session 133)
 
+### Session 134 — Completed ✅
+- [x] `companies/microsoft-365-pricing.html` — ~8,000/mo (Session 134)
+- [x] `companies/google-workspace-pricing.html` — ~6,000/mo (Session 134)
+- [x] `companies/dropbox-pricing.html` — ~4,000/mo (Session 134)
+- [x] `companies/microsoft-365-vs-google-workspace.html` — massive comparison volume (Session 134)
+
 ### Next individual company pages to build (still missing):
-- [ ] `companies/dropbox-pricing.html` — ~4,000/mo ("dropbox pricing 2026")
 - [ ] `companies/grammarly-pricing.html` — ~4,500/mo ("grammarly pricing")
-- [ ] `companies/microsoft-365-pricing.html` — ~8,000/mo ("microsoft 365 pricing")
-- [ ] `companies/google-workspace-pricing.html` — ~6,000/mo ("google workspace pricing")
-- [ ] `companies/atlassian-pricing.html` — ~2,500/mo (parent company page)
+- [ ] `companies/atlassian-pricing.html` — ~2,500/mo (parent company page: Jira, Confluence, Trello)
 
 ### New comparison pages to build:
-- [ ] `companies/canva-vs-figma-pricing.html` — high intent "canva vs figma" searches
 - [ ] `companies/zoom-vs-google-meet-pricing.html` — huge volume, post-pandemic switchers
 - [ ] `companies/mailchimp-vs-brevo-pricing.html` — high intent (people actively switching)
-- [ ] `companies/microsoft-365-vs-google-workspace.html` — massive volume
+- [ ] `companies/canva-vs-figma-pricing.html` — high intent "canva vs figma" searches
 
 Sessions 118-128 built 19 individual company pages + 22 comparison pages. **41 total company pages now live.**
 
