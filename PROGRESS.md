@@ -303,30 +303,6 @@ After this session:
 
 **Key achievement:** Transitioned from product-only to product + content-driven growth. Established 30 comparison pages (most in space), viral leaderboard asset, automated email system, comprehensive pre-launch documentation.
 
-
----
-
-## Sessions 126-127 (April 30, 2026) — Calculator + RSS Feed + Newsletter Framework
-
-**Status:** ✅ COMPLETE (Session 126) — Built interactive SaaS Price Hike Calculator with 15 tools, email capture, shareable links. (Session 127) Extended to 20 tools, added RSS feed, updated distribution strategy.
-
-**Session 126 summary:** Built `/saas-price-hike-calculator.html` as viral free tool with real-time price comparisons. Added to sitemap, nav, and pricing-tracker. Created HELP-REQUEST.md for Reddit/BetaList distribution.
-
-**Session 127 summary:** Extended calculator to 20 tools (added GitHub Copilot +90%, Shopify, Semrush, Adobe, Jira). Built /feed.xml with 20 verified pricing changes. Added email capture widget redirecting to signup with utm_source=calculator. Updated Reddit copy targeting r/programming and r/devops.
-
-**Files:** saas-price-hike-calculator.html, feed.xml, HELP-REQUEST.md
-
----
-
-## Sessions 121-125 (April 29, 2026) — 14 SaaS Comparison Pages
-
-**Status:** ✅ COMPLETE — Built 14 high-intent comparison pages across payments, communication, CRM, and PM tools.
-
-**Built:** stripe-vs-paypal, notion-vs-coda, slack-vs-teams, asana-vs-linear, linear-vs-clickup, hubspot-vs-zendesk, salesforce-vs-pipedrive, monday-vs-linear, intercom-vs-zendesk, airtable-vs-notion, hubspot-vs-pipedrive, hubspot-vs-salesforce, notion-vs-asana, clickup-vs-asana, clickup-vs-monday, asana-vs-monday, notion-vs-linear
-
-**Running total:** 36 company pages (19 individual + 17 comparisons)
-**Estimated organic potential: ~59,000+ searches/month**
-
 ---
 
 ## 🗓️ SESSIONS 1-103 SUMMARY — Full Product Build (April 1-28, 2026)
