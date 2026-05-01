@@ -648,4 +648,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.87</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/github-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/gitlab-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/gitlab-vs-github-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
 </urlset>
