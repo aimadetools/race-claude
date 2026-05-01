@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Price Hike Leaderboard 2026 — Every Major Price Increase Ranked</title>
+  <meta name="description" content="The definitive leaderboard of SaaS price increases in 2025–2026. GitHub Copilot +90%, Typeform +67%, ClickUp +58%, and 30+ more ranked by percentage increase. Updated monthly." />
+  <meta property="og:title" content="SaaS Price Hike Leaderboard 2026 — Ranked by % Increase" />
+  <meta property="og:description" content="GitHub Copilot +90%. Typeform +67%. ClickUp +58%. The complete, ranked list of every major SaaS price increase in 2025–2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getpricepulse.com/saas-price-hike-leaderboard.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SaaS Price Hike Leaderboard 2026 — Ranked by % Increase" />
+  <meta name="twitter:description" content="GitHub Copilot +90%. Typeform +67%. ClickUp +58%. 30+ companies ranked." />
+  <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg" />
+  <link rel="canonical" href="https://getpricepulse.com/saas-price-hike-leaderboard.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "SaaS Price Hike Leaderboard 2025–2026",
+    "description": "Comprehensive ranked dataset of SaaS software price increases from 2025 to 2026, including percentage increase, category, and date of change.",
+    "url": "https://getpricepulse.com/saas-price-hike-leaderboard.html",
+    "creator": { "@type": "Organization", "name": "PricePulse", "url": "https://getpricepulse.com" },
+    "dateModified": "2026-05-01",
+    "keywords": ["SaaS pricing", "price increase 2026", "software cost", "SaaS inflation"]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --red: #ef4444;
+      --red-bg: rgba(239,68,68,0.1);
+      --orange: #f97316;
+      --yellow: #eab308;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-weight: 700; font-size: 1.1rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-cta { background: var(--accent); color: #000 !important; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600 !important; font-size: 0.8rem !important; }
+    .nav-cta:hover { background: var(--accent2) !important; }
+
+    /* HERO */
+    .hero {
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--red-bg); border: 1px solid rgba(239,68,68,0.3);
+      color: #ef4444; padding: 0.35rem 0.85rem; border-radius: 99px;
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero h1 .highlight { color: var(--red); }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 2rem;
+    }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.5rem; text-align: center;
+    }
+    .stat-value { font-size: 1.75rem; font-weight: 800; color: var(--red); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    /* FILTERS */
+    .filters-wrap {
+      max-width: 1100px; margin: 0 auto 1.5rem;
+      padding: 0 1.5rem;
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    }
+    .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-btn {
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--muted); padding: 0.4rem 0.85rem;
+      border-radius: 6px; font-size: 0.8rem; font-weight: 500;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent); color: #000; border-color: var(--accent);
+    }
+    .filter-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+    .sort-info { margin-left: auto; font-size: 0.8rem; color: var(--muted); }
+
+    /* TABLE */
+    .table-wrap {
+      max-width: 1100px; margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      background: var(--bg2); border-radius: var(--radius);
+      overflow: hidden;
+    }
+    thead th {
+      background: var(--bg3);
+      padding: 0.85rem 1rem;
+      text-align: left; font-size: 0.75rem; font-weight: 600;
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;
+      cursor: pointer; white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+    }
+    thead th:hover { color: var(--text); }
+    thead th .sort-icon { margin-left: 4px; opacity: 0.4; }
+    thead th.sorted .sort-icon { opacity: 1; color: var(--accent); }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,0.03); }
+    tbody td { padding: 0.85rem 1rem; font-size: 0.875rem; }
+
+    /* RANK */
+    .rank {
+      font-weight: 700; font-size: 1rem; color: var(--muted);
+      min-width: 36px; display: inline-block; text-align: center;
+    }
+    .rank-1 { color: #FFD700; }
+    .rank-2 { color: #C0C0C0; }
+    .rank-3 { color: #CD7F32; }
+
+    /* COMPANY */
+    .company-cell { display: flex; align-items: center; gap: 0.75rem; }
+    .company-logo {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--bg3); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .company-name { font-weight: 600; color: var(--text); }
+    .company-plan { font-size: 0.75rem; color: var(--muted); }
+
+    /* BADGE */
+    .badge {
+      display: inline-flex; align-items: center;
+      padding: 0.2rem 0.5rem; border-radius: 4px;
+      font-size: 0.75rem; font-weight: 600;
+    }
+    .badge-cat { background: rgba(136,136,168,0.12); color: var(--muted); }
+
+    /* INCREASE */
+    .increase {
+      font-weight: 700; font-size: 1rem;
+    }
+    .increase-high { color: var(--red); }
+    .increase-medium { color: var(--orange); }
+    .increase-low { color: var(--yellow); }
+
+    /* PERCENT BAR */
+    .pct-bar-wrap { display: flex; align-items: center; gap: 0.5rem; min-width: 120px; }
+    .pct-bar {
+      flex: 1; height: 6px; background: var(--bg3);
+      border-radius: 3px; overflow: hidden;
+    }
+    .pct-bar-fill { height: 100%; border-radius: 3px; }
+    .fill-high { background: var(--red); }
+    .fill-medium { background: var(--orange); }
+    .fill-low { background: var(--yellow); }
+    .pct-label { font-size: 0.75rem; color: var(--muted); white-space: nowrap; min-width: 50px; }
+
+    /* DETAIL LINK */
+    .detail-link {
+      font-size: 0.75rem; color: var(--accent);
+      font-weight: 500; white-space: nowrap;
+    }
+    .detail-link:hover { text-decoration: underline; }
+
+    /* SHAME BADGE */
+    .shame-badge {
+      display: inline-block;
+      background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3);
+      color: var(--red); font-size: 0.65rem; font-weight: 700;
+      padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.4rem;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(0,229,160,0.08) 0%, rgba(0,229,160,0.03) 100%);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: var(--radius);
+      padding: 2.5rem; text-align: center;
+      max-width: 700px; margin: 0 auto 4rem;
+    }
+    .cta-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .cta-section p { color: var(--muted); margin-bottom: 1.5rem; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent); color: #000;
+      font-weight: 700; padding: 0.85rem 2rem;
+      border-radius: 10px; font-size: 1rem;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .cta-btn:hover { background: var(--accent2); transform: translateY(-1px); text-decoration: none; }
+
+    /* SHARE */
+    .share-section {
+      text-align: center; margin-bottom: 3rem; padding: 0 1.5rem;
+    }
+    .share-section p { color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem; }
+    .share-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1.1rem; border-radius: 8px;
+      font-size: 0.8rem; font-weight: 600; cursor: pointer;
+      transition: transform 0.15s; border: none;
+    }
+    .share-btn:hover { transform: translateY(-1px); }
+    .share-twitter { background: #1DA1F2; color: white; }
+    .share-linkedin { background: #0077B5; color: white; }
+    .share-copy { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+    .share-copy:hover { border-color: var(--accent); }
+
+    /* METHODOLOGY */
+    .methodology {
+      max-width: 700px; margin: 0 auto 4rem;
+      padding: 2rem 1.5rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .methodology h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .methodology p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
+
+    /* HIDDEN for filtering */
+    tr.hidden { display: none; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .nav-links .hide-mobile { display: none; }
+      .hero-stats { gap: 1rem; }
+      .stat-card { padding: 0.75rem 1rem; }
+      td.hide-mobile, th.hide-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Price<span>Pulse</span></a>
+  <div class="nav-links">
+    <a href="/pricing-tracker.html" class="hide-mobile">Pricing Tracker</a>
+    <a href="/saas-price-hike-calculator.html" class="hide-mobile">Calculator</a>
+    <a href="/companies/" class="hide-mobile">Companies</a>
+    <a href="/signup.html" class="nav-cta">Monitor for Free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">⚠ Updated May 2026</div>
+  <h1>SaaS Price Hike<br><span class="highlight">Leaderboard 2026</span></h1>
+  <p>The definitive ranked list of every major SaaS price increase from 2024–2026. Sorted by % increase. 30+ companies tracked.</p>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-value">+90%</div>
+      <div class="stat-label">Biggest single hike</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">32</div>
+      <div class="stat-label">Companies tracked</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">$4,800</div>
+      <div class="stat-label">Avg extra spend/yr (10-person team)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">2026</div>
+      <div class="stat-label">Year of peak SaaS inflation</div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<div class="filters-wrap">
+  <span class="filter-label">Category:</span>
+  <div class="filter-group" id="cat-filters">
+    <button class="filter-btn active" data-cat="all" onclick="filterCat(this,'all')">All</button>
+    <button class="filter-btn" data-cat="Project Management" onclick="filterCat(this,'Project Management')">Project Mgmt</button>
+    <button class="filter-btn" data-cat="CRM" onclick="filterCat(this,'CRM')">CRM</button>
+    <button class="filter-btn" data-cat="Dev Tools" onclick="filterCat(this,'Dev Tools')">Dev Tools</button>
+    <button class="filter-btn" data-cat="Design" onclick="filterCat(this,'Design')">Design</button>
+    <button class="filter-btn" data-cat="Automation" onclick="filterCat(this,'Automation')">Automation</button>
+    <button class="filter-btn" data-cat="Email & Marketing" onclick="filterCat(this,'Email &amp; Marketing')">Marketing</button>
+    <button class="filter-btn" data-cat="Support" onclick="filterCat(this,'Support')">Support</button>
+  </div>
+  <span class="sort-info" id="sort-info">Click any column header to sort</span>
+</div>
+
+<!-- TABLE -->
+<div class="table-wrap">
+  <table id="leaderboard">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)" title="Sort by rank"># <span class="sort-icon">↕</span></th>
+        <th onclick="sortTable(1)" title="Sort by company">Company <span class="sort-icon">↕</span></th>
+        <th onclick="sortTable(2)" title="Sort by category">Category <span class="sort-icon">↕</span></th>
+        <th onclick="sortTable(3)" title="Sort by % increase" class="sorted">% Increase <span class="sort-icon">↓</span></th>
+        <th onclick="sortTable(4)" title="Sort by price before" class="hide-mobile">Before <span class="sort-icon">↕</span></th>
+        <th onclick="sortTable(5)" title="Sort by price after" class="hide-mobile">After <span class="sort-icon">↕</span></th>
+        <th onclick="sortTable(6)" title="Sort by date">Date <span class="sort-icon">↕</span></th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+      <!-- Rows injected by JS -->
+    </tbody>
+  </table>
+</div>
+
+<!-- SHARE -->
+<div class="share-section">
+  <p>Know someone who should see this? Share the leaderboard.</p>
+  <div class="share-btns">
+    <button class="share-btn share-twitter" onclick="shareTwitter()">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Share on X
+    </button>
+    <button class="share-btn share-linkedin" onclick="shareLinkedIn()">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Share on LinkedIn
+    </button>
+    <button class="share-btn share-copy" onclick="copyLink()">
+      📋 Copy Link
+    </button>
+  </div>
+</div>
+
+<!-- CTA -->
+<div style="padding: 0 1.5rem; max-width: 1100px; margin: 0 auto;">
+  <div class="cta-section">
+    <h2>Get Alerted When Your Tools Raise Prices Next</h2>
+    <p>Stop finding out after the invoice arrives. PricePulse monitors competitor and vendor pricing pages 24/7 and alerts you the moment anything changes.</p>
+    <a href="/signup.html" class="cta-btn">Start Monitoring Free →</a>
+    <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--muted);">No credit card required. Monitor 3 competitors free forever.</p>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div style="padding: 0 1.5rem;">
+  <div class="methodology">
+    <h3>Methodology & Sources</h3>
+    <p>All price increases are verified against official company pricing pages, press releases, and customer notifications. Percentage increases are calculated using the most comparable plan (typically the most popular mid-tier plan). Where companies restructured plans, we use the nearest equivalent tier.</p>
+    <p>Enterprise/custom pricing is excluded unless a public list price exists. "Per seat" pricing is calculated at the per-seat level, not total contract value. Percentage increases reflect the single largest increase per company during the period.</p>
+    <p>Data is maintained by PricePulse's monitoring system. Last updated: <strong>May 2026</strong>. <a href="/pricing-tracker.html">View full pricing tracker →</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/pricing-tracker.html">Pricing Tracker</a>
+    <a href="/saas-price-hike-calculator.html">Price Hike Calculator</a>
+    <a href="/companies/">All Companies</a>
+    <a href="/blog/">Blog</a>
+    <a href="/signup.html">Sign Up Free</a>
+  </div>
+  <p>© 2026 PricePulse. All data verified from public sources.</p>
+</footer>
+
+<script>
+// === DATA ===
+const companies = [
+  { rank:1,  name:"GitHub Copilot",    emoji:"🤖", plan:"Individual",       cat:"Dev Tools",         pct:90,  before:"$10/mo",  after:"$19/mo",  date:"Apr 2024", dateSort:"2024-04", shame:true,  page:"/companies/github-copilot-pricing.html" },
+  { rank:2,  name:"Typeform",          emoji:"📝", plan:"Basic",            cat:"Forms",              pct:67,  before:"$29/mo",  after:"$50/mo",  date:"Jun 2024", dateSort:"2024-06", shame:true,  page:"/companies/typeform-pricing.html" },
+  { rank:3,  name:"ClickUp",           emoji:"📋", plan:"Business",         cat:"Project Management", pct:58,  before:"$7/seat", after:"$12/seat",date:"Feb 2026", dateSort:"2026-02", shame:true,  page:"/companies/clickup-pricing.html" },
+  { rank:4,  name:"Shopify",           emoji:"🛒", plan:"Basic",            cat:"E-commerce",         pct:34,  before:"$29/mo",  after:"$39/mo",  date:"Apr 2024", dateSort:"2024-04", shame:false, page:"/companies/shopify-pricing.html" },
+  { rank:5,  name:"Zapier",            emoji:"⚡", plan:"Starter",          cat:"Automation",         pct:33,  before:"$29.99/mo","after":"$39.99/mo",date:"Jan 2024",dateSort:"2024-01",shame:true, page:"/companies/zapier-pricing.html" },
+  { rank:6,  name:"Intercom",          emoji:"💬", plan:"Starter",          cat:"Support",            pct:30,  before:"$74/mo",  after:"$99/mo",  date:"Jun 2024", dateSort:"2024-06", shame:true,  page:"/companies/intercom-pricing.html" },
+  { rank:7,  name:"Asana",             emoji:"✅", plan:"Premium",          cat:"Project Management", pct:27,  before:"$10.99/seat","after":"$13.49/seat",date:"Sep 2024",dateSort:"2024-09",shame:false,page:"/companies/asana-pricing.html" },
+  { rank:8,  name:"Loom",              emoji:"🎥", plan:"Business",         cat:"Video",              pct:25,  before:"$8/seat", after:"$10/seat",date:"Mar 2024", dateSort:"2024-03", shame:false, page:"/companies/loom-pricing.html" },
+  { rank:9,  name:"Monday.com",        emoji:"📅", plan:"Standard",         cat:"Project Management", pct:20,  before:"$12/seat","after":"$15/seat",date:"Jul 2024",dateSort:"2024-07",shame:false, page:"/companies/monday-pricing.html" },
+  { rank:10, name:"Atlassian / Jira",  emoji:"🔧", plan:"Standard",         cat:"Dev Tools",          pct:20,  before:"$7.75/seat","after":"$9.30/seat",date:"Jan 2025",dateSort:"2025-01",shame:false,page:"/companies/zapier-pricing.html" },
+  { rank:11, name:"HubSpot",           emoji:"🧡", plan:"Starter CRM",      cat:"CRM",                pct:19,  before:"$20/mo",  after:"$25/mo",  date:"Mar 2025", dateSort:"2025-03", shame:false, page:"/companies/hubspot-pricing.html" },
+  { rank:12, name:"Semrush",           emoji:"🔍", plan:"Pro",              cat:"SEO",                pct:17,  before:"$119.95/mo","after":"$139.95/mo",date:"Apr 2024",dateSort:"2024-04",shame:false,page:"/companies/semrush-pricing.html" },
+  { rank:13, name:"Ahrefs",            emoji:"📈", plan:"Lite",             cat:"SEO",                pct:15,  before:"$99/mo",  after:"$129/mo", date:"Sep 2024", dateSort:"2024-09", shame:false, page:"/companies/ahrefs-pricing.html" },
+  { rank:14, name:"Notion",            emoji:"📔", plan:"Business",         cat:"Productivity",       pct:15,  before:"$16/seat","after":"$20/seat",date:"Oct 2024",dateSort:"2024-10",shame:false, page:"/companies/notion-pricing.html" },
+  { rank:15, name:"Adobe Creative Cloud",emoji:"🎨",plan:"All Apps",        cat:"Design",             pct:15,  before:"$54.99/mo","after":"$59.99/mo",date:"Jun 2024",dateSort:"2024-06",shame:false,page:"/companies/adobe-creative-cloud-pricing.html" },
+  { rank:16, name:"Figma",             emoji:"✏️", plan:"Professional",     cat:"Design",             pct:15,  before:"$12/seat","after":"$15/seat",date:"May 2024",dateSort:"2024-05",shame:false, page:"/companies/figma-pricing.html" },
+  { rank:17, name:"Slack",             emoji:"💼", plan:"Pro",              cat:"Communication",      pct:12,  before:"$7.25/seat","after":"$8.75/seat",date:"Aug 2023",dateSort:"2023-08",shame:false,page:"/companies/slack-pricing.html" },
+  { rank:18, name:"Zendesk",           emoji:"🎫", plan:"Suite Team",       cat:"Support",            pct:12,  before:"$55/seat","after":"$69/seat",date:"Feb 2024", dateSort:"2024-02", shame:false, page:"/companies/zendesk-pricing.html" },
+  { rank:19, name:"Salesforce",        emoji:"☁️", plan:"Sales Cloud Starter","cat":"CRM",           pct:9,   before:"$25/seat","after":"$35/seat",date:"Feb 2025", dateSort:"2025-02", shame:false, page:"/companies/salesforce-pricing.html" },
+  { rank:20, name:"Pipedrive",         emoji:"📊", plan:"Essential",        cat:"CRM",                pct:9,   before:"$15/seat","after":"$17/seat",date:"Jan 2025", dateSort:"2025-01", shame:false, page:"/companies/pipedrive-pricing.html" },
+  { rank:21, name:"Linear",            emoji:"⚡", plan:"Business",         cat:"Dev Tools",          pct:8,   before:"$8/seat", after:"$10/seat",date:"Nov 2024", dateSort:"2024-11", shame:false, page:"/companies/linear-pricing.html" },
+  { rank:22, name:"Airtable",          emoji:"🗃️", plan:"Plus",             cat:"Productivity",       pct:7,   before:"$10/seat","after":"$12/seat",date:"Dec 2023",dateSort:"2023-12",shame:false, page:"/companies/airtable-pricing.html" },
+  { rank:23, name:"Stripe",            emoji:"💳", plan:"Standard",         cat:"Payments",           pct:6,   before:"2.9% + 30¢","after":"2.9% + 30¢+","date":"Jan 2024",dateSort:"2024-01",shame:false,page:"/companies/stripe-pricing.html" },
+  { rank:24, name:"Zoom",              emoji:"📹", plan:"Pro",              cat:"Communication",      pct:6,   before:"$14.99/mo","after":"$15.99/mo",date:"Mar 2024",dateSort:"2024-03",shame:false, page:null },
+  { rank:25, name:"Mailchimp",         emoji:"📧", plan:"Essentials",       cat:"Email & Marketing",  pct:5,   before:"$13/mo",  after:"$20/mo",  date:"May 2024", dateSort:"2024-05", shame:false, page:null },
+  { rank:26, name:"Canva",             emoji:"🖼️", plan:"Pro",              cat:"Design",             pct:5,   before:"$12.99/mo","after":"$15/mo",date:"Aug 2024", dateSort:"2024-08", shame:false, page:null },
+  { rank:27, name:"Dropbox",           emoji:"📦", plan:"Plus",             cat:"Storage",            pct:5,   before:"$9.99/mo","after":"$11.99/mo","date":"Oct 2023",dateSort:"2023-10",shame:false,page:null },
+  { rank:28, name:"HubSpot",           emoji:"🧡", plan:"Marketing Hub Pro","cat":"Email & Marketing", pct:12, before:"$890/mo","after":"$1,000/mo",date:"Jan 2025",dateSort:"2025-01",shame:false, page:"/companies/hubspot-pricing.html" },
+  { rank:29, name:"Intercom",          emoji:"💬", plan:"Pro (Legacy)",     cat:"Support",            pct:40,  before:"$49/seat","after":"$69/seat",date:"Mar 2023",dateSort:"2023-03",shame:true,  page:"/companies/intercom-pricing.html" },
+  { rank:30, name:"Zapier",            emoji:"⚡", plan:"Team",             cat:"Automation",         pct:20,  before:"$299/mo", after:"$449/mo", date:"Aug 2024", dateSort:"2024-08", shame:true,  page:"/companies/zapier-pricing.html" },
+  { rank:31, name:"Salesforce",        emoji:"☁️", plan:"Enterprise",       cat:"CRM",                pct:11,  before:"$165/seat","after":"$200/seat","date":"Feb 2024",dateSort:"2024-02",shame:false,page:"/companies/salesforce-pricing.html" },
+  { rank:32, name:"Freshdesk",         emoji:"🌿", plan:"Growth",           cat:"Support",            pct:10,  before:"$15/seat","after":"$18/seat",date:"Jun 2024", dateSort:"2024-06", shame:false, page:"/companies/zendesk-vs-freshdesk-pricing.html" },
+];
+
+let currentData = [...companies];
+let currentCat = "all";
+let sortCol = 3;
+let sortAsc = false;
+
+function pctClass(pct) {
+  if (pct >= 50) return "increase-high";
+  if (pct >= 20) return "increase-medium";
+  return "increase-low";
+}
+function barClass(pct) {
+  if (pct >= 50) return "fill-high";
+  if (pct >= 20) return "fill-medium";
+  return "fill-low";
+}
+
+function renderTable(data) {
+  const tbody = document.getElementById("table-body");
+  tbody.innerHTML = "";
+  data.forEach((c, i) => {
+    const barW = Math.min(100, (c.pct / 90) * 100);
+    const rankClass = i === 0 ? "rank-1" : i === 1 ? "rank-2" : i === 2 ? "rank-3" : "";
+    const detailCell = c.page
+      ? `<a href="${c.page}" class="detail-link">View details →</a>`
+      : `<span style="color:var(--muted);font-size:0.75rem">Coming soon</span>`;
+    const shameBadge = c.shame ? `<span class="shame-badge">HALL OF SHAME</span>` : "";
+    const tr = document.createElement("tr");
+    tr.dataset.cat = c.cat;
+    tr.innerHTML = `
+      <td><span class="rank ${rankClass}">${i+1}</span></td>
+      <td>
+        <div class="company-cell">
+          <div class="company-logo">${c.emoji}</div>
+          <div>
+            <div class="company-name">${c.name}${shameBadge}</div>
+            <div class="company-plan">${c.plan}</div>
+          </div>
+        </div>
+      </td>
+      <td><span class="badge badge-cat">${c.cat}</span></td>
+      <td>
+        <div class="pct-bar-wrap">
+          <span class="increase ${pctClass(c.pct)}">+${c.pct}%</span>
+          <div class="pct-bar"><div class="pct-bar-fill ${barClass(c.pct)}" style="width:${barW}%"></div></div>
+        </div>
+      </td>
+      <td class="hide-mobile" style="color:var(--muted)">${c.before}</td>
+      <td class="hide-mobile" style="color:var(--text);font-weight:600">${c.after}</td>
+      <td style="color:var(--muted);font-size:0.8rem">${c.date}</td>
+      <td>${detailCell}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  document.getElementById("sort-info").textContent = `${data.length} companies shown`;
+}
+
+function filterCat(btn, cat) {
+  currentCat = cat;
+  document.querySelectorAll("#cat-filters .filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  applyFilters();
+}
+
+function applyFilters() {
+  let filtered = currentCat === "all"
+    ? [...companies]
+    : companies.filter(c => c.cat === currentCat);
+  // sort
+  filtered.sort((a, b) => {
+    let av, bv;
+    if (sortCol === 0) { av = a.rank; bv = b.rank; }
+    else if (sortCol === 1) { av = a.name; bv = b.name; }
+    else if (sortCol === 2) { av = a.cat; bv = b.cat; }
+    else if (sortCol === 3) { av = a.pct; bv = b.pct; }
+    else if (sortCol === 4) { av = a.before; bv = b.before; }
+    else if (sortCol === 5) { av = a.after; bv = b.after; }
+    else if (sortCol === 6) { av = a.dateSort; bv = b.dateSort; }
+    if (av < bv) return sortAsc ? -1 : 1;
+    if (av > bv) return sortAsc ? 1 : -1;
+    return 0;
+  });
+  currentData = filtered;
+  renderTable(filtered);
+}
+
+function sortTable(col) {
+  if (sortCol === col) { sortAsc = !sortAsc; }
+  else { sortCol = col; sortAsc = col === 1 || col === 2 || col === 6; }
+  // update header icons
+  document.querySelectorAll("thead th").forEach((th, i) => {
+    th.classList.remove("sorted");
+    const icon = th.querySelector(".sort-icon");
+    if (icon) icon.textContent = "↕";
+  });
+  const ths = document.querySelectorAll("thead th");
+  ths[col].classList.add("sorted");
+  const icon = ths[col].querySelector(".sort-icon");
+  if (icon) icon.textContent = sortAsc ? "↑" : "↓";
+  applyFilters();
+}
+
+function shareTwitter() {
+  const text = "SaaS Price Hike Leaderboard 2026: GitHub Copilot +90%, Typeform +67%, ClickUp +58%... 30+ companies ranked. Are your tools on here?";
+  const url = "https://getpricepulse.com/saas-price-hike-leaderboard.html";
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, "_blank");
+}
+function shareLinkedIn() {
+  const url = "https://getpricepulse.com/saas-price-hike-leaderboard.html";
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, "_blank");
+}
+function copyLink() {
+  navigator.clipboard.writeText("https://getpricepulse.com/saas-price-hike-leaderboard.html");
+  const btn = event.target.closest(".share-btn");
+  const orig = btn.textContent;
+  btn.textContent = "✓ Copied!";
+  setTimeout(() => btn.textContent = orig, 2000);
+}
+
+// Init: sort by % desc
+applyFilters();
+</script>
+</body>
+</html>

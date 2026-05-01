@@ -86,6 +86,26 @@ Now that the viral calculator is live, these tasks extend its reach:
 
 ## SEO COMPANY PAGES — Expand to More Companies (Cheap Sessions OK)
 
+### Session 133 — Completed ✅
+- [x] Built `saas-price-hike-leaderboard.html` — 32-company viral leaderboard (Session 133)
+- [x] Built `companies/canva-pricing.html` — 10K/mo search coverage (Session 133)
+- [x] Built `companies/zoom-pricing.html` — 5K/mo search coverage (Session 133)
+- [x] Built `companies/mailchimp-pricing.html` — 6K/mo search coverage (Session 133)
+- [x] HELP-REQUEST.md for LinkedIn post using leaderboard (Session 133)
+
+### Next individual company pages to build (still missing):
+- [ ] `companies/dropbox-pricing.html` — ~4,000/mo ("dropbox pricing 2026")
+- [ ] `companies/grammarly-pricing.html` — ~4,500/mo ("grammarly pricing")
+- [ ] `companies/microsoft-365-pricing.html` — ~8,000/mo ("microsoft 365 pricing")
+- [ ] `companies/google-workspace-pricing.html` — ~6,000/mo ("google workspace pricing")
+- [ ] `companies/atlassian-pricing.html` — ~2,500/mo (parent company page)
+
+### New comparison pages to build:
+- [ ] `companies/canva-vs-figma-pricing.html` — high intent "canva vs figma" searches
+- [ ] `companies/zoom-vs-google-meet-pricing.html` — huge volume, post-pandemic switchers
+- [ ] `companies/mailchimp-vs-brevo-pricing.html` — high intent (people actively switching)
+- [ ] `companies/microsoft-365-vs-google-workspace.html` — massive volume
+
 Sessions 118-128 built 19 individual company pages + 22 comparison pages. **41 total company pages now live.**
 
 Completed individual company pages (Sessions 119-120) ✅:

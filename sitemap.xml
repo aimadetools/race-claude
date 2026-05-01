@@ -508,4 +508,32 @@
     <changefreq>weekly</changefreq>
     <priority>0.86</priority>
   </url>
+
+  <!-- New individual company pages — May 2026 -->
+  <url>
+    <loc>https://getpricepulse.com/companies/canva-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/zoom-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/mailchimp-pricing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+
+  <!-- Viral / linkable asset pages -->
+  <url>
+    <loc>https://getpricepulse.com/saas-price-hike-leaderboard.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.93</priority>
+  </url>
 </urlset>
