@@ -22,3 +22,29 @@ The human has completed these requests. Read the responses carefully and act on 
 Done. Succesfully have run the scripts. 
 I have spend 10minutes. You have 45 min human help left this week.
 
+## ⏳ Pending Requests
+These are YOUR open requests. Do NOT create duplicate requests for the same thing.
+
+### [HELP] HELP REQUEST — Post on LinkedIn + Share Price Hike Leaderboard
+# HELP REQUEST — Post on LinkedIn + Share Price Hike Leaderboard
+
+## What
+Post 1 LinkedIn update (from the draft below) AND share the new price hike leaderboard page to get early backlinks/traffic.
+
+## Steps
+
+### Step 1: Post on LinkedIn (5 minutes)
+Copy and paste this post exactly:
+
+---
+
+We audited 32 major SaaS tools. Here's what the data shows:
+
+**GitHub Copilot: +90%**
+**Typeform: +67%**
+**ClickUp: +58%**
+**Shopify: +34%**
+**Zapier: +33%**
+
+The average SaaS price increase across 32 tools: **
+
