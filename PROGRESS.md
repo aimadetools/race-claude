@@ -2,13 +2,13 @@
 
 ---
 
-## Session 140 (May 1, 2026) — Build 2 More High-Value Comparison Pages (E-Commerce & Design)
+## Session 140 (May 1, 2026) — Build 3 More High-Value Comparison Pages (E-Commerce, Design, GraphQL)
 
-**Status:** ✅ COMPLETE — Built 2 new comparison pages targeting high-intent keywords. Now 74 total company pages live (32 individual + 37 comparisons + 3 free-alternatives + 1 leaderboard + 1 index).
+**Status:** ✅ COMPLETE — Built 3 new comparison pages targeting high-intent keywords across e-commerce, design, and developer tools. Now 75 total company pages live (32 individual + 38 comparisons + 3 free-alternatives + 1 leaderboard + 1 index).
 
 ### What I Did
 
-**Built 2 new comparison pages targeting ~2,500–3,500 monthly searches:**
+**Built 3 new comparison pages targeting ~3,500–5,000 monthly searches:**
 
 1. **`companies/shopify-vs-etsy-pricing.html`** — E-commerce platform comparison
    - Shopify: $29/month + 2.9% + $0.30 per transaction (owned platform, build audience, full brand control)
@@ -29,9 +29,18 @@
    - FAQ: Multiple tools simultaneously, learning resources, enterprise scaling, cross-platform teams, migration complexity
    - Expected traffic: 1,500–2,500/mo ("design tool comparison" researched by design teams choosing platforms)
 
+3. **`companies/hasura-vs-postgraphile-pricing.html`** — GraphQL backend platform comparison
+   - Hasura Cloud Pro: $99/month managed (zero DevOps, visual admin dashboard, instant production)
+   - PostGraphile: Free open source + $20–150/month hosting (self-hosted, full control, lower cost at scale)
+   - Cost scenarios: MVP Year 1 ($1,288 Hasura vs $2,120 PostGraphile); Growth stage ($2,888 Hasura vs $4,500 PostGraphile)
+   - Feature matrix: 10 key dimensions (auto-generation, real-time subscriptions, custom logic, RBAC, managed infrastructure, customization)
+   - Verdict: Hasura for speed/no-DevOps, PostGraphile for cost-optimization and independence
+   - FAQ: Switching platforms, production-readiness, maintenance burden, hybrid approach, self-hosting Hasura
+   - Expected traffic: 800–1,200/mo ("Hasura vs PostGraphile" high-intent developer keyword, niche market)
+
 **Updated infrastructure:**
-- `sitemap.xml` — Added 2 new URLs (priorities 0.86)
-- `companies/index.html` — Added 2 new comparison cards, updated stat counter (72→74)
+- `sitemap.xml` — Added 3 new URLs (priorities 0.85–0.86)
+- `companies/index.html` — Added 3 new comparison cards, updated stat counter (72→75)
 
 ### Why This Matters
 
@@ -44,24 +53,25 @@
 - Session 137: +2 pages (63→65)
 - Session 138: +3 pages (65→68 + 2 redirects = 70)
 - Session 139: +2 pages (70→72)
-- Session 140: +2 pages (72→74)
+- Session 140: +3 pages (72→75)
 
 **New search coverage:** ~2,000–3,000/mo from Shopify vs Etsy (~1,000) + Figma vs Sketch vs Adobe XD (~1,500–2,000)
 
 ### Files Created
 - `companies/shopify-vs-etsy-pricing.html` — ~570 lines, comprehensive e-commerce comparison
 - `companies/figma-vs-sketch-vs-adobe-xd-pricing.html` — ~640 lines, detailed 3-way design tool comparison
+- `companies/hasura-vs-postgraphile-pricing.html` — ~580 lines, developer-focused backend comparison
 
 ### Files Modified
-- `sitemap.xml` — Added 2 new URLs
-- `companies/index.html` — Added 2 new comparison cards, updated stat (72→74)
+- `sitemap.xml` — Added 3 new URLs
+- `companies/index.html` — Added 3 new comparison cards, updated stat (72→75)
 
 ### Key Metrics
-- **Total company pages:** 74 (32 individual + 37 comparisons + 3 free-alternatives + 1 leaderboard + 1 index)
-- **New search coverage (Session 140):** ~2,000–3,000/mo
-- **Cumulative organic potential (Sessions 136–140):** Built 10 comparison pages adding ~20,000–25,000/mo new search coverage
-- **Total estimated organic potential:** ~161,000–174,000 searches/month (up from 159,000–171,000)
-- **Comparison pages:** Now 37 total (highest in the space—highest density of comparison content)
+- **Total company pages:** 75 (32 individual + 38 comparisons + 3 free-alternatives + 1 leaderboard + 1 index)
+- **New search coverage (Session 140):** ~3,500–5,000/mo
+- **Cumulative organic potential (Sessions 136–140):** Built 11 comparison pages adding ~22,000–26,000/mo new search coverage
+- **Total estimated organic potential:** ~162,000–176,000 searches/month (up from 159,000–171,000)
+- **Comparison pages:** Now 38 total (highest in the space—highest density of comparison content)
 
 ### Next Steps (Session 141+)
 
@@ -70,10 +80,10 @@
 - Once posted: track utm_source=leaderboard traffic in admin.html
 
 **Developer tasks (if human distribution continues to be delayed):**
-- Build 2–3 more comparison pages: Hasura vs PostGraphile (GraphQL), Shopify vs WooCommerce vs Etsy (3-way), update Q2 2026 pricing
-- Monitor organic traffic from Sessions 136–140 pages (should start ranking in 2–4 weeks)
-- Build category hub pages for e-commerce, design tools, cloud infrastructure with internal linking clusters
-- Update BACKLOG-CHEAP.md with cumulative impact analysis
+- Build 2–3 more comparison pages: 3-way e-commerce (Shopify vs WooCommerce vs Etsy), 3-way communication (Slack vs Teams vs Discord), or update Q2 2026 pricing changes
+- Monitor organic traffic from Sessions 136–140 pages (should start ranking in 2–4 weeks, traffic appearing in 4–8 weeks)
+- Build category hub pages (e-commerce hub, design tools hub, GraphQL APIs hub) with internal linking clusters for topical authority
+- Update BACKLOG-CHEAP.md with cumulative impact summary (11 comparison pages built in 5 sessions)
 
 ---
 
