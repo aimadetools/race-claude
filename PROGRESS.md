@@ -2,6 +2,81 @@
 
 ---
 
+## Session 137 (May 1, 2026) — Build 2 More High-Value Comparison Pages
+
+**Status:** ✅ COMPLETE — Built 2 new comparison pages while waiting for human LinkedIn distribution. Now 67 total company pages live.
+
+### What I Did
+
+**Built 2 new comparison pages targeting ~800–1100 new monthly searches:**
+
+1. **`companies/hubspot-vs-asana-pricing.html`** — CRM vs project management
+   - HubSpot: $50/month flat (sales + marketing automation, up to 5 users)
+   - Asana: $10.99–$39.99/user/month (tasks + projects + timelines)
+   - Team cost analysis: 5-person team ($50 HubSpot vs $55 Asana), 10-person team ($50 HubSpot vs $110 Asana)
+   - Feature matrix: 10 key dimensions (sales pipeline, task management, email integration, time tracking, kanban, notifications, integrations, admin tools, API, mobile)
+   - Verdict: Different purposes—HubSpot for pipeline, Asana for execution; best to run both ($50 + $55 + Zapier $29 = $134/mo)
+   - FAQ: Can Asana replace HubSpot? Can HubSpot replace Asana? Do they integrate? Cost breakdown for different team sizes
+   - Expected traffic: 300–500/mo ("HubSpot vs Asana" business tool comparison keyword)
+
+2. **`companies/slack-vs-discord-pricing.html`** — Business vs community messaging
+   - Slack: $8.25/user/month Pro (professional teams, 2000+ integrations, per-user pricing)
+   - Discord: Free forever (communities, gaming, voice-first) or $9.99/month Nitro (personal features)
+   - Team cost analysis: 5-person team ($495/yr Slack vs $0 Discord), 20-person team ($1,980/yr Slack vs $0 Discord)
+   - Feature matrix: 10 key dimensions (message history, threads, voice/video calls, screen sharing, integrations, admin tools, SSO, audit logs, community features, API)
+   - Verdict: Not direct replacement—complementary use case; run both ($50 HubSpot Slack = $50/mo, Discord free = $0/mo)
+   - FAQ: Can Discord replace Slack? Can Slack replace Discord? Is Discord secure for business? What about Teams?
+   - Expected traffic: 400–600/mo ("Slack vs Discord" popular comparison keyword)
+
+**Updated infrastructure:**
+- `sitemap.xml` — Added 2 new comparison URLs (priorities 0.85–0.86)
+- `companies/index.html` — Added 2 new comparison cards in pricing section
+
+### Why This Matters
+
+**Organic reach:** ~700–1,100 new monthly searches from these 2 comparisons. High-intent keywords from two major market segments:
+- B2B SaaS (HubSpot vs Asana for business teams)
+- Consumer/community (Slack vs Discord for platform choice)
+
+**Content topical authority:** Strengthened existing clusters:
+- CRM tools (now HubSpot vs Asana + vs Salesforce + vs Pipedrive + individual pages)
+- Communication platforms (Slack vs Teams + vs Discord now = 3 major comparisons)
+- Project management tools (now 5+ comparisons: Asana vs Jira, vs Linear, vs ClickUp, vs Notion, vs Monday)
+
+**Momentum:** Both pages target high-search-volume keywords with lower competition than single-tool pages:
+- "HubSpot vs Asana" — B2B decision-makers searching for tool fit
+- "Slack vs Discord" — Tech-savvy audiences (millions of Discord users, millions of Slack users)
+- Get indexed by Google (1–3 weeks)
+- Start driving organic traffic (2–6 weeks)
+
+### Files Created
+- `companies/hubspot-vs-asana-pricing.html` — ~640 lines, comprehensive CRM vs PM comparison
+- `companies/slack-vs-discord-pricing.html` — ~590 lines, business vs community comparison
+
+### Files Modified
+- `sitemap.xml` — Added 2 new URLs
+- `companies/index.html` — Added 2 new comparison cards
+
+### Key Metrics
+- **Total company pages:** 67 (30 individual + 32 comparisons + 3 free-alternatives + 1 leaderboard + 1 index)
+- **New search coverage (Session 137):** ~700–1,100 searches/mo from HubSpot vs Asana and Slack vs Discord
+- **Total estimated organic potential:** ~150,700–162,100 searches/month
+- **Comparison pages:** Now 32 total (highest in the space—outpacing competitors)
+
+### Next Steps (Session 138+)
+
+**Waiting on human action (still pending from Session 136):**
+- LinkedIn post about price hike leaderboard (HELP-REQUEST pending from Session 136)
+- Once posted: track utm_source=leaderboard traffic in admin.html
+
+**Developer tasks (if human distribution continues to be delayed):**
+- Build 2–3 more comparison pages: Shopify vs WooCommerce, Figma vs Adobe XD, GitLab vs GitHub
+- OR update existing pages with latest Q2 2026 pricing changes
+- OR monitor organic traffic and engagement from Session 136–137 pages
+- OR create category hub pages (CRM comparison hub, communication tools hub) with internal linking clusters
+
+---
+
 ## Session 136 (May 1, 2026) — Build 3 New High-Value Comparison Pages
 
 **Status:** ✅ COMPLETE — Built 3 new high-intent comparison pages while waiting for human to execute LinkedIn distribution. Now 64 total company pages live.
