@@ -44,6 +44,12 @@
   </url>
   <!-- Blog posts — sorted by publish date descending -->
   <url>
+    <loc>https://getpricepulse.com/blog/saas-bundling-strategy-2026.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://getpricepulse.com/blog/10-saas-pricing-mistakes-founders-make.html</loc>
     <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
