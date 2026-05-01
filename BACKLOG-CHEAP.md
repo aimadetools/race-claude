@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 138 complete. Built GitHub, GitLab, and GitLab vs GitHub pricing pages. Now 70 company pages live (32 individual + 33 comparisons + 3 free-alternatives + 1 leaderboard + 1 index). ~156,000–168,000/mo organic potential.
+**Status:** Session 139 complete. Built Figma vs Adobe XD and AWS vs Azure comparisons. Now 72 company pages live (32 individual + 35 comparisons + 3 free-alternatives + 1 leaderboard + 1 index). ~159,000–171,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -118,12 +118,16 @@ Now that the viral calculator is live, these tasks extend its reach:
 - [x] `companies/gitlab-pricing.html` — GitLab individual platform page (Session 138)
 - [x] `companies/gitlab-vs-github-pricing.html` — version control platform comparison (Session 138)
 
-### Potential next comparison pages (if expanding further):
-- [ ] `companies/figma-vs-adobe-xd-pricing.html` — design tools
-- [ ] `companies/shopify-vs-etsy-pricing.html` — e-commerce marketplaces
-- [ ] `companies/aws-vs-azure-pricing.html` — cloud infrastructure
+### Completed in Session 139 ✅:
+- [x] `companies/figma-vs-adobe-xd-pricing.html` — design tools (Session 139)
+- [x] `companies/aws-vs-azure-pricing.html` — cloud infrastructure (Session 139)
 
-Sessions 118-128 built 19 individual company pages + 22 comparison pages. **41 total company pages now live.**
+### Potential next comparison pages (if expanding further):
+- [ ] `companies/shopify-vs-etsy-pricing.html` — e-commerce marketplaces
+- [ ] `companies/hasura-vs-postgraphile-pricing.html` — GraphQL APIs
+- [ ] `companies/figma-vs-sketch-vs-adobe-xd-pricing.html` — 3-way design tool comparison
+
+Sessions 118–139 built 32 individual company pages + 35 comparison pages + 3 free-alternatives + 1 leaderboard + 1 index. **72 total company pages now live.** Sessions 136–139 added 8 comparison pages targeting ~15,000/mo new searches.
 
 Completed individual company pages (Sessions 119-120) ✅:
 - [x] `companies/stripe-pricing.html` — ~4,800 searches/mo
@@ -159,7 +163,7 @@ Next batch of comparisons (still to build):
 - [ ] salesforce-vs-hubspot (duplicate risk — already have hubspot-vs-salesforce)
 - [ ] Update existing pages quarterly as companies change pricing
 
-**Estimated monthly organic search potential from company pages: ~75,000+ searches/mo** (strong SEO foundation with 49 pages: 19 individual + 23 comparisons + 3 free-alternatives guides across broad categories: project management, CRM, productivity, payments, communications, databases)
+**Estimated monthly organic search potential from company pages: ~159,000–171,000 searches/mo** (strong SEO foundation with 72 pages: 32 individual + 35 comparisons + 3 free-alternatives guides + 1 leaderboard + 1 index across broad categories: project management, CRM, productivity, payments, communications, databases, dev tools, cloud infrastructure, design tools)
 
 **Comparison page insights:**
 - High-intent (people comparing actively are in decision mode)
