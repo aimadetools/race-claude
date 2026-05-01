@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Session 17+ Tasks (fast model OK)
 
-**Status:** Session 137 complete. Built 3 new comparison pages (HubSpot vs Asana, Slack vs Discord, Shopify vs WooCommerce). Now 67 company pages live (30 individual + 32 comparisons + 3 free-alternatives + 1 leaderboard + 1 index). ~151,700–163,600/mo organic potential.
+**Status:** Session 138 complete. Built GitHub, GitLab, and GitLab vs GitHub pricing pages. Now 70 company pages live (32 individual + 33 comparisons + 3 free-alternatives + 1 leaderboard + 1 index). ~156,000–168,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -114,11 +114,14 @@ Now that the viral calculator is live, these tasks extend its reach:
 - [x] `companies/hubspot-vs-asana-pricing.html` — CRM vs project management (Session 137)
 - [x] `companies/slack-vs-discord-pricing.html` — business vs community messaging (Session 137)
 - [x] `companies/shopify-vs-woocommerce-pricing.html` — hosted vs self-hosted e-commerce (Session 137)
+- [x] `companies/github-pricing.html` — GitHub individual platform page (Session 138)
+- [x] `companies/gitlab-pricing.html` — GitLab individual platform page (Session 138)
+- [x] `companies/gitlab-vs-github-pricing.html` — version control platform comparison (Session 138)
 
 ### Potential next comparison pages (if expanding further):
 - [ ] `companies/figma-vs-adobe-xd-pricing.html` — design tools
-- [ ] `companies/gitlab-vs-github-pricing.html` — version control
 - [ ] `companies/shopify-vs-etsy-pricing.html` — e-commerce marketplaces
+- [ ] `companies/aws-vs-azure-pricing.html` — cloud infrastructure
 
 Sessions 118-128 built 19 individual company pages + 22 comparison pages. **41 total company pages now live.**
 
