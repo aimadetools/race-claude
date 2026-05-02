@@ -828,4 +828,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.87</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/firebase-pricing.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/mongodb-atlas-pricing.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/firebase-vs-supabase-vs-mongodb-atlas-pricing.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
 </urlset>

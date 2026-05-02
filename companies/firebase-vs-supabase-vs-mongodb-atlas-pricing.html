@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firebase vs Supabase vs MongoDB Atlas 2026 — Backend Pricing Comparison | PricePulse</title>
+  <meta name="description" content="Compare Firebase, Supabase, and MongoDB Atlas pricing. Real-time database vs PostgreSQL vs document database. See costs at different usage levels." />
+  <link rel="canonical" href="https://getpricepulse.com/companies/firebase-vs-supabase-vs-mongodb-atlas-pricing.html" />
+  <meta property="og:title" content="Firebase vs Supabase vs MongoDB Atlas: Pricing Comparison 2026" />
+  <meta property="og:description" content="Firebase (real-time, $0.06/100k reads), Supabase (PostgreSQL, $25/mo), MongoDB (NoSQL, $57/mo). Compare features, costs, and use cases." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://getpricepulse.com/companies/firebase-vs-supabase-vs-mongodb-atlas-pricing.html" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Firebase vs Supabase vs MongoDB Atlas: Backend Pricing Comparison 2026","description":"Firebase vs Supabase vs MongoDB Atlas: Compare pricing, database type, real-time capabilities, and best use cases for each backend platform.","datePublished":"2026-02-01","dateModified":"2026-05-02","author":{"@type":"Organization","name":"PricePulse"},"publisher":{"@type":"Organization","name":"PricePulse","url":"https://getpricepulse.com"}}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0f;--bg2:#12121a;--border:#2a2a3d;--text:#e8e8f0;--muted:#8888a8;--accent:#00e5a0;--accent2:#00b87a;--radius:12px;--font:'Inter',system-ui,-apple-system,sans-serif}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+    nav{position:sticky;top:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .logo{font-size:1.125rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:.5rem;text-decoration:none}
+    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+    .nav-links{display:flex;align-items:center;gap:1.5rem}
+    .nav-links a{color:var(--muted);font-size:.9375rem}
+    .nav-links a:hover{color:var(--text);text-decoration:none}
+    .btn-cta{background:var(--accent);border-radius:8px;color:#0a0a0f!important;font-weight:700;font-size:.875rem;padding:.5rem 1rem}
+    .container{max-width:1000px;margin:0 auto;padding:0 1.5rem}
+    .hero{padding:3.5rem 0 2rem}
+    .breadcrumb{font-size:.8125rem;color:var(--muted);margin-bottom:1rem}
+    .breadcrumb a{color:var(--muted)}.breadcrumb a:hover{color:var(--accent)}
+    h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+    .alert-banner{background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.25);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.75rem;margin:1.5rem 0}
+    .alert-icon{font-size:1.25rem;flex-shrink:0;margin-top:.1rem}
+    .alert-text{font-size:.9375rem;line-height:1.5}
+    .alert-text strong{color:#00e5a0}
+    .section{margin:2.5rem 0}
+    h2{font-size:1.375rem;font-weight:700;margin-bottom:1rem}
+    h3{font-size:1.125rem;font-weight:600;margin-bottom:.75rem}
+    p{margin-bottom:1rem;opacity:.9}
+    .pricing-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.9375rem}
+    .pricing-table th{text-align:left;padding:.75rem;font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .pricing-table td{padding:.75rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .pricing-table tr:last-child td{border-bottom:none}
+    .plan-name{font-weight:600;color:var(--accent)}
+    .plan-price{font-weight:700;color:var(--accent);white-space:nowrap}
+    .cost-breakdown{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin:1rem 0}
+    .cost-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;font-size:.9375rem;border-bottom:1px solid var(--border)}
+    .cost-row:last-child{border-bottom:none}
+    .cost-label{color:var(--muted)}
+    .cost-value{font-weight:600;color:var(--accent)}
+    .feature-matrix{width:100%;border-collapse:collapse;margin:1.25rem 0}
+    .feature-matrix th{text-align:left;padding:.75rem;font-size:.8125rem;font-weight:600;background:var(--bg2);border:1px solid var(--border)}
+    .feature-matrix td{padding:.75rem;border:1px solid var(--border);font-size:.9375rem}
+    .feature-matrix td:first-child{font-weight:600}
+    .checkmark{color:var(--accent);font-weight:700}
+    .partial{color:#ffcc00}
+    .cross{color:#ff6666}
+    .verdict-box{background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.2);border-radius:var(--radius);padding:1.5rem;margin:1.5rem 0}
+    .verdict-box h4{font-weight:700;margin-bottom:.5rem;color:var(--accent)}
+    .cta-box{background:linear-gradient(135deg,rgba(0,229,160,.08),rgba(0,184,122,.04));border:1px solid rgba(0,229,160,.25);border-radius:var(--radius);padding:2rem;text-align:center;margin:2.5rem 0}
+    .cta-box h3{font-size:1.25rem;margin-bottom:.75rem}
+    .cta-box p{color:var(--muted);margin-bottom:1.5rem;max-width:520px;margin-left:auto;margin-right:auto}
+    .btn-primary{display:inline-block;background:var(--accent);color:#0a0a0f;font-weight:700;padding:.75rem 1.75rem;border-radius:8px;font-size:1rem}
+    .btn-primary:hover{background:var(--accent2);text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+    footer p{color:var(--muted);font-size:.875rem}
+    footer a{color:var(--muted)}footer a:hover{color:var(--accent)}
+    @media(max-width:640px){.nav-links{gap:1rem}.nav-links a:not(.btn-cta){display:none}.pricing-table,.feature-matrix{font-size:.85rem}.pricing-table th,.pricing-table td,.feature-matrix th,.feature-matrix td{padding:.5rem}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="logo"><span class="logo-dot"></span>PricePulse</a>
+  <div class="nav-links">
+    <a href="../pricing-tracker.html">Pricing Tracker</a>
+    <a href="../demo.html">Demo</a>
+    <a href="../pricing.html">Plans</a>
+    <a href="../signup.html" class="btn-cta">Get alerts free</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › <a href="../pricing-tracker.html">Pricing Tracker</a> › Firebase vs Supabase vs MongoDB Atlas
+    </div>
+    <h1>Firebase vs Supabase vs MongoDB Atlas — Backend Pricing Comparison 2026</h1>
+    <div class="alert-banner">
+      <div class="alert-icon">📊</div>
+      <div class="alert-text">
+        <strong>Quick summary:</strong> Firebase is real-time optimized ($0.06/100k reads), Supabase is PostgreSQL ($25/mo base), MongoDB is NoSQL document database ($57/mo base). Choose based on data structure needs and real-time requirements, not just price.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Quick Price Comparison</h2>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Firebase</th>
+          <th>Supabase</th>
+          <th>MongoDB Atlas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Free Tier Storage</td>
+          <td class="plan-price">1 GB Firestore</td>
+          <td class="plan-price">500 MB</td>
+          <td class="plan-price">512 MB</td>
+        </tr>
+        <tr>
+          <td>Paid Tier Minimum</td>
+          <td class="plan-price">Pay-as-you-go</td>
+          <td class="plan-price">$25/month</td>
+          <td class="plan-price">$57/month</td>
+        </tr>
+        <tr>
+          <td>Database Type</td>
+          <td class="plan-price">Real-time JSON</td>
+          <td class="plan-price">PostgreSQL (SQL)</td>
+          <td class="plan-price">NoSQL (BSON)</td>
+        </tr>
+        <tr>
+          <td>Included Auth?</td>
+          <td class="checkmark">✓</td>
+          <td class="checkmark">✓</td>
+          <td class="cross">✗</td>
+        </tr>
+        <tr>
+          <td>Real-Time Subscriptions?</td>
+          <td class="checkmark">✓ Native</td>
+          <td class="checkmark">✓ Native</td>
+          <td class="partial">△ Via Change Streams</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Detailed Cost Breakdown by Scenario</h2>
+
+    <div class="cost-breakdown">
+      <h3>Scenario 1: Hobby Project (Small Storage, Low Traffic)</h3>
+      <p style="color:var(--muted);font-size:.875rem;margin-bottom:1rem">Estimated 1,000 reads/day, 100 writes/day, 500 MB storage</p>
+      <div class="cost-row">
+        <span class="cost-label"><strong>Firebase</strong></span>
+        <span class="cost-value"><strong>~$0–$5/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • 30K reads (0.3M) = $0.18<br>
+        • 3K writes (30K) = $0.05<br>
+        • 500 MB storage (free tier)
+      </div>
+      <div class="cost-row" style="margin-top:.5rem;border-bottom:none">
+        <span class="cost-label"><strong>Supabase</strong></span>
+        <span class="cost-value"><strong>$25/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • Pro plan minimum<br>
+        • No usage overage
+      </div>
+      <div class="cost-row" style="border-bottom:none">
+        <span class="cost-label"><strong>MongoDB</strong></span>
+        <span class="cost-value"><strong>$57/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • Shared M2 minimum<br>
+        • No usage overage
+      </div>
+    </div>
+
+    <div class="cost-breakdown">
+      <h3>Scenario 2: Growing Startup (1 Million reads/month, 100K writes/month)</h3>
+      <div class="cost-row">
+        <span class="cost-label"><strong>Firebase</strong></span>
+        <span class="cost-value"><strong>~$35–$45/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • 1M reads = $6.00<br>
+        • 100K writes = $1.80<br>
+        • 5 GB storage overage = $0.90<br>
+        • Auth users (100K) = free (first 1M free)
+      </div>
+      <div class="cost-row" style="margin-top:.5rem;border-bottom:none">
+        <span class="cost-label"><strong>Supabase</strong></span>
+        <span class="cost-value"><strong>$25–$75/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • Pro plan = $25/month<br>
+        • Auth users (100K) = free<br>
+        • Overage storage (5 GB) = $1.25<br>
+        • Potential edge function costs = ~$10–20/month
+      </div>
+      <div class="cost-row" style="border-bottom:none">
+        <span class="cost-label"><strong>MongoDB</strong></span>
+        <span class="cost-value"><strong>$57–$95/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • Shared M2 ($57) or M5 ($95)<br>
+        • Storage included (2–10 GB)<br>
+        • No per-operation charges
+      </div>
+    </div>
+
+    <div class="cost-breakdown">
+      <h3>Scenario 3: Large Production App (50M reads/month, 5M writes/month)</h3>
+      <div class="cost-row">
+        <span class="cost-label"><strong>Firebase</strong></span>
+        <span class="cost-value"><strong>~$300–$400/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • 50M reads = $300<br>
+        • 5M writes = $90<br>
+        • 50 GB storage = $9<br>
+        • Cloud Functions calls (10M) = $4<br>
+      </div>
+      <div class="cost-row" style="margin-top:.5rem;border-bottom:none">
+        <span class="cost-label"><strong>Supabase</strong></span>
+        <span class="cost-value"><strong>$75–$150/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • Team plan = $599/month (or Pro $25)<br>
+        • Storage overage (40 GB) = $10<br>
+        • Edge function costs could vary<br>
+        • <em>Much cheaper at high volume vs Firebase!</em>
+      </div>
+      <div class="cost-row" style="border-bottom:none">
+        <span class="cost-label"><strong>MongoDB</strong></span>
+        <span class="cost-value"><strong>$150–$300/month</strong></span>
+      </div>
+      <div style="padding-left:1rem;font-size:.85rem;color:var(--muted)">
+        • Dedicated M20 = $190/month<br>
+        • Storage overage (10 GB) = $1<br>
+        • Backup storage (50 GB) = $10<br>
+        • <em>Consistent, predictable costs</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Feature Comparison Matrix</h2>
+    <table class="feature-matrix">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Firebase</th>
+          <th>Supabase</th>
+          <th>MongoDB Atlas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Data Type</td>
+          <td>Real-time JSON</td>
+          <td>Relational (SQL)</td>
+          <td>Document (NoSQL)</td>
+        </tr>
+        <tr>
+          <td>Query Language</td>
+          <td>JavaScript API</td>
+          <td>SQL/PostgreSQL</td>
+          <td>MongoDB Query Language</td>
+        </tr>
+        <tr>
+          <td>Real-Time Subscriptions</td>
+          <td class="checkmark">✓ Excellent</td>
+          <td class="checkmark">✓ Good (Postgres Notify)</td>
+          <td class="partial">△ Change Streams (slower)</td>
+        </tr>
+        <tr>
+          <td>Authentication</td>
+          <td class="checkmark">✓ Built-in (Google, GitHub, email)</td>
+          <td class="checkmark">✓ Built-in (Supabase Auth)</td>
+          <td class="cross">✗ Requires 3rd party</td>
+        </tr>
+        <tr>
+          <td>Hosting</td>
+          <td class="checkmark">✓ Cloud Run + CDN</td>
+          <td class="checkmark">✓ Vercel/Supabase</td>
+          <td class="cross">✗ Database only</td>
+        </tr>
+        <tr>
+          <td>Serverless Functions</td>
+          <td class="checkmark">✓ Cloud Functions</td>
+          <td class="checkmark">✓ Edge Functions</td>
+          <td class="cross">✗ Requires AWS/others</td>
+        </tr>
+        <tr>
+          <td>Offline Support</td>
+          <td class="checkmark">✓ Native (Realtime DB)</td>
+          <td class="partial">△ Requires 3rd party</td>
+          <td class="cross">✗ No</td>
+        </tr>
+        <tr>
+          <td>Flexible Schema</td>
+          <td class="checkmark">✓ JSON (very flexible)</td>
+          <td class="partial">△ Can be done (JSONB)</td>
+          <td class="checkmark">✓ Schema-less</td>
+        </tr>
+        <tr>
+          <td>Complex Queries</td>
+          <td class="cross">✗ Limited</td>
+          <td class="checkmark">✓ Full SQL power</td>
+          <td class="checkmark">✓ Good aggregations</td>
+        </tr>
+        <tr>
+          <td>Transactions</td>
+          <td class="partial">△ Basic</td>
+          <td class="checkmark">✓ Full ACID</td>
+          <td class="checkmark">✓ Full ACID (4.0+)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>When to Choose Each</h2>
+
+    <div class="verdict-box">
+      <h4>Choose Firebase when:</h4>
+      <ul style="margin-left:1.5rem;margin-top:.5rem">
+        <li>Building real-time apps (chat, collaborative editing, notifications)</li>
+        <li>You want the fastest time-to-market (auth, hosting, functions included)</li>
+        <li>Your data is under 1 TB and queries are simple</li>
+        <li>You need offline-first mobile apps with sync</li>
+        <li>Budget is tight for hobby projects (&lt;$10/month)</li>
+      </ul>
+    </div>
+
+    <div class="verdict-box">
+      <h4>Choose Supabase when:</h4>
+      <ul style="margin-left:1.5rem;margin-top:.5rem">
+        <li>You need relational data with complex queries (SQL)</li>
+        <li>You want open-source flexibility and self-hosting option</li>
+        <li>You need Row-Level Security (RLS) for multi-tenant apps</li>
+        <li>You want to avoid vendor lock-in</li>
+        <li>Scale is high (50M+ operations/month) and budget matters</li>
+      </ul>
+    </div>
+
+    <div class="verdict-box">
+      <h4>Choose MongoDB Atlas when:</h4>
+      <ul style="margin-left:1.5rem;margin-top:.5rem">
+        <li>You have semi-structured or evolving data (loose schema)</li>
+        <li>You want predictable, flat billing (no per-operation charges)</li>
+        <li>You're building at scale with DevOps expertise</li>
+        <li>You want to avoid SQL and embrace document-oriented design</li>
+        <li>You need multi-region replication or advanced cluster features</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Pricing Trends & Hidden Costs</h2>
+    <p><strong>Firebase:</strong> Looks cheap at first, but operations costs compound quickly. Hidden costs: Cloud Functions ($0.40/M invocations), bandwidth charges, free tier changes.</p>
+    <p><strong>Supabase:</strong> Fixed monthly cost is predictable. Storage overage ($0.25/GB) can add up if you store large files. Team plan ($599/month) is expensive jump from Pro ($25).</p>
+    <p><strong>MongoDB:</strong> Cluster costs are hourly but consistent. No surprise per-operation charges. Backup storage ($0.20/GB) is the main hidden cost. Dedicated clusters more expensive than shared.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Track backend pricing changes</h3>
+    <p>Firebase, Supabase, and MongoDB update pricing regularly. Get instant alerts if any of these platforms change their costs, operation rates, or tier structure.</p>
+    <a href="../signup.html?utm_source=inline_cta&utm_medium=pricing_table&utm_content=firebase_supabase_mongodb" class="btn-primary">Set up free alerts</a>
+    <p style="color:#6666888;font-size:.8125rem;margin-top:1rem;">No credit card required • Free plan forever</p>
+  </div>
+
+  <footer>
+    <p>Last verified: May 2026 | Compare <a href="firebase-pricing.html">Firebase</a> • <a href="supabase-pricing.html">Supabase</a> • <a href="mongodb-atlas-pricing.html">MongoDB Atlas →</a></p>
+  </footer>
+</div>
+
+<script src="/cta.js"></script>
+<script src="/inline-cta.js"></script>
+<script src="/exit-intent.js"></script>
+</body>
+</html>
