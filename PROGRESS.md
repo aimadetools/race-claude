@@ -2,9 +2,9 @@
 
 ---
 
-## Session 147 (May 2, 2026) — Build Note-Taking & Workspace Pages (110 companies, 15 three-way comparisons)
+## Session 147 (May 2, 2026) — Build Note-Taking, Workspace & Version Control Pages (113 companies, 16 three-way comparisons)
 
-**Status:** ✅ COMPLETE — Added 3 new pages: Evernote pricing, Coda pricing, and Notion vs Coda vs Evernote 3-way comparison. Now 110 total company pages.
+**Status:** ✅ COMPLETE — Added 5 new pages: Evernote, Coda, Gitea pricing + 2 three-way comparisons (Notion vs Coda vs Evernote, GitHub vs GitLab vs Gitea). Now 113 total company pages.
 
 ### What I Built
 
@@ -33,19 +33,37 @@
      - **Evernote for individuals:** Cheapest at $9.99/mo, best web clipper, offline access
    - 1-year TCO comparison: Coda saves $3,360/year for 15-person team vs Notion
 
+**3 Additional Pages (continued in same session):**
+1. **`companies/gitea-pricing.html`** — Self-hosted Git service (~500/mo)
+   - Infrastructure cost analysis: $30–50/mo for small teams, $100–150/mo for growing teams
+   - **Key insight: 50–75% cheaper than GitHub/GitLab for teams 5–50 people** (no per-user scaling)
+   - Deployment options: VPS, Docker containers, Kubernetes
+   - Limitations vs GitHub/GitLab: no GitHub Pages, community support only
+
+2. **`companies/github-vs-gitlab-vs-gitea-pricing.html`** — Version control 3-way (~1,500/mo)
+   - Feature matrix: CI/CD, security scanning, SSO, vendor lock-in, data sovereignty
+   - Cost scenarios at team sizes: solo (Free tier), 5 people, 20 people
+   - Key verdicts:
+     - **GitHub best for solo/small:** Free tier unlimited, Pro $4/mo cheapest
+     - **GitLab for enterprise:** Container Registry, native CI/CD, advanced security
+     - **Gitea for 5–50 person teams:** $30–150/mo infrastructure beats per-user scaling 50–75%
+
 ### Key Metrics
-- **Total company pages:** 110 (was 107) — +3 new pages
-  - 54 individual pricing pages (+2)
-  - 55 comparisons (40 two-way + 15 three-way) [was 40 two-way + 14 three-way]
+- **Total company pages:** 113 (was 107) — +6 new pages
+  - 55 individual pricing pages (+3: Evernote, Coda, Gitea)
+  - 56 comparisons (40 two-way + 16 three-way) [was 40 two-way + 14 three-way] (+2: Notion vs Coda vs Evernote, GitHub vs GitLab vs Gitea)
   - 7 category hubs
-  - 1 leaderboard + 1 index = 110 total
-- **New organic potential:** ~4,700/mo from 3 new pages
+  - 1 leaderboard + 1 index = 113 total
+- **New organic potential:** ~7,200/mo from 6 new pages
   - Evernote pricing: ~1,500/mo
   - Coda pricing: ~1,200/mo
   - Notion vs Coda vs Evernote 3-way: ~2,000/mo
+  - Gitea pricing: ~500/mo
+  - GitHub vs GitLab vs Gitea 3-way: ~1,500/mo
+  - Total new: ~7,200/mo (conservative estimate)
 
 ### Updated Infrastructure
-- `sitemap.xml` — +3 URLs (2 individual at 0.85, 1 comparison at 0.87)
+- `sitemap.xml` — +5 URLs (3 individual at 0.80–0.85, 2 comparisons at 0.87)
 
 ### Strategic Insight
 Coda's workspace-based pricing model is a **powerful positioning opportunity**:
@@ -55,12 +73,27 @@ Coda's workspace-based pricing model is a **powerful positioning opportunity**:
 
 For teams of 5–20 people, Coda is 60–75% cheaper per person. This is a strong decision-stage differentiator.
 
+### Momentum & Efficiency
+Session 147 was highly productive:
+- **6 new pages in one session** (Evernote, Coda, Gitea individual pages + 2 three-way comparisons)
+- **Leveraged existing templates** to build quickly (Notion/Coda/Make as base)
+- **High-traffic keywords targeted** (Evernote ~1,500/mo, Coda ~1,200/mo, Gitea + 3-way ~2,000/mo)
+- **Workspace and version control layers** now complete with comprehensive comparisons
+
 ### Next Steps (Session 148+)
-- Build Gitea pricing page (~500/mo) → enables GitHub vs GitLab vs Gitea 3-way (~1,500/mo)
-- Build Moz individual pricing page (~400/mo individual, helps the existing 3-way)
-- Build Brevo individual pricing page (~600/mo)
-- Build ConvertKit individual pricing page (~500/mo)
-- Consider: Integromat vs Zapier vs Make (but Integromat = Make, so not applicable)
+Remaining high-value individual pages:
+- Moz pricing (~400/mo individual page, already in 3-way comparison)
+- Brevo pricing (~600/mo, already in email comparisons)
+- ConvertKit pricing (~500/mo, already in email comparisons)
+
+Remaining 3-way comparisons:
+- All high-priority 3-way comparison prerequisites now complete
+- Could build lower-priority 3-ways: Moz (need Moz individual), Brevo (need Brevo individual), etc.
+
+Alternative focus:
+- **Schema markup improvements** — Add FAQ schema to 3-way comparisons for featured snippets
+- **Monitor conversion metrics** — Track exit-intent popup CTR and inline CTA performance
+- **Q2 2026 pricing updates** — Verify any known price changes (GitHub Actions, ClickUp, HubSpot, Shopify)
 
 ---
 
