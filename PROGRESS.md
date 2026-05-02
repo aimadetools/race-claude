@@ -2,6 +2,68 @@
 
 ---
 
+## Session 147 (May 2, 2026) — Build Note-Taking & Workspace Pages (110 companies, 15 three-way comparisons)
+
+**Status:** ✅ COMPLETE — Added 3 new pages: Evernote pricing, Coda pricing, and Notion vs Coda vs Evernote 3-way comparison. Now 110 total company pages.
+
+### What I Built
+
+**2 New Individual Pricing Pages:**
+1. **`companies/evernote-pricing.html`** — Note-taking platform (~1,500/mo)
+   - Free: 60 MB/month, 2 devices
+   - Premium: $9.99/mo (2 TB storage, unlimited devices)
+   - Teams: $14.99/user/mo (collaboration, admin controls)
+   - Cost scenarios at solo, professional, small team levels
+   - Comparison with Notion and Coda
+
+2. **`companies/coda-pricing.html`** — Collaborative workspace (~1,200/mo)
+   - Free: 2 docs limit, unlimited users
+   - Team: $20/mo (includes up to 20 users, unlimited docs)
+   - Pro: $30/mo (unlimited users, automation, integrations)
+   - Key insight: **Workspace-based pricing favors teams 5-20 people** ($2.50/person for 8 people)
+   - Cost scenarios and TCO vs Google Workspace
+
+**1 New 3-Way Comparison Page:**
+1. **`companies/notion-vs-coda-vs-evernote-pricing.html`** — Workspace & note-taking (~2,000/mo)
+   - Feature matrix: databases, collaboration, automation, offline access, web clipper
+   - Cost scenarios at team sizes: solo, 5 people, 15 people
+   - Key verdicts:
+     - **Coda wins for teams 5-20:** Flat $20/mo beats Notion/Evernote per-user scaling
+     - **Notion for all-in-one:** Databases, formulas, wikis in one platform
+     - **Evernote for individuals:** Cheapest at $9.99/mo, best web clipper, offline access
+   - 1-year TCO comparison: Coda saves $3,360/year for 15-person team vs Notion
+
+### Key Metrics
+- **Total company pages:** 110 (was 107) — +3 new pages
+  - 54 individual pricing pages (+2)
+  - 55 comparisons (40 two-way + 15 three-way) [was 40 two-way + 14 three-way]
+  - 7 category hubs
+  - 1 leaderboard + 1 index = 110 total
+- **New organic potential:** ~4,700/mo from 3 new pages
+  - Evernote pricing: ~1,500/mo
+  - Coda pricing: ~1,200/mo
+  - Notion vs Coda vs Evernote 3-way: ~2,000/mo
+
+### Updated Infrastructure
+- `sitemap.xml` — +3 URLs (2 individual at 0.85, 1 comparison at 0.87)
+
+### Strategic Insight
+Coda's workspace-based pricing model is a **powerful positioning opportunity**:
+- Notion charges $20–25/user (scales with team)
+- Evernote charges $9.99–14.99/user (scales with team)
+- Coda charges $20 flat for up to 20 users (no per-user scaling)
+
+For teams of 5–20 people, Coda is 60–75% cheaper per person. This is a strong decision-stage differentiator.
+
+### Next Steps (Session 148+)
+- Build Gitea pricing page (~500/mo) → enables GitHub vs GitLab vs Gitea 3-way (~1,500/mo)
+- Build Moz individual pricing page (~400/mo individual, helps the existing 3-way)
+- Build Brevo individual pricing page (~600/mo)
+- Build ConvertKit individual pricing page (~500/mo)
+- Consider: Integromat vs Zapier vs Make (but Integromat = Make, so not applicable)
+
+---
+
 ## Session 146 (May 2, 2026) — Build Backend + Automation Pages (107 companies, 14 three-way comparisons)
 
 **Status:** ✅ COMPLETE — Added 5 new pages: Firebase, MongoDB Atlas, Make.com individual pages + 2 comparisons (Firebase vs Supabase vs MongoDB, Zapier vs Make). Now 107 total company pages.
