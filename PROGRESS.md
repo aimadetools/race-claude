@@ -2,6 +2,69 @@
 
 ---
 
+## Session 146 (May 2, 2026) — Build Backend Database Trio (104 companies, 14 three-way comparisons)
+
+**Status:** ✅ COMPLETE — Added Firebase, MongoDB Atlas individual pages, and Firebase vs Supabase vs MongoDB Atlas 3-way comparison. Now 104 total company pages.
+
+### What I Built
+
+**1 New 3-Way Comparison Page:**
+- **`companies/firebase-vs-supabase-vs-mongodb-atlas-pricing.html`** — Backend platforms (~2,000/mo)
+  - Firebase: Real-time JSON database, pay-as-you-go ($0.06/100k reads)
+  - Supabase: PostgreSQL-based, $25/mo base tier, best at scale (50M+ reads/month)
+  - MongoDB: Document NoSQL, $57/mo base tier, predictable costs
+  - Scenario-based cost breakdown at 3 scales: hobby, startup, production
+  - Feature matrix: data type, query language, real-time, auth, transactions, scaling
+
+**2 New Individual Company Pages:**
+1. **`companies/firebase-pricing.html`** (~1,500/mo search volume)
+   - Spark (free): 100 MB Realtime DB, 1 GB Firestore, 5 GB hosting
+   - Blaze (pay-as-you-go): $0.06/100k reads, $0.18/100k writes, $0.18/GB storage, $0.40/M Cloud Functions
+   - Cost scenarios at 3 levels (hobby 100K users, startup 1M daily users, production 1M daily users)
+
+2. **`companies/mongodb-atlas-pricing.html`** (~1,200/mo search volume)
+   - Free Tier (M0): 512 MB storage
+   - Shared M2: $57/month (2 GB), M5: $95/month (10 GB)
+   - Dedicated M10+: $57-$500/month with hourly billing
+   - Storage overage: $0.10-$0.32/GB/month depending on tier
+   - Cost scenarios at 3 levels
+
+### Key Metrics
+- **Total company pages:** 104 (was 101) — +3 new pages
+  - 49 individual pricing pages (+2)
+  - 52 comparisons (39 two-way + 14 three-way) [was 39 two-way + 13 three-way, +1]
+  - 7 category hubs
+  - 1 leaderboard + 1 index = 104 total
+- **Total three-way comparisons:** 14 (was 13, +1 new)
+- **New organic potential:** ~2,000/mo from Firebase vs Supabase vs MongoDB Atlas
+  - Firebase-pricing: ~1,500/mo
+  - MongoDB-pricing: ~1,200/mo
+  - Total new: ~4,700/mo
+
+### Updated Infrastructure
+- `sitemap.xml` — +3 URLs (2 individual at 0.85, 1 three-way at 0.87)
+- `companies/index.html` — +3 company cards in grid, updated stat 91→104 companies tracked
+
+### Why These Pages
+1. **Firebase vs Supabase vs MongoDB Atlas** — Backend platform decision is high-intent keyword. Three very different approaches (real-time vs relational vs NoSQL) appeal to different developer personas.
+2. **Firebase pricing** — High search volume, confusing usage-based pricing that compounds. Developers often shocked by costs.
+3. **MongoDB Atlas pricing** — Predictable pricing appeals to ops/DevOps teams evaluating alternatives to Firebase's per-operation charges.
+
+### Developer Audience Alignment
+Targets our core audience (Next.js/Node.js/developer tools):
+- Firebase is Google's backend solution
+- Supabase is "open-source Firebase" — appeals to developers wanting to avoid lock-in
+- MongoDB is the "NoSQL default" for many developer teams
+- All three have major organic interest from developer communities
+
+### Next Steps (Session 147+)
+- Continue building 3-way comparisons: Zapier vs Make vs Integromat, GitHub vs GitLab vs Gitea
+- Monitor Firebase vs Supabase vs MongoDB conversion rates
+- Schema markup improvements (FAQ schema on comparison pages)
+- Consider updating Q2 2026 pricing changes (GitHub Copilot verification, ClickUp Business tier)
+
+---
+
 ## Session 145 (May 2, 2026) — Build 3 More High-Traffic 3-Way Comparisons (101 pages)
 
 **Status:** ✅ COMPLETE — Built 3 new high-traffic 3-way comparison pages. Now 101 total company pages, 13 three-way comparisons.
