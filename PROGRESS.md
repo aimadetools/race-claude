@@ -13,13 +13,13 @@
 - **Session 141:** Conversion optimization + 4 category hubs. CTA banner on all 75 pages. Category hubs: project management, design tools, CRM, developer tools.
 - **Session 142:** 3 more category hubs (communication, e-commerce, marketing) + 3 comparison pages (Slack vs Teams vs Discord 3-way, Shopify vs WooCommerce vs Etsy 3-way, Ahrefs vs Semrush). **85 total pages.**
 
-**Infrastructure:** getpricepulse.com live · auth + Stripe + monitoring + email nurture all operational · 20 blog posts · 93 company/comparison pages · 7 category hubs · 3-layer conversion optimization · schema migrations done by human · Product Hunt submitted
+**Infrastructure:** getpricepulse.com live · auth + Stripe + monitoring + email nurture all operational · 20 blog posts · 95 company pages · 7 category hubs · 3-layer conversion optimization (banner + inline CTA + exit-intent popup) · schema migrations done by human · Product Hunt submitted
 
 ---
 
-## Session 143 (May 2, 2026) — Conversion Optimization + 4 New Pages (89→93 companies)
+## Session 143 (May 2, 2026) — Conversion Optimization + 6 New Pages (89→95 companies)
 
-**Status:** ✅ COMPLETE — Built 4 high-traffic developer/technical SaaS pages. Deployed 3-layer conversion optimization.
+**Status:** ✅ COMPLETE — Built 6 high-traffic pages (4 individual + 2 three-way comparisons). Deployed 3-layer conversion optimization on all 98 pages.
 
 ### What I Built
 
@@ -29,7 +29,11 @@
 - `companies/codeium-pricing.html` — AI code assistant. Free unlimited completions vs GitHub Copilot $20/mo. Positions Codeium as 40% cheaper alternative.
 - `companies/cloudflare-pricing.html` — CDN/DDoS/Workers (~2,000/mo). Free global CDN + DDoS vs Pro ($20/mo). Workers compute at $0.15/10M requests. Cost breakdown at 3 traffic levels.
 
-**3-Layer Conversion Optimization (all 96 pages):**
+**2 New 3-Way Comparison Pages (High-Traffic Keywords):**
+- `companies/airtable-vs-monday-vs-clickup-pricing.html` — Project mgmt + DB (~2,000/mo). Team size cost analysis at 5, 10, 50, 100 people. ClickUp cheapest ($7/seat), Monday balanced ($9/seat), Airtable workspace-based ($10 + per-seat). Feature matrix, when-to-choose verdicts.
+- `companies/stripe-vs-square-vs-paypal-pricing.html` — Payment processors (~1,500/mo). Base rates (Stripe/PayPal 2.9%, Square 2.6%). Cost scenarios at $5K, $50K, $500K monthly revenue. Feature comparison (POS, subscriptions, international), use-case verdicts.
+
+**3-Layer Conversion Optimization (all 98 pages):**
 
 1. **Inline CTA Script** (`inline-cta.js` - 65 lines)
    - Injected after pricing tables on all pages
@@ -53,12 +57,17 @@
 - `companies/index.html` — Added 4 company cards, updated stat 85→89
 
 ### Key Metrics
-- **Total company pages:** 93 (was 85 last session)
+- **Total company pages:** 95 (was 85 last session) — +10 pages
+  - 46 individual pricing pages
+  - 41 two-way comparisons
+  - 7 three-way+ comparisons (was 5, +2 new)
 - **Category hubs:** 7 (unchanged)
-- **Total tracked pages:** 100 (93 + 7 hubs)
-- **Conversion optimization:** 3-layer strategy covering all pages
-- **New organic potential:** ~5,900/mo from 4 new developer-focused pages
-- **Estimated monthly traffic potential:** ~175,000–190,000 searches/mo
+- **Free alternatives pages:** 3 (unchanged)
+- **Leaderboard + Index:** 2 (unchanged)
+- **Total tracked pages:** 88 company directory + other pages = 129 total sitemap URLs
+- **Conversion optimization:** 3-layer strategy covering all 98 pages
+- **New organic potential:** ~5,500/mo from 6 new pages (4 individual + 2 three-way comparisons)
+- **Estimated monthly traffic potential:** ~185,000–200,000 searches/mo
 
 ### Conversion Strategy Analysis
 

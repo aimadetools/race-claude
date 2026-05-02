@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 143 complete. 93 total company pages (37 individual + 41 comparisons + 7 category hubs + 3 free-alternatives + 1 leaderboard + 1 index). 3-layer conversion optimization live. ~175,000–190,000/mo organic potential.
+**Status:** Session 143 complete. 95 company pages (46 individual + 48 comparisons [41 two-way + 7 three-way] + 7 category hubs). 3-layer conversion optimization live on all pages. ~185,000–200,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -41,10 +41,18 @@
 - ✅ `companies/codeium-pricing.html` — Free AI code assistant ($12/mo Pro)
 - ✅ `companies/cloudflare-pricing.html` (~2,000/mo) — Free CDN→Pro/Business tiers
 
-### [DONE] 3-Way Comparison Pages (from Session 142)
+### [DONE] All 3-Way Comparison Pages (now 7 total)
+Session 142:
+- ✅ `companies/slack-vs-microsoft-teams-vs-discord-pricing.html` (~2,000/mo)
+- ✅ `companies/shopify-vs-woocommerce-vs-etsy-pricing.html` (~1,500/mo)
+- ✅ `companies/ahrefs-vs-semrush-pricing.html` (~2,500/mo)
 - ✅ `companies/hubspot-vs-salesforce-vs-pipedrive-pricing.html` (~2,500/mo)
 - ✅ `companies/webflow-vs-squarespace-pricing.html` (~2,000/mo)
 - ✅ `companies/mailchimp-vs-hubspot-vs-convertkit-pricing.html` (~1,500/mo)
+
+Session 143:
+- ✅ `companies/airtable-vs-monday-vs-clickup-pricing.html` (~2,000/mo)
+- ✅ `companies/stripe-vs-square-vs-paypal-pricing.html` (~1,500/mo)
 
 ### [DONE] High-Traffic Pages (from Session 142)
 - ✅ `companies/microsoft-teams-pricing.html` (~5,000/mo)
