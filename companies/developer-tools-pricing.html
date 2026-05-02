@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Tool Pricing 2026 — GitHub vs GitLab vs Linear vs Atlassian vs AWS</title>
+  <meta name="description" content="Compare developer tool pricing in 2026: GitHub, GitLab, Linear, Atlassian, AWS vs Azure, Stripe, Zapier. Plans, per-seat costs, and which tools fit your engineering team.">
+  <meta property="og:title" content="Developer Tools Pricing Hub 2026 — GitHub, GitLab, Linear, Atlassian, AWS">
+  <meta property="og:description" content="Complete pricing guide for developer tools. GitHub vs GitLab, Linear vs Jira, AWS vs Azure — updated May 2026 with all plans and real costs.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.getpricepulse.com/og-image.svg">
+  <meta property="og:url" content="https://www.getpricepulse.com/companies/developer-tools-pricing.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.getpricepulse.com/companies/developer-tools-pricing.html">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a2e; background: #fff; margin: 0; }
+    nav { padding: 1rem 1.5rem; background: #0f1117; border-bottom: 1px solid #2a2a3d; display: flex; align-items: center; justify-content: space-between; }
+    nav a.logo { color: #00e5a0; font-weight: 700; text-decoration: none; font-size: 1.125rem; }
+    nav a.nav-link { color: #8888a8; text-decoration: none; font-size: 0.9rem; margin-left: 1.5rem; }
+    nav a.nav-link:hover { color: #e8e8f0; }
+    main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+    .breadcrumb { font-size: 0.8125rem; color: #8888a8; margin-bottom: 1.5rem; }
+    .breadcrumb a { color: #8888a8; text-decoration: none; }
+    h1 { font-size: 2rem; font-weight: 800; color: #0f1117; margin-bottom: 0.75rem; line-height: 1.2; }
+    .subtitle { color: #555; font-size: 1.0625rem; margin-bottom: 2.5rem; line-height: 1.6; }
+    .price-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9375rem; overflow-x: auto; display: block; }
+    .price-table th { background: #0f1117; color: #e8e8f0; padding: 0.75rem 1rem; text-align: left; font-weight: 600; white-space: nowrap; }
+    .price-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #eee; vertical-align: top; white-space: nowrap; }
+    .price-table tr:hover td { background: #f8f9fa; }
+    .price-table td:first-child { font-weight: 600; color: #0066cc; }
+    .badge { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.4rem; }
+    .badge-free { background: #d4edda; color: #155724; }
+    .badge-popular { background: #fff3cd; color: #856404; }
+    .section-title { font-size: 1.375rem; font-weight: 700; margin: 2.5rem 0 1rem; color: #0f1117; border-bottom: 2px solid #00e5a0; padding-bottom: 0.5rem; display: inline-block; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0 2rem; }
+    .card { border: 1px solid #e0e0e0; border-radius: 10px; padding: 1.25rem; text-decoration: none; color: inherit; display: block; transition: all 0.15s; }
+    .card:hover { border-color: #00e5a0; box-shadow: 0 4px 16px rgba(0,229,160,0.12); transform: translateY(-2px); }
+    .card-type { font-size: 0.75rem; font-weight: 600; color: #8888a8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+    .card h3 { font-size: 1rem; font-weight: 700; color: #0f1117; margin: 0 0 0.4rem; }
+    .card p { font-size: 0.875rem; color: #555; margin: 0; line-height: 1.5; }
+    .card-arrow { float: right; color: #00e5a0; font-size: 1.125rem; }
+    .alert-box { background: linear-gradient(135deg, #0f1117 0%, #1a1a2e 100%); border: 1px solid rgba(0,229,160,0.3); border-radius: 12px; padding: 1.5rem 2rem; margin: 2.5rem 0; color: #e8e8f0; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .alert-box .icon { font-size: 2rem; flex-shrink: 0; }
+    .alert-box .text { flex: 1; min-width: 200px; }
+    .alert-box .text strong { display: block; font-size: 1.0625rem; margin-bottom: 0.3rem; }
+    .alert-box .text span { font-size: 0.875rem; color: #8888a8; }
+    .alert-box a.btn { background: #00e5a0; color: #0a0a0f; padding: 0.625rem 1.375rem; border-radius: 8px; font-weight: 700; font-size: 0.9375rem; text-decoration: none; flex-shrink: 0; white-space: nowrap; }
+    .verdicts { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.875rem; margin: 1.25rem 0 2rem; }
+    .verdict { border-left: 3px solid #00e5a0; background: #f8f9fa; padding: 0.875rem 1rem; border-radius: 0 8px 8px 0; }
+    .verdict .tool { font-weight: 700; font-size: 0.9375rem; color: #0f1117; }
+    .verdict .use-case { font-size: 0.8125rem; color: #555; margin-top: 0.2rem; }
+    footer { border-top: 1px solid #eee; padding: 1.5rem; text-align: center; color: #888; font-size: 0.8125rem; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">📡 PricePulse</a>
+    <div>
+      <a href="/companies/" class="nav-link">Pricing Directory</a>
+      <a href="/pricing.html" class="nav-link">Our Pricing</a>
+      <a href="/signup.html?utm_source=hub&utm_content=dev-tools-nav" class="nav-link" style="color:#00e5a0;font-weight:600;">Try Free</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="breadcrumb">
+      <a href="/">PricePulse</a> › <a href="/companies/">Pricing Directory</a> › Developer Tools
+    </div>
+
+    <h1>Developer Tool Pricing 2026</h1>
+    <p class="subtitle">
+      GitHub, GitLab, Linear, Atlassian, AWS, Stripe, Zapier — the core tools that power engineering teams.
+      This hub compares pricing across categories so your team never overpays for developer infrastructure.
+    </p>
+
+    <h2 style="font-size:1.25rem;margin-bottom:0.75rem;color:#0f1117;">Version Control &amp; CI/CD — May 2026</h2>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Free</th>
+          <th>Team</th>
+          <th>Enterprise</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/companies/github-pricing.html">GitHub</a> <span class="badge badge-popular">Popular</span></td>
+          <td>✅ Unlimited public repos</td>
+          <td>$4/user/mo</td>
+          <td>$21/user/mo</td>
+          <td>Open source + SaaS teams</td>
+        </tr>
+        <tr>
+          <td><a href="/companies/gitlab-pricing.html">GitLab</a></td>
+          <td>✅ Free tier</td>
+          <td>$19/user/mo (Premium)</td>
+          <td>$99/user/mo</td>
+          <td>All-in-one DevSecOps platform</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="font-size:1.25rem;margin-bottom:0.75rem;margin-top:2rem;color:#0f1117;">AI Code Assistants</h2>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Free</th>
+          <th>Individual</th>
+          <th>Business</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/companies/github-copilot-pricing.html">GitHub Copilot</a></td>
+          <td>✅ 2000 completions/mo</td>
+          <td>$10/mo</td>
+          <td>$19/user/mo</td>
+          <td>+90% price hike in 2024</td>
+        </tr>
+        <tr>
+          <td><a href="/companies/github-copilot-vs-codeium-pricing.html">Codeium</a></td>
+          <td>✅ Unlimited free</td>
+          <td>$12/mo (Teams)</td>
+          <td>Custom</td>
+          <td>Free alternative to Copilot</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="font-size:1.25rem;margin-bottom:0.75rem;margin-top:2rem;color:#0f1117;">Cloud Infrastructure</h2>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th>Free Tier</th>
+          <th>Model</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/companies/aws-vs-azure-pricing.html">AWS</a></td>
+          <td>✅ 12-month free tier</td>
+          <td>Pay-as-you-go</td>
+          <td>Largest ecosystem, most services</td>
+        </tr>
+        <tr>
+          <td><a href="/companies/aws-vs-azure-pricing.html">Azure</a></td>
+          <td>✅ $200 credit</td>
+          <td>Pay-as-you-go</td>
+          <td>Microsoft-stack enterprises</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box">
+      <div class="icon">📡</div>
+      <div class="text">
+        <strong>Developer tools change pricing fast — GitHub Copilot raised prices +90% without warning</strong>
+        <span>PricePulse monitors pricing pages 24/7 and alerts you instantly. Free plan monitors 2 tools.</span>
+      </div>
+      <a href="/signup.html?utm_source=hub&utm_medium=cta_box&utm_content=developer-tools-pricing" class="btn">Set Up Free Alert →</a>
+    </div>
+
+    <div class="section-title">Head-to-Head Comparisons</div>
+    <div class="card-grid">
+      <a class="card" href="/companies/gitlab-vs-github-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>GitLab vs GitHub</h3>
+        <p>All-in-one DevOps platform vs the world's largest code host. Price and feature analysis.</p>
+      </a>
+      <a class="card" href="/companies/github-copilot-vs-codeium-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>GitHub Copilot vs Codeium</h3>
+        <p>$10/mo Copilot vs Codeium's unlimited free plan. Is Copilot worth it?</p>
+      </a>
+      <a class="card" href="/companies/aws-vs-azure-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>AWS vs Azure Pricing</h3>
+        <p>EC2 vs Azure VM, S3 vs Blob Storage — real compute and storage cost comparison.</p>
+      </a>
+      <a class="card" href="/companies/asana-vs-jira-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>Jira vs Asana</h3>
+        <p>Atlassian's issue tracker vs cross-functional project management. Engineering team guide.</p>
+      </a>
+      <a class="card" href="/companies/linear-vs-clickup-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>Linear vs ClickUp</h3>
+        <p>Fast issue tracking for devs vs feature-rich all-in-one for teams.</p>
+      </a>
+      <a class="card" href="/companies/zapier-vs-make-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>Zapier vs Make (Integromat)</h3>
+        <p>No-code automation pricing — when Zapier's task-based model gets expensive.</p>
+      </a>
+      <a class="card" href="/companies/hasura-vs-postgraphile-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>Hasura vs PostGraphile</h3>
+        <p>Managed GraphQL backend vs self-hosted. Real cost of zero-DevOps vs DIY.</p>
+      </a>
+      <a class="card" href="/companies/stripe-vs-paypal-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>Stripe vs PayPal</h3>
+        <p>Developer-first payments vs PayPal's ecosystem. Transaction fee comparison at scale.</p>
+      </a>
+      <a class="card" href="/companies/stripe-vs-square-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Comparison</div>
+        <h3>Stripe vs Square</h3>
+        <p>Online-first vs omnichannel payments. Choosing the right processor for your model.</p>
+      </a>
+    </div>
+
+    <div class="section-title">Individual Tool Pricing</div>
+    <div class="card-grid">
+      <a class="card" href="/companies/github-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Pricing Guide</div>
+        <h3>GitHub Pricing</h3>
+        <p>Free, Team, Enterprise — repository, Actions minutes, and Copilot cost breakdown.</p>
+      </a>
+      <a class="card" href="/companies/gitlab-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Pricing Guide</div>
+        <h3>GitLab Pricing</h3>
+        <p>Free, Premium, Ultimate — CI/CD minutes, security scanning, and DevSecOps features.</p>
+      </a>
+      <a class="card" href="/companies/github-copilot-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Pricing Guide</div>
+        <h3>GitHub Copilot Pricing</h3>
+        <p>Individual, Business, Enterprise — the AI coding assistant that raised prices +90%.</p>
+      </a>
+      <a class="card" href="/companies/atlassian-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Pricing Guide</div>
+        <h3>Atlassian / Jira Pricing</h3>
+        <p>Jira Software, Confluence, and Atlassian suite — cloud plans and team size costs.</p>
+      </a>
+      <a class="card" href="/companies/linear-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Pricing Guide</div>
+        <h3>Linear Pricing</h3>
+        <p>Free, Standard, Plus — the fastest issue tracker with clean, transparent pricing.</p>
+      </a>
+      <a class="card" href="/companies/stripe-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Pricing Guide</div>
+        <h3>Stripe Pricing</h3>
+        <p>Standard (2.9%+$0.30), Custom rates, Stripe Tax, Connect, Billing — full cost model.</p>
+      </a>
+      <a class="card" href="/companies/zapier-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Pricing Guide</div>
+        <h3>Zapier Pricing</h3>
+        <p>Free, Starter, Professional, Team — task-based pricing and when it gets expensive.</p>
+      </a>
+      <a class="card" href="/companies/loom-pricing.html">
+        <span class="card-arrow">→</span>
+        <div class="card-type">Pricing Guide</div>
+        <h3>Loom Pricing</h3>
+        <p>Starter, Business, Enterprise — async video for engineering teams.</p>
+      </a>
+    </div>
+
+    <div class="section-title">Tool Recommendations by Team Type</div>
+    <div class="verdicts">
+      <div class="verdict">
+        <div class="tool">GitHub + Linear</div>
+        <div class="use-case">The modern SaaS engineering stack. GitHub for version control + Copilot for AI, Linear for fast issue tracking. Best for 2–50 person eng teams.</div>
+      </div>
+      <div class="verdict">
+        <div class="tool">GitLab (self-hosted)</div>
+        <div class="use-case">Teams that need all-in-one (CI/CD + security + registry) and want to own their infrastructure. Often chosen for compliance reasons.</div>
+      </div>
+      <div class="verdict">
+        <div class="tool">Atlassian Suite</div>
+        <div class="use-case">Large enterprise engineering orgs already in Jira + Confluence. Switching cost is high — stay if you're in, avoid if you're not.</div>
+      </div>
+      <div class="verdict">
+        <div class="tool">Stripe</div>
+        <div class="use-case">Developer-first payments for SaaS and e-commerce. Best API, best documentation, most ecosystem integrations. Worth the 2.9%.</div>
+      </div>
+      <div class="verdict">
+        <div class="tool">Zapier → Make at scale</div>
+        <div class="use-case">Start with Zapier (easiest), switch to Make (Integromat) when task volume gets expensive. Make is 5–10x cheaper at high volumes.</div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="icon">🔔</div>
+      <div class="text">
+        <strong>Your dev tool budget changes whenever any of these tools update pricing</strong>
+        <span>PricePulse alerts your team the moment any pricing page changes — before you're caught off guard at renewal.</span>
+      </div>
+      <a href="/signup.html?utm_source=hub&utm_medium=cta_box2&utm_content=developer-tools-pricing" class="btn">Start Free →</a>
+    </div>
+
+    <h2 style="font-size:1.125rem;margin-bottom:0.75rem;color:#0f1117;">Browse Other Pricing Hubs</h2>
+    <ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;">
+      <li><a href="/companies/project-management-pricing.html" style="background:#f0f0f0;padding:0.375rem 0.875rem;border-radius:20px;text-decoration:none;color:#333;font-size:0.875rem;">📋 Project Management</a></li>
+      <li><a href="/companies/design-tools-pricing.html" style="background:#f0f0f0;padding:0.375rem 0.875rem;border-radius:20px;text-decoration:none;color:#333;font-size:0.875rem;">🎨 Design Tools</a></li>
+      <li><a href="/companies/crm-pricing.html" style="background:#f0f0f0;padding:0.375rem 0.875rem;border-radius:20px;text-decoration:none;color:#333;font-size:0.875rem;">💼 CRM Tools</a></li>
+      <li><a href="/companies/" style="background:#f0f0f0;padding:0.375rem 0.875rem;border-radius:20px;text-decoration:none;color:#333;font-size:0.875rem;">📋 All Tools</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>Last updated May 2026 · Pricing verified from vendor websites · <a href="/companies/" style="color:#0066cc;">Browse all pricing guides</a></p>
+  </footer>
+
+  <script src="/cta.js"></script>
+</body>
+</html>
