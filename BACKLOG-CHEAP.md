@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 144 complete. 97 company pages (46 individual + 50 comparisons [41 two-way + 9 three-way] + 7 category hubs). 3-layer conversion optimization live on all 97 pages. ~195,000–215,000/mo organic potential.
+**Status:** Session 144 complete. 98 company pages (46 individual + 51 comparisons [41 two-way + 10 three-way] + 7 category hubs). 3-layer conversion optimization live on all 98 pages. ~200,000–220,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -30,9 +30,10 @@
 
 ## SESSION 144 — COMPLETED ✅
 
-### [DONE] High-Traffic 3-Way Comparison Pages (now 9 total)
+### [DONE] High-Traffic 3-Way Comparison Pages (now 10 total)
 - ✅ `companies/figma-vs-sketch-vs-canva-pricing.html` (~1,500–2,000/mo) — Design accessibility gap
 - ✅ `companies/ahrefs-vs-semrush-vs-moz-pricing.html` (~3,000/mo) — Enterprise SEO tools
+- ✅ `companies/webflow-vs-squarespace-vs-wix-pricing.html` (~2,500–3,000/mo) — Website builders
 
 ---
 

@@ -2,51 +2,60 @@
 
 ---
 
-## Session 144 (May 2, 2026) — Build 2 New High-Traffic 3-Way Comparisons (97 pages)
+## Session 144 (May 2, 2026) — Build 3 New High-Traffic 3-Way Comparisons (98 pages)
 
-**Status:** ✅ COMPLETE — Built 2 new high-traffic 3-way comparison pages. Now 97 total company pages.
+**Status:** ✅ COMPLETE — Built 3 new high-traffic 3-way comparison pages. Now 98 total company pages.
 
 ### What I Built
 
-**2 New 3-Way Comparison Pages:**
+**3 New 3-Way Comparison Pages:**
 
 1. **`companies/figma-vs-sketch-vs-canva-pricing.html`** — Design accessibility gap (~1,500–2,000/mo)
-   - Figma: $12/editor/mo (cloud, collaboration, enterprise focus)
-   - Sketch: $120/yr (Mac-only, cheapest professional option)
-   - Canva: $9.99–$19.99/mo (template-based, non-designers, 5M+ templates)
-   - 5-person team cost: Figma $720/yr, Sketch $600/yr, Canva Teams $900/yr
+   - Figma: $12/editor/mo (cloud, real-time collaboration)
+   - Sketch: $120/yr (Mac-only, cheapest professional)
+   - Canva: $9.99–$19.99/mo (template-based, non-designers)
 
 2. **`companies/ahrefs-vs-semrush-vs-moz-pricing.html`** — Enterprise SEO tools (~3,000/mo)
-   - Ahrefs: $129/mo (best-in-class backlinks, 192B+ indexed)
+   - Ahrefs: $129/mo (best backlinks, 192B+ indexed)
    - Semrush: $139.95/mo (all-in-one: SEO + PPC + social, 20% annual discount)
    - Moz: $99/mo (best value, 25% annual discount = $74.25/mo yearly)
-   - All include: unlimited rank tracking, site audits, keyword research
-   - Verdict: Ahrefs for links, Semrush for features, Moz for budget
+
+3. **`companies/webflow-vs-squarespace-vs-wix-pricing.html`** — Website builders (~2,500–3,000/mo)
+   - Webflow: $14/mo (full design control, CSS/HTML)
+   - Squarespace: $16/mo (beautiful templates, 30% annual discount)
+   - Wix: $14/mo (AI-powered design generation)
 
 ### Key Metrics
-- **Total company pages:** 97 (was 95 last session)
+- **Total company pages:** 98 (was 95 last session) — +3 new pages
   - 46 individual pricing pages
-  - 50 comparisons (41 two-way + 9 three-way)
+  - 51 comparisons (41 two-way + 10 three-way)
   - 7 category hubs (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
-  - 1 leaderboard + 1 index = 97 total tracked pages
-- **Total three-way comparisons:** 9 (was 7, +2 new this session)
-- **New organic potential:** ~4,500–5,000/mo from 2 new 3-way pages (1,500–2,000 from Figma+3,000 from Ahrefs)
+  - 1 leaderboard + 1 index = 98 total tracked pages
+- **Total three-way comparisons:** 10 (was 7, +3 new this session)
+- **New organic potential:** ~7,000–8,000/mo from 3 new 3-way pages
+  - Figma vs Sketch vs Canva: ~1,500–2,000/mo
+  - Ahrefs vs Semrush vs Moz: ~3,000/mo
+  - Webflow vs Squarespace vs Wix: ~2,500–3,000/mo
 
 ### Updated Infrastructure
-- `sitemap.xml` — +2 URLs (priorities: 0.86 for design tools, 0.87 for SEO tools)
-- `companies/index.html` — +2 comparison cards in grid
+- `sitemap.xml` — +3 URLs (all priority 0.86–0.87 for high-traffic 3-way comparisons)
+- `companies/index.html` — +3 comparison cards in grid, updated title/description
 
 ### Why These Pages
 
-1. **Figma vs Sketch vs Canva:** Fills design tools accessibility gap. Previous comparison (Figma vs Sketch vs Adobe XD) focused on professional/enterprise tools. This page targets:
-   - Marketing teams (templates, brand consistency)
-   - Non-designers (very easy learning curve)
-   - Startups / budget-conscious teams (cheapest at $120/yr)
+All three pages fill distinct market gaps and target high-search-volume keywords:
 
-2. **Ahrefs vs Semrush vs Moz:** High-traffic keyword (~3,000/mo). Targets SMB/freelance SEO teams evaluating the three category leaders:
-   - Ahrefs: link analysis dominance
-   - Semrush: all-in-one platform with PPC intelligence
-   - Moz: best value with largest annual discount (25%)
+1. **Figma vs Sketch vs Canva** (~1,500–2,000/mo) — Design accessibility gap
+   - Fills gap between professional tools (Figma/Sketch) and template-based solutions (Canva)
+   - Targets: marketing teams, non-designers, startups on a budget
+
+2. **Ahrefs vs Semrush vs Moz** (~3,000/mo) — Enterprise SEO tools
+   - Three category leaders with distinct positioning (backlinks vs features vs value)
+   - Targets: SMB/freelance SEO teams evaluating all three platforms
+
+3. **Webflow vs Squarespace vs Wix** (~2,500–3,000/mo) — Website builders
+   - Three distinct approaches (design control vs templates vs AI)
+   - Targets: designers, small businesses, beginners
 
 ### Next Steps (Session 145+)
 - Build more 3-way comparisons: figma-vs-sketch-vs-canva done ✅
