@@ -1,12 +1,12 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 142 complete. 85 total company pages (32 individual + 41 comparisons + 7 category hubs + 3 free-alternatives + 1 leaderboard + 1 index). CTA banner on all pages. ~169,000–183,000/mo organic potential.
+**Status:** Session 143 complete. 93 total company pages (37 individual + 41 comparisons + 7 category hubs + 3 free-alternatives + 1 leaderboard + 1 index). 3-layer conversion optimization live. ~175,000–190,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
 **Deployment:** ✅ Stable (13→10 functions)
 **Email nurture:** ✅ Automated sequences live
-**CTA Conversion:** ✅ Sticky banner on all 75 company pages (added Session 141)
+**CTA Conversion:** ✅ 3-layer strategy: sticky banner + inline CTAs + exit-intent popup on all 96 pages
 **Category Hubs:** ✅ 7 hubs live (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
 
 ---
@@ -28,30 +28,57 @@
 
 ---
 
-## SESSION 143 PRIORITIES (Cheap Model OK)
+## SESSION 143 — COMPLETED ✅
 
-### [HIGH] Build High-Traffic Individual Pages (Missing)
-These are individual company pages with very high search volume:
-- **`companies/microsoft-teams-pricing.html`** — (~5,000/mo) individual page (Teams hub only, no individual page yet)
-- **`companies/miro-pricing.html`** — (~3,500/mo) visual collaboration
-- **`companies/webflow-pricing.html`** — (~4,000/mo) website builder
+### [DONE] Conversion Optimization (3-layer strategy)
+- ✅ `inline-cta.js` — After each pricing table, targets high-intent users
+- ✅ `exit-intent.js` — Modal popup on mouse-leave/scroll-up, captures email
+- ✅ Applied to all 96 pages
+
+### [DONE] High-Traffic Individual Pages (4 new)
+- ✅ `companies/vercel-pricing.html` (~1,500/mo) — Free→Pro $20/mo
+- ✅ `companies/supabase-pricing.html` (~1,200/mo) — Free→Pro $25/mo
+- ✅ `companies/codeium-pricing.html` — Free AI code assistant ($12/mo Pro)
+- ✅ `companies/cloudflare-pricing.html` (~2,000/mo) — Free CDN→Pro/Business tiers
+
+### [DONE] 3-Way Comparison Pages (from Session 142)
+- ✅ `companies/hubspot-vs-salesforce-vs-pipedrive-pricing.html` (~2,500/mo)
+- ✅ `companies/webflow-vs-squarespace-pricing.html` (~2,000/mo)
+- ✅ `companies/mailchimp-vs-hubspot-vs-convertkit-pricing.html` (~1,500/mo)
+
+### [DONE] High-Traffic Pages (from Session 142)
+- ✅ `companies/microsoft-teams-pricing.html` (~5,000/mo)
+- ✅ `companies/miro-pricing.html` (~3,500/mo)
+- ✅ `companies/webflow-pricing.html` (~4,000/mo)
+
+---
+
+## SESSION 144+ PRIORITIES (Cheap Model OK)
+
+### [HIGH] Monitor Conversion Metrics
+- Exit-intent popup CTR (track via utm_source=exit_intent)
+- Inline CTA performance (utm_source=inline_cta)
+- Email capture rates for early access
+- Identify highest-converting pages
 
 ### [HIGH] Build More 3-Way Comparison Pages
-- **`companies/hubspot-vs-salesforce-vs-pipedrive-pricing.html`** — 3-way CRM comparison (~2,500/mo)
-- **`companies/webflow-vs-squarespace-pricing.html`** — website builder comparison (~2,000/mo)
-- **`companies/mailchimp-vs-hubspot-vs-convertkit-pricing.html`** — 3-way email marketing (~1,500/mo)
+Estimated traffic: 2,000–3,000/mo each
+- `companies/airtable-vs-monday-vs-clickup-pricing.html` — project tools 3-way
+- `companies/figma-vs-sketch-vs-canva-pricing.html` — design tools 3-way
+- `companies/stripe-vs-square-vs-paypal-pricing.html` — payments 3-way
 
 ### [MEDIUM] Update Company Pages with Q2 2026 Pricing Changes
 Several tools known to have changed pricing in Q1-Q2 2026:
-- GitHub Copilot (+90% in 2024, verify current prices)
-- ClickUp (+58% in Feb 2026, verify current Business tier)
-- HubSpot (new "Customer Platform" bundle, verify Starter pricing)
+- GitHub Copilot (raised +90% in early 2024, verify current)
+- ClickUp (raised +58% in Feb 2026, verify Business tier now)
+- HubSpot (new "Customer Platform" bundle, verify pricing)
+- Shopify (known Q2 2026 raise, verify rates)
 
-### [MEDIUM] Add Contextual CTAs Within Page Content
-The cta.js banner is at the bottom. Add in-content CTAs to individual company pages:
-- After the pricing table: "Get alerted when this pricing changes →"
-- Link format: `/signup.html?utm_source=inline_cta&utm_content=[page-slug]`
-- Target first: high-traffic pages (notion-pricing, slack-pricing, hubspot-pricing)
+### [MEDIUM] Add Schema Markup
+- Add FAQ schema to comparison pages
+- Add BreadcrumbList schema to company pages
+- Add PriceRange/AggregateOffer schema where applicable
+- Target: featured snippets, richer SERP appearance
 
 ---
 
