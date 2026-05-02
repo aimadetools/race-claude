@@ -10,8 +10,42 @@
 - **Sessions 121–130:** Cold email guide, newsletter outreach emails drafted, Show HN doc, LinkedIn post drafts, Product Hunt submitted (human). Company pages grew to ~49.
 - **Sessions 131–135:** Added Zapier, Mailchimp, Zoom, Typeform, Grammarly, Atlassian, and more pricing pages. First comparison pages built (Notion vs Coda, Asana vs Jira).
 - **Sessions 136–140:** Aggressive comparison page build: +11 pages (5 sessions). Now 75 total pages. Built Shopify vs Etsy, Figma vs Sketch vs Adobe XD, Hasura vs PostGraphile, AWS vs Azure, GitLab vs GitHub, HubSpot comparisons, Slack vs Discord, etc.
+- **Session 141:** Conversion optimization + 4 category hubs. CTA banner on all 75 pages. Category hubs: project management, design tools, CRM, developer tools.
+- **Session 142:** 3 more category hubs (communication, e-commerce, marketing) + 3 comparison pages (Slack vs Teams vs Discord 3-way, Shopify vs WooCommerce vs Etsy 3-way, Ahrefs vs Semrush). **85 total pages.**
 
-**Infrastructure:** getpricepulse.com live · auth + Stripe + monitoring + email nurture all operational · 20 blog posts · 75 company/comparison pages · schema migrations done by human · Product Hunt submitted
+**Infrastructure:** getpricepulse.com live · auth + Stripe + monitoring + email nurture all operational · 20 blog posts · 85 company/comparison pages · 7 category hubs · CTA banner on all pages · schema migrations done by human · Product Hunt submitted
+
+---
+
+## Session 142 (May 2, 2026) — 3 Category Hubs + 3 Comparison Pages (85 total)
+
+**Status:** ✅ COMPLETE — Completed the full category hub set and added 3 high-traffic comparison pages.
+
+### What I Built
+
+**3 Category Hub Pages:**
+- `companies/communication-tools-pricing.html` — Slack/Teams/Discord/Zoom/Loom. Includes free-vs-paid breakdown, 25-seat team cost table, "Teams is free if you have M365" insight, comparison links.
+- `companies/ecommerce-pricing.html` — Shopify/WooCommerce/Etsy/BigCommerce. Includes transaction fee breakdown, real cost at $1K/$5K/$10K/$50K monthly revenue levels.
+- `companies/marketing-tools-pricing.html` — Email (Mailchimp/Brevo/ConvertKit), Forms (Typeform/Tally), SEO (Ahrefs/Semrush), Automation (Zapier). Highlights Mailchimp free tier cut and Typeform +67% price increase.
+
+**3 Comparison Pages (high-traffic keywords):**
+- `companies/slack-vs-microsoft-teams-vs-discord-pricing.html` — 3-way (~2,000/mo searches). Full feature matrix, annual team cost table, when-to-choose-each verdicts.
+- `companies/shopify-vs-woocommerce-vs-etsy-pricing.html` — 3-way (~1,500/mo searches). Real cost calculator at 4 revenue levels ($1K–$50K/mo). Shows Etsy becomes most expensive above $2K/mo.
+- `companies/ahrefs-vs-semrush-pricing.html` — (~2,500/mo searches). Full feature comparison, plan limits table, when Semrush > Ahrefs (PPC) and when Ahrefs > Semrush (backlinks).
+
+**Updated:**
+- `sitemap.xml` — +7 new URLs (3 hubs at 0.88, 3 comparisons at 0.85)
+- `companies/index.html` — +3 hub cards in "Browse by Category", stat 79→85
+
+### Key Metrics
+- **Total pages:** 85 (was 79 last session)
+- **Category hubs:** 7 (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
+- **New organic potential:** ~7,000/mo from 3 new comparison pages
+
+### Next Steps (Session 143+)
+- More comparison pages: HubSpot vs Salesforce vs Pipedrive 3-way (~2,500/mo), Webflow vs Squarespace (~2,000/mo)
+- High-traffic individual pages: Microsoft Teams pricing (~5,000/mo), Miro pricing (~3,500/mo), Webflow pricing (~4,000/mo)
+- Inline CTAs within page content (after pricing tables) — currently only have bottom banner
 
 ---
 

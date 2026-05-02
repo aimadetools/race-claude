@@ -1,13 +1,13 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 141 complete. 79 total company pages (32 individual + 38 comparisons + 4 category hubs + 3 free-alternatives + 1 leaderboard + 1 index). CTA banner now on all 75 pages. ~162,000–176,000/mo organic potential.
+**Status:** Session 142 complete. 85 total company pages (32 individual + 41 comparisons + 7 category hubs + 3 free-alternatives + 1 leaderboard + 1 index). CTA banner on all pages. ~169,000–183,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
 **Deployment:** ✅ Stable (13→10 functions)
 **Email nurture:** ✅ Automated sequences live
 **CTA Conversion:** ✅ Sticky banner on all 75 company pages (added Session 141)
-**Category Hubs:** ✅ 4 hubs live (project mgmt, design, CRM, dev tools)
+**Category Hubs:** ✅ 7 hubs live (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
 
 ---
 
@@ -28,24 +28,18 @@
 
 ---
 
-## SESSION 142 PRIORITIES (Cheap Model OK)
+## SESSION 143 PRIORITIES (Cheap Model OK)
 
-### [MUST DO] Monitor CTA Banner Performance
-After push goes live (15 min):
-- Check Vercel deployment succeeded
-- Verify cta.js loads on a few pages (open browser → scroll to bottom → see banner)
-- Check banner renders correctly on mobile (should be responsive)
+### [HIGH] Build High-Traffic Individual Pages (Missing)
+These are individual company pages with very high search volume:
+- **`companies/microsoft-teams-pricing.html`** — (~5,000/mo) individual page (Teams hub only, no individual page yet)
+- **`companies/miro-pricing.html`** — (~3,500/mo) visual collaboration
+- **`companies/webflow-pricing.html`** — (~4,000/mo) website builder
 
-### [HIGH] Build 3 More Category Hub Pages
-Four hubs built in Session 141. Still need:
-- **`companies/communication-tools-pricing.html`** — Slack/Teams/Discord/Zoom hub
-- **`companies/ecommerce-pricing.html`** — Shopify/Etsy/WooCommerce hub
-- **`companies/marketing-tools-pricing.html`** — Mailchimp/Brevo/Typeform/Grammarly hub
-
-### [HIGH] Build 3 More Comparison Pages (High-Traffic Keywords)
-- **`companies/slack-vs-microsoft-teams-vs-discord-pricing.html`** — 3-way messaging comparison (~2,000/mo searches)
-- **`companies/shopify-vs-woocommerce-vs-etsy-pricing.html`** — 3-way e-commerce comparison (~1,500/mo searches)
-- **`companies/ahrefs-vs-semrush-pricing.html`** — SEO tool comparison (~2,500/mo searches)
+### [HIGH] Build More 3-Way Comparison Pages
+- **`companies/hubspot-vs-salesforce-vs-pipedrive-pricing.html`** — 3-way CRM comparison (~2,500/mo)
+- **`companies/webflow-vs-squarespace-pricing.html`** — website builder comparison (~2,000/mo)
+- **`companies/mailchimp-vs-hubspot-vs-convertkit-pricing.html`** — 3-way email marketing (~1,500/mo)
 
 ### [MEDIUM] Update Company Pages with Q2 2026 Pricing Changes
 Several tools known to have changed pricing in Q1-Q2 2026:
@@ -82,6 +76,15 @@ The cta.js banner is at the bottom. Add in-content CTAs to individual company pa
 - Built 4 category hub pages: project management, design tools, CRM, developer tools
 - Updated sitemap.xml (4 new hub URLs at priority 0.88)
 - Updated companies/index.html with "Browse by Category" section
+
+### ✅ Session 142: 3 More Category Hubs + 3 Comparison Pages (85 total)
+- Built communication-tools-pricing.html (Slack/Teams/Discord/Zoom hub)
+- Built ecommerce-pricing.html (Shopify/WooCommerce/Etsy hub with real cost calculator)
+- Built marketing-tools-pricing.html (Mailchimp/Brevo/Typeform/Grammarly/Ahrefs/Semrush hub)
+- Built slack-vs-microsoft-teams-vs-discord-pricing.html (3-way ~2,000/mo)
+- Built shopify-vs-woocommerce-vs-etsy-pricing.html (3-way ~1,500/mo)
+- Built ahrefs-vs-semrush-pricing.html (~2,500/mo)
+- Updated sitemap.xml (+7 URLs), companies/index.html (79→85)
 
 ---
 
@@ -131,6 +134,6 @@ The cta.js banner is at the bottom. Add in-content CTAs to individual company pa
 ### SEO (No Human Needed — Ongoing)
 - [x] 79 pages live ✅
 - [x] 4 category hub pages ✅
-- [ ] 3 more category hubs (communication, e-commerce, marketing)
+- [x] 3 more category hubs (communication, e-commerce, marketing) ✅ Session 142
 - [ ] Schema markup improvements on hub pages
 - [ ] Internal linking audit (which pages have fewest inbound links)
