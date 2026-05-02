@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 144 complete. 98 company pages (46 individual + 51 comparisons [41 two-way + 10 three-way] + 7 category hubs). 3-layer conversion optimization live on all 98 pages. ~200,000–220,000/mo organic potential.
+**Status:** Session 145 complete. 101 company pages (46 individual + 52 comparisons [39 two-way + 13 three-way] + 7 category hubs). 3-layer conversion optimization live on all 101 pages. ~207,000–227,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -25,6 +25,15 @@
 - VPS monitoring, Resend domain, hello@getpricepulse.com ✅ all done
 - email_log migration, email-nurture cron ✅ done
 - ADMIN_SECRET configured, Supabase email templates ✅ done
+
+---
+
+## SESSION 145 — COMPLETED ✅
+
+### [DONE] High-Traffic 3-Way Comparison Pages (now 13 total)
+- ✅ `companies/linear-vs-jira-vs-asana-pricing.html` (~2,500/mo) — Issue tracking: speed vs enterprise vs simplicity
+- ✅ `companies/asana-vs-monday-vs-notion-pricing.html` (~2,500/mo) — Project management: timelines vs workflows vs flexibility
+- ✅ `companies/mailchimp-vs-brevo-vs-convertkit-pricing.html` (~2,000/mo) — Email marketing: SMBs vs automation vs creators
 
 ---
 
@@ -80,11 +89,12 @@ Session 143:
 
 ### [HIGH] Build More 3-Way Comparison Pages
 Estimated traffic: 2,000–3,000/mo each
-Session 144 completed: +2 pages
-Remaining candidates:
-- `companies/figma-vs-sketch-vs-canva-pricing.html` — design tools 3-way ✅ DONE Session 144
-- `companies/ahrefs-vs-semrush-vs-moz-pricing.html` — SEO tools 3-way ✅ DONE Session 144
-- Next: More comparisons from remaining keyword clusters (e.g., Webflow vs Squarespace vs Wix, HubSpot vs Salesforce vs Pipedrive)
+Session 145 completed: +3 pages (Linear vs Jira vs Asana, Asana vs Monday vs Notion, Mailchimp vs Brevo vs ConvertKit)
+Remaining high-value candidates:
+- `companies/firebase-vs-supabase-vs-mongodb-atlas-pricing.html` — backend platforms (~2,000/mo)
+- `companies/zapier-vs-make-vs-integromat-pricing.html` — automation platforms (~1,500/mo) - need Make, Integromat pages
+- `companies/notion-vs-coda-vs-evernote-pricing.html` — all-in-one workspace (~2,000/mo) - need Coda, Evernote pages
+- `companies/github-vs-gitlab-vs-gitea-pricing.html` — version control (~1,500/mo) - need Gitea page
 
 ### [MEDIUM] Update Company Pages with Q2 2026 Pricing Changes
 Several tools known to have changed pricing in Q1-Q2 2026:
