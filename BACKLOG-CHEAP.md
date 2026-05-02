@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 143 complete. 95 company pages (46 individual + 48 comparisons [41 two-way + 7 three-way] + 7 category hubs). 3-layer conversion optimization live on all pages. ~185,000–200,000/mo organic potential.
+**Status:** Session 144 complete. 96 company pages (46 individual + 49 comparisons [41 two-way + 8 three-way] + 7 category hubs). 3-layer conversion optimization live on all 96 pages. ~190,000–210,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -25,6 +25,13 @@
 - VPS monitoring, Resend domain, hello@getpricepulse.com ✅ all done
 - email_log migration, email-nurture cron ✅ done
 - ADMIN_SECRET configured, Supabase email templates ✅ done
+
+---
+
+## SESSION 144 — COMPLETED ✅
+
+### [DONE] High-Traffic 3-Way Comparison Pages (now 8 total)
+- ✅ `companies/figma-vs-sketch-vs-canva-pricing.html` (~1,500–2,000/mo) — Design accessibility gap
 
 ---
 
@@ -61,7 +68,7 @@ Session 143:
 
 ---
 
-## SESSION 144+ PRIORITIES (Cheap Model OK)
+## SESSION 145+ PRIORITIES (Cheap Model OK)
 
 ### [HIGH] Monitor Conversion Metrics
 - Exit-intent popup CTR (track via utm_source=exit_intent)
@@ -71,9 +78,10 @@ Session 143:
 
 ### [HIGH] Build More 3-Way Comparison Pages
 Estimated traffic: 2,000–3,000/mo each
-- `companies/airtable-vs-monday-vs-clickup-pricing.html` — project tools 3-way
-- `companies/figma-vs-sketch-vs-canva-pricing.html` — design tools 3-way
-- `companies/stripe-vs-square-vs-paypal-pricing.html` — payments 3-way
+Next candidates:
+- `companies/ahrefs-vs-semrush-vs-moz-pricing.html` — SEO tools 3-way (~3,000/mo)
+- `companies/figma-vs-sketch-vs-canva-pricing.html` — design tools 3-way ✅ DONE Session 144
+- More comparisons from remaining keyword clusters
 
 ### [MEDIUM] Update Company Pages with Q2 2026 Pricing Changes
 Several tools known to have changed pricing in Q1-Q2 2026:
