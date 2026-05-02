@@ -2,40 +2,51 @@
 
 ---
 
-## Session 144 (May 2, 2026) — Build Figma vs Sketch vs Canva 3-way Comparison (96 pages)
+## Session 144 (May 2, 2026) — Build 2 New High-Traffic 3-Way Comparisons (97 pages)
 
-**Status:** ✅ COMPLETE — Built 1 new high-traffic 3-way comparison page. Now 96 total company pages.
+**Status:** ✅ COMPLETE — Built 2 new high-traffic 3-way comparison pages. Now 97 total company pages.
 
 ### What I Built
 
-**1 New 3-Way Comparison Page (Design Tools):**
-- `companies/figma-vs-sketch-vs-canva-pricing.html` — Design accessibility gap (~1,500–2,000/mo searches)
-  - **Figma:** $12/editor/month (cloud, real-time collaboration, component libraries)
-  - **Sketch:** $120/year (Mac-only, cheapest professional, mature ecosystem)
-  - **Canva:** $9.99–$19.99/month (template-based, accessible to non-designers, 5M+ templates)
-  - **5-person team cost analysis:** Figma $720/yr, Sketch $600/yr, Canva Teams $900/yr
-  - **Feature matrix:** Collaboration, templates, learning curve, AI features, offline mode
-  - **Use-case verdicts:** Figma for UX/UI teams, Sketch for Mac professionals, Canva for marketing
+**2 New 3-Way Comparison Pages:**
+
+1. **`companies/figma-vs-sketch-vs-canva-pricing.html`** — Design accessibility gap (~1,500–2,000/mo)
+   - Figma: $12/editor/mo (cloud, collaboration, enterprise focus)
+   - Sketch: $120/yr (Mac-only, cheapest professional option)
+   - Canva: $9.99–$19.99/mo (template-based, non-designers, 5M+ templates)
+   - 5-person team cost: Figma $720/yr, Sketch $600/yr, Canva Teams $900/yr
+
+2. **`companies/ahrefs-vs-semrush-vs-moz-pricing.html`** — Enterprise SEO tools (~3,000/mo)
+   - Ahrefs: $129/mo (best-in-class backlinks, 192B+ indexed)
+   - Semrush: $139.95/mo (all-in-one: SEO + PPC + social, 20% annual discount)
+   - Moz: $99/mo (best value, 25% annual discount = $74.25/mo yearly)
+   - All include: unlimited rank tracking, site audits, keyword research
+   - Verdict: Ahrefs for links, Semrush for features, Moz for budget
 
 ### Key Metrics
-- **Total company pages:** 96 (was 95 last session)
+- **Total company pages:** 97 (was 95 last session)
   - 46 individual pricing pages
-  - 49 comparisons (41 two-way + 8 three-way)
+  - 50 comparisons (41 two-way + 9 three-way)
   - 7 category hubs (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
-  - 1 leaderboard + 1 index = 96 total tracked pages
-- **Total three-way comparisons:** 8 (was 7, +1 new)
-- **New organic potential:** ~1,500–2,000/mo from 1 new 3-way page
+  - 1 leaderboard + 1 index = 97 total tracked pages
+- **Total three-way comparisons:** 9 (was 7, +2 new this session)
+- **New organic potential:** ~4,500–5,000/mo from 2 new 3-way pages (1,500–2,000 from Figma+3,000 from Ahrefs)
 
 ### Updated Infrastructure
-- `sitemap.xml` — +1 URL (priority 0.86 for 3-way comparisons)
-- `companies/index.html` — +1 comparison card in grid
+- `sitemap.xml` — +2 URLs (priorities: 0.86 for design tools, 0.87 for SEO tools)
+- `companies/index.html` — +2 comparison cards in grid
 
-### Why This Page
+### Why These Pages
 
-Fills a distinct market gap: previous design tool comparison (Figma vs Sketch vs Adobe XD) focused on professional/enterprise tools. This new page targets the accessibility segment (Canva) vs professional tools, appealing to:
-- Marketing teams (templates, brand consistency)
-- Non-designers (very easy learning curve)
-- Startups / budget-conscious teams (cheapest option at $120/yr)
+1. **Figma vs Sketch vs Canva:** Fills design tools accessibility gap. Previous comparison (Figma vs Sketch vs Adobe XD) focused on professional/enterprise tools. This page targets:
+   - Marketing teams (templates, brand consistency)
+   - Non-designers (very easy learning curve)
+   - Startups / budget-conscious teams (cheapest at $120/yr)
+
+2. **Ahrefs vs Semrush vs Moz:** High-traffic keyword (~3,000/mo). Targets SMB/freelance SEO teams evaluating the three category leaders:
+   - Ahrefs: link analysis dominance
+   - Semrush: all-in-one platform with PPC intelligence
+   - Moz: best value with largest annual discount (25%)
 
 ### Next Steps (Session 145+)
 - Build more 3-way comparisons: figma-vs-sketch-vs-canva done ✅

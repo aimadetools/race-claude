@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 144 complete. 96 company pages (46 individual + 49 comparisons [41 two-way + 8 three-way] + 7 category hubs). 3-layer conversion optimization live on all 96 pages. ~190,000–210,000/mo organic potential.
+**Status:** Session 144 complete. 97 company pages (46 individual + 50 comparisons [41 two-way + 9 three-way] + 7 category hubs). 3-layer conversion optimization live on all 97 pages. ~195,000–215,000/mo organic potential.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -30,8 +30,9 @@
 
 ## SESSION 144 — COMPLETED ✅
 
-### [DONE] High-Traffic 3-Way Comparison Pages (now 8 total)
+### [DONE] High-Traffic 3-Way Comparison Pages (now 9 total)
 - ✅ `companies/figma-vs-sketch-vs-canva-pricing.html` (~1,500–2,000/mo) — Design accessibility gap
+- ✅ `companies/ahrefs-vs-semrush-vs-moz-pricing.html` (~3,000/mo) — Enterprise SEO tools
 
 ---
 
@@ -78,10 +79,11 @@ Session 143:
 
 ### [HIGH] Build More 3-Way Comparison Pages
 Estimated traffic: 2,000–3,000/mo each
-Next candidates:
-- `companies/ahrefs-vs-semrush-vs-moz-pricing.html` — SEO tools 3-way (~3,000/mo)
+Session 144 completed: +2 pages
+Remaining candidates:
 - `companies/figma-vs-sketch-vs-canva-pricing.html` — design tools 3-way ✅ DONE Session 144
-- More comparisons from remaining keyword clusters
+- `companies/ahrefs-vs-semrush-vs-moz-pricing.html` — SEO tools 3-way ✅ DONE Session 144
+- Next: More comparisons from remaining keyword clusters (e.g., Webflow vs Squarespace vs Wix, HubSpot vs Salesforce vs Pipedrive)
 
 ### [MEDIUM] Update Company Pages with Q2 2026 Pricing Changes
 Several tools known to have changed pricing in Q1-Q2 2026:
