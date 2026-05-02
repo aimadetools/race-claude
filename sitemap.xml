@@ -876,4 +876,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.87</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/gitea-pricing.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/github-vs-gitlab-vs-gitea-pricing.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
 </urlset>
