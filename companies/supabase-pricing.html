@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supabase Pricing Plans 2026 — PostgreSQL Backend Costs | PricePulse</title>
+  <meta name="description" content="Supabase pricing for PostgreSQL, authentication, storage, and real-time APIs. Compare Free, Pro, Business plans. See actual costs at different usage levels." />
+  <link rel="canonical" href="https://getpricepulse.com/companies/supabase-pricing.html" />
+  <meta property="og:title" content="Supabase Pricing 2026: Free PostgreSQL + Pay-as-You-Go" />
+  <meta property="og:description" content="Supabase offers free PostgreSQL hosting for learning. Pro tier at $25/month includes 2 GB database storage + authentication. Storage and bandwidth billed separately." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://getpricepulse.com/companies/supabase-pricing.html" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Supabase Pricing Plans 2026 — PostgreSQL, Auth, Storage & Real-Time APIs","description":"Supabase provides open-source Firebase alternative. Free tier for learning, Pro tier with 2GB database storage, usage-based billing for extras.","datePublished":"2026-02-01","dateModified":"2026-05-02","author":{"@type":"Organization","name":"PricePulse"},"publisher":{"@type":"Organization","name":"PricePulse","url":"https://getpricepulse.com"}}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0f;--bg2:#12121a;--border:#2a2a3d;--text:#e8e8f0;--muted:#8888a8;--accent:#00e5a0;--accent2:#00b87a;--radius:12px;--font:'Inter',system-ui,-apple-system,sans-serif}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+    nav{position:sticky;top:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .logo{font-size:1.125rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:.5rem;text-decoration:none}
+    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+    .nav-links{display:flex;align-items:center;gap:1.5rem}
+    .nav-links a{color:var(--muted);font-size:.9375rem}
+    .nav-links a:hover{color:var(--text);text-decoration:none}
+    .btn-cta{background:var(--accent);border-radius:8px;color:#0a0a0f!important;font-weight:700;font-size:.875rem;padding:.5rem 1rem}
+    .container{max-width:860px;margin:0 auto;padding:0 1.5rem}
+    .hero{padding:3.5rem 0 2rem}
+    .breadcrumb{font-size:.8125rem;color:var(--muted);margin-bottom:1rem}
+    .breadcrumb a{color:var(--muted)}.breadcrumb a:hover{color:var(--accent)}
+    h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+    .alert-banner{background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.25);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.75rem;margin:1.5rem 0}
+    .alert-icon{font-size:1.25rem;flex-shrink:0;margin-top:.1rem}
+    .alert-text{font-size:.9375rem;line-height:1.5}
+    .alert-text strong{color:#00e5a0}
+    .section{margin:2.5rem 0}
+    h2{font-size:1.375rem;font-weight:700;margin-bottom:1rem}
+    h3{font-size:1.125rem;font-weight:600;margin-bottom:.75rem}
+    p{margin-bottom:1rem;opacity:.9}
+    .pricing-table{width:100%;border-collapse:collapse;margin:1.25rem 0}
+    .pricing-table th{text-align:left;padding:.75rem 1rem;font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .pricing-table td{padding:.875rem 1rem;font-size:.9375rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .pricing-table tr:last-child td{border-bottom:none}
+    .plan-name{font-weight:600}
+    .plan-price{font-weight:700;color:var(--accent);font-size:1.0625rem;white-space:nowrap}
+    .cost-breakdown{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin:1rem 0}
+    .cost-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;font-size:.9375rem;border-bottom:1px solid var(--border)}
+    .cost-row:last-child{border-bottom:none}
+    .cost-label{color:var(--muted)}
+    .cost-value{font-weight:600;color:var(--accent)}
+    .feature-list{list-style:none;margin:1rem 0}
+    .feature-list li{padding:.5rem 0;padding-left:1.5rem;position:relative}
+    .feature-list li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-weight:700}
+    .comparison-note{background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.25);border-radius:var(--radius);padding:1rem;margin:1rem 0;font-size:.9375rem}
+    .cta-box{background:linear-gradient(135deg,rgba(0,229,160,.08),rgba(0,184,122,.04));border:1px solid rgba(0,229,160,.25);border-radius:var(--radius);padding:2rem;text-align:center;margin:2.5rem 0}
+    .cta-box h3{font-size:1.25rem;margin-bottom:.75rem}
+    .cta-box p{color:var(--muted);margin-bottom:1.5rem;max-width:520px;margin-left:auto;margin-right:auto}
+    .btn-primary{display:inline-block;background:var(--accent);color:#0a0a0f;font-weight:700;padding:.75rem 1.75rem;border-radius:8px;font-size:1rem}
+    .btn-primary:hover{background:var(--accent2);text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+    footer p{color:var(--muted);font-size:.875rem}
+    footer a{color:var(--muted)}footer a:hover{color:var(--accent)}
+    @media(max-width:640px){.nav-links{gap:1rem}.nav-links a:not(.btn-cta){display:none}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="logo"><span class="logo-dot"></span>PricePulse</a>
+  <div class="nav-links">
+    <a href="../pricing-tracker.html">Pricing Tracker</a>
+    <a href="../demo.html">Demo</a>
+    <a href="../pricing.html">Plans</a>
+    <a href="../signup.html" class="btn-cta">Get alerts free</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › <a href="../pricing-tracker.html">Pricing Tracker</a> › Supabase Pricing
+    </div>
+    <h1>Supabase Pricing 2026 — PostgreSQL, Auth &amp; Storage Costs</h1>
+    <div class="alert-banner">
+      <div class="alert-icon">✨</div>
+      <div class="alert-text">
+        <strong>Free tier good for learning:</strong> 500 MB database storage, 1 GB file storage, unlimited API requests. Pro tier ($25/month) includes 2 GB database + 50 GB file storage.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Current Supabase Pricing (May 2026)</h2>
+    <table class="pricing-table">
+      <thead><tr><th>Plan</th><th>Monthly Cost</th><th>Database Storage</th><th>File Storage</th></tr></thead>
+      <tbody>
+        <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>500 MB</td><td>1 GB</td></tr>
+        <tr><td class="plan-name">Pro</td><td class="plan-price">$25/month</td><td>2 GB</td><td>50 GB</td></tr>
+        <tr><td class="plan-name">Team</td><td class="plan-price">$599/month</td><td>100 GB</td><td>500 GB</td></tr>
+        <tr><td class="plan-name">Enterprise</td><td class="plan-price">Custom</td><td>Custom</td><td>Custom</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.875rem;color:var(--muted)">All plans include unlimited API requests and concurrent connections. Pricing shown is for US region.</p>
+  </div>
+
+  <div class="section">
+    <h2>Additional Usage-Based Billing</h2>
+    <div class="cost-breakdown">
+      <div class="cost-row">
+        <span class="cost-label">Database storage overage</span>
+        <span class="cost-value">$0.25 per GB/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">File storage overage</span>
+        <span class="cost-value">$0.05 per GB/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">Edge function invocations</span>
+        <span class="cost-value">$2 per million requests</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">Realtime concurrent users</span>
+        <span class="cost-value">$10 per 100 concurrent connections/month (Pro tier only)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Cost Estimation Examples</h2>
+    <div class="cost-breakdown">
+      <h3>Scenario 1: Small SaaS App</h3>
+      <div class="cost-row">
+        <span class="cost-label">Base plan (Pro)</span>
+        <span class="cost-value">$25/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">5 GB database storage overage</span>
+        <span class="cost-value">$1.25/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">500 concurrent real-time users</span>
+        <span class="cost-value">$50/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label"><strong>Total</strong></span>
+        <span class="cost-value"><strong>~$76/month</strong></span>
+      </div>
+    </div>
+    <div class="cost-breakdown">
+      <h3>Scenario 2: Large App</h3>
+      <div class="cost-row">
+        <span class="cost-label">Base plan (Team)</span>
+        <span class="cost-value">$599/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">100 GB database storage overage</span>
+        <span class="cost-value">$25/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">Edge function calls (10M/month)</span>
+        <span class="cost-value">$20/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label"><strong>Total</strong></span>
+        <span class="cost-value"><strong>~$644/month</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Supabase vs Alternatives</h2>
+    <ul class="feature-list">
+      <li><strong>vs Firebase:</strong> Supabase is self-hosted option or managed PostgreSQL; Firebase is fully managed but vendor lock-in.</li>
+      <li><strong>vs AWS RDS:</strong> Supabase includes auth + real-time APIs; RDS is database-only, needs more setup.</li>
+      <li><strong>vs PlanetScale (MySQL):</strong> Similar pricing tiers; Supabase offers more built-in features (auth, storage, real-time).</li>
+      <li><strong>vs Neon (Postgres):</strong> Both PostgreSQL; Supabase includes auth/storage; Neon is database-focused.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>When to Upgrade from Free</h2>
+    <p>Upgrade to Pro ($25/month) when:</p>
+    <ul class="feature-list">
+      <li>Your database grows beyond 500 MB</li>
+      <li>You need file storage beyond 1 GB</li>
+      <li>You're running production applications</li>
+      <li>You want daily automated backups (Pro only)</li>
+    </ul>
+  </div>
+
+  <div class="cta-box">
+    <h3>Never miss Supabase pricing updates</h3>
+    <p>Database and storage pricing can change. Get instant alerts if Supabase updates its plans, storage rates, or overage costs.</p>
+    <a href="../signup.html?utm_source=inline_cta&utm_medium=pricing_table&utm_content=supabase" class="btn-primary">Set up free alerts</a>
+    <p style="color:#6666888;font-size:.8125rem;margin-top:1rem;">No credit card required • Free plan forever</p>
+  </div>
+
+  <footer>
+    <p>Last verified: May 2026 | <a href="https://supabase.com/pricing">See official Supabase pricing →</a></p>
+  </footer>
+</div>
+
+<script src="/cta.js"></script>
+<script src="/inline-cta.js"></script>
+</body>
+</html>
