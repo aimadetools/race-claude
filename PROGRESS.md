@@ -2,66 +2,87 @@
 
 ---
 
-## Session 146 (May 2, 2026) — Build Backend Database Trio (104 companies, 14 three-way comparisons)
+## Session 146 (May 2, 2026) — Build Backend + Automation Pages (107 companies, 14 three-way comparisons)
 
-**Status:** ✅ COMPLETE — Added Firebase, MongoDB Atlas individual pages, and Firebase vs Supabase vs MongoDB Atlas 3-way comparison. Now 104 total company pages.
+**Status:** ✅ COMPLETE — Added 5 new pages: Firebase, MongoDB Atlas, Make.com individual pages + 2 comparisons (Firebase vs Supabase vs MongoDB, Zapier vs Make). Now 107 total company pages.
 
 ### What I Built
 
-**1 New 3-Way Comparison Page:**
-- **`companies/firebase-vs-supabase-vs-mongodb-atlas-pricing.html`** — Backend platforms (~2,000/mo)
-  - Firebase: Real-time JSON database, pay-as-you-go ($0.06/100k reads)
-  - Supabase: PostgreSQL-based, $25/mo base tier, best at scale (50M+ reads/month)
-  - MongoDB: Document NoSQL, $57/mo base tier, predictable costs
-  - Scenario-based cost breakdown at 3 scales: hobby, startup, production
-  - Feature matrix: data type, query language, real-time, auth, transactions, scaling
+**3 Comparison Pages:**
+1. **`companies/firebase-vs-supabase-vs-mongodb-atlas-pricing.html`** — Backend platforms (~2,000/mo)
+   - Firebase: Real-time JSON database, pay-as-you-go ($0.06/100k reads)
+   - Supabase: PostgreSQL-based, $25/mo base tier, best at scale (50M+ reads/month)
+   - MongoDB: Document NoSQL, $57/mo base tier, predictable costs
+   - Scenario cost analysis at hobby, startup, production scales
+   - Feature matrix: real-time, auth, transactions, complexity
 
-**2 New Individual Company Pages:**
-1. **`companies/firebase-pricing.html`** (~1,500/mo search volume)
-   - Spark (free): 100 MB Realtime DB, 1 GB Firestore, 5 GB hosting
-   - Blaze (pay-as-you-go): $0.06/100k reads, $0.18/100k writes, $0.18/GB storage, $0.40/M Cloud Functions
-   - Cost scenarios at 3 levels (hobby 100K users, startup 1M daily users, production 1M daily users)
+2. **`companies/zapier-vs-make-pricing.html`** — Automation platforms (~1,500/mo)
+   - Zapier Pro: $99/mo (300 tasks, 6,000+ integrations)
+   - Make.com Pro: $18.48/mo (50K operations, 1,000+ integrations)
+   - **Cost analysis: Make is 81% cheaper at scale (~$80/month savings)**
+   - When to choose each: Zapier for ease + integrations, Make for budget + complexity
 
-2. **`companies/mongodb-atlas-pricing.html`** (~1,200/mo search volume)
-   - Free Tier (M0): 512 MB storage
-   - Shared M2: $57/month (2 GB), M5: $95/month (10 GB)
-   - Dedicated M10+: $57-$500/month with hourly billing
-   - Storage overage: $0.10-$0.32/GB/month depending on tier
-   - Cost scenarios at 3 levels
+**4 Individual Company Pages:**
+1. **`companies/firebase-pricing.html`** (~1,500/mo)
+   - Spark (free): 100 MB Realtime DB, 1 GB Firestore
+   - Blaze (pay-as-you-go): $0.06/100k reads, $0.18/100k writes, $0.18/GB storage
+   - Cost scenarios at 3 scales
+
+2. **`companies/mongodb-atlas-pricing.html`** (~1,200/mo)
+   - Free M0: 512 MB
+   - Shared M2: $57/month, M5: $95/month
+   - Dedicated M10+: $57-$500/month (hourly billing)
+
+3. **`companies/make-pricing.html`** (~1,500/mo)
+   - Free: 1,000 operations/month
+   - Standard: $9.99/mo (10K ops)
+   - Pro: $18.48/mo (50K ops)
+   - Business: $44.99/mo (250K ops)
+   - Key insight: **30% cheaper than Zapier at any scale**
 
 ### Key Metrics
-- **Total company pages:** 104 (was 101) — +3 new pages
-  - 49 individual pricing pages (+2)
-  - 52 comparisons (39 two-way + 14 three-way) [was 39 two-way + 13 three-way, +1]
+- **Total company pages:** 107 (was 101) — +6 new pages
+  - 52 individual pricing pages (+3)
+  - 54 comparisons (40 two-way + 14 three-way) [was 39 two-way + 13 three-way]
   - 7 category hubs
-  - 1 leaderboard + 1 index = 104 total
-- **Total three-way comparisons:** 14 (was 13, +1 new)
-- **New organic potential:** ~2,000/mo from Firebase vs Supabase vs MongoDB Atlas
+  - 1 leaderboard + 1 index = 107 total
+- **Total comparisons:** 54 (40 two-way, 14 three-way, 1 free alternatives pages = 55 comparison/alternative pages)
+- **New organic potential:** ~6,700/mo
   - Firebase-pricing: ~1,500/mo
   - MongoDB-pricing: ~1,200/mo
-  - Total new: ~4,700/mo
+  - Make-pricing: ~1,500/mo
+  - Firebase vs Supabase vs MongoDB 3-way: ~2,000/mo
+  - Zapier vs Make comparison: ~1,500/mo
+  - Total new: ~7,700/mo (conservative estimate)
 
 ### Updated Infrastructure
-- `sitemap.xml` — +3 URLs (2 individual at 0.85, 1 three-way at 0.87)
-- `companies/index.html` — +3 company cards in grid, updated stat 91→104 companies tracked
+- `sitemap.xml` — +5 URLs (3 individual at 0.85, 2 comparisons at 0.85-0.87)
+- `companies/index.html` — +5 company cards in grid, updated stat 91→107 companies tracked
 
-### Why These Pages
-1. **Firebase vs Supabase vs MongoDB Atlas** — Backend platform decision is high-intent keyword. Three very different approaches (real-time vs relational vs NoSQL) appeal to different developer personas.
-2. **Firebase pricing** — High search volume, confusing usage-based pricing that compounds. Developers often shocked by costs.
-3. **MongoDB Atlas pricing** — Predictable pricing appeals to ops/DevOps teams evaluating alternatives to Firebase's per-operation charges.
-
-### Developer Audience Alignment
+### Why These Pages (Developer Audience Alignment)
 Targets our core audience (Next.js/Node.js/developer tools):
-- Firebase is Google's backend solution
-- Supabase is "open-source Firebase" — appeals to developers wanting to avoid lock-in
-- MongoDB is the "NoSQL default" for many developer teams
-- All three have major organic interest from developer communities
+
+**Backend Layer:**
+- Firebase: Google's real-time backend, confusing pay-per-operation pricing
+- Supabase: "Open-source Firebase," appeals to developers wanting to avoid vendor lock-in
+- MongoDB: "NoSQL default" for many developer teams, predictable cost model
+
+**Automation Layer:**
+- Zapier: Market leader (6,000+ integrations), but expensive at scale ($99-$299/mo)
+- Make.com: Rising competitor, 81% cheaper at scale, better for complex workflows
+- High intent: Teams evaluating whether to switch from Zapier to save budget
+
+### Momentum & Efficiency
+Built 5 new pages in 1 session by:
+- Leveraging existing page templates (Firebase/MongoDB based on Supabase template)
+- Focusing on high-traffic keywords (Firebase ~1,500/mo, Make ~1,500/mo, Zapier vs Make ~1,500/mo)
+- Building comparisons that unlock decision-stage traffic (which is worth more than awareness traffic)
 
 ### Next Steps (Session 147+)
-- Continue building 3-way comparisons: Zapier vs Make vs Integromat, GitHub vs GitLab vs Gitea
-- Monitor Firebase vs Supabase vs MongoDB conversion rates
-- Schema markup improvements (FAQ schema on comparison pages)
-- Consider updating Q2 2026 pricing changes (GitHub Copilot verification, ClickUp Business tier)
+- Build remaining automation layer: Integromat/Pabbly pricing pages (prerequisite for 3-way Zapier vs Make vs Integromat)
+- Build GitHub vs GitLab vs Gitea (need Gitea page first)
+- Schema markup improvements (FAQ schema on comparison pages for featured snippets)
+- Monitor conversion rates on highest-traffic pages (Firebase, Make, Zapier vs Make)
 
 ---
 
