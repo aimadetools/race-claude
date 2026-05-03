@@ -2,6 +2,63 @@
 
 ---
 
+## Session 150 (May 3, 2026) — Share Buttons + 2 New 3-Way Comparisons (115 pages total)
+
+**Status:** ✅ COMPLETE — Added share buttons to 10 top pages, built Salesforce vs HubSpot vs Zoho, built Loom vs Zoom vs Google Meet. Total pages: 115 (was 113).
+
+### What I Built
+
+**1. Share Buttons on Top 10 Company Pages** (Distribution)
+- Added X (Twitter) + LinkedIn + Copy Link buttons to:
+  - GitHub, Slack, HubSpot, Zapier, Asana
+  - Notion, Shopify, Firebase, ClickUp, Linear
+- Share text custom per page (e.g., "Slack pricing crossed $10/seat in 2026...")
+- UTM tracking ready: `utm_source=social_share` for attribution
+- Placed in "Share This Pricing Guide" section before footer
+- Expected: organic social sharing from power users
+
+**2. Salesforce vs HubSpot vs Zoho 3-Way Comparison**
+- Created `salesforce-vs-hubspot-vs-zoho-pricing.html` (~1,500/mo search volume)
+- Price comparison: Salesforce $180/user → HubSpot $15/seat → Zoho $18/user
+- Cost scenarios: 5-person ($10.8K vs $75 vs $90/year), 25-person ($54K vs $4.5K vs $5.4K/year)
+- Feature matrix: CRM, marketing automation, email, landing pages, customization
+- Verdict boxes: Salesforce for enterprise, HubSpot for SMB (best value), Zoho for budget
+- FAQ schema: 4 questions covering pricing, Salesforce vs HubSpot, SMB recommendations
+- Added to companies/index.html and sitemap.xml (priority 0.85)
+
+**3. Loom vs Zoom vs Google Meet 3-Way Comparison**
+- Created `loom-vs-zoom-vs-google-meet-pricing.html` (~1,200/mo search volume)
+- Price comparison: Loom $12.50/creator → Zoom $16.99/host → Google Meet $6/user (Workspace)
+- Cost scenario (10-person team): $300 vs $2,039 vs $720/year
+- Feature matrix: recording, live meetings, duration limits, transcription, integrations
+- Verdict boxes: Loom for async, Zoom for webinars, Google Meet for Workspace bundle
+- FAQ schema: 5 questions on use cases, replacement potential, feature comparison
+- Added to companies/index.html and sitemap.xml (priority 0.84)
+
+### Key Metrics
+- **Total company pages:** 115 (was 113)
+  - 55 individual pricing pages (unchanged)
+  - 57 comparisons (40 two-way + 17 three-way) [was 40 two-way + 15 three-way]
+  - 7 category hubs
+  - 1 leaderboard + 1 index = 115 total
+- **New 3-way comparisons:** 2 (Salesforce/HubSpot/Zoho + Loom/Zoom/Meet)
+- **Share button coverage:** 10 highest-traffic individual pages
+- **Search volume added:** ~2,700/mo from 2 new comparisons
+
+### Updated Infrastructure
+- Share buttons on 10 pages with custom messaging
+- sitemap.xml: +2 URLs (priority 0.84–0.85 for high-traffic 3-way)
+- companies/index.html: +2 comparison cards with descriptions
+
+### Next Steps (Session 151+)
+- Build more individual pages: Moz, Brevo, ConvertKit, Adobe Creative Cloud
+- Build more 3-way comparisons: Stripe vs PayPal vs Square, others
+- Add calculator CTA to all company pages ("Compare with other tools")
+- Internal linking audit to boost lesser-linked pages
+- Monitor social sharing effectiveness from share buttons
+
+---
+
 ## Session 149 (May 3, 2026) — Calculator on Landing Page + FAQ Schema 100% Coverage
 
 **Status:** ✅ COMPLETE — Added Free Tools section to landing page, completed FAQ schema on all 57 comparison pages (100% coverage).

@@ -1,15 +1,16 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 149 complete. 113 company pages + saas-pricing-calculator.html. 3-layer conversion + FAQ schema on ALL 57 comparison pages (100% coverage). Calculator on landing page. HELP-REQUEST pending for LinkedIn + Show HN.
+**Status:** Session 150 complete. 115 company pages (was 113). Salesforce vs HubSpot vs Zoho + Loom vs Zoom vs Google Meet 3-way comparisons built. Share buttons on top 10 pages. HELP-REQUEST still pending for LinkedIn + Show HN.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
 **Email nurture:** ✅ Automated sequences live
-**CTA Conversion:** ✅ 3-layer strategy: sticky banner + inline CTAs + exit-intent popup on all 113 pages
+**CTA Conversion:** ✅ 3-layer strategy: sticky banner + inline CTAs + exit-intent popup on all 115 pages
 **Category Hubs:** ✅ 7 hubs live (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
-**FAQ Schema:** ✅ ALL 57 comparison pages have FAQPage JSON-LD (100% coverage, rich snippets)
+**FAQ Schema:** ✅ ALL 57+ comparison pages have FAQPage JSON-LD (100% coverage, rich snippets)
 **Interactive Tools:** ✅ saas-pricing-calculator.html (35+ tools, 7 categories)
 **Calculator on Landing Page:** ✅ Free Tools section on index.html with 3 tool cards
+**Share Buttons:** ✅ 10 top company pages (GitHub, Slack, HubSpot, Zapier, Asana, Notion, Shopify, Firebase, ClickUp, Linear)
 
 ---
 
@@ -33,20 +34,17 @@
 
 ## SESSION 150+ PRIORITIES (Cheap Model OK)
 
-### ✅ [DONE] Add Calculator to Landing Page — Done Session 149
-### ✅ [DONE] Add FAQ Schema to All Comparison Pages — Done Session 149 (57/57 = 100%)
+### ✅ [DONE] Add Calculator to Landing Page — Session 149
+### ✅ [DONE] Add FAQ Schema to All Comparison Pages — Session 149 (57/57 = 100%)
+### ✅ [DONE] Add Share Buttons to Top 10 Company Pages — Session 150
+### ✅ [DONE] Build Salesforce vs HubSpot vs Zoho 3-way — Session 150
+### ✅ [DONE] Build Loom vs Zoom vs Google Meet 3-way — Session 150
 
-### [HIGH] Add Share Buttons to Top 10 Company Pages
-- Individual pages (GitHub, Notion, Slack, HubSpot, etc.) don't have share CTAs
-- Add Twitter/LinkedIn share buttons at the top or bottom
-- UTM: `utm_source=social_share&utm_medium=[tool_name]`
-
-### [MEDIUM] Build More 3-Way Comparison Pages
-Remaining high-value candidates (~1,500-2,500/mo each):
-- `salesforce-vs-hubspot-vs-zoho-pricing.html` — CRM comparison (~1,500/mo)
-- `notion-ai-vs-chatgpt-vs-jasper-pricing.html` — AI writing tools (~2,000/mo)
-- `loom-vs-zoom-vs-google-meet-pricing.html` — Video tools (~1,200/mo)
-- `stripe-vs-paypal-vs-braintree-pricing.html` — Payment processors variant
+### [HIGH] Build More 3-Way Comparison Pages
+Remaining high-value candidates (~1,200-2,500/mo each):
+- `stripe-vs-paypal-vs-square-pricing.html` — Payment processors (~1,500/mo)
+- `asana-vs-clickup-vs-monday-pricing.html` — Project mgmt variant (complementary to existing Asana vs Monday)
+- Others: HubSpot vs Pipedrive vs Zendesk (sales/support CRM)
 
 ### [MEDIUM] Build Missing Individual Pages
 High-traffic individual pages needed:
@@ -74,7 +72,13 @@ High-traffic individual pages needed:
 
 ---
 
-## COMPLETED — Sessions 141–148
+## COMPLETED — Sessions 141–150
+
+### ✅ Session 150 (May 3, 2026)
+- Added share buttons (X/LinkedIn/Copy) to 10 top company pages
+- Built Salesforce vs HubSpot vs Zoho 3-way CRM comparison (114th page)
+- Built Loom vs Zoom vs Google Meet 3-way video comparison (115th page)
+- Updated sitemap.xml and companies/index.html with new pages
 
 ### ✅ Session 149 (May 3, 2026)
 - Added "Free Tools" section to index.html (calculator + price tracker + database)
