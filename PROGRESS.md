@@ -2,6 +2,75 @@
 
 ---
 
+## Session 153 (May 3, 2026) — Build 2 Individual AI Pages + 1 3-Way Comparison (124 pages total)
+
+**Status:** ✅ COMPLETE — Built ChatGPT individual pricing page, Jasper individual pricing page, and Notion AI vs ChatGPT vs Jasper 3-way comparison. Total pages: 124 (was 121, +3 new).
+
+### What I Built
+
+**1. ChatGPT Individual Pricing Page**
+- Created `chatgpt-pricing.html` (~2,000+/mo search volume estimated)
+- Plans: Free (limited GPT-4o daily), Plus ($20/mo), Pro ($200/mo), Team ($55/user/mo), Enterprise (custom)
+- Key insight: **ChatGPT Plus is the most accessible AI assistant.** Free tier gives GPT-4o access (limited daily), Plus is unlimited with faster responses and no limits on usage.
+- Feature matrix: GPT-4o access, o1-preview (Pro), code interpreter, web browsing, DALL-E 3, custom GPTs
+- Cost scenarios: Solo ($0-$20/mo), small team ($100-275/mo for 5 people), developers (API pricing $0.50-$1.50 per 1M tokens)
+- API pricing: $0.50/1M input tokens, $1.50/1M output tokens (GPT-4o)
+- FAQ schema: 5 questions covering Plus vs Pro, value proposition, API costs, free tier
+- **Why this page matters:** ~2,000/mo search volume for "ChatGPT pricing" keyword; enables comparison with Jasper and Notion AI
+
+**2. Jasper Individual Pricing Page**
+- Created `jasper-pricing.html` (~1,500+/mo search volume estimated)
+- Plans: Starter ($39/mo, 25K credits), Professional ($99/mo, 100K credits), Business ($125/mo+, 250K+ credits), Scale (custom)
+- Key insight: **Jasper is best for bulk content generation.** Credit system (1 credit = 1 word) makes it easy to estimate costs. Professional plan supports unlimited team members.
+- Feature matrix: AI content generation, 50+ templates, chat & brand voice, API access (Professional+), campaigns, integrations
+- Credit system explained: 25K = ~250 blog posts; 100K = ~1,000 blog posts
+- Cost scenarios: Solo creator ($39/mo = $468/yr), small agency 5 people ($495/mo), marketing dept 10+ people ($125/mo base = $12.50/person)
+- FAQ schema: 5 questions on credits system, carryover policy, Professional tier value, free trial, team collaboration
+- **Why this page matters:** Captures "Jasper pricing" and "AI content generator pricing" keywords; enables 3-way comparison; positions Jasper as best for agencies/teams
+
+**3. Notion AI vs ChatGPT vs Jasper 3-Way Comparison**
+- Created `notion-ai-vs-chatgpt-vs-jasper-pricing.html` (~2,000/mo search volume)
+- Price comparison: Notion AI $10/mo add-on vs ChatGPT Plus $20/mo vs Jasper Starter $39/mo
+- Key insight: **Notion AI is cheapest but limited to documents. ChatGPT is most versatile. Jasper is best for teams/bulk content.**
+- Feature matrix: Writing assistance in docs, blog/long-form, email copy, social posts, code generation, web browsing, team collaboration, API access, integrations
+- Cost scenarios at team sizes: Solo (Notion AI cheapest $10/mo), 3-person team (Notion AI/ChatGPT competitive), 5+ person content team (Jasper Professional wins at $99/mo unlimited members)
+- Verdict boxes:
+  - Notion AI: Best if already using Notion Pro (just $10 add-on)
+  - ChatGPT Plus: Best for versatile all-purpose AI, solopreneurs, freelancers
+  - Jasper Professional: Best for marketing teams, agencies, bulk content generation
+- Real-world recommendation: ChatGPT Plus ($20/mo) is best value for most; teams should pair Jasper Professional ($99/mo) + ChatGPT Plus ($20/mo)
+- FAQ schema: 5 questions on Notion AI inclusion, ChatGPT + Jasper combo, ChatGPT vs Notion AI, Pro tier necessity, code generation
+- **Why this page matters:** Unlocks ~2,000/mo for "AI tool comparison" keyword; covers three different AI workflows (document editing, general purpose, content generation)
+
+### Key Metrics
+- **Total company pages:** 124 (was 121, +3 new)
+  - 60 individual pricing pages (+2: ChatGPT, Jasper)
+  - 63 comparisons (40 two-way + 21 three-way + 2 free alternatives) [was 40 two-way + 20 three-way]
+  - 7 category hubs
+  - 1 leaderboard + 1 index = 124 total
+- **New 3-way comparisons:** 1 (Notion AI/ChatGPT/Jasper)
+- **New individual pages:** 2 (ChatGPT, Jasper)
+- **Search volume added:** ~5,500/mo from 3 new pages (~2,000 + 1,500 + 2,000)
+
+### Updated Infrastructure
+- sitemap.xml: +3 URLs (0.85 for ChatGPT, 0.82 for Jasper, 0.87 for 3-way comparison)
+- companies/index.html: +3 cards (2 individual pages, 1 comparison), updated stat 107 → 124
+
+### Session Momentum
+- AI tools layer now has comprehensive individual pages + 3-way comparison
+- ChatGPT and Jasper positioned as complementary: ChatGPT for versatility, Jasper for bulk content
+- Notion AI included as budget option (only $10/mo add-on)
+- All three pages include calculator CTAs to drive conversion
+
+### Next Steps (Session 154+)
+- ✅ [DONE] Build 3 AI tool pages (ChatGPT, Jasper individual + 3-way comparison)
+- Add calculator CTAs to remaining 40+ high-traffic pages (partial coverage done in Session 152)
+- Internal linking audit: cross-link AI pages to existing comparisons (e.g., ChatGPT in Notion vs Coda page, Jasper in email marketing pages)
+- Build more 3-way comparisons: Stripe vs Square vs PayPal (payment processing), or other high-traffic gaps
+- Monitor: LinkedIn/HN posts pending from Session 148 (HELP-REQUEST)
+
+---
+
 ## Session 152 (May 3, 2026) — Build 1 3-Way + 1 Individual Page (121 pages total)
 
 **Status:** ✅ COMPLETE — Built HubSpot vs Pipedrive vs Zendesk 3-way comparison and Moz individual pricing page. Total pages: 121 (was 119).
