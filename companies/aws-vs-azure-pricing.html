@@ -72,6 +72,46 @@
     footer p{color:var(--muted);font-size:.875rem}footer a{color:var(--muted)}footer a:hover{color:var(--accent)}
     @media(max-width:640px){.nav-links{gap:1rem}.nav-links a:not(.btn-cta){display:none}.comparison-header{grid-template-columns:1fr}.feature-matrix{font-size:.875rem}.feature-matrix td,.feature-matrix th{padding:.75rem}}
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is AWS or Azure cheaper?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neither is consistently cheaper — it depends heavily on workload, region, and negotiated contracts. AWS typically has slightly lower baseline compute prices (EC2 vs Azure VMs). Azure is often more cost-effective for Microsoft-heavy shops due to hybrid benefits (using existing Windows/SQL Server licenses). Both offer similar TCO over time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the main difference between AWS and Azure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AWS is the market leader (32% share) with the most services (200+) and widest global reach. Azure (23% market share) integrates deeply with Microsoft services (Active Directory, Office 365, .NET). AWS has the largest third-party ecosystem; Azure is stronger for enterprises running Windows workloads or existing Microsoft infrastructure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for startups: AWS or Azure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AWS is generally preferred by startups due to the AWS Activate program (up to $100K in credits), better documentation, larger community, and more startup-friendly tooling. Azure is popular with enterprise/Microsoft-aligned startups. Google Cloud also offers strong startup credits. Most startups should start with AWS unless they have a specific Microsoft tie-in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do AWS and Azure have free tiers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. AWS Free Tier offers 12 months free on select services (750 hrs/month EC2 t2.micro, 5GB S3, 25GB DynamoDB). Azure Free Account offers $200 credit for 30 days plus 12 months free on 55+ services. Both have always-free tiers (limited usage). AWS's free tier is more widely known; Azure's 12-month free services are comparable."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <nav>

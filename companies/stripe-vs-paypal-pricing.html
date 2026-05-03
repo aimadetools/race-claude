@@ -103,6 +103,46 @@
       .btn-secondary { display: none; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Stripe or PayPal cheaper?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PayPal charges 3.49% + 49¢ for checkout without an account; 2.99% + 49¢ with PayPal account. Stripe charges 2.9% + 30¢ for online transactions. Stripe is cheaper by about 0.5-0.6% per transaction. At $100K revenue, Stripe saves ~$600 vs PayPal. For international payments, both charge additional fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the main difference between Stripe and PayPal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stripe is a developer-first payment infrastructure — more customizable checkout, better APIs, superior subscription management. PayPal is a consumer payment network with 400M+ users who trust the PayPal brand and can pay with PayPal balance, credit/debit. Stripe converts better on clean checkout UX; PayPal converts better with its brand trust for low-trust buyers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for subscription billing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stripe is far superior for subscription billing. Stripe Billing handles complex scenarios: multiple subscription tiers, per-seat pricing, usage-based billing, metered charges, prorations. PayPal's subscription tools are limited. Nearly every SaaS company using subscriptions chooses Stripe or Stripe + Paddle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I offer both Stripe and PayPal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many e-commerce businesses offer both to maximize conversions. PayPal adds 5-10% lift in conversions for buyers who prefer not to enter card details. Stripe handles the card checkout; PayPal handles the PayPal-preferred buyers. The dual setup is common for B2C stores. B2B SaaS companies typically use only Stripe."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <nav>

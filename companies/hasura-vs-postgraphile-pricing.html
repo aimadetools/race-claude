@@ -46,6 +46,46 @@
       ]
     }
     </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Hasura or PostGraphile cheaper?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PostGraphile has an open-source version (free, self-hosted) and PostGraphile Pro at $100/month for advanced features. Hasura Community Edition is free (open-source). Hasura Cloud starts at $0.13/hour (~$95/month for always-on). For self-hosted deployments, PostGraphile is free with full features. For managed cloud, pricing is comparable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Hasura and PostGraphile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both auto-generate GraphQL APIs from a PostgreSQL database. Hasura supports multiple databases (Postgres, MySQL, MongoDB, REST endpoints) and has an advanced permission system with real-time subscriptions. PostGraphile is PostgreSQL-only but produces a more 'pure' GraphQL API that closely mirrors the Postgres schema. Hasura is more feature-rich; PostGraphile is more Postgres-native."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is easier to set up: Hasura or PostGraphile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hasura is generally considered easier to set up — especially with Hasura Cloud which handles infrastructure. PostGraphile requires more PostgreSQL knowledge to configure effectively (Row Level Security, smart comments). For developers new to GraphQL APIs, Hasura's console and documentation provide a gentler learning curve."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should you choose PostGraphile over Hasura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Choose PostGraphile when: (1) You want to leverage PostgreSQL's native Row Level Security for permissions, (2) You prefer a lighter footprint for simple Postgres→GraphQL use cases, (3) You're building a Postgres-only app and want a pure GraphQL schema. Choose Hasura when you need multiple data sources, remote schemas, or the managed cloud option."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
     <nav style="padding: 1rem; background: #f8f8f8; border-bottom: 1px solid #ddd;">
