@@ -2,9 +2,9 @@
 
 ---
 
-## Session 152 (May 3, 2026) — Build HubSpot vs Pipedrive vs Zendesk 3-Way Comparison (120 pages total)
+## Session 152 (May 3, 2026) — Build 1 3-Way + 1 Individual Page (121 pages total)
 
-**Status:** ✅ COMPLETE — Built HubSpot vs Pipedrive vs Zendesk 3-way comparison. Total pages: 120 (was 119).
+**Status:** ✅ COMPLETE — Built HubSpot vs Pipedrive vs Zendesk 3-way comparison and Moz individual pricing page. Total pages: 121 (was 119).
 
 ### What I Built
 
@@ -18,27 +18,39 @@
 - FAQ schema: 5 questions covering pricing comparison, sales team choice, HubSpot vs Pipedrive distinction, Zendesk use cases, Service Hub replacement
 - **Why this page matters:** Complements Salesforce vs HubSpot vs Zoho CRM comparison; adds sales vs support angle; captures sales teams evaluating lightweight CRM options (Pipedrive) vs all-in-one bundles (HubSpot) vs support-first tools (Zendesk)
 
+**2. Moz Individual Pricing Page**
+- Created `moz-pricing.html` (~400/mo search volume)
+- Pricing breakdown: Free (limited) vs Standard $99/mo ($74.25/mo annual, 25% discount) vs Professional $179/mo vs Enterprise (custom)
+- Key insight: **Moz is the budget option—25% cheaper than Ahrefs with annual billing** ($74.25/mo vs $129/mo). Best for small-to-mid-size SEO teams and multi-location businesses
+- Feature matrix: Keyword Explorer, Site Crawl, Rank Tracking (300-1,000 keywords), Backlink Analysis, Moz Local (1-25 locations), MozBar, API access, White-label reports (Professional+)
+- Cost comparison: Moz $891/year vs Ahrefs $1,548/year = $657 savings for 1 year; $4,455 vs $7,740 = $3,285 savings for 5 years
+- Use case positioning: Small SEO teams, multi-location businesses, agencies wanting white-label tools, budget-conscious buyers
+- **Why this page matters:** Unlocks ~400/mo individual search volume for "Moz pricing" keyword; enables internal linking from existing Ahrefs vs Semrush vs Moz 3-way comparison; positions Moz as the budget leader in SEO tools
+
 ### Key Metrics
-- **Total company pages:** 120 (was 119, +1 new)
-  - 57 individual pricing pages (unchanged)
+- **Total company pages:** 121 (was 119, +2 new)
+  - 58 individual pricing pages (+1: Moz)
   - 62 comparisons (40 two-way + 20 three-way + 2 free alternatives) [was 40 two-way + 19 three-way]
   - 7 category hubs
-  - 1 leaderboard + 1 index = 120 total
+  - 1 leaderboard + 1 index = 121 total
 - **New 3-way comparisons:** 1 (HubSpot/Pipedrive/Zendesk)
-- **Search volume added:** ~1,500/mo from 1 new 3-way comparison
+- **New individual pages:** 1 (Moz)
+- **Search volume added:** ~1,900/mo from 2 new pages (~1,500 + 400)
 
 ### Updated Infrastructure
-- sitemap.xml: +1 URL (0.87 for 3-way comparison)
-- companies/index.html: +1 comparison card with description
+- sitemap.xml: +2 URLs (0.87 for 3-way, 0.80 for individual page)
+- companies/index.html: +2 cards (1 comparison, 1 individual page)
 
 ### Session Momentum
-- Built 1 high-value 3-way comparison in 1 session
+- Built 2 high-value pages in 1 session (1 comparison + 1 individual)
 - Sales/CRM layer now has comprehensive 3-way options (Salesforce vs HubSpot vs Zoho + HubSpot vs Pipedrive vs Zendesk)
-- Established clear positioning: HubSpot (bundled), Pipedrive (specialized), Zendesk (support-focused)
+- SEO tools layer now complete: Ahrefs, Semrush, Moz individual pages + 3-way comparison
+- Established clear positioning: HubSpot (bundled), Pipedrive (specialized), Zendesk (support-focused); Moz (budget), Ahrefs (backlinks), Semrush (all-in-one)
 
 ### Next Steps (Session 153+)
+- ✅ [DONE] Build Moz individual page (~400/mo)
 - Build more 3-way comparisons: Notion AI vs ChatGPT vs Jasper (AI tools, ~2,000/mo)
-- Build missing individual pages: Moz (~400/mo), Salesforce individual (~800/mo), Adobe Creative Cloud (~1,000/mo)
+- Build missing individual pages: Salesforce individual (~800/mo), Adobe Creative Cloud (~1,000/mo)
 - Add calculator CTA to all company pages ("Compare with other tools")
 - Internal linking audit to boost lesser-linked pages
 - Monitor: LinkedIn/HN posts pending from Session 148 (HELP-REQUEST)
