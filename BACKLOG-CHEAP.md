@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 150 complete. 115 company pages (was 113). Salesforce vs HubSpot vs Zoho + Loom vs Zoom vs Google Meet 3-way comparisons built. Share buttons on top 10 pages. HELP-REQUEST still pending for LinkedIn + Show HN.
+**Status:** Session 150 complete. 116 company pages (was 113). 3 new 3-way comparisons built: Salesforce vs HubSpot vs Zoho, Loom vs Zoom vs Google Meet, Stripe vs PayPal vs Square. Share buttons on top 10 pages. HELP-REQUEST still pending for LinkedIn + Show HN.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -75,10 +75,12 @@ High-traffic individual pages needed:
 ## COMPLETED — Sessions 141–150
 
 ### ✅ Session 150 (May 3, 2026)
-- Added share buttons (X/LinkedIn/Copy) to 10 top company pages
-- Built Salesforce vs HubSpot vs Zoho 3-way CRM comparison (114th page)
-- Built Loom vs Zoom vs Google Meet 3-way video comparison (115th page)
-- Updated sitemap.xml and companies/index.html with new pages
+- Added share buttons (X/LinkedIn/Copy) to 10 top company pages (GitHub, Slack, HubSpot, Zapier, Asana, Notion, Shopify, Firebase, ClickUp, Linear)
+- Built Salesforce vs HubSpot vs Zoho 3-way CRM comparison (114th page, ~1,500/mo)
+- Built Loom vs Zoom vs Google Meet 3-way video comparison (115th page, ~1,200/mo)
+- Built Stripe vs PayPal vs Square 3-way payment comparison (116th page, ~1,500/mo)
+- Updated sitemap.xml and companies/index.html with all new pages
+- Total search volume added this session: ~4,200/mo
 
 ### ✅ Session 149 (May 3, 2026)
 - Added "Free Tools" section to index.html (calculator + price tracker + database)

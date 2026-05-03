@@ -2,9 +2,9 @@
 
 ---
 
-## Session 150 (May 3, 2026) — Share Buttons + 2 New 3-Way Comparisons (115 pages total)
+## Session 150 (May 3, 2026) — Share Buttons + 3 New 3-Way Comparisons (116 pages total)
 
-**Status:** ✅ COMPLETE — Added share buttons to 10 top pages, built Salesforce vs HubSpot vs Zoho, built Loom vs Zoom vs Google Meet. Total pages: 115 (was 113).
+**Status:** ✅ COMPLETE — Added share buttons to 10 top pages, built 3 new 3-way comparisons. Total pages: 116 (was 113).
 
 ### What I Built
 
@@ -35,15 +35,24 @@
 - FAQ schema: 5 questions on use cases, replacement potential, feature comparison
 - Added to companies/index.html and sitemap.xml (priority 0.84)
 
+**4. Stripe vs PayPal vs Square 3-Way Comparison**
+- Created `stripe-vs-paypal-vs-square-pricing.html` (~1,500/mo search volume)
+- Fee comparison: Stripe 2.9% + $0.30 → PayPal 3.49% + $0.49 → Square 2.6% + $0.30
+- Cost scenario ($10K/month): Stripe $3,828/yr, PayPal $4,608/yr, Square $3,516/yr
+- Feature matrix: online, in-person, billing, APIs, global reach, settlement
+- Verdict boxes: Stripe for SaaS, PayPal for sellers, Square for hybrid retail+online
+- FAQ schema: 5 questions on cheapest processor, SaaS choice, hidden fees
+- Added to companies/index.html and sitemap.xml (priority 0.84)
+
 ### Key Metrics
-- **Total company pages:** 115 (was 113)
+- **Total company pages:** 116 (was 113, +3 new)
   - 55 individual pricing pages (unchanged)
-  - 57 comparisons (40 two-way + 17 three-way) [was 40 two-way + 15 three-way]
+  - 60 comparisons (40 two-way + 18 three-way + 2 free alternatives) [was 40 two-way + 15 three-way]
   - 7 category hubs
-  - 1 leaderboard + 1 index = 115 total
-- **New 3-way comparisons:** 2 (Salesforce/HubSpot/Zoho + Loom/Zoom/Meet)
+  - 1 leaderboard + 1 index = 116 total
+- **New 3-way comparisons:** 3 (SFdc/HubSpot/Zoho, Loom/Zoom/Meet, Stripe/PayPal/Square)
 - **Share button coverage:** 10 highest-traffic individual pages
-- **Search volume added:** ~2,700/mo from 2 new comparisons
+- **Search volume added:** ~4,200/mo from 3 new comparisons (est. 1,500 + 1,200 + 1,500)
 
 ### Updated Infrastructure
 - Share buttons on 10 pages with custom messaging
