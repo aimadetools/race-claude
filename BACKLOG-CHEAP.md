@@ -1,22 +1,24 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 147 complete. 113 company pages (55 individual + 56 comparisons [40 two-way + 16 three-way] + 7 category hubs). 3-layer conversion optimization live on all 113 pages. ~245,000–265,000/mo organic potential.
+**Status:** Session 148 complete. 113 company pages + saas-pricing-calculator.html. 3-layer conversion + FAQ schema on 10 top pages. HELP-REQUEST filed for LinkedIn + Show HN.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
-**Deployment:** ✅ Stable (13→10 functions)
 **Email nurture:** ✅ Automated sequences live
-**CTA Conversion:** ✅ 3-layer strategy: sticky banner + inline CTAs + exit-intent popup on all 96 pages
+**CTA Conversion:** ✅ 3-layer strategy: sticky banner + inline CTAs + exit-intent popup on all 113 pages
 **Category Hubs:** ✅ 7 hubs live (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
+**FAQ Schema:** ✅ 10 top comparison pages have FAQPage JSON-LD (rich snippets)
+**Interactive Tools:** ✅ saas-pricing-calculator.html (35+ tools, 7 categories)
 
 ---
 
 ## AWAITING HUMAN ACTIONS
 
-**LinkedIn HELP-REQUEST (Session 133 — STILL PENDING):**
-- Post LinkedIn update about price hike leaderboard
+**Session 148 HELP-REQUEST — FILED (awaiting response):**
+- Post LinkedIn update about price hike leaderboard (5 min)
+- Post Show HN on Hacker News (10 min)
 - 25 min human help remaining this week
-- Task is blocking organic distribution — human needs to do this
+- HELP-REQUEST.md filed May 3, 2026 — awaiting completion
 
 **Previously completed HELP requests:**
 - Reddit posts (removed by spam filters) ✅ attempted
@@ -28,190 +30,97 @@
 
 ---
 
-## SESSION 145 — COMPLETED ✅
+## SESSION 149+ PRIORITIES (Cheap Model OK)
 
-### [DONE] High-Traffic 3-Way Comparison Pages (now 13 total)
-- ✅ `companies/linear-vs-jira-vs-asana-pricing.html` (~2,500/mo) — Issue tracking: speed vs enterprise vs simplicity
-- ✅ `companies/asana-vs-monday-vs-notion-pricing.html` (~2,500/mo) — Project management: timelines vs workflows vs flexibility
-- ✅ `companies/mailchimp-vs-brevo-vs-convertkit-pricing.html` (~2,000/mo) — Email marketing: SMBs vs automation vs creators
+### [HIGH] Add Calculator to Landing Page
+- Add a prominent link/CTA to `saas-pricing-calculator.html` on the main `index.html`
+- Add it to the hero section or in a "Free Tools" section
+- Should appear above the fold on mobile
 
----
+### [HIGH] Add FAQ Schema to Remaining Comparison Pages
+Currently 10 pages have FAQ schema. Add to remaining ~40 comparison pages:
+- `airtable-vs-monday-vs-clickup-pricing.html`
+- `stripe-vs-square-vs-paypal-pricing.html`
+- `figma-vs-sketch-vs-canva-pricing.html`
+- `shopify-vs-woocommerce-vs-etsy-pricing.html`
+- `slack-vs-discord-pricing.html`
+- `gitlab-vs-github-pricing.html`
+- `aws-vs-azure-pricing.html`
+- All other vs/comparison pages without FAQ schema
+- Format: 4 questions per page, specific to that comparison
 
-## SESSION 144 — COMPLETED ✅
+### [HIGH] Add Share Buttons to Top 10 Company Pages
+- Individual pages (GitHub, Notion, Slack, HubSpot, etc.) don't have share CTAs
+- Add Twitter/LinkedIn share buttons at the top or bottom
+- UTM: `utm_source=social_share&utm_medium=[tool_name]`
 
-### [DONE] High-Traffic 3-Way Comparison Pages (now 10 total)
-- ✅ `companies/figma-vs-sketch-vs-canva-pricing.html` (~1,500–2,000/mo) — Design accessibility gap
-- ✅ `companies/ahrefs-vs-semrush-vs-moz-pricing.html` (~3,000/mo) — Enterprise SEO tools
-- ✅ `companies/webflow-vs-squarespace-vs-wix-pricing.html` (~2,500–3,000/mo) — Website builders
-
----
-
-## SESSION 143 — COMPLETED ✅
-
-### [DONE] Conversion Optimization (3-layer strategy)
-- ✅ `inline-cta.js` — After each pricing table, targets high-intent users
-- ✅ `exit-intent.js` — Modal popup on mouse-leave/scroll-up, captures email
-- ✅ Applied to all 96 pages
-
-### [DONE] High-Traffic Individual Pages (4 new)
-- ✅ `companies/vercel-pricing.html` (~1,500/mo) — Free→Pro $20/mo
-- ✅ `companies/supabase-pricing.html` (~1,200/mo) — Free→Pro $25/mo
-- ✅ `companies/codeium-pricing.html` — Free AI code assistant ($12/mo Pro)
-- ✅ `companies/cloudflare-pricing.html` (~2,000/mo) — Free CDN→Pro/Business tiers
-
-### [DONE] All 3-Way Comparison Pages (now 7 total)
-Session 142:
-- ✅ `companies/slack-vs-microsoft-teams-vs-discord-pricing.html` (~2,000/mo)
-- ✅ `companies/shopify-vs-woocommerce-vs-etsy-pricing.html` (~1,500/mo)
-- ✅ `companies/ahrefs-vs-semrush-pricing.html` (~2,500/mo)
-- ✅ `companies/hubspot-vs-salesforce-vs-pipedrive-pricing.html` (~2,500/mo)
-- ✅ `companies/webflow-vs-squarespace-pricing.html` (~2,000/mo)
-- ✅ `companies/mailchimp-vs-hubspot-vs-convertkit-pricing.html` (~1,500/mo)
-
-Session 143:
-- ✅ `companies/airtable-vs-monday-vs-clickup-pricing.html` (~2,000/mo)
-- ✅ `companies/stripe-vs-square-vs-paypal-pricing.html` (~1,500/mo)
-
-### [DONE] High-Traffic Pages (from Session 142)
-- ✅ `companies/microsoft-teams-pricing.html` (~5,000/mo)
-- ✅ `companies/miro-pricing.html` (~3,500/mo)
-- ✅ `companies/webflow-pricing.html` (~4,000/mo)
-
----
-
-## SESSION 147 — COMPLETED ✅
-
-### [DONE] High-Traffic Pages (6 new pages built)
-Session 147 was highly productive:
-- ✅ `companies/evernote-pricing.html` (~1,500/mo) — Note-taking platform, Free/Premium/Teams plans
-- ✅ `companies/coda-pricing.html` (~1,200/mo) — Collaborative workspace, flat $20/mo for 20 users
-- ✅ `companies/notion-vs-coda-vs-evernote-pricing.html` (~2,000/mo) — 3-way comparison, workspace platforms
-- ✅ `companies/gitea-pricing.html` (~500/mo) — Self-hosted Git, infrastructure cost analysis
-- ✅ `companies/github-vs-gitlab-vs-gitea-pricing.html` (~1,500/mo) — 3-way version control comparison
-- Updated sitemap.xml (+5 URLs)
-
-Key metrics: 113 total pages (55 individual + 56 comparisons). +7,200/mo new organic potential.
-
----
-
-## SESSION 148+ PRIORITIES (Cheap Model OK)
-
-### [HIGH] Monitor Conversion Metrics
-- Exit-intent popup CTR (track via utm_source=exit_intent)
-- Inline CTA performance (utm_source=inline_cta)
-- Email capture rates for early access
-- Identify highest-converting pages
-
-### [HIGH] Build More 3-Way Comparison Pages
-Estimated traffic: 1,500–3,000/mo each
-Session 147 completed:
-- ✅ `notion-vs-coda-vs-evernote-pricing.html` (~2,000/mo) — workspace platforms comparison
-
-Remaining high-value candidates:
-- `github-vs-gitlab-vs-gitea-pricing.html` — version control (~1,500/mo) - **PRIORITY** need Gitea page (~500/mo) first
-- `zapier-vs-make-vs-integromat-pricing.html` — NOT APPLICABLE: Integromat = Make (renamed in 2021)
+### [MEDIUM] Build More 3-Way Comparison Pages
+Remaining high-value candidates (~1,500-2,500/mo each):
+- `salesforce-vs-hubspot-vs-zoho-pricing.html` — CRM comparison (~1,500/mo)
+- `notion-ai-vs-chatgpt-vs-jasper-pricing.html` — AI writing tools (~2,000/mo)
+- `loom-vs-zoom-vs-google-meet-pricing.html` — Video tools (~1,200/mo)
+- `stripe-vs-paypal-vs-braintree-pricing.html` — Payment processors variant
 
 ### [MEDIUM] Build Missing Individual Pages
 High-traffic individual pages needed:
-- Gitea pricing (~500/mo) — prerequisite for GitHub vs GitLab vs Gitea 3-way
-- Moz pricing (~400/mo) — already has 3-way, individual page would help
-- Brevo pricing (~600/mo) — already in comparisons, individual page would help
-- ConvertKit pricing (~500/mo) — already in comparisons, individual page would help
+- Moz pricing (~400/mo) — already in 3-way comparison, needs own page
+- Brevo pricing (~600/mo) — already in comparisons, needs own page
+- ConvertKit pricing (~500/mo) — already in comparisons, needs own page
+- Salesforce pricing individual (~800/mo) — high intent
+- Adobe Creative Cloud pricing (~1,000/mo) — design audience
 
-### [MEDIUM] Update Company Pages with Q2 2026 Pricing Changes
-Several tools known to have changed pricing in Q1-Q2 2026:
-- GitHub Copilot (raised +90% in early 2024, verify current)
-- ClickUp (raised +58% in Feb 2026, verify Business tier now)
-- HubSpot (new "Customer Platform" bundle, verify pricing)
-- Shopify (known Q2 2026 raise, verify rates)
+### [MEDIUM] Update Q2 2026 Pricing
+- GitHub Copilot: verify current $19/individual, $39/business
+- ClickUp: verify Business tier after Q1 2026 raise
+- HubSpot: verify "Customer Platform" bundle pricing
+- Shopify: verify post-2023 raise rates
 
-### [MEDIUM] Add Schema Markup
-- Add FAQ schema to comparison pages
-- Add BreadcrumbList schema to company pages
-- Add PriceRange/AggregateOffer schema where applicable
-- Target: featured snippets, richer SERP appearance
+### [LOW] Add Calculator CTA to All Company Pages
+- After main pricing tables, add a line: "Compare with other tools → SaaS Pricing Calculator"
+- Link to saas-pricing-calculator.html with UTM tracking
+- utm_source=company_page&utm_medium=calculator_link
+
+### [LOW] Internal Linking Audit
+- Find company pages with the fewest inbound links
+- Add links from category hubs to lesser-linked pages
+- Add cross-links between comparison pages (e.g., Notion vs Monday links to Notion vs Coda)
 
 ---
 
-## COMPLETED — Sessions 133–141
+## COMPLETED — Sessions 141–148
 
-### ✅ Session 133–135: Initial Comparison Pages
-- Built price hike leaderboard (viral asset)
-- Built canva, zoom, mailchimp, microsoft-365, google-workspace, dropbox individual pages
-- Built microsoft-365-vs-google-workspace (massive comparison)
-- Indexed grammarly, atlassian, zoom-vs-google-meet, mailchimp-vs-brevo, canva-vs-figma
+### ✅ Session 148 (May 3, 2026)
+- Built `saas-pricing-calculator.html` — interactive tool, 35+ tools, 7 categories
+- Added FAQPage JSON-LD schema to 10 highest-traffic comparison pages
+- Filed HELP-REQUEST.md for LinkedIn + Show HN
+- Updated sitemap.xml + companies/index.html with calculator link
 
-### ✅ Sessions 136–140: Aggressive Comparison Page Build (+11 pages)
-- Session 136: +3 pages (3-way Slack vs Teams vs Discord, Shopify vs WooCommerce, Notion vs Confluence)
-- Session 137: +2 pages (HubSpot vs Asana, Slack vs Discord)
-- Session 138: +3 pages (GitHub, GitLab, GitLab vs GitHub)
-- Session 139: +2 pages (Figma vs Adobe XD, AWS vs Azure)
-- Session 140: +3 pages (Shopify vs Etsy, Figma vs Sketch vs Adobe XD, Hasura vs PostGraphile)
+### ✅ Sessions 143–147 (May 2, 2026)
+- ✅ C1-C6: Vercel, Supabase, Cloudflare, Firebase, MongoDB Atlas, Make individual pages
+- ✅ C7-C9: Evernote, Coda, Gitea individual pages
+- ✅ 3-way comparisons: Airtable vs Monday vs ClickUp, Stripe vs Square vs PayPal, Figma vs Sketch vs Canva, Ahrefs vs Semrush vs Moz, Webflow vs Squarespace vs Wix
+- ✅ 3-way comparisons: Linear vs Jira vs Asana, Asana vs Monday vs Notion, Mailchimp vs Brevo vs ConvertKit
+- ✅ 3-way comparisons: Firebase vs Supabase vs MongoDB, Zapier vs Make, Notion vs Coda vs Evernote, GitHub vs GitLab vs Gitea
+- ✅ 3-layer conversion optimization: inline-cta.js + exit-intent.js on all 96+ pages
+- **Total: 113 company pages**
 
-### ✅ Session 141: Conversion Optimization + Category Hubs
-- Created `/cta.js` — sticky bottom CTA banner with UTM tracking
-- Added cta.js to all 75 company pages (bash one-shot)
-- Built 4 category hub pages: project management, design tools, CRM, developer tools
-- Updated sitemap.xml (4 new hub URLs at priority 0.88)
-- Updated companies/index.html with "Browse by Category" section
-
-### ✅ Session 142: 3 More Category Hubs + 3 Comparison Pages (85 total)
-- Built communication-tools-pricing.html (Slack/Teams/Discord/Zoom hub)
-- Built ecommerce-pricing.html (Shopify/WooCommerce/Etsy hub with real cost calculator)
-- Built marketing-tools-pricing.html (Mailchimp/Brevo/Typeform/Grammarly/Ahrefs/Semrush hub)
-- Built slack-vs-microsoft-teams-vs-discord-pricing.html (3-way ~2,000/mo)
-- Built shopify-vs-woocommerce-vs-etsy-pricing.html (3-way ~1,500/mo)
-- Built ahrefs-vs-semrush-pricing.html (~2,500/mo)
-- Updated sitemap.xml (+7 URLs), companies/index.html (79→85)
+### ✅ Sessions 141–142 (May 2, 2026)
+- Created /cta.js — sticky CTA banner on all 75 pages
+- 7 category hubs live (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
+- Added ahrefs-vs-semrush, slack-vs-teams-vs-discord, shopify-vs-woocommerce-vs-etsy
 
 ---
 
 ## SEO TARGET KEYWORDS (Remaining High-Value)
 
-### 3-Way Comparisons (High traffic, less competition)
-- Slack vs Teams vs Discord (~2,000/mo) — PRIORITY
-- Shopify vs WooCommerce vs Etsy (~1,500/mo)
-- Ahrefs vs Semrush vs Moz (~3,000/mo)
-- HubSpot vs Salesforce vs Pipedrive (~2,500/mo) — PRIORITY
+### 3-Way Comparisons (not yet built)
+- Salesforce vs HubSpot vs Zoho (~1,500/mo)
+- Notion AI vs ChatGPT vs Jasper (~2,000/mo) — AI tools angle
+- Loom vs Zoom vs Google Meet (~1,200/mo)
 
-### Individual Company Pages (Missing)
-- Miro pricing (~3,500/mo) — visual collaboration
-- Webflow pricing (~4,000/mo) — website builder
-- Notion AI pricing (~2,000/mo) — already have Notion but not AI-specific
-- Vercel pricing (~1,500/mo) — dev audience alignment
-- Supabase pricing (~1,200/mo) — dev audience alignment
-- Cloudflare pricing (~2,000/mo)
-
-### Communication + Video
-- Loom is already built ✅
-- Zoom vs Google Meet ✅ built
-- Need: Microsoft Teams pricing individual page (~5,000/mo)
-
-### More Comparison Pages
-- Notion vs Coda ✅ (built earlier)
-- Airtable vs Smartsheet ✅ (built earlier)
-- Need: Webflow vs Squarespace (~2,000/mo)
-- Need: Mailchimp vs HubSpot vs ConvertKit (~1,500/mo)
-
----
-
-## USER ACQUISITION — Channels
-
-### Distribution Requiring Human
-- LinkedIn post (leaderboard) — STILL PENDING (25 min budget left)
-- Newsletter outreach emails — 8 drafts ready at `/docs/newsletter-outreach-emails-ready-to-send.md`
-- Show HN post — ready at `/docs/show-hn-ready-to-post.md`
-- Reddit posts — removed by spam filters, needs different approach
-
-### Conversion Optimization (No Human Needed)
-- [x] CTA banner on all 75 pages ✅ (Session 141)
-- [ ] Inline CTAs within page content (mid-article, after pricing table)
-- [ ] Exit intent popup (if banner not enough)
-- [ ] Email capture form directly on comparison pages (not just banner)
-
-### SEO (No Human Needed — Ongoing)
-- [x] 79 pages live ✅
-- [x] 4 category hub pages ✅
-- [x] 3 more category hubs (communication, e-commerce, marketing) ✅ Session 142
-- [ ] Schema markup improvements on hub pages
-- [ ] Internal linking audit (which pages have fewest inbound links)
+### Individual Pages (Missing, Medium Priority)
+- Moz (~400/mo)
+- Brevo (~600/mo)
+- ConvertKit (~500/mo)
+- Adobe Creative Cloud (~1,000/mo)
+- Salesforce individual (~800/mo)

@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Team Pricing Calculator 2026 — Compare Stack Costs for Any Team Size</title>
+  <meta name="description" content="Free calculator: compare what Notion, Slack, GitHub, HubSpot, Figma and 30+ tools cost for your team. Enter team size → instant monthly & annual cost breakdown." />
+  <meta property="og:title" content="SaaS Team Pricing Calculator — How Much Does Your Stack Cost?" />
+  <meta property="og:description" content="Select the tools your team uses, enter team size, and see exact monthly costs. Compare alternatives side-by-side." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getpricepulse.com/saas-pricing-calculator.html" />
+  <meta property="og:site_name" content="PricePulse" />
+  <link rel="canonical" href="https://getpricepulse.com/saas-pricing-calculator.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a typical SaaS stack cost for a 10-person team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A typical 10-person startup SaaS stack (project management, communication, CRM, dev tools, design) costs $800–$2,500/month depending on tool choices. Using Notion instead of Monday.com saves ~$40/month. Choosing Pipedrive over HubSpot Pro saves ~$700/month for a 10-person team."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which project management tool is cheapest for a team of 15?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a 15-person team, ClickUp Unlimited ($7/user) costs $105/month. Notion Plus ($10/user) costs $150/month. Monday.com Basic ($12/user) costs $180/month. Asana Premium ($13.49/user) costs $202/month. ClickUp is cheapest per seat, but Coda charges a flat $20/month for up to 20 users — making it the most cost-effective for teams of 5–20."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often do SaaS tools change their pricing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most SaaS tools raise prices 1–2 times per year. In 2023–2024, GitHub Copilot raised prices +90%, Typeform raised +67%, ClickUp raised +58%, Shopify raised +34%. PricePulse monitors 113+ pricing pages 24/7 and alerts you the moment anything changes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Slack worth paying for vs the free plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Slack free limits message history to 90 days and blocks some integrations. Slack Pro costs $8.75/user/month (annual) — for a 10-person team, that's $87.50/month or $1,050/year. Microsoft Teams is free if you already have Microsoft 365 licenses, making it the cheapest option for teams using Office."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --bg3: #1a1a26;
+      --border: #2a2a3d;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --accent: #00e5a0;
+      --accent2: #00b87a;
+      --accent-glow: rgba(0, 229, 160, 0.15);
+      --warning: #f59e0b;
+      --red: #ef4444;
+      --radius: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; }
+    .btn-sm {
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+    .btn-sm:hover { background: var(--accent2); text-decoration: none; }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      background: var(--accent-glow);
+      border: 1px solid rgba(0, 229, 160, 0.3);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* MAIN CALCULATOR LAYOUT */
+    .calculator {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .calculator { grid-template-columns: 1fr; }
+    }
+
+    /* LEFT: Tool selector */
+    .tool-selector { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .team-size-section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .team-size-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .team-size-input {
+      width: 90px;
+      padding: 0.6rem 0.75rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+      font-family: var(--font);
+    }
+
+    .team-size-input:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+
+    .team-size-presets {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .preset-btn {
+      padding: 0.35rem 0.75rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: var(--font);
+    }
+
+    .preset-btn:hover, .preset-btn.active {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Category section */
+    .category-section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .category-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .category-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-name .emoji { font-size: 1.1rem; }
+
+    .category-badge {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0;
+    }
+
+    .tool-card {
+      padding: 0.9rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tool-card:hover { background: var(--bg3); }
+
+    .tool-card.selected {
+      background: var(--accent-glow);
+      border-color: rgba(0, 229, 160, 0.3);
+    }
+
+    .tool-checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.15s;
+    }
+
+    .tool-card.selected .tool-checkbox {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .tool-checkbox-mark {
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: none;
+    }
+
+    .tool-card.selected .tool-checkbox-mark { display: block; }
+
+    .tool-info { flex: 1; min-width: 0; }
+
+    .tool-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tool-plan-selector {
+      display: flex;
+      gap: 0.3rem;
+      margin-top: 0.3rem;
+    }
+
+    .plan-chip {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .plan-chip:hover { border-color: var(--accent); color: var(--accent); }
+    .plan-chip.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+
+    /* RIGHT: Results panel */
+    .results-panel {
+      position: sticky;
+      top: 80px;
+    }
+
+    .results-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .results-header {
+      padding: 1.25rem 1.5rem;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .results-header h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .results-body { padding: 0; }
+
+    .result-item {
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .result-item:last-child { border-bottom: none; }
+
+    .result-tool-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .result-plan {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .result-cost {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .result-cost-note {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .empty-state {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    .empty-state .empty-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+    .total-section {
+      background: var(--bg3);
+      border-top: 2px solid var(--border);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .total-label { font-size: 0.85rem; color: var(--muted); }
+
+    .total-amount {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .total-annual {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .total-per-person {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .cta-section {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(0,229,160,0.08) 0%, rgba(0,184,122,0.05) 100%);
+    }
+
+    .cta-section p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .cta-section p strong { color: var(--text); }
+
+    .btn-cta {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.875rem;
+      transition: background 0.15s;
+    }
+
+    .btn-cta:hover { background: var(--accent2); text-decoration: none; }
+
+    .btn-cta-secondary {
+      display: block;
+      width: 100%;
+      padding: 0.6rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      transition: all 0.15s;
+    }
+
+    .btn-cta-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* Share button */
+    .share-section {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-share {
+      flex: 1;
+      padding: 0.5rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: var(--font);
+    }
+
+    .btn-share:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Info box */
+    .info-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .info-box strong { color: var(--text); }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .faq-section h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .faq-a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    footer a { color: var(--muted); margin: 0 0.75rem; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">
+    <span class="logo-dot"></span>
+    PricePulse
+  </a>
+  <div class="nav-links">
+    <a href="/companies/">113 Companies</a>
+    <a href="/saas-price-hike-leaderboard.html">Price Hike Tracker</a>
+    <a href="/signup.html" class="btn-sm">Try Free →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Free Tool — No Signup Required</div>
+  <h1>SaaS Team Pricing <span>Calculator</span></h1>
+  <p>Select the tools your team uses, enter team size, and see exact monthly costs. Compare alternatives side-by-side.</p>
+</div>
+
+<div class="calculator">
+  <!-- LEFT: Tool Selector -->
+  <div class="tool-selector" id="toolSelector">
+
+    <!-- Team Size -->
+    <div class="team-size-section">
+      <div class="section-title">Team Size</div>
+      <div class="team-size-controls">
+        <input type="number" class="team-size-input" id="teamSize" value="10" min="1" max="1000" />
+        <div class="team-size-presets">
+          <button class="preset-btn" onclick="setTeamSize(1)">Solo</button>
+          <button class="preset-btn" onclick="setTeamSize(5)">5</button>
+          <button class="preset-btn active" onclick="setTeamSize(10)">10</button>
+          <button class="preset-btn" onclick="setTeamSize(25)">25</button>
+          <button class="preset-btn" onclick="setTeamSize(50)">50</button>
+          <button class="preset-btn" onclick="setTeamSize(100)">100</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Management -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-name"><span class="emoji">📋</span> Project Management</div>
+        <div class="category-badge">per user/month</div>
+      </div>
+      <div class="tool-grid" id="grid-pm"></div>
+    </div>
+
+    <!-- Communication -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-name"><span class="emoji">💬</span> Communication</div>
+        <div class="category-badge">per user/month</div>
+      </div>
+      <div class="tool-grid" id="grid-comm"></div>
+    </div>
+
+    <!-- CRM & Sales -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-name"><span class="emoji">🤝</span> CRM & Sales</div>
+        <div class="category-badge">per user/month</div>
+      </div>
+      <div class="tool-grid" id="grid-crm"></div>
+    </div>
+
+    <!-- Developer Tools -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-name"><span class="emoji">⚙️</span> Developer Tools</div>
+        <div class="category-badge">per user/month</div>
+      </div>
+      <div class="tool-grid" id="grid-dev"></div>
+    </div>
+
+    <!-- Design -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-name"><span class="emoji">🎨</span> Design</div>
+        <div class="category-badge">per editor/month</div>
+      </div>
+      <div class="tool-grid" id="grid-design"></div>
+    </div>
+
+    <!-- Marketing & SEO -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-name"><span class="emoji">📈</span> Marketing & SEO</div>
+        <div class="category-badge">flat / per user</div>
+      </div>
+      <div class="tool-grid" id="grid-marketing"></div>
+    </div>
+
+    <!-- Automation & Productivity -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-name"><span class="emoji">⚡</span> Automation & Productivity</div>
+        <div class="category-badge">flat rate</div>
+      </div>
+      <div class="tool-grid" id="grid-automation"></div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: Results Panel -->
+  <div class="results-panel">
+    <div class="results-card">
+      <div class="results-header">
+        <h3>💰 Your Stack Cost</h3>
+        <span id="selectedCount" style="font-size:0.8rem;color:var(--muted)">0 tools selected</span>
+      </div>
+
+      <div class="results-body" id="resultsList">
+        <div class="empty-state">
+          <div class="empty-icon">👆</div>
+          <div>Select tools on the left to see costs</div>
+        </div>
+      </div>
+
+      <div class="total-section" id="totalSection" style="display:none">
+        <div class="total-row">
+          <span class="total-label">Monthly total</span>
+          <span class="total-amount" id="totalMonthly">$0</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span class="total-annual" id="totalAnnual"></span>
+          <span class="total-per-person" id="totalPerPerson"></span>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <p><strong>Prices change constantly.</strong> GitHub Copilot raised +90%. ClickUp raised +58%. Get an instant alert when any of your tools change pricing.</p>
+        <a href="/signup.html?utm_source=calculator&utm_medium=cta&utm_content=main" class="btn-cta">
+          Monitor These Prices Free →
+        </a>
+        <a href="/companies/" class="btn-cta-secondary">Browse 113 Pricing Pages</a>
+      </div>
+
+      <div class="share-section">
+        <button class="btn-share" onclick="copyShareText()">📋 Copy Results</button>
+        <button class="btn-share" onclick="shareOnTwitter()">𝕏 Share</button>
+        <button class="btn-share" onclick="shareOnLinkedIn()">in Share</button>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>Prices as of May 2026.</strong> Showing annual billing rates where available (usually 10–25% cheaper than monthly). <a href="/signup.html?utm_source=calculator&utm_medium=info">Get alerts when pricing changes →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">How much does a typical SaaS stack cost for a 10-person team?</div>
+    <div class="faq-a">A typical 10-person startup stack (project management + communication + CRM + dev tools + design) costs $800–$2,500/month depending on tool choices. The biggest variables are CRM (HubSpot Pro = $800/mo vs Pipedrive Advanced = $300/mo) and project management (ClickUp $70/mo vs Asana Premium $135/mo).</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Which project management tool is cheapest for a team of 15?</div>
+    <div class="faq-a">For a 15-person team: ClickUp Unlimited ($7/user) = $105/month. Notion Plus ($10/user) = $150/month. Monday.com Basic ($12/user) = $180/month. Asana Premium ($13.49/user) = $202/month. Note: Coda charges a flat $20/month for up to 20 users — making it the most cost-effective for teams of 5–20 people.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How often do SaaS tools change their pricing?</div>
+    <div class="faq-a">Most SaaS tools raise prices 1–2 times per year. Recent examples: GitHub Copilot raised +90% (2023–2024), Typeform raised +67% (2024), ClickUp raised +58% (Feb 2026), Shopify raised +34% (2023). PricePulse monitors 113+ pricing pages 24/7 and sends instant alerts when anything changes — so you're never caught off guard.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is annual billing worth it for most SaaS tools?</div>
+    <div class="faq-a">Usually yes — most tools offer 15–25% discount for annual billing (2 months free). For a 10-person team spending $800/month, annual billing saves $1,600–$2,400/year. The main risk: if you cancel mid-year, most tools don't refund. Annual billing is best for tools you're sure about (Slack, GitHub) and riskier for newer tools.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is Slack worth paying for vs the free plan?</div>
+    <div class="faq-a">Slack free limits message history to 90 days and caps integrations. Slack Pro costs $8.75/user/month (annual) — $87.50/month for 10 people, or $1,050/year. If you already pay for Microsoft 365 ($12.50/user/month), Microsoft Teams is included free. For teams already in the Microsoft ecosystem, Teams is almost always the better deal.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What's the cheapest full SaaS stack for a 5-person startup?</div>
+    <div class="faq-a">Cheapest full stack for 5 people: ClickUp free tier (project management), Slack free (90-day history), HubSpot CRM free (unlimited contacts), GitHub Team ($4/user = $20/month), Figma free (3 projects). Total: $20/month. Step up: ClickUp Unlimited ($35) + Slack Pro ($43.75) + Pipedrive Essential ($75) + GitHub Team ($20) = $173.75/month for a capable team stack.</div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <a href="/">PricePulse</a>
+    <a href="/companies/">All Companies</a>
+    <a href="/saas-price-hike-leaderboard.html">Price Hike Tracker</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/pricing.html">Pricing</a>
+  </div>
+  <div style="margin-top:1rem">© 2026 PricePulse. Prices updated May 2026. <a href="/signup.html">Monitor pricing changes free →</a></div>
+</footer>
+
+<script>
+// ===== TOOL DATA =====
+// Format: { id, name, category, plans: [{name, price, isFlat, note}] }
+// price = per user per month (annual billing where applicable)
+// isFlat = true if the price is a flat fee regardless of team size
+
+const TOOLS = {
+  pm: [
+    { id: 'clickup', name: 'ClickUp', link: '/companies/clickup-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Unlimited', price: 7, isFlat: false },
+        { name: 'Business', price: 12, isFlat: false }
+      ]
+    },
+    { id: 'notion', name: 'Notion', link: '/companies/notion-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Plus', price: 10, isFlat: false },
+        { name: 'Business', price: 18, isFlat: false }
+      ]
+    },
+    { id: 'monday', name: 'Monday.com', link: '/companies/monday-pricing.html',
+      plans: [
+        { name: 'Basic', price: 12, isFlat: false },
+        { name: 'Standard', price: 14, isFlat: false },
+        { name: 'Pro', price: 24, isFlat: false }
+      ]
+    },
+    { id: 'asana', name: 'Asana', link: '/companies/asana-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Premium', price: 13.49, isFlat: false },
+        { name: 'Business', price: 30.49, isFlat: false }
+      ]
+    },
+    { id: 'linear', name: 'Linear', link: '/companies/linear-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Basic', price: 8, isFlat: false },
+        { name: 'Business', price: 18, isFlat: false }
+      ]
+    },
+    { id: 'jira', name: 'Jira', link: '/companies/jira-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Standard', price: 8.15, isFlat: false },
+        { name: 'Premium', price: 16, isFlat: false }
+      ]
+    },
+    { id: 'airtable', name: 'Airtable', link: '/companies/airtable-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Team', price: 20, isFlat: false },
+        { name: 'Business', price: 45, isFlat: false }
+      ]
+    },
+    { id: 'coda', name: 'Coda', link: '/companies/coda-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: true },
+        { name: 'Team $20 flat', price: 20, isFlat: true, note: 'up to 20 users' },
+        { name: 'Pro $30 flat', price: 30, isFlat: true, note: 'unlimited users' }
+      ]
+    },
+    { id: 'trello', name: 'Trello', link: '#',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Standard', price: 6, isFlat: false },
+        { name: 'Premium', price: 12.50, isFlat: false }
+      ]
+    }
+  ],
+
+  comm: [
+    { id: 'slack', name: 'Slack', link: '/companies/slack-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Pro', price: 8.75, isFlat: false },
+        { name: 'Business+', price: 15, isFlat: false }
+      ]
+    },
+    { id: 'teams', name: 'Microsoft Teams', link: '/companies/microsoft-teams-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Essentials', price: 4, isFlat: false },
+        { name: 'M365 Business', price: 12.50, isFlat: false }
+      ]
+    },
+    { id: 'discord', name: 'Discord', link: '#',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Nitro', price: 4.99, isFlat: false }
+      ]
+    },
+    { id: 'zoom', name: 'Zoom', link: '/companies/zoom-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Pro', price: 15.99, isFlat: false },
+        { name: 'Business', price: 19.99, isFlat: false }
+      ]
+    },
+    { id: 'loom', name: 'Loom', link: '/companies/loom-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Business', price: 15, isFlat: false }
+      ]
+    },
+    { id: 'notion-wiki', name: 'Confluence', link: '/companies/atlassian-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Standard', price: 6.05, isFlat: false },
+        { name: 'Premium', price: 11.55, isFlat: false }
+      ]
+    }
+  ],
+
+  crm: [
+    { id: 'hubspot', name: 'HubSpot', link: '/companies/hubspot-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: true },
+        { name: 'Starter $50/mo', price: 50, isFlat: true, note: 'flat' },
+        { name: 'Pro $800/mo', price: 800, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'salesforce', name: 'Salesforce', link: '/companies/salesforce-pricing.html',
+      plans: [
+        { name: 'Starter', price: 25, isFlat: false },
+        { name: 'Professional', price: 75, isFlat: false },
+        { name: 'Enterprise', price: 150, isFlat: false }
+      ]
+    },
+    { id: 'pipedrive', name: 'Pipedrive', link: '/companies/pipedrive-pricing.html',
+      plans: [
+        { name: 'Essential', price: 15, isFlat: false },
+        { name: 'Advanced', price: 30, isFlat: false },
+        { name: 'Professional', price: 59, isFlat: false }
+      ]
+    },
+    { id: 'intercom', name: 'Intercom', link: '/companies/intercom-pricing.html',
+      plans: [
+        { name: 'Essential $39/mo', price: 39, isFlat: true, note: 'flat' },
+        { name: 'Advanced $99/mo', price: 99, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'zendesk', name: 'Zendesk', link: '/companies/zendesk-pricing.html',
+      plans: [
+        { name: 'Suite Team', price: 69, isFlat: false },
+        { name: 'Suite Growth', price: 115, isFlat: false }
+      ]
+    }
+  ],
+
+  dev: [
+    { id: 'github', name: 'GitHub', link: '/companies/github-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Team', price: 4, isFlat: false },
+        { name: 'Enterprise', price: 21, isFlat: false }
+      ]
+    },
+    { id: 'gitlab', name: 'GitLab', link: '/companies/gitlab-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Premium', price: 29, isFlat: false },
+        { name: 'Ultimate', price: 99, isFlat: false }
+      ]
+    },
+    { id: 'copilot', name: 'GitHub Copilot', link: '/companies/github-pricing.html',
+      plans: [
+        { name: 'Individual', price: 19, isFlat: false },
+        { name: 'Business', price: 39, isFlat: false }
+      ]
+    },
+    { id: 'vercel', name: 'Vercel', link: '/companies/vercel-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: true },
+        { name: 'Pro $20/mo', price: 20, isFlat: true, note: 'flat' },
+        { name: 'Enterprise', price: 400, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'supabase', name: 'Supabase', link: '/companies/supabase-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: true },
+        { name: 'Pro $25/mo', price: 25, isFlat: true, note: 'flat' },
+        { name: 'Team $599/mo', price: 599, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'linear2', name: 'Linear (Issues)', link: '/companies/linear-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Basic', price: 8, isFlat: false },
+        { name: 'Business', price: 18, isFlat: false }
+      ]
+    },
+    { id: 'datadog', name: 'Datadog', link: '#',
+      plans: [
+        { name: 'Pro $15/host', price: 15, isFlat: false, note: '/host/mo' },
+        { name: 'Enterprise $23/host', price: 23, isFlat: false, note: '/host/mo' }
+      ]
+    }
+  ],
+
+  design: [
+    { id: 'figma', name: 'Figma', link: '/companies/figma-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Pro', price: 12, isFlat: false },
+        { name: 'Organization', price: 45, isFlat: false }
+      ]
+    },
+    { id: 'sketch', name: 'Sketch', link: '/companies/sketch-pricing.html',
+      plans: [
+        { name: 'Solo $10/mo', price: 10, isFlat: false },
+        { name: 'Business $9/mo', price: 9, isFlat: false }
+      ]
+    },
+    { id: 'canva', name: 'Canva', link: '/companies/canva-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Pro', price: 15, isFlat: false },
+        { name: 'Teams', price: 10, isFlat: false }
+      ]
+    },
+    { id: 'miro', name: 'Miro', link: '/companies/miro-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Starter', price: 10, isFlat: false },
+        { name: 'Business', price: 20, isFlat: false }
+      ]
+    }
+  ],
+
+  marketing: [
+    { id: 'mailchimp', name: 'Mailchimp', link: '/companies/mailchimp-pricing.html',
+      plans: [
+        { name: 'Free (500 contacts)', price: 0, isFlat: true },
+        { name: 'Essentials $13/mo', price: 13, isFlat: true, note: '500 contacts' },
+        { name: 'Standard $20/mo', price: 20, isFlat: true, note: '500 contacts' }
+      ]
+    },
+    { id: 'ahrefs', name: 'Ahrefs', link: '/companies/ahrefs-pricing.html',
+      plans: [
+        { name: 'Lite $99/mo', price: 99, isFlat: true, note: 'flat' },
+        { name: 'Standard $199/mo', price: 199, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'semrush', name: 'Semrush', link: '/companies/semrush-pricing.html',
+      plans: [
+        { name: 'Pro $139/mo', price: 139, isFlat: true, note: 'flat' },
+        { name: 'Guru $249/mo', price: 249, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'typeform', name: 'Typeform', link: '/companies/typeform-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: true },
+        { name: 'Basic $25/mo', price: 25, isFlat: true, note: 'flat' },
+        { name: 'Plus $50/mo', price: 50, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'grammarly', name: 'Grammarly', link: '/companies/grammarly-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: false },
+        { name: 'Premium', price: 12, isFlat: false },
+        { name: 'Business', price: 15, isFlat: false }
+      ]
+    }
+  ],
+
+  automation: [
+    { id: 'zapier', name: 'Zapier', link: '/companies/zapier-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: true },
+        { name: 'Starter $29/mo', price: 29, isFlat: true, note: 'flat' },
+        { name: 'Professional $99/mo', price: 99, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'make', name: 'Make (formerly Integromat)', link: '/companies/make-pricing.html',
+      plans: [
+        { name: 'Free', price: 0, isFlat: true },
+        { name: 'Core $9.99/mo', price: 9.99, isFlat: true, note: 'flat' },
+        { name: 'Pro $18.48/mo', price: 18.48, isFlat: true, note: 'flat' }
+      ]
+    },
+    { id: 'notion365', name: 'Google Workspace', link: '/companies/google-workspace-pricing.html',
+      plans: [
+        { name: 'Business Starter', price: 6, isFlat: false },
+        { name: 'Business Standard', price: 12, isFlat: false },
+        { name: 'Business Plus', price: 18, isFlat: false }
+      ]
+    },
+    { id: 'm365', name: 'Microsoft 365', link: '/companies/microsoft-365-pricing.html',
+      plans: [
+        { name: 'Business Basic', price: 6, isFlat: false },
+        { name: 'Business Standard', price: 12.50, isFlat: false },
+        { name: 'Business Premium', price: 22, isFlat: false }
+      ]
+    },
+    { id: 'dropbox', name: 'Dropbox', link: '/companies/dropbox-pricing.html',
+      plans: [
+        { name: 'Plus $9.99/mo', price: 9.99, isFlat: true, note: '1 user' },
+        { name: 'Professional $20/mo', price: 20, isFlat: false },
+        { name: 'Business $15/mo', price: 15, isFlat: false }
+      ]
+    }
+  ]
+};
+
+// ===== STATE =====
+const state = {
+  teamSize: 10,
+  selected: {} // { toolId: { planIndex: 0 } }
+};
+
+// ===== RENDER TOOL CARDS =====
+function renderToolCards() {
+  const categories = {
+    'pm': TOOLS.pm,
+    'comm': TOOLS.comm,
+    'crm': TOOLS.crm,
+    'dev': TOOLS.dev,
+    'design': TOOLS.design,
+    'marketing': TOOLS.marketing,
+    'automation': TOOLS.automation
+  };
+
+  for (const [cat, tools] of Object.entries(categories)) {
+    const grid = document.getElementById(`grid-${cat}`);
+    if (!grid) continue;
+    grid.innerHTML = tools.map(tool => renderToolCard(tool)).join('');
+  }
+}
+
+function renderToolCard(tool) {
+  const isSelected = !!state.selected[tool.id];
+  const selectedPlanIdx = state.selected[tool.id]?.planIndex ?? 0;
+
+  const plansHtml = tool.plans.map((plan, idx) => `
+    <span class="plan-chip ${isSelected && idx === selectedPlanIdx ? 'active' : ''}"
+      onclick="event.stopPropagation(); selectPlan('${tool.id}', ${idx})"
+      data-plan="${idx}">
+      ${plan.name}
+    </span>
+  `).join('');
+
+  return `
+    <div class="tool-card ${isSelected ? 'selected' : ''}" id="card-${tool.id}" onclick="toggleTool('${tool.id}')">
+      <div class="tool-checkbox">
+        <span class="tool-checkbox-mark">✓</span>
+      </div>
+      <div class="tool-info">
+        <div class="tool-name">${tool.name}</div>
+        <div class="tool-plan-selector">${plansHtml}</div>
+      </div>
+    </div>
+  `;
+}
+
+// ===== TOGGLE TOOL =====
+function toggleTool(toolId) {
+  if (state.selected[toolId]) {
+    delete state.selected[toolId];
+  } else {
+    // Default to first non-free plan if available, else first plan
+    const tool = findTool(toolId);
+    const defaultIdx = tool.plans.length > 1 ? 1 : 0;
+    state.selected[toolId] = { planIndex: defaultIdx };
+  }
+  refreshCard(toolId);
+  updateResults();
+}
+
+// ===== SELECT PLAN =====
+function selectPlan(toolId, planIdx) {
+  const tool = findTool(toolId);
+  // If not selected, select it too
+  state.selected[toolId] = { planIndex: planIdx };
+  refreshCard(toolId);
+  updateResults();
+}
+
+function refreshCard(toolId) {
+  const tool = findTool(toolId);
+  const card = document.getElementById(`card-${tool.id}`);
+  if (!card) return;
+  const newHtml = renderToolCard(tool);
+  const tmp = document.createElement('div');
+  tmp.innerHTML = newHtml;
+  const newCard = tmp.firstElementChild;
+  card.replaceWith(newCard);
+}
+
+function findTool(toolId) {
+  for (const tools of Object.values(TOOLS)) {
+    const found = tools.find(t => t.id === toolId);
+    if (found) return found;
+  }
+  return null;
+}
+
+// ===== TEAM SIZE =====
+function setTeamSize(n) {
+  state.teamSize = n;
+  document.getElementById('teamSize').value = n;
+  document.querySelectorAll('.preset-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (parseInt(btn.textContent) === n || (btn.textContent === 'Solo' && n === 1)) {
+      btn.classList.add('active');
+    }
+  });
+  updateResults();
+}
+
+document.getElementById('teamSize').addEventListener('input', function() {
+  const val = parseInt(this.value) || 1;
+  state.teamSize = Math.max(1, Math.min(1000, val));
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  updateResults();
+});
+
+// ===== CALCULATE & RENDER RESULTS =====
+function calcToolCost(tool, planIdx) {
+  const plan = tool.plans[planIdx];
+  if (!plan) return 0;
+  if (plan.isFlat) return plan.price;
+  return plan.price * state.teamSize;
+}
+
+function updateResults() {
+  const selectedIds = Object.keys(state.selected);
+  const count = selectedIds.length;
+
+  document.getElementById('selectedCount').textContent = `${count} tool${count !== 1 ? 's' : ''} selected`;
+
+  const resultsList = document.getElementById('resultsList');
+  const totalSection = document.getElementById('totalSection');
+
+  if (count === 0) {
+    resultsList.innerHTML = `<div class="empty-state"><div class="empty-icon">👆</div><div>Select tools on the left to see costs</div></div>`;
+    totalSection.style.display = 'none';
+    return;
+  }
+
+  let totalMonthly = 0;
+  let rows = '';
+
+  for (const toolId of selectedIds) {
+    const tool = findTool(toolId);
+    if (!tool) continue;
+    const planIdx = state.selected[toolId].planIndex;
+    const plan = tool.plans[planIdx];
+    const cost = calcToolCost(tool, planIdx);
+    totalMonthly += cost;
+
+    const costStr = cost === 0 ? 'Free' : `$${cost % 1 === 0 ? cost : cost.toFixed(2)}/mo`;
+    const perPersonStr = plan.isFlat ? 'flat rate' : (cost === 0 ? '' : `$${(cost/state.teamSize).toFixed(2)}/person`);
+
+    rows += `
+      <div class="result-item">
+        <div>
+          <div class="result-tool-name">${tool.name}</div>
+          <div class="result-plan">${plan.name}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="result-cost">${costStr}</div>
+          ${perPersonStr ? `<div class="result-cost-note">${perPersonStr}</div>` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  resultsList.innerHTML = rows;
+  totalSection.style.display = 'block';
+
+  const annualSavings = totalMonthly * 12 * 0.17; // approx 17% savings on annual billing
+  document.getElementById('totalMonthly').textContent = totalMonthly === 0 ? '$0' : `$${Math.round(totalMonthly).toLocaleString()}/mo`;
+  document.getElementById('totalAnnual').textContent = totalMonthly > 0
+    ? `Annual: $${Math.round(totalMonthly * 12).toLocaleString()}/yr`
+    : '';
+  document.getElementById('totalPerPerson').textContent = (totalMonthly > 0 && state.teamSize > 1)
+    ? `$${(totalMonthly / state.teamSize).toFixed(0)}/person/mo`
+    : '';
+}
+
+// ===== SHARE FUNCTIONS =====
+function getResultsSummary() {
+  const selectedIds = Object.keys(state.selected);
+  if (selectedIds.length === 0) return '';
+  let total = 0;
+  const lines = [];
+  for (const toolId of selectedIds) {
+    const tool = findTool(toolId);
+    if (!tool) continue;
+    const planIdx = state.selected[toolId].planIndex;
+    const cost = calcToolCost(tool, planIdx);
+    total += cost;
+    lines.push(`${tool.name}: ${cost === 0 ? 'Free' : '$' + Math.round(cost) + '/mo'}`);
+  }
+  return `My ${state.teamSize}-person team's SaaS stack: $${Math.round(total).toLocaleString()}/mo\n\n${lines.join('\n')}\n\nCalculated with getpricepulse.com/saas-pricing-calculator.html`;
+}
+
+function copyShareText() {
+  const text = getResultsSummary();
+  if (!text) { alert('Select some tools first!'); return; }
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.textContent = '📋 Copy Results'; }, 2000);
+  });
+}
+
+function shareOnTwitter() {
+  const selectedIds = Object.keys(state.selected);
+  if (selectedIds.length === 0) { alert('Select some tools first!'); return; }
+  let total = 0;
+  selectedIds.forEach(id => {
+    const tool = findTool(id);
+    if (tool) total += calcToolCost(tool, state.selected[id].planIndex);
+  });
+  const text = `My ${state.teamSize}-person team's SaaS stack costs $${Math.round(total).toLocaleString()}/mo. Calculated with @getpricepulse → `;
+  const url = 'https://getpricepulse.com/saas-pricing-calculator.html';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+}
+
+function shareOnLinkedIn() {
+  const url = 'https://getpricepulse.com/saas-pricing-calculator.html';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+}
+
+// ===== INIT =====
+renderToolCards();
+updateResults();
+</script>
+
+</body>
+</html>

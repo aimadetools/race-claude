@@ -72,6 +72,46 @@
     footer a{color:var(--muted)}footer a:hover{color:var(--accent)}
     @media(max-width:640px){.nav-links{gap:1rem}.nav-links a:not(.btn-cta){display:none}.pricing-table,.feature-matrix{font-size:.85rem}.pricing-table th,.pricing-table td,.feature-matrix th,.feature-matrix td{padding:.5rem}}
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which is cheapest — Firebase, Supabase, or MongoDB Atlas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All three have free tiers: Firebase Spark (free) includes 1 Firestore GB, Supabase free includes 500MB PostgreSQL, MongoDB Atlas M0 includes 512MB. First paid tier: Supabase Pro at $25/month is cheapest. Firebase Blaze is pay-as-you-go (starts at $0, scales with usage). MongoDB M2 is $57/month. For predictable costs on a small project, Supabase Pro at $25/month is most affordable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I choose Supabase over Firebase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Choose Supabase when: you prefer SQL/PostgreSQL over NoSQL, you want open-source with no vendor lock-in, you need row-level security, or you're building with Next.js/React. Choose Firebase when: you need real-time sync for mobile apps, you're in the Google ecosystem, or you want Google's scale guarantees. Supabase is generally 40–60% cheaper than Firebase at mid-scale usage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Firebase free for small projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Firebase Spark plan is free with no time limit: includes 1GB Firestore storage, 50K document reads/day, 20K writes/day, 5GB Firebase Storage, 10GB bandwidth/month, and Google Authentication. The free tier is generous enough for prototypes and small production apps. When you exceed limits, you must upgrade to the pay-as-you-go Blaze plan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "MongoDB Atlas vs Supabase — which is better for startups?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Supabase is better for startups that: want PostgreSQL's relational model, prefer open-source with self-hosting option, or need built-in auth and storage. MongoDB Atlas is better when: you need flexible document storage (variable schemas), you're coming from a MongoDB background, or you need Atlas Search. For new projects, Supabase at $25/month vs MongoDB M2 at $57/month gives Supabase a significant cost advantage."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <nav>

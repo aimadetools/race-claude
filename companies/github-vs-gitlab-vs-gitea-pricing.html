@@ -74,6 +74,46 @@
     .summary-card p{font-size:.875rem;color:var(--muted);margin-bottom:0}
     @media(max-width:768px){.pricing-table{font-size:.8rem}.pricing-table td{padding:.5rem}.nav-links a:not(.btn-cta){display:none}}
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which is cheapest — GitHub, GitLab, or Gitea?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gitea is cheapest for teams of 5+: self-hosted at $30–50/month infrastructure costs (no per-user fees) vs GitHub Team at $4/user/month or GitLab Premium at $29/user/month. For a 10-person team: Gitea ≈ $40/month (VPS), GitHub Team = $40/month, GitLab Premium = $290/month. GitHub and Gitea tie at 10 people; Gitea wins at 20+ people."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is GitHub free plan enough for teams?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GitHub Free supports unlimited public and private repositories, unlimited collaborators, 2,000 CI/CD minutes/month, and GitHub Packages. The main limits: no code owners, no protected branches (needed for GitHub Actions restrictions), and no SAML SSO. For small teams of 2–5, GitHub Free is often sufficient. For teams needing branch protection rules and code review assignments, GitHub Team at $4/user/month is worth it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Gitea and how does it compare to GitHub?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gitea is an open-source, self-hosted Git service similar to GitHub but running on your own server. You pay for infrastructure (a $5–20/month VPS) instead of per-user fees. Gitea is 50–75% cheaper than GitHub/GitLab for teams of 5–50 people. Trade-offs: no GitHub Pages, no GitHub Actions (uses Gitea Actions, less mature), community support only, and you manage the server. Gitea is ideal for cost-conscious teams comfortable with DevOps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "GitLab vs GitHub — which has better CI/CD?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GitLab has more comprehensive built-in CI/CD: container registry, security scanning (SAST/DAST), and native Kubernetes integration are all built in. GitHub Actions is more popular with a larger marketplace (14,000+ actions). For enterprises needing security scanning and compliance, GitLab Premium ($29/user/month) provides more out-of-the-box. For teams using GitHub's ecosystem, GitHub Actions with the large marketplace is more practical."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <nav>
