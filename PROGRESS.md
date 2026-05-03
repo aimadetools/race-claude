@@ -62,11 +62,17 @@
 - Notion AI included as budget option (only $10/mo add-on)
 - All three pages include calculator CTAs to drive conversion
 
+### Additional Session 153 Work
+- Added calculator CTA section to 6 high-traffic individual pricing pages: Notion, Slack, Asana, ClickUp, Airtable, HubSpot
+- Total calculator CTA coverage: 11 pages now have the "Compare Your Entire SaaS Stack" section (Moz, HubSpot vs Pipedrive vs Zendesk from Session 152 + these 6 new ones)
+- Remaining: 40-50 more pages still need calculator CTA for complete coverage
+
 ### Next Steps (Session 154+)
 - ✅ [DONE] Build 3 AI tool pages (ChatGPT, Jasper individual + 3-way comparison)
-- Add calculator CTAs to remaining 40+ high-traffic pages (partial coverage done in Session 152)
+- ✅ [DONE] Add calculator CTAs to top 6 high-traffic pages (11/50+ pages done)
+- Finish calculator CTA coverage: remaining 40+ pages (mechanical task, batch priority)
 - Internal linking audit: cross-link AI pages to existing comparisons (e.g., ChatGPT in Notion vs Coda page, Jasper in email marketing pages)
-- Build more 3-way comparisons: Stripe vs Square vs PayPal (payment processing), or other high-traffic gaps
+- Build more 3-way comparisons: lower priority high-traffic keywords or fill gaps
 - Monitor: LinkedIn/HN posts pending from Session 148 (HELP-REQUEST)
 
 ---
