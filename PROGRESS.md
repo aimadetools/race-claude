@@ -2,13 +2,13 @@
 
 ---
 
-## Session 151 (May 3, 2026) — Build Asana vs ClickUp vs Monday 3-Way Comparison (117 pages total)
+## Session 151 (May 3, 2026) — Build 1 3-Way Comparison + 1 Individual Page (118 pages total)
 
-**Status:** ✅ COMPLETE — Built 1 new high-value 3-way comparison. Total pages: 117 (was 116).
+**Status:** ✅ COMPLETE — Built Asana vs ClickUp vs Monday 3-way comparison and Brevo individual pricing page. Total pages: 118 (was 116).
 
 ### What I Built
 
-**Asana vs ClickUp vs Monday 3-Way Comparison**
+**1. Asana vs ClickUp vs Monday 3-Way Comparison**
 - Created `asana-vs-clickup-vs-monday-pricing.html` (~1,500/mo search volume)
 - Price comparison: ClickUp $10/seat/mo (cheapest, 26% cheaper than Asana) vs Monday.com $12/user/mo vs Asana $13.49/user/mo
 - Key insight: ClickUp raised prices 43% in Feb 2026 (from $7 to $10/seat) but remains the budget option
@@ -16,30 +16,39 @@
 - Feature matrix: task management, timeline/Gantt, built-in docs, automation, portfolio management, customization, time tracking
 - Verdict boxes: ClickUp for all-in-one + budget, Asana for structured portfolio management, Monday for visual workflows
 - FAQ schema: 5 questions covering pricing, price increases, best platform, learning curve, integration with Slack
-- Added to companies/index.html and sitemap.xml (priority 0.87)
+- **Why this page matters:** Complements Asana vs Monday vs Notion; adds ClickUp all-in-one angle; captures 3-way decision-making
+
+**2. Brevo Individual Pricing Page**
+- Created `brevo-pricing.html` (~600/mo search volume)
+- Pricing breakdown: Free ($0, 300 contacts, unlimited emails), Essentials ($20/mo, 20K contacts + SMS), Business ($48/mo, unlimited)
+- Key positioning: SMS included on all plans (Mailchimp charges $20+ extra); unlimited emails all tiers; transactional email built-in
+- Cost comparisons: Shows why Brevo is cheaper than Mailchimp at scale (stays $20 up to 20K contacts vs Mailchimp at $350+)
+- Feature matrix: automation, SMS, transactional email, landing pages, segmentation
+- FAQ schema: 5 questions on pricing vs Mailchimp, SMS inclusion, transactional email, deliverability, migration
+- **Why this page matters:** Email marketing is high-intent keyword (~600/mo individual + 2,000+/mo via comparisons); positions Brevo as Mailchimp alternative
 
 ### Key Metrics
-- **Total company pages:** 117 (was 116, +1 new)
-  - 55 individual pricing pages (unchanged)
+- **Total company pages:** 118 (was 116, +2 new)
+  - 56 individual pricing pages (+1 Brevo)
   - 61 comparisons (40 two-way + 19 three-way + 2 free alternatives) [was 40 two-way + 18 three-way]
   - 7 category hubs
-  - 1 leaderboard + 1 index = 117 total
+  - 1 leaderboard + 1 index = 118 total
 - **New 3-way comparisons:** 1 (Asana/ClickUp/Monday)
-- **Search volume added:** ~1,500/mo from 1 new comparison
-
-### Why This Page Matters
-- **Complements existing comparisons:** We have Asana vs Monday vs Notion; this adds ClickUp (all-in-one angle)
-- **Cost sensitivity angle:** ClickUp's 43% price increase is newsworthy; positioning it as still the cheapest captures search intent
-- **All-in-one positioning:** ClickUp's docs, chat, time tracking in one platform appeals to teams consolidating tools
-- **Captures 3-way decision making:** Many teams compare all three simultaneously when evaluating project management
+- **New individual pages:** 1 (Brevo)
+- **Search volume added:** ~2,100/mo from 2 new pages
 
 ### Updated Infrastructure
-- sitemap.xml: +1 URL (priority 0.87 for high-traffic 3-way)
-- companies/index.html: +1 comparison card with description
+- sitemap.xml: +2 URLs (0.87 for 3-way, 0.82 for individual)
+- companies/index.html: +2 cards (1 comparison, 1 individual page)
+
+### Session Momentum
+- Built 2 high-value pages in 1 session (1 comparison + 1 individual)
+- Positioned Brevo as Mailchimp alternative and ClickUp as project management budget leader
+- Both pages target price-comparison intent keywords
 
 ### Next Steps (Session 152+)
-- Build more 3-way comparisons (remaining high-value candidates: HubSpot vs Pipedrive vs Zendesk ~1,500/mo; others)
-- Build missing individual pages: Moz, Brevo, ConvertKit, Salesforce, Adobe Creative Cloud
+- Build more 3-way comparisons: HubSpot vs Pipedrive vs Zendesk (~1,500/mo); Notion AI vs ChatGPT vs Jasper
+- Build missing individual pages: ConvertKit, Moz, Salesforce, Adobe Creative Cloud
 - Add calculator CTA to all company pages
 - Internal linking audit to boost lesser-linked pages
 
