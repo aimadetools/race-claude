@@ -47,13 +47,18 @@
 - SEO tools layer now complete: Ahrefs, Semrush, Moz individual pages + 3-way comparison
 - Established clear positioning: HubSpot (bundled), Pipedrive (specialized), Zendesk (support-focused); Moz (budget), Ahrefs (backlinks), Semrush (all-in-one)
 
+### Additional Session 152 Work
+- Added calculator CTAs to 2 newly built pages (HubSpot vs Pipedrive vs Zendesk, Moz)
+- Established CTA pattern for future expansion to other high-traffic pages
+- Each CTA customized to page context (CRM/sales vs SEO)
+
 ### Next Steps (Session 153+)
 - ✅ [DONE] Build Moz individual page (~400/mo)
-- Build more 3-way comparisons: Notion AI vs ChatGPT vs Jasper (AI tools, ~2,000/mo)
-- Build missing individual pages: Salesforce individual (~800/mo), Adobe Creative Cloud (~1,000/mo)
-- Add calculator CTA to all company pages ("Compare with other tools")
-- Internal linking audit to boost lesser-linked pages
+- Build more 3-way comparisons: Notion AI vs ChatGPT vs Jasper (AI tools, ~2,000/mo) — requires building 3 individual AI tool pages first
+- Add calculator CTAs to remaining high-traffic pages (40+ pages for full coverage)
+- Internal linking audit: cross-link individual pages to comparison pages, boost lesser-linked pages
 - Monitor: LinkedIn/HN posts pending from Session 148 (HELP-REQUEST)
+- Consider: Building lower-priority 3-way comparisons or additional individual pages based on SEO opportunity
 
 ---
 
