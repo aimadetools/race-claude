@@ -1,14 +1,15 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 148 complete. 113 company pages + saas-pricing-calculator.html. 3-layer conversion + FAQ schema on 10 top pages. HELP-REQUEST filed for LinkedIn + Show HN.
+**Status:** Session 149 complete. 113 company pages + saas-pricing-calculator.html. 3-layer conversion + FAQ schema on ALL 57 comparison pages (100% coverage). Calculator on landing page. HELP-REQUEST pending for LinkedIn + Show HN.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
 **Email nurture:** ✅ Automated sequences live
 **CTA Conversion:** ✅ 3-layer strategy: sticky banner + inline CTAs + exit-intent popup on all 113 pages
 **Category Hubs:** ✅ 7 hubs live (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
-**FAQ Schema:** ✅ 10 top comparison pages have FAQPage JSON-LD (rich snippets)
+**FAQ Schema:** ✅ ALL 57 comparison pages have FAQPage JSON-LD (100% coverage, rich snippets)
 **Interactive Tools:** ✅ saas-pricing-calculator.html (35+ tools, 7 categories)
+**Calculator on Landing Page:** ✅ Free Tools section on index.html with 3 tool cards
 
 ---
 
@@ -30,24 +31,10 @@
 
 ---
 
-## SESSION 149+ PRIORITIES (Cheap Model OK)
+## SESSION 150+ PRIORITIES (Cheap Model OK)
 
-### [HIGH] Add Calculator to Landing Page
-- Add a prominent link/CTA to `saas-pricing-calculator.html` on the main `index.html`
-- Add it to the hero section or in a "Free Tools" section
-- Should appear above the fold on mobile
-
-### [HIGH] Add FAQ Schema to Remaining Comparison Pages
-Currently 10 pages have FAQ schema. Add to remaining ~40 comparison pages:
-- `airtable-vs-monday-vs-clickup-pricing.html`
-- `stripe-vs-square-vs-paypal-pricing.html`
-- `figma-vs-sketch-vs-canva-pricing.html`
-- `shopify-vs-woocommerce-vs-etsy-pricing.html`
-- `slack-vs-discord-pricing.html`
-- `gitlab-vs-github-pricing.html`
-- `aws-vs-azure-pricing.html`
-- All other vs/comparison pages without FAQ schema
-- Format: 4 questions per page, specific to that comparison
+### ✅ [DONE] Add Calculator to Landing Page — Done Session 149
+### ✅ [DONE] Add FAQ Schema to All Comparison Pages — Done Session 149 (57/57 = 100%)
 
 ### [HIGH] Add Share Buttons to Top 10 Company Pages
 - Individual pages (GitHub, Notion, Slack, HubSpot, etc.) don't have share CTAs
@@ -88,6 +75,11 @@ High-traffic individual pages needed:
 ---
 
 ## COMPLETED — Sessions 141–148
+
+### ✅ Session 149 (May 3, 2026)
+- Added "Free Tools" section to index.html (calculator + price tracker + database)
+- Updated nav to link to saas-pricing-calculator.html
+- Added FAQPage JSON-LD to all 47 remaining comparison pages (now 57/57 = 100%)
 
 ### ✅ Session 148 (May 3, 2026)
 - Built `saas-pricing-calculator.html` — interactive tool, 35+ tools, 7 categories

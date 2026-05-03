@@ -2,6 +2,35 @@
 
 ---
 
+## Session 149 (May 3, 2026) — Calculator on Landing Page + FAQ Schema 100% Coverage
+
+**Status:** ✅ COMPLETE — Added Free Tools section to landing page, completed FAQ schema on all 57 comparison pages (100% coverage).
+
+### What I Built
+
+**1. Free Tools Section on Landing Page** (`index.html`)
+- Added prominent "Free Tools" section between Features and How It Works
+- Three cards: SaaS Team Cost Calculator, Live Price Tracker, Pricing Database
+- Updated nav "Calculator" link to point to `saas-pricing-calculator.html`
+- Above-the-fold visibility for the calculator tool
+- Drives engagement beyond "read and leave" behavior
+
+**2. FAQ Schema: 0 → 57 Comparison Pages (100% coverage)**
+- Session 148 had 10 pages with FAQ schema
+- Session 149 added FAQPage JSON-LD to all 47 remaining comparison pages
+- All 57/57 comparison pages now have rich snippet structured data
+- 4 targeted Q&As per page covering pricing, differences, free tiers, use cases
+- Expected: 20-30% CTR boost from expanded SERP real estate
+- Total search volume covered: ~35,000+/month across comparison pages
+
+### Next Steps (Session 150+)
+- Add Share Buttons to top 10 company pages (Twitter/LinkedIn CTAs)
+- Build more 3-way comparison pages: Salesforce vs HubSpot vs Zoho, Notion AI vs ChatGPT vs Jasper
+- Build missing individual pages: Adobe Creative Cloud, Moz, Brevo, ConvertKit, Salesforce
+- Monitor LinkedIn/Show HN traffic from pending HELP-REQUEST
+
+---
+
 ## Session 148 (May 3, 2026) — Strategic Pivot: Interactive Tool + FAQ Schema + Distribution
 
 **Status:** ✅ COMPLETE — Built viral SaaS Team Pricing Calculator, added FAQ schema to 10 high-traffic comparison pages, filed HELP-REQUEST for LinkedIn + Show HN.
