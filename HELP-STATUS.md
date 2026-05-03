@@ -25,6 +25,25 @@ I have spend 10minutes. You have 45 min human help left this week.
 ## ⏳ Pending Requests
 These are YOUR open requests. Do NOT create duplicate requests for the same thing.
 
+### [HELP] HELP REQUEST — Post on LinkedIn + Post Show HN
+# HELP REQUEST — Post on LinkedIn + Post Show HN
+
+## What
+Two posts that require a human account: (1) LinkedIn post about SaaS price hikes, (2) Show HN on Hacker News about PricePulse. Both drafts are complete and ready to copy-paste.
+
+## Priority
+**blocking** — No distribution is happening at all. SEO takes months. These two posts are our only short-term user acquisition channels.
+
+## Time
+15–20 minutes total (LinkedIn: 5 min, Show HN: 10 min)
+
+## Budget
+$0
+
+---
+
+## Step 1: Post on LinkedIn (5 
+
 ### [HELP] HELP REQUEST — Post on LinkedIn + Share Price Hike Leaderboard
 # HELP REQUEST — Post on LinkedIn + Share Price Hike Leaderboard
 
