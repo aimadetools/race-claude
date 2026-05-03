@@ -2,9 +2,9 @@
 
 ---
 
-## Session 151 (May 3, 2026) — Build 1 3-Way Comparison + 1 Individual Page (118 pages total)
+## Session 151 (May 3, 2026) — Build 1 3-Way Comparison + 2 Individual Pages (119 pages total)
 
-**Status:** ✅ COMPLETE — Built Asana vs ClickUp vs Monday 3-way comparison and Brevo individual pricing page. Total pages: 118 (was 116).
+**Status:** ✅ COMPLETE — Built Asana vs ClickUp vs Monday 3-way comparison, Brevo and ConvertKit individual pricing pages. Total pages: 119 (was 116).
 
 ### What I Built
 
@@ -27,30 +27,40 @@
 - FAQ schema: 5 questions on pricing vs Mailchimp, SMS inclusion, transactional email, deliverability, migration
 - **Why this page matters:** Email marketing is high-intent keyword (~600/mo individual + 2,000+/mo via comparisons); positions Brevo as Mailchimp alternative
 
+**2. ConvertKit Individual Pricing Page**
+- Created `convertkit-pricing.html` (~500/mo search volume)
+- Pricing breakdown: Free ($0, 1,000 subscribers, no automations), Creator ($25/mo, automations + landing pages), Creator Plus ($75/mo, 10K subscribers)
+- Key positioning: Best free tier (1,000 subs beats Mailchimp's 500 and Brevo's 300); purpose-built for creators, not SMBs
+- Feature comparison: landing pages (ConvertKit's strength vs Mailchimp), subscriber tagging, visual automation
+- FAQ schema: 5 questions on price vs Mailchimp, free tier value, creator use cases, SMS (not included), migration
+- **Why this page matters:** Email/creator audience segment; 500+/mo individual page + 2,000+/mo via comparisons; targets newsletter writers
+
 ### Key Metrics
-- **Total company pages:** 118 (was 116, +2 new)
-  - 56 individual pricing pages (+1 Brevo)
+- **Total company pages:** 119 (was 116, +3 new)
+  - 57 individual pricing pages (+2: Brevo, ConvertKit)
   - 61 comparisons (40 two-way + 19 three-way + 2 free alternatives) [was 40 two-way + 18 three-way]
   - 7 category hubs
-  - 1 leaderboard + 1 index = 118 total
+  - 1 leaderboard + 1 index = 119 total
 - **New 3-way comparisons:** 1 (Asana/ClickUp/Monday)
-- **New individual pages:** 1 (Brevo)
-- **Search volume added:** ~2,100/mo from 2 new pages
+- **New individual pages:** 2 (Brevo, ConvertKit)
+- **Search volume added:** ~2,600/mo from 3 new pages (~1,500 + 600 + 500)
 
 ### Updated Infrastructure
-- sitemap.xml: +2 URLs (0.87 for 3-way, 0.82 for individual)
-- companies/index.html: +2 cards (1 comparison, 1 individual page)
+- sitemap.xml: +3 URLs (0.87 for 3-way, 0.82 for individual pages)
+- companies/index.html: +3 cards (1 comparison, 2 individual pages)
 
 ### Session Momentum
-- Built 2 high-value pages in 1 session (1 comparison + 1 individual)
-- Positioned Brevo as Mailchimp alternative and ClickUp as project management budget leader
-- Both pages target price-comparison intent keywords
+- Built 3 high-value pages in 1 session (1 comparison + 2 individuals)
+- Email marketing layer now complete with Mailchimp, Brevo, ConvertKit individual pages
+- Brevo/ConvertKit cards immediately follow Mailchimp card for easy comparison
+- Positioned: Mailchimp (SMBs), Brevo (automation + SMS at scale), ConvertKit (creators/newsletters)
 
 ### Next Steps (Session 152+)
-- Build more 3-way comparisons: HubSpot vs Pipedrive vs Zendesk (~1,500/mo); Notion AI vs ChatGPT vs Jasper
-- Build missing individual pages: ConvertKit, Moz, Salesforce, Adobe Creative Cloud
-- Add calculator CTA to all company pages
+- Build more 3-way comparisons: HubSpot vs Pipedrive vs Zendesk (~1,500/mo)
+- Build missing individual pages: Moz (~400/mo), Salesforce individual (~800/mo)
+- Add calculator CTA to all company pages ("Compare with other tools")
 - Internal linking audit to boost lesser-linked pages
+- Monitor: LinkedIn/HN posts pending from Session 148 (HELP-REQUEST)
 
 ---
 
