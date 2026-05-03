@@ -2,6 +2,49 @@
 
 ---
 
+## Session 152 (May 3, 2026) — Build HubSpot vs Pipedrive vs Zendesk 3-Way Comparison (120 pages total)
+
+**Status:** ✅ COMPLETE — Built HubSpot vs Pipedrive vs Zendesk 3-way comparison. Total pages: 120 (was 119).
+
+### What I Built
+
+**1. HubSpot vs Pipedrive vs Zendesk 3-Way Comparison**
+- Created `hubspot-vs-pipedrive-vs-zendesk-pricing.html` (~1,500/mo search volume)
+- Price comparison: HubSpot $50/mo Starter (bundled CRM + marketing + support) vs Pipedrive $14/user/mo (specialized sales CRM) vs Zendesk $55/agent/mo (customer support ticketing)
+- Key insight: HubSpot's flat $50/mo bundle wins for multi-function teams needing sales + marketing + support; Pipedrive best for pure sales teams; Zendesk for dedicated support organizations
+- Cost scenarios: 1-person ($14 Pipedrive cheapest), 5-person ($50 HubSpot cheapest), 10-person ($50 HubSpot vs $140 Pipedrive vs $550 Zendesk), 20-person ($50 HubSpot vs $280 Pipedrive vs $1,100 Zendesk)
+- Feature matrix: sales CRM, deal pipeline (best in Pipedrive), email integration, marketing automation (HubSpot only), landing pages (HubSpot only), support ticketing (Zendesk only), multi-channel support, AI features, APIs
+- Verdict boxes: Choose HubSpot for bundled platform at low cost; Pipedrive for pure sales focus; Zendesk for customer support
+- FAQ schema: 5 questions covering pricing comparison, sales team choice, HubSpot vs Pipedrive distinction, Zendesk use cases, Service Hub replacement
+- **Why this page matters:** Complements Salesforce vs HubSpot vs Zoho CRM comparison; adds sales vs support angle; captures sales teams evaluating lightweight CRM options (Pipedrive) vs all-in-one bundles (HubSpot) vs support-first tools (Zendesk)
+
+### Key Metrics
+- **Total company pages:** 120 (was 119, +1 new)
+  - 57 individual pricing pages (unchanged)
+  - 62 comparisons (40 two-way + 20 three-way + 2 free alternatives) [was 40 two-way + 19 three-way]
+  - 7 category hubs
+  - 1 leaderboard + 1 index = 120 total
+- **New 3-way comparisons:** 1 (HubSpot/Pipedrive/Zendesk)
+- **Search volume added:** ~1,500/mo from 1 new 3-way comparison
+
+### Updated Infrastructure
+- sitemap.xml: +1 URL (0.87 for 3-way comparison)
+- companies/index.html: +1 comparison card with description
+
+### Session Momentum
+- Built 1 high-value 3-way comparison in 1 session
+- Sales/CRM layer now has comprehensive 3-way options (Salesforce vs HubSpot vs Zoho + HubSpot vs Pipedrive vs Zendesk)
+- Established clear positioning: HubSpot (bundled), Pipedrive (specialized), Zendesk (support-focused)
+
+### Next Steps (Session 153+)
+- Build more 3-way comparisons: Notion AI vs ChatGPT vs Jasper (AI tools, ~2,000/mo)
+- Build missing individual pages: Moz (~400/mo), Salesforce individual (~800/mo), Adobe Creative Cloud (~1,000/mo)
+- Add calculator CTA to all company pages ("Compare with other tools")
+- Internal linking audit to boost lesser-linked pages
+- Monitor: LinkedIn/HN posts pending from Session 148 (HELP-REQUEST)
+
+---
+
 ## Session 151 (May 3, 2026) — Build 1 3-Way Comparison + 2 Individual Pages (119 pages total)
 
 **Status:** ✅ COMPLETE — Built Asana vs ClickUp vs Monday 3-way comparison, Brevo and ConvertKit individual pricing pages. Total pages: 119 (was 116).

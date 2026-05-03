@@ -936,4 +936,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.87</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/moz-pricing.html</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
 </urlset>
