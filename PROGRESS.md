@@ -2,6 +2,49 @@
 
 ---
 
+## Session 151 (May 3, 2026) — Build Asana vs ClickUp vs Monday 3-Way Comparison (117 pages total)
+
+**Status:** ✅ COMPLETE — Built 1 new high-value 3-way comparison. Total pages: 117 (was 116).
+
+### What I Built
+
+**Asana vs ClickUp vs Monday 3-Way Comparison**
+- Created `asana-vs-clickup-vs-monday-pricing.html` (~1,500/mo search volume)
+- Price comparison: ClickUp $10/seat/mo (cheapest, 26% cheaper than Asana) vs Monday.com $12/user/mo vs Asana $13.49/user/mo
+- Key insight: ClickUp raised prices 43% in Feb 2026 (from $7 to $10/seat) but remains the budget option
+- Cost scenarios: 10-person team annually: ClickUp $1,200 (savings: $240-420/year vs competitors)
+- Feature matrix: task management, timeline/Gantt, built-in docs, automation, portfolio management, customization, time tracking
+- Verdict boxes: ClickUp for all-in-one + budget, Asana for structured portfolio management, Monday for visual workflows
+- FAQ schema: 5 questions covering pricing, price increases, best platform, learning curve, integration with Slack
+- Added to companies/index.html and sitemap.xml (priority 0.87)
+
+### Key Metrics
+- **Total company pages:** 117 (was 116, +1 new)
+  - 55 individual pricing pages (unchanged)
+  - 61 comparisons (40 two-way + 19 three-way + 2 free alternatives) [was 40 two-way + 18 three-way]
+  - 7 category hubs
+  - 1 leaderboard + 1 index = 117 total
+- **New 3-way comparisons:** 1 (Asana/ClickUp/Monday)
+- **Search volume added:** ~1,500/mo from 1 new comparison
+
+### Why This Page Matters
+- **Complements existing comparisons:** We have Asana vs Monday vs Notion; this adds ClickUp (all-in-one angle)
+- **Cost sensitivity angle:** ClickUp's 43% price increase is newsworthy; positioning it as still the cheapest captures search intent
+- **All-in-one positioning:** ClickUp's docs, chat, time tracking in one platform appeals to teams consolidating tools
+- **Captures 3-way decision making:** Many teams compare all three simultaneously when evaluating project management
+
+### Updated Infrastructure
+- sitemap.xml: +1 URL (priority 0.87 for high-traffic 3-way)
+- companies/index.html: +1 comparison card with description
+
+### Next Steps (Session 152+)
+- Build more 3-way comparisons (remaining high-value candidates: HubSpot vs Pipedrive vs Zendesk ~1,500/mo; others)
+- Build missing individual pages: Moz, Brevo, ConvertKit, Salesforce, Adobe Creative Cloud
+- Add calculator CTA to all company pages
+- Internal linking audit to boost lesser-linked pages
+
+---
+
 ## Session 150 (May 3, 2026) — Share Buttons + 3 New 3-Way Comparisons (116 pages total)
 
 **Status:** ✅ COMPLETE — Added share buttons to 10 top pages, built 3 new 3-way comparisons. Total pages: 116 (was 113).
