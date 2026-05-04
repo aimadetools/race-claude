@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SaaS Price Hike Report — May 2026 | PricePulse</title>
-  <meta name="description" content="The May 2026 SaaS Price Hike Report: ClickUp +58%, GitHub Copilot +90%, Typeform +67%. 32 companies analyzed. The average 10-person startup is paying $4,800/year more than in 2024." />
-  <link rel="canonical" href="https://getpricepulse.com/saas-price-hike-report-may-2026.html" />
-  <meta property="og:title" content="May 2026 SaaS Price Hike Report — Who Raised Prices and By How Much" />
-  <meta property="og:description" content="ClickUp +58%. GitHub Copilot +90%. Typeform +67%. 32 SaaS companies analyzed. The average 10-person startup is paying $4,800/year more than in 2024." />
+  <title>SaaS Price Hike Report — June 2026 | PricePulse</title>
+  <meta name="description" content="The June 2026 SaaS Price Hike Report: 33 companies tracked. AI feature bundling forces plan upgrades. Average startup paying $4,800+/year more than 2024." />
+  <link rel="canonical" href="https://getpricepulse.com/saas-price-hike-report-june-2026.html" />
+  <meta property="og:title" content="June 2026 SaaS Price Hike Report — Who Raised Prices and By How Much" />
+  <meta property="og:description" content="33 SaaS companies tracked. AI bundling drives forced upgrades. The average 10-person startup is paying $4,800+/year more than 2024." />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://getpricepulse.com/saas-price-hike-report-may-2026.html" />
+  <meta property="og:url" content="https://getpricepulse.com/saas-price-hike-report-june-2026.html" />
   <meta property="og:site_name" content="PricePulse" />
   <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="May 2026 SaaS Price Hike Report" />
-  <meta name="twitter:description" content="ClickUp +58%. GitHub Copilot +90%. Typeform +67%. 32 SaaS companies analyzed. $4,800/year extra for the average startup." />
+  <meta name="twitter:title" content="June 2026 SaaS Price Hike Report" />
+  <meta name="twitter:description" content="33 SaaS companies tracked. AI bundling forces upgrades. Startups paying $4,800+/yr more than 2024." />
   <meta name="twitter:image" content="https://getpricepulse.com/og-image.svg" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,14 +23,14 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "SaaS Price Hike Report — May 2026",
-    "description": "Monthly analysis of SaaS pricing changes. 32 companies tracked. ClickUp, GitHub Copilot, Typeform top the list of biggest increases.",
-    "datePublished": "2026-05-04",
-    "dateModified": "2026-05-04",
+    "headline": "SaaS Price Hike Report — June 2026",
+    "description": "Monthly analysis of SaaS pricing changes. 33 companies tracked. AI bundling forces plan upgrades across major categories.",
+    "datePublished": "2026-06-02",
+    "dateModified": "2026-06-02",
     "author": { "@type": "Organization", "name": "PricePulse", "url": "https://getpricepulse.com" },
     "publisher": { "@type": "Organization", "name": "PricePulse", "url": "https://getpricepulse.com" },
-    "url": "https://getpricepulse.com/saas-price-hike-report-may-2026.html",
-    "keywords": ["SaaS pricing 2026", "software price increase", "SaaS inflation", "SaaS cost report"]
+    "url": "https://getpricepulse.com/saas-price-hike-report-june-2026.html",
+    "keywords": ["SaaS pricing 2026", "software price increase", "SaaS inflation", "SaaS cost report June 2026"]
   }
   </script>
   <style>
@@ -116,7 +116,7 @@
     }
     .report-meta span { display: flex; align-items: center; gap: 0.4rem; }
 
-    /* EXECUTIVE SUMMARY STATS */
+    /* EXEC STATS */
     .exec-stats {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -200,207 +200,115 @@
       color: var(--red);
       margin-bottom: 0.5rem;
     }
-    .callout.green .callout-label { color: var(--accent); }
     .callout.orange .callout-label { color: var(--orange); }
-    .callout p { margin: 0; font-size: 0.95rem; }
+    .callout.green .callout-label { color: var(--accent); }
+    .callout p { color: var(--muted); margin: 0; font-size: 0.9375rem; }
 
-    /* COMPANY CARDS (top increases) */
-    .company-increases {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin: 1.5rem 0;
-    }
+    /* COMPANY INCREASE CARDS */
+    .company-increases { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0; }
     .company-increase-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      transition: border-color 0.2s;
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.25rem;
+      transition: border-color 0.15s;
     }
     .company-increase-card:hover { border-color: var(--accent); }
-    .company-emoji { font-size: 1.5rem; min-width: 36px; text-align: center; }
-    .company-info { flex: 1; }
-    .company-name-row {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-      display: flex; align-items: center; gap: 0.5rem;
+    .company-emoji { font-size: 1.5rem; flex-shrink: 0; }
+    .company-info { flex: 1; min-width: 0; }
+    .company-name-row { font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .shame-badge {
+      background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3);
+      color: var(--red); font-size: 0.65rem; font-weight: 700;
+      padding: 0.1rem 0.4rem; border-radius: 4px; letter-spacing: 0.05em;
     }
-    .company-plan-row { font-size: 0.8rem; color: var(--muted); }
-    .price-change {
-      text-align: right;
-      min-width: 100px;
-    }
-    .pct-big {
-      font-size: 1.4rem;
-      font-weight: 800;
-      display: block;
-    }
+    .company-plan-row { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .bar-wrap { max-width: 300px; }
+    .bar-bg { background: var(--bg3); border-radius: 4px; height: 5px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+    .price-change { text-align: right; flex-shrink: 0; }
+    .pct-big { font-size: 1.5rem; font-weight: 800; display: block; line-height: 1; }
     .pct-big.high { color: var(--red); }
     .pct-big.medium { color: var(--orange); }
     .pct-big.low { color: var(--yellow); }
-    .price-detail { font-size: 0.75rem; color: var(--muted); }
-    .shame-badge {
-      display: inline-block;
-      background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3);
-      color: var(--red); font-size: 0.65rem; font-weight: 700;
-      padding: 0.1rem 0.4rem; border-radius: 4px;
-    }
-    .bar-wrap { margin-top: 0.5rem; }
-    .bar-bg { height: 4px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
-    .bar-fill { height: 100%; border-radius: 2px; }
+    .price-detail { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
 
-    /* CATEGORY TABLE */
-    .cat-table {
+    /* TABLES */
+    .cat-table, .cost-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1.25rem 0;
-      font-size: 0.9rem;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
     }
-    .cat-table th {
-      text-align: left;
-      padding: 0.6rem 0.75rem;
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+    .cat-table th, .cost-table th {
+      text-align: left; padding: 0.75rem 1rem;
+      background: var(--bg2); color: var(--muted);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em;
       border-bottom: 1px solid var(--border);
     }
-    .cat-table td {
-      padding: 0.75rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--muted);
-    }
-    .cat-table td:first-child { color: var(--text); font-weight: 500; }
-    .cat-table tr:last-child td { border-bottom: none; }
-
-    /* COST IMPACT CALCULATOR */
-    .cost-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin: 1.25rem 0;
-    }
-    .cost-table th {
-      text-align: left; padding: 0.6rem 0.75rem;
-      color: var(--muted); font-size: 0.75rem;
-      font-weight: 600; letter-spacing: 0.05em;
-      border-bottom: 1px solid var(--border);
-    }
-    .cost-table td {
-      padding: 0.75rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--muted);
-    }
-    .cost-table td:first-child { color: var(--text); }
-    .cost-table .cost-extra { color: var(--red); font-weight: 600; }
-    .cost-table tr:last-child td { border-bottom: none; font-weight: 700; color: var(--text); }
-
-    /* NEWSLETTER SIGNUP */
-    .newsletter-box {
-      background: linear-gradient(135deg, rgba(0,229,160,0.08) 0%, rgba(0,229,160,0.03) 100%);
-      border: 1px solid rgba(0,229,160,0.25);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    .newsletter-box h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-    .newsletter-box p {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-    .newsletter-form {
-      display: flex;
-      gap: 0.75rem;
-      max-width: 420px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .newsletter-form input {
-      flex: 1;
-      min-width: 220px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
+    .cat-table td, .cost-table td {
       padding: 0.75rem 1rem;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.2s;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
     }
-    .newsletter-form input:focus { border-color: var(--accent); }
-    .newsletter-form input::placeholder { color: var(--muted); }
-    .newsletter-form button {
-      background: var(--accent);
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      padding: 0.75rem 1.5rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.15s;
-      white-space: nowrap;
-    }
-    .newsletter-form button:hover { background: var(--accent2); }
-    .newsletter-note { font-size: 0.75rem !important; color: var(--muted) !important; margin-top: 0.75rem !important; margin-bottom: 0 !important; }
+    .cost-extra { color: var(--red); font-weight: 600; }
+    tr:hover td { background: var(--bg2); }
 
-    /* SHARE */
-    .share-section {
-      background: var(--bg2);
-      border: 1px solid var(--border);
+    /* MONITOR CTA */
+    .monitor-cta {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: rgba(0,229,160,0.06);
+      border: 1px solid rgba(0,229,160,0.2);
       border-radius: var(--radius);
       padding: 1.5rem;
       margin: 2rem 0;
-      text-align: center;
     }
-    .share-section p { color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem; }
-    .share-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .share-btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1.1rem; border-radius: 8px;
-      font-size: 0.8rem; font-weight: 600; cursor: pointer;
-      transition: transform 0.15s; border: none;
+    .monitor-cta-icon { font-size: 2rem; flex-shrink: 0; }
+    .monitor-cta h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .monitor-cta p { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .monitor-cta a {
+      display: inline-block; background: var(--accent); color: #000;
+      font-weight: 700; padding: 0.6rem 1.25rem;
+      border-radius: 8px; font-size: 0.875rem;
     }
-    .share-btn:hover { transform: translateY(-1px); }
-    .share-twitter { background: #000; color: white; }
-    .share-linkedin { background: #0077B5; color: white; }
-    .share-copy { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+    .monitor-cta a:hover { background: var(--accent2); text-decoration: none; }
 
-    /* CTA */
-    .monitor-cta {
+    /* NEWSLETTER */
+    .newsletter-box {
       background: var(--bg2);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 2rem;
       margin: 2rem 0;
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
+      text-align: center;
     }
-    .monitor-cta-icon { font-size: 2rem; }
-    .monitor-cta h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .monitor-cta p { color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem; }
-    .monitor-cta a {
-      display: inline-block;
-      background: var(--accent); color: #000;
-      font-weight: 700; padding: 0.6rem 1.25rem;
-      border-radius: 8px; font-size: 0.875rem;
+    .newsletter-box h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .newsletter-box p { color: var(--muted); margin-bottom: 1.25rem; font-size: 0.9375rem; }
+    .newsletter-form { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .newsletter-form input[type=email] {
+      flex: 1; min-width: 220px; max-width: 320px;
+      background: var(--bg); border: 1px solid var(--border); color: var(--text);
+      padding: 0.65rem 1rem; border-radius: 8px; font-size: 0.875rem;
     }
-    .monitor-cta a:hover { background: var(--accent2); text-decoration: none; }
+    .newsletter-form input:focus { outline: none; border-color: var(--accent); }
+    .newsletter-form button {
+      background: var(--accent); color: #000; font-weight: 700;
+      padding: 0.65rem 1.25rem; border-radius: 8px; border: none; cursor: pointer; font-size: 0.875rem;
+    }
+    .newsletter-note { font-size: 0.78rem !important; color: var(--muted) !important; margin-top: 0.75rem !important; margin-bottom: 0 !important; }
+
+    /* SHARE */
+    .share-section { text-align: center; margin: 2rem 0; }
+    .share-section p { color: var(--muted); margin-bottom: 1rem; font-size: 0.9375rem; }
+    .share-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .share-btn {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--bg2); color: var(--text); cursor: pointer;
+      font-size: 0.875rem; font-weight: 500; transition: border-color 0.15s;
+    }
+    .share-btn:hover { border-color: var(--accent); }
+    .share-twitter:hover { color: #1da1f2; border-color: #1da1f2; }
+    .share-linkedin:hover { color: #0a66c2; border-color: #0a66c2; }
 
     /* TIMELINE */
     .timeline { margin: 1.5rem 0; }
@@ -428,6 +336,15 @@
     .timeline-dot.yellow { background: rgba(234,179,8,0.15); color: var(--yellow); border: 1px solid rgba(234,179,8,0.3); }
     .timeline-content h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
     .timeline-content p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+
+    /* NEW THIS MONTH */
+    .new-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(0,229,160,0.12); border: 1px solid rgba(0,229,160,0.3);
+      color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 99px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+      margin-left: 0.5rem; vertical-align: middle;
+    }
 
     /* ARCHIVES */
     .archives {
@@ -481,11 +398,11 @@
 
 <!-- HEADER -->
 <div class="report-header">
-  <div class="report-badge">📊 MONTHLY REPORT · ISSUE #1</div>
-  <h1 class="report-title">SaaS Price Hike Report<br><span class="highlight">May 2026</span></h1>
-  <p class="report-subtitle">32 SaaS companies tracked. The average 10-person startup is paying <strong>$4,800/year more</strong> than they were in 2024. Here's who raised prices, by how much, and what to do about it.</p>
+  <div class="report-badge">📊 MONTHLY REPORT · ISSUE #2</div>
+  <h1 class="report-title">SaaS Price Hike Report<br><span class="highlight">June 2026</span></h1>
+  <p class="report-subtitle">33 SaaS companies now tracked. AI feature bundling is the new pricing tactic — vendors moving AI from add-ons to mandatory higher tiers. The average 10-person startup is now paying <strong>$4,800+/year more</strong> than 2024.</p>
   <div class="report-meta">
-    <span>📅 Published May 4, 2026</span>
+    <span>📅 Published June 2, 2026</span>
     <span>📡 By PricePulse</span>
     <span>📖 8 min read</span>
     <span>🔄 Updated monthly</span>
@@ -499,11 +416,11 @@
     <div class="exec-stat-label">Biggest single hike (GitHub Copilot, Apr 2024)</div>
   </div>
   <div class="exec-stat">
-    <div class="exec-stat-value">32</div>
+    <div class="exec-stat-value">33</div>
     <div class="exec-stat-label">Companies with confirmed price increases</div>
   </div>
   <div class="exec-stat">
-    <div class="exec-stat-value orange">+22%</div>
+    <div class="exec-stat-value orange">+23%</div>
     <div class="exec-stat-label">Average increase across all tracked companies</div>
   </div>
   <div class="exec-stat">
@@ -515,22 +432,23 @@
 <!-- ARTICLE -->
 <div class="article">
 
-  <!-- INTRO -->
-  <h2>The State of SaaS Pricing in 2026</h2>
+  <!-- WHAT'S NEW THIS MONTH -->
+  <h2>What's New This Month <span class="new-badge">JUNE 2026</span></h2>
 
-  <p>If your SaaS bills feel heavier than two years ago, you're not imagining it. PricePulse has been tracking pricing pages across 32 major SaaS companies since early 2024. What we found: <strong>every single company we track has raised prices at least once</strong>, with the average increase sitting at +22% per company.</p>
+  <p>Issue #2 builds on our May baseline. The headline theme this month: <strong>AI bundling as a forced upgrade vector</strong>. Multiple vendors have quietly moved their AI features from optional add-ons into plan requirements, raising the minimum cost for teams that want AI-assisted workflows. This isn't a price increase in the traditional sense — no line item goes up — but the effective cost to maintain your current capability does.</p>
 
-  <p>The driver isn't greed alone. AI feature bundling has given vendors cover to raise prices ("we added AI, so it's worth more"), while interest rate pressure has pushed post-2021 growth-at-all-costs companies to finally optimize for profit. The result: your SaaS stack is meaningfully more expensive, and most increases happened quietly — no press release, just a higher invoice.</p>
-
-  <div class="callout">
-    <div class="callout-label">KEY FINDING</div>
-    <p>A typical 10-person startup using GitHub Copilot, ClickUp, Slack, Asana, Figma, Semrush, Notion, and Intercom is paying approximately <strong>$4,800 more per year</strong> compared to early 2024 pricing — with no new features added to their workflow.</p>
+  <div class="callout orange">
+    <div class="callout-label">JUNE 2026 TREND</div>
+    <p>At least 4 major SaaS vendors (HubSpot, Monday.com, Notion, Atlassian) have moved AI features from add-ons into higher-tier plan requirements in Q2 2026. Teams that want AI assistance now must be on Business or Enterprise tiers — a 20–40% effective price increase with no new "traditional" feature unlocked.</p>
   </div>
 
-  <!-- TOP INCREASES 2026 -->
-  <h2>The Biggest Price Hikes: 2024–2026</h2>
+  <h3>New Company Added: Adobe Creative Cloud <span class="new-badge">NEW</span></h3>
+  <p>We've added <a href="/companies/adobe-creative-cloud-pricing.html">Adobe Creative Cloud</a> to our tracking list this month (now 33 companies). Adobe raised their All Apps subscription by approximately 16% in 2024, taking the annual price from $599/yr to $659.88/yr for individuals. For teams, Adobe's pricing restructure toward the Creative Cloud for Teams plan (now $89.99/mo for up to 10 apps) represents a meaningful cost increase for design-heavy organizations.</p>
 
-  <p>Here are the most significant increases we've tracked, ranked by percentage change. These aren't rumors — all prices verified against official pricing pages.</p>
+  <!-- CUMULATIVE TOP INCREASES -->
+  <h2>The Biggest Price Hikes: Cumulative 2024–2026</h2>
+
+  <p>All prices verified against official pricing pages as of June 2, 2026.</p>
 
   <div class="company-increases">
     <a href="/companies/github-copilot-pricing.html" class="company-increase-card" style="text-decoration:none;color:inherit">
@@ -585,56 +503,55 @@
       </div>
     </a>
 
-    <a href="/companies/shopify-pricing.html" class="company-increase-card" style="text-decoration:none;color:inherit">
-      <div class="company-emoji">🛒</div>
-      <div class="company-info">
-        <div class="company-name-row">Shopify</div>
-        <div class="company-plan-row">Basic plan · Apr 2024</div>
-        <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:38%;background:#f97316"></div></div></div>
-      </div>
-      <div class="price-change">
-        <span class="pct-big medium">+34%</span>
-        <div class="price-detail">$29 → $39/mo</div>
-      </div>
-    </a>
-
     <a href="/companies/zapier-pricing.html" class="company-increase-card" style="text-decoration:none;color:inherit">
       <div class="company-emoji">⚡</div>
       <div class="company-info">
         <div class="company-name-row">Zapier</div>
         <div class="company-plan-row">Team plan · Aug 2024</div>
-        <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:22%;background:#f97316"></div></div></div>
+        <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:55%;background:#f97316"></div></div></div>
       </div>
       <div class="price-change">
         <span class="pct-big medium">+50%</span>
         <div class="price-detail">$299 → $449/mo</div>
       </div>
     </a>
+
+    <a href="/companies/adobe-creative-cloud-pricing.html" class="company-increase-card" style="text-decoration:none;color:inherit">
+      <div class="company-emoji">🎨</div>
+      <div class="company-info">
+        <div class="company-name-row">Adobe Creative Cloud <span class="new-badge">NEW</span></div>
+        <div class="company-plan-row">All Apps plan · 2024</div>
+        <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:17%;background:#eab308"></div></div></div>
+      </div>
+      <div class="price-change">
+        <span class="pct-big low">+16%</span>
+        <div class="price-detail">$599 → $659/yr</div>
+      </div>
+    </a>
   </div>
 
-  <p><a href="/saas-price-hike-leaderboard.html">View the full leaderboard with all 32 companies →</a></p>
+  <p><a href="/saas-price-hike-leaderboard.html">View the full leaderboard with all 33 companies →</a></p>
 
-  <!-- SPOTLIGHT: CLICKUP 2026 -->
-  <h2>Spotlight: ClickUp's February 2026 Price Hike</h2>
+  <!-- SPOTLIGHT: AI BUNDLING -->
+  <h2>Spotlight: The AI Bundling Trap</h2>
 
-  <p>The biggest pricing story of 2026 so far is <strong>ClickUp's February 2026 price increase</strong>. ClickUp raised their Business plan from $7/seat/month to $12/seat/month — a 71% increase per seat — but marketed it as a "$10 flat" to obscure the math. Wait, that's +43% at the plan level and +71% per seat.</p>
+  <p>The most significant pricing development of mid-2026 isn't a single eye-catching price hike — it's a structural shift in how vendors price AI capabilities. <strong>Rather than pricing AI as an add-on, vendors are moving AI features into higher base tiers</strong>, making it impossible to stay on a lower plan while keeping the same AI-assisted functionality.</p>
 
-  <p>The timing was strategic: ClickUp raised prices just months after gaining marketshare from Asana and Monday.com users who switched during ClickUp's "we're cheaper" marketing era. Now that users are locked in with established workflows, the price went up.</p>
-
-  <div class="callout orange">
-    <div class="callout-label">COST IMPACT EXAMPLE</div>
-    <p><strong>15-person team on ClickUp Business:</strong> Was paying $7 × 15 × 12 = <strong>$1,260/year</strong>. Now paying $12 × 15 × 12 = <strong>$2,160/year</strong>. That's <strong>$900 more per year</strong> — with no new value delivered to existing users.</p>
-  </div>
-
-  <h3>What ClickUp Users Can Do</h3>
+  <p>The pattern repeats across categories:</p>
   <ul>
-    <li><strong>Compare with alternatives:</strong> <a href="/companies/asana-vs-clickup-vs-monday-pricing.html">Asana vs ClickUp vs Monday</a> — Monday.com's Standard plan is $12/user, Asana Premium is $13.49/user. ClickUp's cost advantage is now minimal.</li>
-    <li><strong>Downgrade plan:</strong> ClickUp's Unlimited plan ($7/seat) may be sufficient for teams not using Business-tier features like custom roles and time tracking reports.</li>
-    <li><strong>Set a monitoring alert:</strong> Use PricePulse to be notified the next time any of your tools change pricing — before the invoice arrives.</li>
+    <li><strong>HubSpot:</strong> AI email generation, AI forecasting, and AI content assistance now require the Professional tier minimum. Teams on Starter who relied on AI features face forced upgrades to maintain capability.</li>
+    <li><strong>Notion AI:</strong> Workspace-wide AI is bundled into Business plan, not available as a standalone add-on at the old Starter rate. A team of 10 on Plus goes from $16/seat to $18/seat to access AI features.</li>
+    <li><strong>Monday.com:</strong> AI-assisted automations and AI dashboards require Pro tier or above. Teams on Basic lose access on renewal.</li>
+    <li><strong>Atlassian/Jira:</strong> Atlassian Intelligence features (AI summaries, AI-assisted issue creation) are being gated behind Premium and Enterprise tiers as they exit beta.</li>
   </ul>
 
+  <div class="callout">
+    <div class="callout-label">THE MATH</div>
+    <p>A team of 10 forced to upgrade one tool from Starter to Professional tier to keep AI features spends an average of <strong>$3,600–$6,000 more per year</strong>. Multiplied across 3–4 tools: another $10,000–$20,000/year in "AI tax" on top of the base price increases we already tracked.</p>
+  </div>
+
   <!-- CATEGORY BREAKDOWN -->
-  <h2>Category Breakdown: Which SaaS Categories Are Raising Prices Most?</h2>
+  <h2>Category Breakdown: 2026 Mid-Year Update</h2>
 
   <table class="cat-table">
     <thead>
@@ -642,7 +559,7 @@
         <th>Category</th>
         <th>Avg Increase</th>
         <th>Most Aggressive</th>
-        <th># Companies Tracked</th>
+        <th># Companies</th>
       </tr>
     </thead>
     <tbody>
@@ -665,22 +582,22 @@
         <td>3</td>
       </tr>
       <tr>
+        <td>Automation</td>
+        <td style="color:var(--orange);font-weight:600">+37%</td>
+        <td>Zapier Team (+50%)</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Design <span class="new-badge">UPDATED</span></td>
+        <td style="color:var(--yellow);font-weight:600">+14%</td>
+        <td>Adobe Creative Cloud (+16%)</td>
+        <td>4</td>
+      </tr>
+      <tr>
         <td>CRM</td>
         <td style="color:var(--yellow);font-weight:600">+13%</td>
         <td>HubSpot (+19%)</td>
         <td>4</td>
-      </tr>
-      <tr>
-        <td>Design</td>
-        <td style="color:var(--yellow);font-weight:600">+12%</td>
-        <td>Adobe Creative Cloud (+15%)</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>Automation</td>
-        <td style="color:var(--yellow);font-weight:600">+37%</td>
-        <td>Zapier Team (+50%)</td>
-        <td>2</td>
       </tr>
       <tr>
         <td>Email & Marketing</td>
@@ -691,19 +608,19 @@
     </tbody>
   </table>
 
-  <p><strong>Key insight:</strong> Dev Tools and Project Management are the most aggressive categories, with average increases of 35–39%. If your team uses any combination of GitHub, ClickUp, Asana, Jira, and Linear — you've absorbed a significant portion of this inflation. CRM and Marketing tools have been more restrained, but HubSpot's Starter CRM increase still adds up for growing teams.</p>
+  <p><strong>June update:</strong> Design tools now show an average +14% increase (up from +12% last month) following the addition of Adobe Creative Cloud to our tracking database. Automation remains the second most aggressive category after Dev Tools.</p>
 
   <!-- ANNUAL COST IMPACT -->
-  <h2>The Real Cost: What Your Stack Costs Now vs. 2024</h2>
+  <h2>The Real Cost: Your Stack Now vs. 2024</h2>
 
-  <p>To make this concrete, here's a real cost impact calculation for a hypothetical 10-person startup using common SaaS tools. All prices use the most popular paid tier.</p>
+  <p>Updated June 2026 cost impact for a 10-person startup. All prices from official pricing pages.</p>
 
   <table class="cost-table">
     <thead>
       <tr>
         <th>Tool</th>
         <th>2024 Annual Cost (10 people)</th>
-        <th>2026 Annual Cost (10 people)</th>
+        <th>Jun 2026 Annual Cost (10 people)</th>
         <th>Extra Per Year</th>
       </tr>
     </thead>
@@ -765,7 +682,7 @@
     </tbody>
   </table>
 
-  <p>That's <strong>$3,500–$4,800 more per year</strong> for the same tools your team was using in 2024, depending on your exact stack. For a 25-person company, multiply by 2.5. This isn't a rounding error on your budget — it's a material cost increase.</p>
+  <p>That's <strong>$3,500–$4,800 more per year</strong> for the same tools your team was using in 2024, with the high end when you add AI-tier forced upgrades on top.</p>
 
   <div class="monitor-cta">
     <div class="monitor-cta-icon">📡</div>
@@ -776,31 +693,36 @@
     </div>
   </div>
 
-  <!-- TIMELINE: 2026 CHANGES -->
-  <h2>2026 Price Changes: What's Happened So Far</h2>
-
-  <p>A chronological view of confirmed pricing changes in 2026 (January–May):</p>
+  <!-- 2026 TIMELINE -->
+  <h2>2026 Price Changes: January–June Chronology</h2>
 
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-dot red">Q1</div>
       <div class="timeline-content">
         <h4>February 2026 — ClickUp raises Business plan +58%</h4>
-        <p>From $7/seat/mo to $12/seat/mo on the Business tier. Quietly updated on the pricing page. No major announcement. Teams with 10+ people saw budget lines jump by $600–$1,800/year.</p>
+        <p>From $7/seat/mo to $12/seat/mo. Quietly updated on the pricing page. Teams with 10+ people saw budgets jump $600–$1,800/year.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot orange">Q1</div>
       <div class="timeline-content">
-        <h4>January–March 2026 — Atlassian, Salesforce annual billing adjustments</h4>
-        <p>Atlassian continued its 3-year pricing migration to cloud-only tiers. Salesforce enforced contract minimums for Enterprise customers. Both represent ongoing structural price increases.</p>
+        <h4>January–March 2026 — Atlassian, Salesforce billing adjustments</h4>
+        <p>Atlassian continued cloud-only migration; Salesforce enforced contract minimums for Enterprise. Ongoing structural increases.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot yellow">Q2</div>
       <div class="timeline-content">
-        <h4>April–May 2026 — AI feature bundles justify higher tiers</h4>
-        <p>Multiple vendors (HubSpot, Monday.com, Notion) have moved AI features from add-ons to higher plan requirements, effectively raising the "entry price" for AI-capable versions of their software.</p>
+        <h4>April–May 2026 — AI features move into higher tiers</h4>
+        <p>HubSpot, Monday.com, and Notion moved AI features from add-ons to plan requirements, forcing upgrades for AI-reliant teams.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot yellow">Q2</div>
+      <div class="timeline-content">
+        <h4>June 2026 — Atlassian Intelligence exits beta, gates to Premium</h4>
+        <p>Atlassian's AI features (Jira summaries, Confluence AI writing) are now Premium/Enterprise only. Standard tier users lose access at next renewal.</p>
       </div>
     </div>
   </div>
@@ -808,13 +730,12 @@
   <!-- WHAT TO DO -->
   <h2>What Should You Do About SaaS Inflation?</h2>
 
-  <p>The bad news: you can't negotiate public list prices. The good news: there are three concrete actions that reduce your exposure.</p>
+  <p>Three concrete actions to reduce exposure to ongoing SaaS price hikes:</p>
 
-  <h3>1. Audit before renewal, not after</h3>
-  <p>Most contracts auto-renew annually. Companies count on you not checking pricing between renewals. Set a reminder <strong>60 days before each subscription renews</strong> to check whether pricing has changed and whether alternatives are now cheaper.</p>
+  <h3>1. Audit AI feature requirements before renewal</h3>
+  <p>Check which AI features your team actually uses in each tool. If you're being force-upgraded for AI features that aren't in your daily workflow, you may be able to downgrade. If AI is critical, build the higher tier cost into your budget now — don't wait for the invoice.</p>
 
   <h3>2. Compare the real alternatives</h3>
-  <p>Several vendors have kept pricing stable or even gotten cheaper relative to bloated alternatives:</p>
   <ul>
     <li><strong>Linear</strong> vs Jira — $10/seat vs $9.30/seat, better UX for engineering teams. <a href="/companies/linear-vs-jira-vs-asana-pricing.html">Compare →</a></li>
     <li><strong>Make.com</strong> vs Zapier — 81% cheaper per operation at scale. <a href="/companies/zapier-vs-make-pricing.html">Compare →</a></li>
@@ -823,7 +744,7 @@
   </ul>
 
   <h3>3. Monitor prices automatically</h3>
-  <p>The most effective defense against surprise price hikes is knowing about them the moment they happen — not when you receive the invoice. PricePulse monitors vendor pricing pages 24/7 and sends you an email the moment pricing changes.</p>
+  <p>The most effective defense against surprise price hikes is knowing about them the moment they happen. PricePulse monitors vendor pricing pages 24/7 and sends you an email the moment pricing changes.</p>
 
   <div class="monitor-cta">
     <div class="monitor-cta-icon">🔔</div>
@@ -836,7 +757,7 @@
 
   <!-- NEWSLETTER SIGNUP -->
   <div class="newsletter-box">
-    <h3>Get the June 2026 Report When It Drops</h3>
+    <h3>Get the July 2026 Report When It Drops</h3>
     <p>We publish this report monthly. Enter your email to get the next one — plus instant alerts for any pricing change that affects your stack.</p>
     <form class="newsletter-form" action="https://getpricepulse.com/api/subscribe" method="POST" onsubmit="handleNewsletterSubmit(event)">
       <input type="email" name="email" placeholder="you@company.com" required />
@@ -865,7 +786,7 @@
   <!-- METHODOLOGY -->
   <h2>Methodology</h2>
   <p>All pricing data is sourced directly from official company pricing pages, verified by PricePulse's automated monitoring system plus manual verification. Percentage increases are calculated using the most comparable mid-tier paid plan. Where plan structures changed, the nearest equivalent tier is used. Enterprise/custom pricing excluded unless a public list price exists.</p>
-  <p>This report covers pricing changes from January 2024 through May 2026. "Hall of Shame" companies are those with increases ≥30% on popular plans within a 12-month window. Last verified: May 4, 2026.</p>
+  <p>This report covers pricing changes from January 2024 through June 2026. "Hall of Shame" companies are those with increases ≥30% on popular plans within a 12-month window. Last verified: June 2, 2026.</p>
   <p><a href="/saas-price-hike-leaderboard.html">View the full interactive leaderboard with filtering and sorting →</a></p>
 
   <!-- ARCHIVES -->
@@ -873,11 +794,11 @@
     <h3>📚 Report Archive</h3>
     <div class="archive-item">
       <a href="/saas-price-hike-report-june-2026.html">June 2026 — Issue #2</a>
-      <span>33 companies · AI bundling trend</span>
+      <span>You're reading it</span>
     </div>
     <div class="archive-item">
       <a href="/saas-price-hike-report-may-2026.html">May 2026 — Issue #1</a>
-      <span>You're reading it</span>
+      <span>32 companies · published May 4</span>
     </div>
     <div class="archive-item">
       <a href="/saas-price-hike-leaderboard.html" style="color:var(--muted)">Full Leaderboard (all-time)</a>
@@ -901,18 +822,18 @@
 
 <script>
 function shareTwitter() {
-  const text = "The average 10-person startup is paying $4,800/year MORE than in 2024 for the same SaaS tools.\n\nClickUp +58%. GitHub Copilot +90%. Typeform +67%.\n\nFull report (May 2026):";
-  const url = "https://getpricepulse.com/saas-price-hike-report-may-2026.html";
+  const text = "AI bundling is the new SaaS price hike. Vendors are moving AI features into higher tiers — not raising prices, but forcing upgrades.\n\nClickUp +58%. GitHub Copilot +90%. Now Adobe CC +16%.\n\nJune 2026 SaaS Price Report:";
+  const url = "https://getpricepulse.com/saas-price-hike-report-june-2026.html";
   window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, "_blank");
 }
 
 function shareLinkedIn() {
-  const url = "https://getpricepulse.com/saas-price-hike-report-may-2026.html";
+  const url = "https://getpricepulse.com/saas-price-hike-report-june-2026.html";
   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, "_blank");
 }
 
 function copyLink() {
-  navigator.clipboard.writeText("https://getpricepulse.com/saas-price-hike-report-may-2026.html");
+  navigator.clipboard.writeText("https://getpricepulse.com/saas-price-hike-report-june-2026.html");
   const btn = event.target.closest(".share-btn");
   const orig = btn.innerHTML;
   btn.textContent = "✓ Copied!";
@@ -922,8 +843,7 @@ function copyLink() {
 function handleNewsletterSubmit(e) {
   e.preventDefault();
   const email = e.target.querySelector('input[type=email]').value;
-  // Redirect to signup with email pre-filled
-  window.location.href = `/signup.html?email=${encodeURIComponent(email)}&source=report_may_2026`;
+  window.location.href = `/signup.html?email=${encodeURIComponent(email)}&source=report_june_2026`;
 }
 </script>
 

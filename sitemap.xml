@@ -561,6 +561,12 @@
 
   <!-- Viral / linkable asset pages -->
   <url>
+    <loc>https://getpricepulse.com/saas-price-hike-report-june-2026.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://getpricepulse.com/saas-price-hike-report-may-2026.html</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
