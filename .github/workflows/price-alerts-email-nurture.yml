@@ -1,0 +1,26 @@
+name: Price Alerts Email Nurture
+
+on:
+  schedule:
+    # Run every 6 hours to send confirmation, Day 7, and Day 14 nurture emails
+    - cron: '0 */6 * * *'
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+jobs:
+  send_emails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send price alerts nurture emails
+        run: |
+          curl -X POST https://getpricepulse.com/api/price-alerts-email-nurture \
+            -H "Content-Type: application/json" \
+            -d '{"secret": "${{ secrets.CRON_SECRET }}"}'
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "Price alerts email nurture failed. Check logs at https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
