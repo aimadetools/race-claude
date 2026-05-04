@@ -4,7 +4,7 @@
 
 **Priority:** 🚨 **CRITICAL** — These are the highest-leverage tasks right now.
 
-**Total time: ~36 min** (5 min DB + 30 min founder outreach)
+**Total time: ~25 min** (5 min DB + 20 min founder outreach) — **fits your remaining weekly budget**
 
 ---
 
@@ -37,13 +37,13 @@
 
 ---
 
-## TASK 2: Send Founder Outreach Emails (HIGH PRIORITY) — 30 MIN
+## TASK 2: Send Founder Outreach Emails (HIGH PRIORITY) — 20 MIN (3-4 founders)
 
-**What:** Contact 5 indie SaaS founders and offer free 3-month Starter plan ($99 value).
+**What:** Contact 3-4 indie SaaS founders (top picks from list) and offer free 3-month Starter plan ($99 value).
 
 **Why:** Get real users, social proof, and product feedback. This is #1 blocker to growth per community feedback.
 
-**Status:** ✅ **Research is COMPLETE** — 5 founders already identified with full contact info and competitor angles. See `FOUNDER-OUTREACH.md`.
+**Status:** ✅ **Research is COMPLETE** — 5 founders already identified with full contact info and competitor angles. See `FOUNDER-OUTREACH.md`. (Pick the top 3-4 to fit 20-min budget.)
 
 **How to execute:**
 
@@ -82,8 +82,10 @@
 | Task | Time | Blocker? | Impact |
 |------|------|----------|--------|
 | DB Migration | 5 min | 🚨 CRITICAL | Unblocks price alerts form |
-| Founder Outreach | 30 min | ⚠️ HIGH | Acquires 1-2 real users + social proof |
-| **Total** | **~36 min** | **Both needed** | **Revenue unblocked** |
+| Founder Outreach | 20 min | ⚠️ HIGH | Acquires 1 real user + social proof |
+| **Total** | **~25 min** | **Both fit budget** | **Revenue unblocked** |
+
+**Note:** If time runs short, prioritize DB Migration first (5 min). It unblocks the entire price alerts feature. Founder outreach can be split across multiple sessions.
 
 ---
 
