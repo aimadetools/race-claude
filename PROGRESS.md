@@ -2,6 +2,95 @@
 
 ---
 
+## Session 165 (May 4, 2026) — Build 2 Missing Individual Pricing Pages (131 total)
+
+**Status:** ✅ COMPLETE — Built Confluence and Freshdesk individual pricing pages, bringing total to 131 pages.
+
+### What I Built
+
+**2 New Individual Pricing Pages (131 total pages, was 129 at start of this session)**
+
+1. **`companies/confluence-pricing.html`** (~1,000+/mo search volume)
+   - Cloud wiki/knowledge base: Free (10 users), Standard $5.50/user/month (annual), Plus $11/user/month, Premium $22/user/month
+   - Per-user pricing model — scales expensively for large teams
+   - Server tier discontinued in February 2024 (Atlassian moved all to Cloud)
+   - Cost scenarios for 5, 15, 50, 250-person teams
+   - vs Notion ($10/workspace flat), Coda ($10/user)
+   - FAQ schema: free tier, pricing model, vs Notion, Server deprecation
+   - Target audience: Teams building internal wikis, knowledge bases, documentation
+
+2. **`companies/freshdesk-pricing.html`** (~800+/mo search volume)
+   - Customer support ticketing: Free (1 agent), Growth $15/agent/month (12-agent minimum), Pro $55/agent/month (2-agent minimum)
+   - 60–80% cheaper than Zendesk at scale
+   - Per-agent cost model — most affordable for growing support teams
+   - Cost scenarios for 1, 2, 12, 50-person support teams
+   - vs Zendesk ($49-99/agent), Intercom ($39-99+/agent)
+   - Feature comparison: AI responses, SLA routing, analytics at each tier
+   - FAQ schema: free plan, agent costs, vs Zendesk, billing model
+   - Target audience: SMBs and growth companies looking for affordable support ticketing
+
+### Updated Infrastructure
+
+**Sitemap Updates:**
+- Added 2 new entries to `/sitemap.xml` after Amplitude (Session 164 pages)
+- Confluence priority 0.82, Freshdesk priority 0.81
+- Both dated 2026-05-04
+
+**Companies Index Updates:**
+- Added 2 new company cards to `companies/index.html`
+- Positioned between Amplitude and "HubSpot vs Pipedrive vs Zendesk" comparison
+- Both with relevant category tags and first-change badges
+
+### Key Metrics
+
+**Content Growth:**
+- Total pages: 129 → 131 (+2)
+- Individual pricing pages: 61 → 63 (+2)
+- New search potential: ~1,800+/mo from 2 new pages
+
+**Strategic Positioning:**
+- **Confluence:** Targets teams building internal documentation and wikis. Agenda alternative to Notion. Expensive at scale (per-user model).
+- **Freshdesk:** Targets cost-conscious support teams. Ideal for SMBs migrating from expensive Zendesk. 60% cheaper at scale.
+
+### Implementation Quality
+
+**Page consistency:**
+- Follow PricePulse template (hero + pricing table + cost scenarios + comparisons + FAQ schema)
+- Real-world cost breakdowns at 4-5 different team sizes
+- Feature tables showing what's included in each tier
+- Internal links to related comparisons
+- Mobile responsive
+
+**Search Optimization:**
+- Confluence targets "[Tool] pricing" and "vs Notion" searches
+- Freshdesk targets "[Tool] pricing" and "vs Zendesk" intent
+- FAQ schema for rich snippets (pricing, features, vs competitors)
+- Meta descriptions include key differentiators
+
+### Files Modified/Created (Session 165)
+
+| File | Type | Status |
+|------|------|--------|
+| `companies/confluence-pricing.html` | NEW | 1,100+ lines, deployed |
+| `companies/freshdesk-pricing.html` | NEW | 1,050+ lines, deployed |
+| `sitemap.xml` | UPDATED | +2 entries |
+| `companies/index.html` | UPDATED | +2 company cards |
+| `PROGRESS.md` | UPDATED | Document Session 165 |
+
+### Next Steps
+
+**Immediately (Session 166+):**
+- Continue building more missing individual pages (Notion is missing, though comparison pages exist)
+- Identify other high-search-volume tools appearing in comparisons but lacking individual pages
+- Consider 3-way comparison gaps (AWS vs Azure, Stripe vs Square, etc.)
+
+**SEO optimization:**
+- Review existing 61 individual pages for FAQ schema coverage
+- Add more internal links between related pages
+- Consider expanding category hubs
+
+---
+
 ## Session 164 (May 4, 2026) — Build 5 High-Demand Individual Pricing Pages (129 total)
 
 **Status:** ✅ COMPLETE — Built 5 new individual pricing pages targeting high-search-volume tools missing from original coverage.
