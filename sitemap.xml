@@ -273,6 +273,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://getpricepulse.com/companies/sketch-pricing.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
     <loc>https://getpricepulse.com/companies/slack-pricing.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
