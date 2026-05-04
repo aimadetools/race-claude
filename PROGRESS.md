@@ -2,6 +2,53 @@
 
 ---
 
+## Session 157 (May 4, 2026) — Monthly Report Promotion + 3 Topical Clusters
+
+**Status:** ✅ COMPLETE — Promoted Monthly Report to homepage nav + Free Tools section + leaderboard banner. Applied topical cluster internal linking to SEO tools, Project Management, and Email Marketing clusters (8 pages updated).
+
+### What I Built
+
+**1. Monthly Report Promotion (3 touchpoints)**
+- `index.html` nav: Added "Price Report" link in amber/warning color (desktop + mobile) — stands out from other nav links
+- `index.html` Free Tools section: Added 4th card "May 2026 Price Hike Report" with real stat ($4,800 more/yr) and amber accent color
+- `index.html`: Updated "SaaS Pricing Database" card description from 113+ → 125+ companies
+- `saas-price-hike-leaderboard.html`: Added prominent amber banner below nav: "$4,800 more/year" stat + "Read the full report →" link
+
+**2. SEO Tools Topical Cluster (Ahrefs, Semrush)**
+Moz already had a strong SEO cluster — now Ahrefs and Semrush match it:
+- **Ahrefs**: Replaced 6-link "Other SaaS Pricing Changes" (Notion, Monday, ClickUp, HubSpot, Zapier, Stripe) with 3-link SEO cluster: `ahrefs-vs-semrush-vs-moz-pricing.html` + Semrush + Moz individual pages
+- **Semrush**: Replaced 6-link "Related: SEO & Marketing" (HubSpot, Zapier, Intercom, Salesforce, Notion) with 3-link SEO cluster: `ahrefs-vs-semrush-vs-moz-pricing.html` + Ahrefs + Moz individual pages
+
+**3. Project Management Topical Cluster (Asana, Monday, ClickUp)**
+- **Asana**: Replaced mixed "Other Project Management" links (Stripe, HubSpot, Zapier, Airtable) with 5-link PM cluster: `asana-vs-clickup-vs-monday-pricing.html`, `asana-vs-monday-vs-notion-pricing.html`, `asana-vs-monday-pricing.html`, Monday, ClickUp
+- **Monday**: Replaced "Other SaaS Pricing Changes" (Slack, Airtable, Stripe, HubSpot) with 5-link PM cluster: same 3-way + Asana + ClickUp
+- **ClickUp**: Replaced "Other SaaS Pricing Changes" (Notion, Airtable, Linear, Slack, Stripe) with 4-link PM cluster: `asana-vs-clickup-vs-monday-pricing.html` + Asana + Monday + `linear-vs-jira-vs-asana-pricing.html`
+
+**4. Email Marketing Topical Cluster (Mailchimp, Brevo, ConvertKit)**
+- **Mailchimp**: Replaced "Related Pricing Pages" (HubSpot, Typeform, Notion, leaderboard) with 4-link email cluster: `mailchimp-vs-brevo-vs-convertkit-pricing.html`, `mailchimp-vs-brevo-pricing.html`, Brevo, ConvertKit
+- **Brevo**: Added email cluster section (was missing entirely) — 4 cards: `mailchimp-vs-brevo-vs-convertkit-pricing.html`, `mailchimp-vs-brevo-pricing.html`, Mailchimp, ConvertKit
+- **ConvertKit**: Added email cluster section (was missing entirely) — 4 cards: `mailchimp-vs-brevo-vs-convertkit-pricing.html`, Mailchimp, Brevo, `mailchimp-vs-hubspot-vs-convertkit-pricing.html`
+
+### SEO Impact
+Each cluster now has all pages tightly cross-linked:
+- SEO tools: 3 individual pages + 1 three-way comparison (4 tightly linked pages)
+- Project Mgmt: 3 individual pages + 3 comparisons (6 tightly linked pages)
+- Email: 3 individual pages + 2 comparisons (5 tightly linked pages)
+Google uses topical clustering as a ranking signal — these clusters now all pass link authority between the pages.
+
+### Key Metrics
+- **Pages updated:** 10 (index.html, leaderboard, 8 individual company pages)
+- **Topical clusters completed:** 3 (SEO tools, Project Mgmt, Email)
+- **Report touchpoints added:** 3 (nav, Free Tools card, leaderboard banner)
+
+### Next Steps (Session 158+)
+- Monitor distribution: May report HELP-REQUEST still awaiting response (HN + TLDR + LinkedIn)
+- Reach out to 5 founders for free accounts (HIGH priority — community feedback said this is critical)
+- Update Q2 2026 pricing accuracy (GitHub Copilot, ClickUp, HubSpot, Shopify)
+- Build June 2026 Report Template (duplicate May, update data, publish June 1-3)
+
+---
+
 ## Session 156 (May 4, 2026) — Monthly Price Hike Report + Distribution Engine
 
 **Status:** ✅ COMPLETE — Built May 2026 Monthly SaaS Price Hike Report (viral content asset), fixed leaderboard links, removed "coming soon" text, filed HELP-REQUEST for newsletter distribution.

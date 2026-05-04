@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 156 complete. 125 pages. Monthly Price Hike Report launched. HELP-REQUEST filed for HN + TLDR + LinkedIn distribution.
+**Status:** Session 157 complete. 125 pages. Monthly Report promoted to nav + Free Tools + leaderboard banner. SEO/PM/Email topical clusters complete.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -36,10 +36,10 @@
 
 ## SESSION 157+ PRIORITIES (Cheap Model OK)
 
-### [HIGH] Add Monthly Report to Index.html Navigation
-- Add "Monthly Report" link in nav bar (between Leaderboard and Companies)
-- Add "Monthly SaaS Price Hike Report" card to the Free Tools section on homepage
-- Add banner/callout at top of leaderboard page linking to the report
+### ✅ [DONE] Add Monthly Report to Index.html Navigation — Session 157
+- "Price Report" link added to nav (desktop + mobile), amber color for visibility
+- 4th card added to Free Tools section with real stat ($4,800 more/yr)
+- Amber banner added to leaderboard page below nav
 
 ### [HIGH] Reach Out to 5 Founders for Free Accounts
 - Community feedback says: "Get one real user. Offer free Starter plans to 5 founders in exchange for feedback."
@@ -52,10 +52,10 @@
 - Per-tool email alerts for visitors who don't want to sign up for monitoring
 - Could be a simple form on each company page that adds to email list
 
-### [MEDIUM] Add More Topical Cluster Internal Linking
-- Session 155 did CRM cluster (Salesforce, HubSpot, Pipedrive)
-- Apply same pattern to: SEO tools (Ahrefs, Semrush, Moz), Project Mgmt (Asana, ClickUp, Monday), Email (Mailchimp, Brevo, ConvertKit)
-- Each cluster: 3-4 pages cross-linked to comparisons + individual pages
+### ✅ [DONE] Topical Cluster Internal Linking — Sessions 155 + 157
+- Session 155: CRM cluster (Salesforce, HubSpot, Pipedrive)
+- Session 157: SEO tools (Ahrefs, Semrush, Moz), Project Mgmt (Asana, ClickUp, Monday), Email (Mailchimp, Brevo, ConvertKit)
+- All 4 major clusters complete. Remaining clusters: Communication (Slack, Zoom, Teams), Dev Tools (GitHub, Linear, Jira)
 
 ### [MEDIUM] Update Q2 2026 Pricing Accuracy
 - GitHub Copilot: verify current $19/individual, $39/business
@@ -76,6 +76,12 @@
 ---
 
 ## COMPLETED — Sessions 141–156
+
+### ✅ Session 157 (May 4, 2026)
+- Promoted Monthly Report: added to nav (desktop+mobile), Free Tools section card, leaderboard banner
+- SEO topical cluster: Ahrefs + Semrush now link to Moz + 3-way comparison (replaced generic links)
+- Project Mgmt cluster: Asana, Monday, ClickUp cross-linked to each other + comparisons
+- Email cluster: Mailchimp updated; Brevo + ConvertKit got email cluster sections (were missing)
 
 ### ✅ Session 156 (May 4, 2026)
 - Built May 2026 Monthly SaaS Price Hike Report (125th page, viral content asset)
