@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 158 complete. 125 pages. ALL 6 major topical clusters complete (CRM, SEO, PM, Email, Communication, Dev Tools).
+**Status:** Session 159 complete. 127 pages. ALL 7 major topical clusters complete (CRM, SEO, PM, Email, Communication, Dev Tools, Design). June 2026 Report (Issue #2) published.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -52,11 +52,12 @@
 - Per-tool email alerts for visitors who don't want to sign up for monitoring
 - Could be a simple form on each company page that adds to email list
 
-### ✅ [DONE] Topical Cluster Internal Linking — Sessions 155, 157, 158
+### ✅ [DONE] Topical Cluster Internal Linking — Sessions 155, 157, 158, 159
 - Session 155: CRM cluster (Salesforce, HubSpot, Pipedrive)
 - Session 157: SEO tools (Ahrefs, Semrush, Moz), Project Mgmt (Asana, ClickUp, Monday), Email (Mailchimp, Brevo, ConvertKit)
 - Session 158: Communication (Slack, Zoom, Teams), Dev Tools (GitHub, Linear)
-- **ALL 6 major clusters complete** — every cluster has tight cross-linking
+- Session 159: Design (Figma, Canva, Adobe CC + 3 comparison pages)
+- **ALL 7 major clusters complete** — every cluster has tight cross-linking
 
 ### ✅ [DONE] Update Q2 2026 Pricing Accuracy — Session 158
 - GitHub Copilot: $19/individual, $39/Pro+ — verified accurate
@@ -64,19 +65,29 @@
 - HubSpot: $15/seat Starter bundle — verified accurate
 - Shopify: $39/$105/$399 — verified accurate
 
-### [LOW] Build June 2026 Report Template
-- Duplicate saas-price-hike-report-may-2026.html → saas-price-hike-report-june-2026.html
-- Update date, add any new pricing changes from June
-- Update archive section on May report to link to June
-- Publish June 1-3, 2026
+### ✅ [DONE] Build June 2026 Report (Issue #2) — Session 159
+- Built saas-price-hike-report-june-2026.html (127th page)
+- Theme: AI bundling forces plan upgrades (HubSpot, Notion, Monday, Atlassian)
+- Added Adobe CC as 33rd tracked company
+- Updated May report archives + index.html + leaderboard banner to June
+
+### [MEDIUM] Build "Pricing Change Alerts" Lead Magnet
+- Create a simple email signup: "Get alerted when [Tool] changes pricing"
+- Per-tool email alerts for visitors who don't want to sign up for monitoring
+- Could be a simple form on each company page that adds to email list
 
 ### [LOW] Additional Individual Pages (still untapped keywords)
-- Adobe Creative Cloud individual (~1,000/mo) — design category
 - Any tools that appear in comparisons but lack own pages
 
 ---
 
 ## COMPLETED — Sessions 141–156
+
+### ✅ Session 159 (May 4, 2026)
+- Design cluster: Figma, Canva, Adobe CC cross-linked + 3 comparison pages updated (6 pages total)
+- June 2026 Report (Issue #2) published — AI bundling spotlight, Adobe CC added as 33rd company
+- Updated index.html, leaderboard, sitemap to point to June report
+- ALL 7 major topical clusters now complete
 
 ### ✅ Session 158 (May 4, 2026)
 - Communication cluster: Slack, Zoom, Teams cross-linked to each other + 3-way comparisons (5 links each)

@@ -2,6 +2,48 @@
 
 ---
 
+## Session 159 (May 4, 2026) — Design Tools Topical Cluster + June 2026 Report
+
+**Status:** ✅ COMPLETE — Built 7th (final) major topical cluster for Design tools. Published June 2026 Report (Issue #2) with AI bundling spotlight + Adobe CC addition. Updated all navigation touchpoints.
+
+### What I Built
+
+**1. Design Tools Topical Cluster (7th and final major cluster)**
+All 6 design tool pages now tightly cross-linked:
+- **figma-pricing.html**: Replaced "Other SaaS Pricing Changes" (6 generic links) with "Figma Compared: Design Tools" — 6 cluster links: figma-vs-sketch-vs-canva (3-way), figma-vs-adobe-xd, canva-vs-figma, canva, adobe-cc, figma-vs-sketch
+- **canva-pricing.html**: Replaced "Related Pricing Pages" (4 generic links) with "Canva Compared: Design Tools" — 5 cluster links: figma-vs-sketch-vs-canva (3-way), canva-vs-figma, figma, adobe-cc, figma-vs-sketch
+- **adobe-creative-cloud-pricing.html**: Replaced "Related: Design Tool Pricing Changes" (6 generic links) with "Adobe CC Compared: Design Tools" — 6 cluster links: figma-vs-adobe-xd, figma-vs-sketch-vs-adobe-xd, figma, canva, figma-vs-sketch-vs-canva, canva-vs-figma
+- **figma-vs-adobe-xd-pricing.html**: Upgraded from 4 shallow links to full 6-link design cluster
+- **canva-vs-figma-pricing.html**: Replaced 4 minimal links with 5-link cluster
+- **figma-vs-sketch-vs-canva-pricing.html**: Upgraded list to include adobe-cc + canva-vs-figma
+
+**ALL 7 major topical clusters now complete:** CRM, SEO, PM, Email, Communication, Dev Tools, Design
+
+**2. June 2026 Report (Issue #2)** (`/saas-price-hike-report-june-2026.html`)
+- Full narrative report with new theme: "AI bundling as a forced upgrade vector"
+- Spotlight: HubSpot, Monday, Notion, Atlassian moving AI features into higher tiers
+- Added Adobe Creative Cloud as 33rd tracked company (+16% increase)
+- Updated category breakdown table (Design now +14% average)
+- Full archive section linking back to May Issue #1
+- Commissioned share buttons, newsletter CTA (subscribe for July report), methodology
+- Updated May report archives to include June Issue #2 link
+- Updated index.html nav + Free Tools card to point to June report
+- Updated leaderboard banner to June 2026 report
+- Added to sitemap.xml (priority 0.95)
+
+### Key Metrics
+- **Pages updated:** 7 (figma, canva, adobe-cc, 2 comparison pages, index, leaderboard)
+- **Pages created:** 1 (june 2026 report = 127th page)
+- **Topical clusters completed:** 1 (Design) — ALL 7 major clusters now complete
+- **Monthly reports published:** 2 (May + June)
+
+### Next Steps (Session 160+)
+- Monitor distribution: May report HN + TLDR + LinkedIn still awaiting human action
+- Reach out to 5 founders for free accounts (HIGH priority — community feedback)
+- Build "Pricing Change Alerts" lead magnet (email signup on company pages)
+
+---
+
 ## Session 158 (May 4, 2026) — Communication + Dev Tools Topical Clusters + Pricing Verification
 
 **Status:** ✅ COMPLETE — Applied topical cluster internal linking to Communication (Slack, Zoom, Teams) and Dev Tools (GitHub, Linear) clusters. Verified Q2 2026 pricing accuracy on 4 tools.
