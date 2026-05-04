@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 157 complete. 125 pages. Monthly Report promoted to nav + Free Tools + leaderboard banner. SEO/PM/Email topical clusters complete.
+**Status:** Session 158 complete. 125 pages. ALL 6 major topical clusters complete (CRM, SEO, PM, Email, Communication, Dev Tools).
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -52,16 +52,17 @@
 - Per-tool email alerts for visitors who don't want to sign up for monitoring
 - Could be a simple form on each company page that adds to email list
 
-### ✅ [DONE] Topical Cluster Internal Linking — Sessions 155 + 157
+### ✅ [DONE] Topical Cluster Internal Linking — Sessions 155, 157, 158
 - Session 155: CRM cluster (Salesforce, HubSpot, Pipedrive)
 - Session 157: SEO tools (Ahrefs, Semrush, Moz), Project Mgmt (Asana, ClickUp, Monday), Email (Mailchimp, Brevo, ConvertKit)
-- All 4 major clusters complete. Remaining clusters: Communication (Slack, Zoom, Teams), Dev Tools (GitHub, Linear, Jira)
+- Session 158: Communication (Slack, Zoom, Teams), Dev Tools (GitHub, Linear)
+- **ALL 6 major clusters complete** — every cluster has tight cross-linking
 
-### [MEDIUM] Update Q2 2026 Pricing Accuracy
-- GitHub Copilot: verify current $19/individual, $39/business
-- ClickUp: verify Business tier after Q1 2026 raise (reflected in report)
-- HubSpot: verify "Customer Platform" bundle pricing
-- Shopify: verify current rates
+### ✅ [DONE] Update Q2 2026 Pricing Accuracy — Session 158
+- GitHub Copilot: $19/individual, $39/Pro+ — verified accurate
+- ClickUp: $10/seat Unlimited — verified accurate (reflects Feb 2026 raise)
+- HubSpot: $15/seat Starter bundle — verified accurate
+- Shopify: $39/$105/$399 — verified accurate
 
 ### [LOW] Build June 2026 Report Template
 - Duplicate saas-price-hike-report-may-2026.html → saas-price-hike-report-june-2026.html
@@ -76,6 +77,12 @@
 ---
 
 ## COMPLETED — Sessions 141–156
+
+### ✅ Session 158 (May 4, 2026)
+- Communication cluster: Slack, Zoom, Teams cross-linked to each other + 3-way comparisons (5 links each)
+- Dev Tools cluster: GitHub, Linear cross-linked to each other + 3-way comparisons (5-6 links each)
+- Q2 2026 pricing verified accurate: GitHub Copilot, ClickUp, HubSpot, Shopify — no changes needed
+- ALL 6 major topical clusters now complete
 
 ### ✅ Session 157 (May 4, 2026)
 - Promoted Monthly Report: added to nav (desktop+mobile), Free Tools section card, leaderboard banner
