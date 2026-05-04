@@ -2,13 +2,13 @@
 
 ---
 
-## Session 165 (May 4, 2026) — Build 2 Missing Individual Pricing Pages (131 total)
+## Session 165 (May 4, 2026) — Build 4 High-Demand Missing Individual Pricing Pages (133 total)
 
-**Status:** ✅ COMPLETE — Built Confluence and Freshdesk individual pricing pages, bringing total to 131 pages.
+**Status:** ✅ COMPLETE — Built 4 individual pricing pages (Confluence, Freshdesk, Square, WooCommerce), bringing total to 133 pages.
 
 ### What I Built
 
-**2 New Individual Pricing Pages (131 total pages, was 129 at start of this session)**
+**4 New Individual Pricing Pages (133 total pages, was 129 at start of this session)**
 
 1. **`companies/confluence-pricing.html`** (~1,000+/mo search volume)
    - Cloud wiki/knowledge base: Free (10 users), Standard $5.50/user/month (annual), Plus $11/user/month, Premium $22/user/month
@@ -29,28 +29,52 @@
    - FAQ schema: free plan, agent costs, vs Zendesk, billing model
    - Target audience: SMBs and growth companies looking for affordable support ticketing
 
+3. **`companies/square-pricing.html`** (~1,500-2,000/mo search volume)
+   - Payment processing: Free + per-transaction fees (online 2.6% + $0.30, in-person 2.65%, keyed 3.5% + $0.15)
+   - No monthly subscription — only pay for transactions
+   - 20% cheaper than Stripe at scale ($5,000/mo = $170 vs Stripe $215)
+   - Free POS system and Square Online store
+   - Cost scenarios for $1K, $5K, $30K, $100K monthly sales
+   - vs Stripe (2.9% + $0.30), PayPal (2.9% + $0.30), Square Terminal hardware
+   - Feature comparison: supported gateways, international reach, integrations
+   - FAQ schema: free tier, fees, vs Stripe, payment gateways, international
+   - Target audience: Small businesses, retail stores, SMBs with high transaction volume
+
+4. **`companies/woocommerce-pricing.html`** (~1,000-1,500/mo search volume)
+   - E-commerce platform: Free plugin, but requires hosting ($10-50/mo) + domain ($12/yr) + payment gateway (2.9% + $0.30)
+   - True startup cost: $250-700/year minimum (vs Shopify $348/year)
+   - Cheapest at high volume (50k+ visitors/mo) — no per-seat or monthly platform fee
+   - Real cost breakdown: hosting options ($3-100/mo), domain, SSL, extensions, payment fees
+   - Cost scenarios for $1K, $10K, $50K monthly sales (including hosting + transaction fees)
+   - vs Shopify ($29-299/mo), BigCommerce ($30-300/mo) — includes built-in hosting
+   - Feature comparison: customization, payment gateways, support, best use cases
+   - FAQ schema: is it free, hosting costs, vs Shopify, payment gateways, true cost
+   - Target audience: Developers, high-volume stores, businesses needing customization
+
 ### Updated Infrastructure
 
 **Sitemap Updates:**
-- Added 2 new entries to `/sitemap.xml` after Amplitude (Session 164 pages)
-- Confluence priority 0.82, Freshdesk priority 0.81
-- Both dated 2026-05-04
+- Added 4 new entries to `/sitemap.xml` after Amplitude (Session 164 pages)
+- Confluence priority 0.82, Freshdesk 0.81, Square 0.82, WooCommerce 0.81
+- All dated 2026-05-04
 
 **Companies Index Updates:**
-- Added 2 new company cards to `companies/index.html`
+- Added 4 new company cards to `companies/index.html`
 - Positioned between Amplitude and "HubSpot vs Pipedrive vs Zendesk" comparison
-- Both with relevant category tags and first-change badges
+- All with relevant category tags and first-change badges
 
 ### Key Metrics
 
 **Content Growth:**
-- Total pages: 129 → 131 (+2)
-- Individual pricing pages: 61 → 63 (+2)
-- New search potential: ~1,800+/mo from 2 new pages
+- Total pages: 129 → 133 (+4)
+- Individual pricing pages: 61 → 65 (+4)
+- New search potential: ~5,500+/mo from 4 new pages
 
 **Strategic Positioning:**
-- **Confluence:** Targets teams building internal documentation and wikis. Agenda alternative to Notion. Expensive at scale (per-user model).
+- **Confluence:** Targets teams building internal documentation and wikis. Wiki/knowledge base alternative to Notion. Expensive at scale (per-user model).
 - **Freshdesk:** Targets cost-conscious support teams. Ideal for SMBs migrating from expensive Zendesk. 60% cheaper at scale.
+- **Square:** Targets SMBs and retail with high transaction volume. 20% cheaper than Stripe. Best for businesses already in Square ecosystem.
+- **WooCommerce:** Targets developers and high-volume stores needing customization. Cheapest at 50k+ visitors/month. Self-hosted advantage for technical teams.
 
 ### Implementation Quality
 
@@ -73,8 +97,10 @@
 |------|------|--------|
 | `companies/confluence-pricing.html` | NEW | 1,100+ lines, deployed |
 | `companies/freshdesk-pricing.html` | NEW | 1,050+ lines, deployed |
-| `sitemap.xml` | UPDATED | +2 entries |
-| `companies/index.html` | UPDATED | +2 company cards |
+| `companies/square-pricing.html` | NEW | 1,100+ lines, deployed |
+| `companies/woocommerce-pricing.html` | NEW | 1,150+ lines, deployed |
+| `sitemap.xml` | UPDATED | +4 entries |
+| `companies/index.html` | UPDATED | +4 company cards |
 | `PROGRESS.md` | UPDATED | Document Session 165 |
 
 ### Next Steps
