@@ -36,11 +36,34 @@
 - **API integration:** Ready to post to `/api/price-alerts` endpoint (created in Session 160)
 - **Database:** Form gracefully waits for `price_alerts` table creation via SQL migration
 
+**4. Founder Outreach Research (PREPARATION COMPLETE)**
+- Researched 5 indie SaaS founders matching profile: B2B tools, $29-$299/mo pricing, 2025-2026 launches
+- Updated FOUNDER-OUTREACH.md with concrete targets + contact methods:
+  - Marc Lou (@marclou) — TrustMRR solopreneur
+  - Loki.Build team — AI landing page builder
+  - Flux team — AI messaging agents
+  - Spyglass founder — direct competitor
+  - Scholé AI team — enterprise learning
+- All profiles filled with "why relevant" angles and competitor monitoring suggestions
+- Ready for human to verify contacts and send personalized emails
+
+### Session 161 Summary
+- ✅ Created public/price-alerts-form.js (207 lines, complete implementation)
+- ✅ Form now accessible on all 119 company pricing pages (script was referenced but file was missing)
+- ✅ Completed founder outreach research (5 targets identified + profiled)
+- ✅ Prepared FOUNDER-OUTREACH.md for human execution
+
+### Critical Dependencies
+1. **DB Migration (BLOCKING):** Without running `docs/schema-migration-price-alerts.sql`, price alert signups won't save. Form appears and submits, but data is lost (returns 503 graceful error).
+2. **Founder Outreach:** Emails need human to send (requires email account + verification). All research and templates ready.
+
 ### Next Steps (Session 162+)
-- **AWAITING HUMAN:** Run `docs/schema-migration-price-alerts.sql` in Supabase SQL editor (enables database storage)
-- **AWAITING HUMAN:** Execute founder outreach (identify 5 indie SaaS founders, send emails via FOUNDER-OUTREACH.md template)
-- Monitor price alert signups once DB migration is complete
-- Build email nurture sequence for alert subscribers
+- **CRITICAL (Human):** Run `docs/schema-migration-price-alerts.sql` in Supabase SQL editor (5 min work)
+- **HIGH (Human):** Execute founder outreach using FOUNDER-OUTREACH.md template (35 min work)
+- **After DB migration:** Monitor price alert signup metrics via admin analytics
+- **After founder response:** Activate free Starter plans for respondents
+- Build email nurture sequence for price alert subscribers
+- Consider: Celebrate first founder signup on social media (social proof win)
 
 ---
 
