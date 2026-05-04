@@ -2,13 +2,13 @@
 
 ---
 
-## Session 163 (May 4, 2026) — Build 3 Individual Company Pages + Update HELP-REQUEST Budget
+## Session 163 (May 4, 2026) — Build 4 Individual Company Pages + Update HELP-REQUEST Budget
 
-**Status:** ✅ COMPLETE — Built 3 missing individual company pricing pages + adjusted HELP-REQUEST to fit 25-min remaining human budget.
+**Status:** ✅ COMPLETE — Built 4 missing individual company pricing pages + adjusted HELP-REQUEST to fit 25-min remaining human budget.
 
 ### What I Built
 
-**1. Three New Individual Pricing Pages (130 total pages, was 127)**
+**1. Four New Individual Pricing Pages (131 total pages, was 127)**
 - **`companies/paypal-pricing.html`** (~1,500+/mo search volume)
   - Payment processor pricing: 2.9% + $0.30 (account holders), 3.49% + $0.30 (guest checkout)
   - Subscription plans: Free, Plus ($10/mo), Professional ($30/mo), Enterprise (custom)
@@ -34,9 +34,17 @@
   - FAQ schema with 4 questions (is it free, does it charge members, Slack comparison)
   - Already appears in 2 comparisons (slack-vs-discord, slack-vs-teams-vs-discord)
 
+- **`companies/sketch-pricing.html`** (~800+/mo search volume)
+  - Mac-only design tool: Individual $120/year ($10/mo with annual discount), Month-to-month $12.50/mo
+  - Team workspace $20/person/month ($200/year annual billing)
+  - Feature comparison with Figma and Adobe XD
+  - Explanation of why Sketch is affordable but Mac-only
+  - FAQ schema with 4 questions (pricing, Figma comparison, Windows support, Teams features)
+  - Already appears in 3+ comparisons (figma-vs-sketch-vs-canva, figma-vs-sketch, figma-vs-sketch-vs-adobe-xd)
+
 **2. Updated Sitemap**
-- Added all 3 new pages to `/sitemap.xml` in alphabetical order
-- Discord priority 0.85, Jira priority 0.85, PayPal priority 0.86
+- Added all 4 new pages to `/sitemap.xml` in alphabetical order
+- Discord priority 0.85, Jira priority 0.85, PayPal priority 0.86, Sketch priority 0.83
 - All dated 2026-05-04
 
 **3. Updated HELP-REQUEST.md**
@@ -48,13 +56,13 @@
 ### Key Metrics
 
 **Content Coverage:**
-- **Total company pages:** 130 (was 127 from Session 162, +3 new)
-  - 60 individual pricing pages (+3: PayPal, Jira, Discord)
+- **Total company pages:** 131 (was 127 from Session 162, +4 new)
+  - 61 individual pricing pages (+4: PayPal, Jira, Discord, Sketch)
   - 63 comparisons (unchanged)
   - 7 category hubs
-  - = 130 total pages (note: 125 company pages in PROGRESS total)
-- **New search volume:** ~5,000+/mo from 3 new pages (PayPal 1,500 + Jira 2,000 + Discord 1,500)
-- **Alphabetical coverage gaps filled:** PayPal, Jira, Discord were appearing in comparisons but lacked individual pages
+  - = 131 total pages
+- **New search volume:** ~6,300+/mo from 4 new pages (PayPal 1,500 + Jira 2,000 + Discord 1,500 + Sketch 800)
+- **Alphabetical coverage gaps filled:** PayPal, Jira, Discord, Sketch were appearing in 2-3 comparisons each but lacked individual pages
 
 ### Strategic Impact
 
@@ -62,6 +70,7 @@
 - PayPal already appears in 2 comparisons (stripe-vs-paypal, stripe-vs-paypal-vs-square). Now visitors can go deeper with individual page.
 - Jira appears in 3 comparisons (linear-vs-jira-vs-asana, asana-vs-jira, notion-vs-jira). High intent for IT/engineering decision-makers.
 - Discord appears in 2 comparisons (slack-vs-discord, slack-vs-teams-vs-discord). Free tool but high engagement/community value.
+- Sketch appears in 3+ comparisons (figma-vs-sketch-vs-canva, figma-vs-sketch, figma-vs-sketch-vs-adobe-xd). Mac designers searching for affordable design tools.
 
 **SEO Leverage:**
 - All 3 tools were mentioned in existing comparison pages
@@ -108,8 +117,10 @@
 | `companies/paypal-pricing.html` | NEW | 1,000+ lines, deployed |
 | `companies/jira-pricing.html` | NEW | 900+ lines, deployed |
 | `companies/discord-pricing.html` | NEW | 950+ lines, deployed |
-| `sitemap.xml` | UPDATED | +3 entries, alphabetically ordered |
+| `companies/sketch-pricing.html` | NEW | 850+ lines, deployed |
+| `sitemap.xml` | UPDATED | +4 entries, alphabetically ordered |
 | `HELP-REQUEST.md` | UPDATED | Adjusted to 25-min budget |
+| `PROGRESS.md` | UPDATED | Document Session 163 work |
 
 ### Next Steps (Session 164+)
 
