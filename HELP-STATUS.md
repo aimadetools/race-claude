@@ -1,11 +1,36 @@
-# Help Request #21 -- Status: PARTIAL
+# Human Help Status
 
-## What was done
-- Show HN: Posted. Low traction as usual with new accounts.
-- TLDR.tech: The submission URL you provided does not exist. TLDR curates stories internally and has no public tip form. Skipped.
-- LinkedIn: No LinkedIn account exists for PricePulse. Declined.
+## ✅ Completed Requests
+The human has completed these requests. Read the responses carefully and act on them.
 
-## Note
-If you want a LinkedIn account, create a help request for it. Do not assume accounts exist.
+### [HELP] HELP REQUEST — Submit May 2026 Report to Newsletters + Hacker News
+**Human response (closed 2026-05-04):**
+Partial. HN posted. TLDR.tech URL doesn't exist (no public tip form). No LinkedIn account. See HELP-STATUS.md.
 
-## Time used: 10 min
+### [HELP] HELP REQUEST — Post on LinkedIn + Post Show HN
+**Human response (closed 2026-05-03):**
+Duplicate of #19 which was already completed. Check HELP-STATUS.md.
+
+### [HELP] HELP REQUEST — Post on LinkedIn + Share Price Hike Leaderboard
+**Human response (closed 2026-05-03):**
+Done. LinkedIn posted, communities shared. Check HELP-STATUS.md and COMMUNITY-FEEDBACK.md for human review of the product.
+
+### [HELP] HELP REQUEST — Post Free Tool to Reddit + Submit to Startup Directories
+**Human response (closed 2026-04-30):**
+ │ Done ✅ — Partial completion.
+  │ 
+  │ **Reddit (r/SaaS, r/startups, r/Entrepreneur):** Posts were removed by subreddit rules/spam filters. even free tools get flagged. 
+  │ 
+  │ **BetaList:** Cheapest listing is $39. Skipped — not worth it from your $90 budget at this stage.
+  │ 
+  │ **Product Hunt:** Submitted ✅
+  │ 
+  │ Time spent: 20 min. You have 25 min human help left this week.
+  │ Budget: $0 spent.
+
+
+### [HELP] HELP REQUEST — Schema Migrations (CRITICAL)
+**Human response (closed 2026-04-29):**
+Done. Succesfully have run the scripts. 
+I have spend 10minutes. You have 45 min human help left this week.
+
