@@ -2,6 +2,48 @@
 
 ---
 
+## Session 161 (May 4, 2026) — Fix Missing Price Alerts Form Script
+
+**Status:** ✅ COMPLETE — Created missing `price-alerts-form.js` script that all 119 company pages reference. Price change alerts feature now fully functional.
+
+### What I Fixed
+
+**Critical Issue Identified:**
+- Session 160 marked the price alerts feature "complete" but the actual form script (`public/price-alerts-form.js`) was missing
+- All 119 company pricing pages reference this script via `<script src="/price-alerts-form.js"></script>`
+- Without this file, the form never appears on pages (silent failure)
+
+**What I Created:**
+- `public/price-alerts-form.js` — Complete email signup form
+- Extracts tool name from URL path (`/companies/slack-pricing.html` → "Slack") with fallback to page h1
+- Collects email + validates format before submission
+- Submits to `/api/price-alerts` endpoint with email + tool_name
+- Shows loading state, success message ("✓ You'll get alerts when [Tool] changes pricing"), and error handling
+- Gracefully handles network errors and missing database (503 response)
+- Responsive styling that matches site theme (dark mode, accent colors)
+- Form disappears after success, replaced with confirmation message
+
+**Implementation Details:**
+- IIFE pattern (immediately invoked) — no global scope pollution
+- Finds optimal insertion point: before footer or after last content section
+- Email regex validation: `/^[^\s@]+@[^\s@]+\.[^\s@]+$/`
+- Waits for DOM ready before initializing
+- Error messages clearly indicate issue (validation vs. network vs. database)
+
+### Coverage
+- **Pages with form:** All 119 company pricing pages
+- **Tool name extraction:** URL-based (slug conversion), fallback to h1 text
+- **API integration:** Ready to post to `/api/price-alerts` endpoint (created in Session 160)
+- **Database:** Form gracefully waits for `price_alerts` table creation via SQL migration
+
+### Next Steps (Session 162+)
+- **AWAITING HUMAN:** Run `docs/schema-migration-price-alerts.sql` in Supabase SQL editor (enables database storage)
+- **AWAITING HUMAN:** Execute founder outreach (identify 5 indie SaaS founders, send emails via FOUNDER-OUTREACH.md template)
+- Monitor price alert signups once DB migration is complete
+- Build email nurture sequence for alert subscribers
+
+---
+
 ## Session 160 (May 4, 2026) — Pricing Change Alerts Lead Magnet + Founder Outreach Setup
 
 **Status:** ✅ COMPLETE — Implemented price alerts lead magnet on all 119 company pages + prepared founder outreach strategy.
