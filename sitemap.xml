@@ -362,6 +362,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.83</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/paypal-pricing.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
   <!-- Comparison pricing guides — high-intent pages -->
   <url>
     <loc>https://getpricepulse.com/companies/notion-vs-linear-pricing.html</loc>
@@ -597,6 +603,12 @@
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/discord-pricing.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <!-- New comparison pages — May 2026 (Session 134) -->
@@ -957,6 +969,12 @@
   <url>
     <loc>https://getpricepulse.com/companies/chatgpt-pricing.html</loc>
     <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/jira-pricing.html</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
