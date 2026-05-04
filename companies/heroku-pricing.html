@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heroku Pricing Plans 2026 — Dyno Costs & Alternatives | PricePulse</title>
+  <meta name="description" content="Heroku pricing for app hosting and database services. Compare Eco, Standard, and Premium dynos. See actual costs for typical app deployments." />
+  <link rel="canonical" href="https://getpricepulse.com/companies/heroku-pricing.html" />
+  <meta property="og:title" content="Heroku Pricing 2026: Eco Dynos ($7/mo) + Add-ons" />
+  <meta property="og:description" content="Heroku discontinued free tier in Nov 2022. Eco tier starts at $7/month. Standard at $25/month. See pricing breakdown for databases and add-ons." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://getpricepulse.com/companies/heroku-pricing.html" />
+  <meta property="og:image" content="https://getpricepulse.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Heroku Pricing Plans 2026 — Dyno and Add-on Costs","description":"Heroku offers Eco, Standard, and Premium dynos starting at $7/month. No free tier. Pricing includes compute, databases, and add-ons.","datePublished":"2026-02-01","dateModified":"2026-05-04","author":{"@type":"Organization","name":"PricePulse"},"publisher":{"@type":"Organization","name":"PricePulse","url":"https://getpricepulse.com"}}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0f;--bg2:#12121a;--border:#2a2a3d;--text:#e8e8f0;--muted:#8888a8;--accent:#00e5a0;--accent2:#00b87a;--radius:12px;--font:'Inter',system-ui,-apple-system,sans-serif}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+    nav{position:sticky;top:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .logo{font-size:1.125rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:.5rem;text-decoration:none}
+    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+    .nav-links{display:flex;align-items:center;gap:1.5rem}
+    .nav-links a{color:var(--muted);font-size:.9375rem}
+    .nav-links a:hover{color:var(--text);text-decoration:none}
+    .btn-cta{background:var(--accent);border-radius:8px;color:#0a0a0f!important;font-weight:700;font-size:.875rem;padding:.5rem 1rem}
+    .container{max-width:860px;margin:0 auto;padding:0 1.5rem}
+    .hero{padding:3.5rem 0 2rem}
+    .breadcrumb{font-size:.8125rem;color:var(--muted);margin-bottom:1rem}
+    .breadcrumb a{color:var(--muted)}.breadcrumb a:hover{color:var(--accent)}
+    h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+    .alert-banner{background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.25);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.75rem;margin:1.5rem 0}
+    .alert-icon{font-size:1.25rem;flex-shrink:0;margin-top:.1rem}
+    .alert-text{font-size:.9375rem;line-height:1.5}
+    .alert-text strong{color:#00e5a0}
+    .section{margin:2.5rem 0}
+    h2{font-size:1.375rem;font-weight:700;margin-bottom:1rem}
+    h3{font-size:1.125rem;font-weight:600;margin-bottom:.75rem}
+    p{margin-bottom:1rem;opacity:.9}
+    .pricing-table{width:100%;border-collapse:collapse;margin:1.25rem 0}
+    .pricing-table th{text-align:left;padding:.75rem 1rem;font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .pricing-table td{padding:.875rem 1rem;font-size:.9375rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .pricing-table tr:last-child td{border-bottom:none}
+    .plan-name{font-weight:600}
+    .plan-price{font-weight:700;color:var(--accent);font-size:1.0625rem;white-space:nowrap}
+    .highlight{background:rgba(0,229,160,.1);padding:.25rem .5rem;border-radius:4px}
+    .cost-breakdown{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin:1rem 0}
+    .cost-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;font-size:.9375rem;border-bottom:1px solid var(--border)}
+    .cost-row:last-child{border-bottom:none}
+    .cost-label{color:var(--muted)}
+    .cost-value{font-weight:600;color:var(--accent)}
+    .feature-list{list-style:none;margin:1rem 0}
+    .feature-list li{padding:.5rem 0;padding-left:1.5rem;position:relative}
+    .feature-list li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-weight:700}
+    .comparison-note{background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.25);border-radius:var(--radius);padding:1rem;margin:1rem 0;font-size:.9375rem}
+    .cta-box{background:linear-gradient(135deg,rgba(0,229,160,.08),rgba(0,184,122,.04));border:1px solid rgba(0,229,160,.25);border-radius:var(--radius);padding:2rem;text-align:center;margin:2.5rem 0}
+    .cta-box h3{font-size:1.25rem;margin-bottom:.75rem}
+    .cta-box p{color:var(--muted);margin-bottom:1.5rem;max-width:520px;margin-left:auto;margin-right:auto}
+    .btn-primary{display:inline-block;background:var(--accent);color:#0a0a0f;font-weight:700;padding:.75rem 1.75rem;border-radius:8px;font-size:1rem}
+    .btn-primary:hover{background:var(--accent2);text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+    footer p{color:var(--muted);font-size:.875rem}
+    footer a{color:var(--muted)}footer a:hover{color:var(--accent)}
+    @media(max-width:640px){.nav-links{gap:1rem}.nav-links a:not(.btn-cta){display:none}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="logo"><span class="logo-dot"></span>PricePulse</a>
+  <div class="nav-links">
+    <a href="../pricing-tracker.html">Pricing Tracker</a>
+    <a href="../demo.html">Demo</a>
+    <a href="../pricing.html">Plans</a>
+    <a href="../signup.html" class="btn-cta">Get alerts free</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › <a href="../pricing-tracker.html">Pricing Tracker</a> › Heroku Pricing
+    </div>
+    <h1>Heroku Pricing Plans 2026 — Dyno Costs & Compute</h1>
+    <div class="alert-banner">
+      <div class="alert-icon">✨</div>
+      <div class="alert-text">
+        <strong>No free tier:</strong> Heroku discontinued free tier in Nov 2022. Eco tier starts at $7/month. Standard at $25/month. Add database and you're at $50+/month total.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Current Heroku Pricing (May 2026)</h2>
+    <table class="pricing-table">
+      <thead><tr><th>Plan</th><th>Monthly Cost</th><th>Key Features</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="plan-name">Eco</td>
+          <td class="plan-price">$7/month</td>
+          <td>0.5 dyno hours/month, shared CPU, 512 MB RAM</td>
+          <td>Hobby projects, sleeping apps</td>
+        </tr>
+        <tr>
+          <td class="plan-name">Standard-1X</td>
+          <td class="plan-price">$25/month</td>
+          <td>1 dyno 24/7, 512 MB RAM, dedicated CPU, 1 GB storage</td>
+          <td>Small production apps</td>
+        </tr>
+        <tr>
+          <td class="plan-name">Standard-2X</td>
+          <td class="plan-price">$50/month</td>
+          <td>1 dyno 24/7, 1 GB RAM, dedicated CPU, 2 GB storage</td>
+          <td>Medium production apps</td>
+        </tr>
+        <tr>
+          <td class="plan-name">Performance-M</td>
+          <td class="plan-price">$250/month</td>
+          <td>1 dyno 24/7, 2.5 GB RAM, dedicated CPU, fast networking</td>
+          <td>High-traffic apps</td>
+        </tr>
+        <tr>
+          <td class="plan-name">Performance-L</td>
+          <td class="plan-price">$550/month</td>
+          <td>1 dyno 24/7, 14 GB RAM, dedicated CPU, priority support</td>
+          <td>Enterprise-scale apps</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Heroku Add-ons (Database Costs)</h2>
+    <p>Heroku charges separately for databases and services. Here's a typical stack:</p>
+    <div class="cost-breakdown">
+      <div class="cost-row">
+        <span class="cost-label">Standard-1X Dyno</span>
+        <span class="cost-value">$25/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">PostgreSQL (Essential)</span>
+        <span class="cost-value">$0/month (free tier)</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">PostgreSQL (Standard)</span>
+        <span class="cost-value">$9/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">Redis (Premium)</span>
+        <span class="cost-value">$30/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label"><strong>Typical Small App (with DB + cache)</strong></span>
+        <span class="cost-value"><strong>$64/month</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Why Heroku Was (and Still Is) Popular</h2>
+    <ul class="feature-list">
+      <li><strong>Deploy simplicity:</strong> Push to Heroku, auto-scales within dyno type</li>
+      <li><strong>Built-in databases:</strong> Postgres, MySQL add-ons included in ecosystem</li>
+      <li><strong>Git integration:</strong> Deploy directly from GitHub</li>
+      <li><strong>Add-ons marketplace:</strong> Auth0, SendGrid, Stripe, etc. integrations pre-configured</li>
+      <li><strong>No infrastructure management:</strong> No servers to configure, update, or maintain</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Why Developers Are Leaving Heroku</h2>
+    <p><strong>Pricing shock:</strong> Free tier removal in Nov 2022 forced thousands to migrate overnight. A $0 app suddenly required $7+/month commitment.</p>
+    <ul class="feature-list">
+      <li><strong>Expensive for small apps:</strong> $7 Eco tier + $9 PostgreSQL = $16/month minimum (vs. $2-5 on competitors)</li>
+      <li><strong>Performance concerns:</strong> Community reports slower cold starts vs. newer alternatives (Render, Railway)</li>
+      <li><strong>Better alternatives:</strong> Vercel (Next.js native), Railway (simpler pricing), Render (same simplicity, cheaper)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Heroku vs. Competitors</h2>
+    <table class="pricing-table">
+      <thead><tr><th>Service</th><th>Free Tier</th><th>Cheapest Paid</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="plan-name">Heroku</td>
+          <td>❌ Removed Nov 2022</td>
+          <td>$7/month (Eco)</td>
+          <td>Mature apps with dev team</td>
+        </tr>
+        <tr>
+          <td class="plan-name">Render</td>
+          <td>✅ Yes (but paused)</td>
+          <td>$7/month (Starter)</td>
+          <td>Hobby → production (lower cost)</td>
+        </tr>
+        <tr>
+          <td class="plan-name">Railway</td>
+          <td>✅ $5 free/month</td>
+          <td>Pay-as-you-go (~$1-5/month)</td>
+          <td>Cost-conscious developers</td>
+        </tr>
+        <tr>
+          <td class="plan-name">Vercel</td>
+          <td>✅ Yes (static + serverless)</td>
+          <td>Free (Pro $20/month)</td>
+          <td>Next.js and Node.js apps</td>
+        </tr>
+        <tr>
+          <td class="plan-name">AWS (EC2)</td>
+          <td>✅ 1 year free</td>
+          <td>~$3/month (t3.micro)</td>
+          <td>Custom infrastructure</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Heroku Cost at Scale</h2>
+    <p>Small app vs. production app monthly costs:</p>
+    <div class="cost-breakdown">
+      <div class="cost-row">
+        <span class="cost-label">Hobby project (Eco + basic DB)</span>
+        <span class="cost-value">~$20/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">Small production (Standard-1X + Postgres + Redis)</span>
+        <span class="cost-value">~$64/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">Medium production (Standard-2X + Postgres Premium + Redis)</span>
+        <span class="cost-value">~$104/month</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">High-traffic (Performance-M + multiple DBs)</span>
+        <span class="cost-value">$400+/month</span>
+      </div>
+    </div>
+    <p class="comparison-note">Heroku's pricing advantage was simplicity (all-in-one platform). After removing free tier, that advantage disappeared. Competitors offer free tiers, better pricing, and easier migration paths.</p>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <h3>Does Heroku have a free tier?</h3>
+    <p>No. Heroku removed the free tier on <span class="highlight">November 28, 2022</span>. The cheapest option now is the Eco tier at $7/month.</p>
+
+    <h3>What happened to Heroku free dynos?</h3>
+    <p>Salesforce (Heroku's parent company) discontinued free dynos to reduce costs and focus on paying customers. This migration pushed thousands of developers to Render, Railway, and Vercel.</p>
+
+    <h3>Is Heroku still worth it?</h3>
+    <p>Heroku is worth it if: (1) You need seamless Git deployment, (2) Your team values simplicity over cost, (3) You're running mature, production apps. Not worth it for hobby projects or MVPs.</p>
+
+    <h3>What's cheaper than Heroku?</h3>
+    <p>Render ($7/month starter with free tier), Railway (pay-as-you-go), Vercel (free for Next.js), and AWS (free tier + cheap EC2).</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Get price change alerts for Heroku</h3>
+    <p>Heroku raises prices occasionally. Get notified the moment they change (like when they removed the free tier in 2022).</p>
+    <a href="../signup.html" class="btn-primary">Monitor Heroku Pricing</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 PricePulse. Tracking SaaS pricing changes so you don't have to. <a href="../about.html">About</a> | <a href="../pricing.html">Plans</a> | <a href="../help.html">Help</a></p>
+  </footer>
+</div>
+
+<script src="../cta.js"></script>
+<script src="../inline-cta.js"></script>
+<script src="../exit-intent.js"></script>
+<script src="../price-alerts-form.js"></script>
+</body>
+</html>
