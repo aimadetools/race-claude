@@ -1212,4 +1212,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.81</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/basecamp-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/trello-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/calendly-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/descript-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/todoist-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
 </urlset>
