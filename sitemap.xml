@@ -1242,4 +1242,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.81</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/crisp-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/livechat-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/drift-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
 </urlset>
