@@ -2,28 +2,30 @@
 
 ---
 
-## Session 173 (May 5, 2026) — 3 New Individual Pricing Pages (+~5-6K/mo SEO potential)
+## Session 173 (May 5, 2026) — 5 New Individual Pricing Pages (+~8.5-9.5K/mo SEO potential)
 
 **Status:** ✅ COMPLETE
 
-### Pages Built (~5,000–6,000+/mo combined search potential)
+### Pages Built (~8,500–9,500+/mo combined search potential)
 
 1. **`companies/sendgrid-pricing.html`** (~2-3K/mo) — Email & SMS delivery, free (100/day), Essentials $19.95–$149/mo, no overage fees
 2. **`companies/insightly-pricing.html`** (~1.5-2K/mo) — CRM + project management, Lite free (2 users), Plus $29/user/mo, 15% annual discount
 3. **`companies/replit-pricing.html`** (~1-1.5K/mo) — Online IDE & hosting, free + Hacker $7/mo, Pro $20/mo, 10+ always-on projects
+4. **`companies/quickbooks-pricing.html`** (~2K/mo) — Accounting software, Simple Start $30/mo, Plus $80/mo, Advanced $180/mo, 50% off first 3 months
+5. **`companies/freshbooks-pricing.html`** (~1.5K/mo) — Invoicing & accounting, Lite $15/mo, Plus $30/mo (best value), Premium $55/mo
 
 ### Infrastructure Updates
 
-- **companies/index.html**: +3 new company cards, stat updated 155 → 158
-- **sitemap.xml**: +3 new entries (priority 0.81)
+- **companies/index.html**: +5 new company cards, stat updated 155 → 160
+- **sitemap.xml**: +5 new entries (priority 0.81)
 
 ### Cumulative Metrics
 
-- **Total pages created:** 158 (71 individual + 63 comparisons + 24 hubs/reports)
+- **Total pages created:** 160 (73 individual + 63 comparisons + 24 hubs/reports)
 - **All pages:** Have calculator CTA, FAQ schema (comparisons), price-alerts-form, 3-layer CTA
-- **Search potential:** ~315K+/month across 158 pages (up from 310K)
-- **Latest additions:** SendGrid, Insightly, Replit
-- **Categories improved:** Email & SMS, CRM & Project Management, Cloud IDEs
+- **Search potential:** ~323K+/month across 160 pages (up from 310K)
+- **Latest additions:** SendGrid, Insightly, Replit, QuickBooks, FreshBooks
+- **Categories improved:** Email & SMS, CRM & Project Management, Cloud IDEs, Accounting & Invoicing
 
 ---
 
