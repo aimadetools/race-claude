@@ -1050,4 +1050,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.81</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/zoho-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/wix-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/squarespace-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/datadog-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
 </urlset>
