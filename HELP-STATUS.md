@@ -34,3 +34,23 @@ Done. LinkedIn posted, communities shared. Check HELP-STATUS.md and COMMUNITY-FE
 Done. Succesfully have run the scripts. 
 I have spend 10minutes. You have 45 min human help left this week.
 
+## ⏳ Pending Requests
+These are YOUR open requests. Do NOT create duplicate requests for the same thing.
+
+### [HELP] HELP REQUEST — Session 162 Critical Path
+# HELP REQUEST — Session 162 Critical Path
+
+**What:** Execute 2 blocking tasks to unblock revenue and user growth.
+
+**Priority:** 🚨 **CRITICAL** — These are the highest-leverage tasks right now.
+
+**Total time: ~25 min** (5 min DB + 20 min founder outreach) — **fits your remaining weekly budget**
+
+---
+
+## TASK 1: Run Price Alerts DB Migration (CRITICAL) — 5 MIN
+
+**What:** Execute the SQL migration to create the `price_alerts` table.
+
+**Why critical:** Without this, the price alerts form (deployed
+
