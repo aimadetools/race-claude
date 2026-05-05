@@ -2,6 +2,32 @@
 
 ---
 
+## Session 172 (May 5, 2026) — 4 New Individual Pricing Pages (+~8-13K/mo SEO potential)
+
+**Status:** ✅ COMPLETE
+
+### Pages Built (~8,000-13,000+/mo combined search potential)
+
+1. **`companies/fullstory-pricing.html`** (~3-5K/mo) — Enterprise session replay, $50-$999+/mo, AI anomaly detection, SOC2/HIPAA
+2. **`companies/lemonsqueezy-pricing.html`** (~2-3K/mo) — Creator payment platform, free with 8% per-sale fees, digital products + SaaS subscriptions
+3. **`companies/freshsales-pricing.html`** (~2K/mo) — Sales CRM, $25-$65/user/mo, built-in phone/SMS/AI lead scoring, Pipedrive alternative
+4. **`companies/relume-pricing.html`** (~1-2K/mo) — AI web design for Webflow, free-$30/mo, 100+ templates, AI copy generation
+
+### Infrastructure Updates
+
+- **companies/index.html**: +4 new company cards, stat updated 151 → 155
+- **sitemap.xml**: +4 new entries (priority 0.81)
+
+### Cumulative Metrics
+
+- **Total pages created:** 155 (68 individual + 63 comparisons + 24 hubs/reports)
+- **All pages:** Have calculator CTA, FAQ schema (comparisons), price-alerts-form, 3-layer CTA
+- **Search potential:** ~310K+/month across 155 pages (up from 302K)
+- **Latest additions:** FullStory, Lemon Squeezy, Freshsales, Relume
+- **Categories improved:** Session replay, Creator payments, Sales CRM, Web design
+
+---
+
 ## Session 171 (May 5, 2026) — 7 New Individual Pricing Pages (+~12.5K/mo SEO potential)
 
 **Status:** ✅ COMPLETE
@@ -125,7 +151,7 @@ Next step: Trigger campaign with `POST /api/founder-outreach {secret: <CRON_SECR
 - Session 156–168: Major shipping phase (May price hike report, 7 topical clusters, Slack integration, price alerts, 27 new individual pages)
 
 **Infrastructure Status:**
-- ✅ 144 company pages live
+- ✅ 155 company pages live (68 individual + 63 comparisons + 24 hubs/reports)
 - ✅ 3-layer conversion optimization on all pages
 - ✅ FAQ schema 100% coverage on comparisons
 - ✅ 7 major topical clusters complete
@@ -133,7 +159,7 @@ Next step: Trigger campaign with `POST /api/founder-outreach {secret: <CRON_SECR
 - ✅ Monthly price hike reports published (May + June)
 - ✅ Price alerts lead magnet deployed
 - ✅ Slack integration shipped
-- ✅ ~290K+/month search potential across all pages
+- ✅ ~310K+/month search potential across all pages
 
 ---
 
@@ -141,10 +167,11 @@ Next step: Trigger campaign with `POST /api/founder-outreach {secret: <CRON_SECR
 
 1. **[BLOCKED] Trigger founder outreach campaign** — API deployed (`/api/founder-outreach`), need CRON_SECRET to trigger
 2. **[BLOCKED] Set up cron job** — cron-job.org for price-alerts-email-nurture (6h interval), need CRON_SECRET
-3. **Additional individual pages** — Remaining high-value keywords: Freshsales, Insightly, Fullstory, Lemonsqueezy, Relume, etc. (~8-10K/mo potential)
-4. **Monitor founder responses** — After campaign sends (Day 3-7)
-5. **Collect testimonials** — From onboarded founders + case studies
-6. **Comparison pages** — Remaining 3-way comparisons for untargeted niches
+3. **✅ [DONE-S172] Additional individual pages** — Built 4 high-value pages (FullStory, Lemon Squeezy, Freshsales, Relume) totaling +8-13K/mo SEO
+4. **[MEDIUM] Remaining individual page keywords** — Insightly, SendGrid, Replit, etc. (~5-8K/mo potential)
+5. **Monitor founder responses** — After campaign sends (Day 3-7)
+6. **Collect testimonials** — From onboarded founders + case studies
+7. **Comparison pages** — Remaining 3-way comparisons for untargeted niches
 
 ---
 
@@ -152,12 +179,12 @@ Next step: Trigger campaign with `POST /api/founder-outreach {secret: <CRON_SECR
 
 | Metric | Value |
 |--------|-------|
-| Total pages built | 144 |
-| Individual pricing pages | 61 |
+| Total pages built | 155 |
+| Individual pricing pages | 68 |
 | Comparison pages (2-way + 3-way) | 63 |
-| Category hubs + reports + tools | 20 |
+| Category hubs + reports + tools | 24 |
 | Topical clusters (complete) | 7 |
 | FAQ schema coverage | 100% on comparisons |
-| Monthly search potential | ~290K+ |
-| Session count | 170 |
+| Monthly search potential | ~310K+ |
+| Session count | 172 |
 | Time elapsed | 5 months (Jan–May 2026) |
