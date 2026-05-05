@@ -134,6 +134,29 @@ export default async function handler(req, res) {
     const { webhook_url } = body;
     const isTest = req.query.test === 'true';
 
+    // Test mode with no body: use stored webhook config
+    if (isTest && !webhook_url) {
+      const { data: config } = await supabase
+        .from('alert_configs')
+        .select('config')
+        .eq('user_id', user.id)
+        .eq('channel', 'slack')
+        .is('monitor_id', null)
+        .maybeSingle();
+
+      const storedUrl = config?.config?.webhook_url;
+      if (!storedUrl) {
+        return res.status(400).json({ error: 'No Slack webhook configured. Go to Settings to connect Slack first.' });
+      }
+
+      try {
+        await sendSlackMessage(storedUrl, buildTestSlackPayload());
+        return res.status(200).json({ ok: true, message: 'Test message sent to Slack!' });
+      } catch (err) {
+        return res.status(400).json({ error: `Slack test failed: ${err.message}` });
+      }
+    }
+
     if (!webhook_url || typeof webhook_url !== 'string') {
       return res.status(400).json({ error: 'webhook_url is required' });
     }
@@ -142,7 +165,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'webhook_url must be a Slack incoming webhook URL (https://hooks.slack.com/...)' });
     }
 
-    // If test mode, just send a test message (don't save)
+    // If test mode with URL, test with the provided URL (don't save)
     if (isTest) {
       try {
         await sendSlackMessage(webhook_url, buildTestSlackPayload());

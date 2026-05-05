@@ -755,6 +755,50 @@
       border-radius: var(--radius);
     }
 
+    /* SLACK ACTIVATION BANNER */
+    .slack-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.875rem 1.25rem;
+      background: rgba(74, 21, 75, 0.18);
+      border: 1px solid rgba(154, 58, 155, 0.35);
+      border-radius: var(--radius);
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .slack-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+    .slack-banner-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .slack-banner-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    .btn-slack-test {
+      padding: 0.4rem 0.875rem;
+      background: rgba(154, 58, 155, 0.25);
+      border: 1px solid rgba(154, 58, 155, 0.5);
+      color: #d87dda;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-slack-test:hover { background: rgba(154, 58, 155, 0.4); }
+    .btn-slack-test:disabled { opacity: 0.55; cursor: not-allowed; }
+
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
@@ -855,6 +899,18 @@
         <div class="stat-card-label">Last check</div>
         <div class="stat-card-value" style="font-size:1.1rem;padding-top:0.3rem" id="statLastCheck">—</div>
         <div class="stat-card-sub" id="statNextCheck">next check in …</div>
+      </div>
+    </div>
+
+    <!-- SLACK ACTIVATION BANNER (shown only when Slack is connected) -->
+    <div id="slackBanner" class="slack-banner" style="display:none">
+      <div class="slack-banner-left">
+        <span class="slack-banner-icon">🔔</span>
+        <span><strong>Slack connected.</strong> You'll get a Slack message whenever a competitor changes pricing.</span>
+      </div>
+      <div class="slack-banner-actions">
+        <button class="btn-slack-test" id="slackTestBtn" onclick="sendSlackTestAlert()">Send test alert</button>
+        <a href="settings.html" class="btn btn-ghost btn-sm" style="font-size:0.78rem;color:var(--muted)">Settings</a>
       </div>
     </div>
 
@@ -1088,6 +1144,9 @@
       // Load recent alerts
       loadRecentAlerts(userId);
 
+      // Load Slack status (show activation banner if connected)
+      loadSlackStatus();
+
       // Start live "last check / next check" countdown
       startCheckCountdown(monitors);
 
@@ -1217,6 +1276,62 @@
 
     } catch (err) {
       console.warn('[loadRecentAlerts] Error:', err.message);
+    }
+  }
+
+  async function loadSlackStatus() {
+    if (currentPlan === 'free') return; // Slack is Starter+ only
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+
+      const res = await fetch('/api/slack', {
+        headers: { 'Authorization': `Bearer ${session.access_token}` },
+      });
+      if (!res.ok) return;
+
+      const data = await res.json();
+      if (data.connected) {
+        document.getElementById('slackBanner').style.display = 'flex';
+      }
+    } catch (err) {
+      console.warn('[loadSlackStatus] Error:', err.message);
+    }
+  }
+
+  async function sendSlackTestAlert() {
+    const btn = document.getElementById('slackTestBtn');
+    if (!btn) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) throw new Error('Not logged in');
+
+      const res = await fetch('/api/slack?test=true', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.ok) {
+        btn.textContent = '✅ Sent!';
+        setTimeout(() => { btn.textContent = 'Send test alert'; btn.disabled = false; }, 3000);
+      } else {
+        btn.textContent = '❌ Failed';
+        console.error('[sendSlackTestAlert]', data.error);
+        setTimeout(() => { btn.textContent = 'Send test alert'; btn.disabled = false; }, 3000);
+      }
+    } catch (err) {
+      btn.textContent = '❌ Error';
+      console.error('[sendSlackTestAlert]', err.message);
+      setTimeout(() => { btn.textContent = 'Send test alert'; btn.disabled = false; }, 3000);
     }
   }
 
