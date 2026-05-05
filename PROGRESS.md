@@ -112,41 +112,17 @@ Next step: Trigger campaign with `POST /api/founder-outreach {secret: <CRON_SECR
 
 ---
 
-## Sessions 1–167 Summary (Jan–May 2, 2026)
+## Sessions 1–168 Summary (Jan–May 4, 2026)
 
-**Phase 1: Core Product (Sessions 1–96, Jan–Apr 2026)**
-- Built PricePulse SaaS monitoring platform: auth, Stripe, Supabase, email nurture, GitHub Actions
-- All systems verified operational by Session 96
+**Phase 1: Core Product (Sessions 1–96)**
+- Built fully operational PricePulse platform: auth, Stripe, Supabase, email nurture, monitoring engine
 
-**Phase 2: Content Expansion (Sessions 97–167, May 2026)**
-
-**Sessions 97–142 (Content Build Foundation):**
-- Built initial blog (20 articles), individual pricing pages (32), comparison pages, category hubs (7), leaderboard, calculator, RSS feed
-
-**Sessions 143–147 (3-Way Comparison Rollout):**
-- Aggressive expansion: 28 new pages (Vercel, Supabase, Cloudflare, Firebase, MongoDB, Make, Evernote, Coda, Gitea, + 10 three-way comparisons)
-- 3-layer conversion optimization: sticky banner + inline CTAs + exit-intent popup on all pages
-- Total reached 113 pages
-
-**Sessions 148–150 (Interactive Tools + FAQ Schema):**
-- Built SaaS Pricing Calculator (35+ tools, 7 categories) — viral interactive tool
-- Added FAQ schema to all 57 comparison pages (100% coverage)
-- Added share buttons to 10 top pages
-- Built 3 high-traffic 3-way comparisons (Salesforce/HubSpot/Zoho, Loom/Zoom/Meet, Stripe/PayPal/Square)
-
-**Sessions 151–155 (Content Maturation + Internal Linking):**
-- Built ChatGPT, Jasper, Brevo, ConvertKit, Moz, Salesforce, Adobe CC pages
-- Deployed calculator CTA to 100% of 123 company pages
-- Implemented CRM topical cluster internal linking (6 tightly linked pages)
-
-**Sessions 156–167 (Feature Shipping + Final Content):**
-- Built May 2026 Monthly SaaS Price Hike Report (viral content asset)
-- Implemented all 7 major topical clusters (CRM, SEO, PM, Email, Communication, Dev Tools, Design)
-- Shipped Slack integration (api/slack.js, settings.html, full webhook management)
-- Fixed 21 blocked deployment commits
-- Built price alerts lead magnet (form + nurture sequences)
-- Built 20 additional individual pricing pages (Confluence, Freshdesk, Square, WooCommerce, PayPal, Jira, Discord, Sketch, Heroku, Integromat, Render, Segment, Amplitude, Twilio, Klaviyo, BigCommerce, New Relic, Mixpanel, Toggl, Hubstaff)
-- Published June 2026 monthly report (Issue #2)
+**Phase 2: Content Expansion (Sessions 97–168)**
+- Session 97–142: Initial content foundation (blog, individual pages, comparisons, hubs, leaderboard, calculator)
+- Session 143–147: 3-way comparison rollout, 3-layer conversion optimization, reached 113 pages
+- Session 148–150: Interactive tools (calculator, FAQ schema 100% coverage), share buttons
+- Session 151–155: Content maturation, topical clusters, calculator CTA rollout
+- Session 156–168: Major shipping phase (May price hike report, 7 topical clusters, Slack integration, price alerts, 27 new individual pages)
 
 **Infrastructure Status:**
 - ✅ 144 company pages live
@@ -161,14 +137,14 @@ Next step: Trigger campaign with `POST /api/founder-outreach {secret: <CRON_SECR
 
 ---
 
-## Next Priorities
+## Next Priorities (Ranked)
 
-1. **Trigger founder outreach campaign** — API is deployed, awaiting manual trigger via `/api/founder-outreach` with CRON_SECRET
-2. **Monitor founder responses** — Day 3-7 after campaign send
-3. **Set up cron job** — cron-job.org for price-alerts-email-nurture (6h interval)
-4. **Collect testimonials** — From onboarded founders
-5. **Additional individual pages** — If more high-value keywords identified
-6. **SEO optimization** — Monitor ranking improvements, potentially add more internal linking
+1. **[BLOCKED] Trigger founder outreach campaign** — API deployed (`/api/founder-outreach`), need CRON_SECRET to trigger
+2. **[BLOCKED] Set up cron job** — cron-job.org for price-alerts-email-nurture (6h interval), need CRON_SECRET
+3. **Additional individual pages** — Remaining high-value keywords: Freshsales, Insightly, Fullstory, Lemonsqueezy, Relume, etc. (~8-10K/mo potential)
+4. **Monitor founder responses** — After campaign sends (Day 3-7)
+5. **Collect testimonials** — From onboarded founders + case studies
+6. **Comparison pages** — Remaining 3-way comparisons for untargeted niches
 
 ---
 
