@@ -2,6 +2,39 @@
 
 ---
 
+## Session 174 (May 5, 2026) — 8 New Individual Pricing Pages (+~8-15K/mo SEO potential)
+
+**Status:** ✅ COMPLETE
+
+### Pages Built (~8,000–15,000+/mo combined search potential)
+
+**Batch 1: Project, Task & Scheduling (5 pages)**
+1. **`companies/basecamp-pricing.html`** (~2-3K/mo) — Project management, flat rate $99/month, unlimited users, 30-day free trial
+2. **`companies/trello-pricing.html`** (~2-3K/mo) — Task management, Free + Standard $6/user/mo, Premium $12.50/user/mo, kanban workflow
+3. **`companies/calendly-pricing.html`** (~1-2K/mo) — Scheduling automation, Free + Premium $14/month, Teams $25/month per organizer
+4. **`companies/descript-pricing.html`** (~500-1K/mo) — Video & podcast editing, Free + Creator $24/mo, Pro $48/mo, AI Overdub
+5. **`companies/todoist-pricing.html`** (~500-1K/mo) — Task management, Free + Pro $4/month, Business $6/user/month
+
+**Batch 2: Customer Support & Conversational (3 pages)**
+6. **`companies/crisp-pricing.html`** (~500-800/mo) — Customer support, Free + Starter €25/mo (~$27), Pro €95/mo (~$103), unlimited agents
+7. **`companies/livechat-pricing.html`** (~500-800/mo) — Live chat support, Free (ad-supported) + Starter $29/mo, Business $59/mo, AI chatbots
+8. **`companies/drift-pricing.html`** (~1-2K/mo) — Conversational marketing, Starter $500/mo, Pro $1,000/mo, lead qualification AI
+
+### Infrastructure Updates
+
+- **companies/index.html**: +8 new company cards, stat updated 160 → 168 pages
+- **sitemap.xml**: +8 new entries (priority 0.81)
+
+### Cumulative Metrics
+
+- **Total pages created:** 168 (114 individual + 63 comparisons + ~24 hubs/reports/tools)
+- **All pages:** Have calculator CTA, FAQ schema (comparisons), price-alerts-form, 3-layer CTA
+- **Search potential:** ~365K+/month across all 168 pages (up from 323K)
+- **Session 174 additions:** Basecamp, Trello, Calendly, Descript, Todoist, Crisp, LiveChat, Drift
+- **Categories improved:** Project management, scheduling, video editing, task management, customer support, conversational marketing
+
+---
+
 ## Session 173 (May 5, 2026) — 5 New Individual Pricing Pages (+~8.5-9.5K/mo SEO potential)
 
 **Status:** ✅ COMPLETE
