@@ -105,6 +105,66 @@ async function markAlert(supabase, alertId, status, errorText) {
   await supabase.from('alerts').update(update).eq('id', alertId);
 }
 
+function buildSlackAlertPayload(monitorName, url, diffLines, detectedAt, significance) {
+  const date = new Date(detectedAt).toLocaleString('en-US', {
+    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC',
+  });
+  const confidenceLabel = significance >= 0.8 ? 'High' : significance >= 0.5 ? 'Medium' : 'Low';
+  const pct = Math.round(significance * 100);
+
+  // Build diff preview (max 10 lines, code block)
+  const changedLines = (diffLines || []).slice(0, 10);
+  const diffText = changedLines.length
+    ? '```\n' + changedLines.join('\n') + '\n```'
+    : '_No preview available_';
+
+  return {
+    blocks: [
+      {
+        type: 'header',
+        text: { type: 'plain_text', text: '⚡ Pricing change detected' },
+      },
+      {
+        type: 'section',
+        text: { type: 'mrkdwn', text: `*${monitorName}*\n<${url}|View pricing page>` },
+      },
+      {
+        type: 'section',
+        fields: [
+          { type: 'mrkdwn', text: `*Detected:*\n${date} UTC` },
+          { type: 'mrkdwn', text: `*Confidence:*\n${confidenceLabel} (${pct}%)` },
+        ],
+      },
+      {
+        type: 'section',
+        text: { type: 'mrkdwn', text: `*What changed:*\n${diffText}` },
+      },
+      {
+        type: 'actions',
+        elements: [
+          {
+            type: 'button',
+            text: { type: 'plain_text', text: 'View pricing page' },
+            url,
+            style: 'primary',
+          },
+          {
+            type: 'button',
+            text: { type: 'plain_text', text: 'Manage alerts' },
+            url: `${APP_URL}/dashboard.html`,
+          },
+        ],
+      },
+      {
+        type: 'context',
+        elements: [
+          { type: 'mrkdwn', text: `<${APP_URL}|PricePulse> · <${APP_URL}/settings.html|Settings>` },
+        ],
+      },
+    ],
+  };
+}
+
 async function handleSendAlerts(req, res) {
   const { secret } = req.body || {};
   if (!secret || secret !== process.env.CRON_SECRET) {
@@ -220,7 +280,75 @@ async function handleSendAlerts(req, res) {
     }
   }
 
-  return res.status(200).json({ ok: true, sent, failed, total: pending.length });
+  // ── Process pending Slack alerts ─────────────────────────────────
+  const { data: slackAlertsRaw, error: slackFetchErr } = await supabase
+    .from('alerts')
+    .select(`
+      id, user_id, monitor_id,
+      monitors ( name, url ),
+      diffs ( diff_lines, significance_score, detected_at )
+    `)
+    .eq('status', 'pending')
+    .eq('channel', 'slack')
+    .order('created_at', { ascending: true })
+    .limit(BATCH_LIMIT);
+
+  if (!slackFetchErr && slackAlertsRaw?.length) {
+    for (const alert of slackAlertsRaw) {
+      const monitor = alert.monitors;
+      const diff = alert.diffs;
+      if (!monitor) continue;
+
+      // Look up Slack webhook URL from alert_configs
+      const { data: slackConfig } = await supabase
+        .from('alert_configs')
+        .select('config')
+        .eq('user_id', alert.user_id)
+        .eq('channel', 'slack')
+        .eq('active', true)
+        .is('monitor_id', null)
+        .maybeSingle();
+
+      const webhookUrl = slackConfig?.config?.webhook_url;
+      if (!webhookUrl) {
+        await markAlert(supabase, alert.id, 'failed', 'No Slack webhook URL configured');
+        failed++;
+        continue;
+      }
+
+      try {
+        const payload = buildSlackAlertPayload(
+          monitor.name,
+          monitor.url,
+          diff?.diff_lines || [],
+          diff?.detected_at || new Date().toISOString(),
+          diff?.significance_score || 1.0,
+        );
+
+        const slackRes = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (slackRes.ok) {
+          await markAlert(supabase, alert.id, 'sent');
+          sent++;
+        } else {
+          const errBody = await slackRes.text();
+          await markAlert(supabase, alert.id, 'failed', errBody.slice(0, 200));
+          failed++;
+          console.error(`[send-alerts] Slack error for alert ${alert.id}:`, errBody);
+        }
+      } catch (err) {
+        await markAlert(supabase, alert.id, 'failed', err.message);
+        failed++;
+        console.error(`[send-alerts] Slack network error for alert ${alert.id}:`, err.message);
+      }
+    }
+  }
+
+  return res.status(200).json({ ok: true, sent, failed, total: pending.length + (slackAlertsRaw?.length || 0) });
 }
 
 export default async function handler(req, res) {

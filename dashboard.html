@@ -981,7 +981,7 @@
         <select id="monitorFreq" name="frequency" onchange="updateFrequencyNote()">
           <option value="daily">Every 24 hours (Free plan)</option>
           <option value="hourly" id="freq-hourly" disabled>Every hour (Starter plan)</option>
-          <option value="30min" id="freq-30min" disabled>Every 30 minutes (coming soon)</option>
+          <option value="30min" id="freq-30min" disabled>Every 30 minutes (Pro plan)</option>
         </select>
       </div>
 
@@ -1298,7 +1298,7 @@
     const notes = {
       daily: '⚡ Free plan: checks run every 24 hours',
       hourly: '⚡ Starter plan: checks run every hour (real-time monitoring)',
-      '30min': '⚡ 30-minute checks — coming soon',
+      '30min': '⚡ Pro plan: checks run every 30 minutes',
     };
     document.getElementById('frequencyNote').textContent = notes[freq] || notes['daily'];
   }
