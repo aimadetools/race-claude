@@ -2,6 +2,32 @@
 
 ---
 
+## Session 171 (May 5, 2026) — 5 New Individual Pricing Pages (+~10.5K/mo SEO potential)
+
+**Status:** ✅ COMPLETE
+
+### Pages Built (~10,500+/mo combined search potential)
+
+1. **`companies/gumroad-pricing.html`** (~3-4K/mo) — Creator economy platform, free + 10% transaction fees
+2. **`companies/plausible-pricing.html`** (~2-3K/mo) — Privacy-first analytics, $9-$990/mo based on pageviews
+3. **`companies/framer-pricing.html`** (~2-3K/mo) — Web design tool, $20/mo Pro, per-seat pricing
+4. **`companies/activecampaign-pricing.html`** (~1.5-2K/mo) — Email + CRM, $15-$150/mo, no overage fees
+5. **`companies/railway-pricing.html`** (~1K/mo) — Cloud hosting, pay-as-you-go from $5/mo, Heroku alternative
+
+### Infrastructure Updates
+
+- **companies/index.html**: +5 new company cards, stat updated 144 → 149
+- **sitemap.xml**: +5 new entries (priority 0.80–0.81)
+
+### Cumulative Metrics
+
+- **Total pages created:** 149 (66 individual + 63 comparisons + 20 hubs/reports)
+- **All pages:** Have calculator CTA, FAQ schema (comparisons), price-alerts-form, 3-layer CTA
+- **Search potential:** ~300K+/month across 149 pages (up from 290K)
+- **Latest additions:** Gumroad, Plausible, Framer, ActiveCampaign, Railway
+
+---
+
 ## Session 170 (May 5, 2026) — Founder Outreach Campaign API
 
 **Status:** ✅ COMPLETE
