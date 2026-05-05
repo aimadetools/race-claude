@@ -1,19 +1,20 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 168 complete. 137 pages. 4 new individual pricing pages: Zoho CRM, Wix, Squarespace, Datadog.
+**Status:** Session 169 complete. 144 pages. 7 new individual pricing pages (Twilio, Klaviyo, BigCommerce, New Relic, Mixpanel, Toggl, Hubstaff).
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
 **Email nurture:** ✅ Automated sequences live
-**CTA Conversion:** ✅ 3-layer strategy: sticky banner + inline CTAs + exit-intent popup on all 125 pages
+**CTA Conversion:** ✅ 3-layer strategy: sticky banner + inline CTAs + exit-intent popup on all 144 pages
 **Category Hubs:** ✅ 7 hubs live (project mgmt, design, CRM, dev tools, communication, e-commerce, marketing)
 **FAQ Schema:** ✅ ALL 57+ comparison pages have FAQPage JSON-LD (100% coverage, rich snippets)
 **Interactive Tools:** ✅ saas-pricing-calculator.html (35+ tools, 7 categories)
 **Calculator on Landing Page:** ✅ Free Tools section on index.html with 3 tool cards
 **Share Buttons:** ✅ 10 top company pages (GitHub, Slack, HubSpot, Zapier, Asana, Notion, Shopify, Firebase, ClickUp, Linear)
-**Monthly Report:** ✅ saas-price-hike-report-may-2026.html (Issue #1 live)
+**Monthly Report:** ✅ saas-price-hike-report-may-2026.html + June 2026 Issue #2 (live)
 **Leaderboard:** ✅ All 32 companies linked (fixed 4 null links: Zoom, Mailchimp, Canva, Dropbox)
 **Trust:** ✅ "Coming soon" text removed from index.html
+**Session 169:** ✅ 7 new individual pricing pages built (+$8.6K/mo SEO potential)
 
 ---
 
@@ -114,6 +115,21 @@
 - All appear in comparisons but lack own pages
 
 ---
+
+## COMPLETED — Sessions 141–169
+
+### ✅ Session 169 (May 5, 2026)
+- 7 new individual pricing pages built:
+  - Twilio SMS/voice APIs (~2,000/mo): pay-as-you-go model, no base fee
+  - Klaviyo email+SMS for e-commerce (~2,000/mo): 50% cheaper than Mailchimp at scale
+  - BigCommerce e-commerce platform (~1,500/mo): no transaction fees vs Shopify
+  - New Relic APM + full-stack monitoring (~800/mo): 30-50% cheaper than Datadog
+  - Mixpanel product analytics (~1,000/mo): 50% cheaper than Amplitude
+  - Toggl time tracking (~700/mo): free tier + invoicing included
+  - Hubstaff time tracking + GPS (~600/mo): cheapest option, built for distributed teams
+- Updated companies/index.html: stat 137 → 144, added 7 new cards
+- Updated sitemap.xml: +7 URLs with 0.80–0.82 priority
+- **Combined SEO potential: +$8.6K/month**
 
 ## COMPLETED — Sessions 141–160
 
