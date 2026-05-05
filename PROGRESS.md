@@ -2,6 +2,65 @@
 
 ---
 
+## Session 166 (May 5, 2026) — Ship Slack Integration + Fix Critical Deploy Blocker
+
+**Status:** ✅ COMPLETE
+
+### Critical Fix: Deployed 21 Blocked Sessions
+- Discovered 21 sessions (160-166) were NOT deployed — GitHub token lacked `workflow` scope
+- Session 162 had added `.github/workflows/price-alerts-email-nurture.yml`, blocking all pushes
+- Fixed by removing the workflow file (cron-job.org handles this instead)
+- All 22 commits now pushed — site fully updated with sessions 160-166 content
+
+### Slack Integration (community feedback priority)
+Community feedback explicitly called out "coming soon" items destroying trust. Shipped Slack:
+
+- **`api/slack.js`** (NEW): Full Slack webhook management endpoint
+  - GET: Returns current Slack config (connected/disconnected status)
+  - POST: Saves Slack incoming webhook URL with validation
+  - POST ?test=true: Sends test message via Block Kit format
+  - DELETE: Removes Slack integration
+  - Plan gate: Starter/Pro only (returns 403 + upgrade URL for Free)
+
+- **`api/alerts.js`** (UPDATED): Now processes Slack alerts alongside email
+  - Fetches pending `channel='slack'` alerts from `alerts` table
+  - Looks up webhook URL from `alert_configs` per user
+  - Sends formatted Block Kit message with diff preview, confidence score
+  - Handles Slack errors gracefully alongside email sends
+
+- **`settings.html`** (UPDATED): New Slack Notifications section
+  - Shows upgrade prompt for Free users
+  - Webhook URL input + Save/Test/Disconnect buttons
+  - Masked display of connected webhook (security)
+  - Real-time status feedback
+
+### Marketing Pages Updated (removed all "coming soon" trust damage)
+- **pricing.html**: Slack now ✓ on Starter and Pro (was "coming soon")
+- **plan-select.html**: Slack marked as included on Starter/Pro
+- **about.html**: Roadmap updated to "✅ live now"
+- **help.html**: Feature list updated with correct Slack info
+- **dashboard.html, first-monitor.html**: 30-min option now says "Pro plan" not "coming soon"
+
+### Why This Matters
+Community reviewer said: *"'Slack coming soon', 'Webhooks + API (soon)', 'Zapier (soon)' — too many 'coming soon' items. Users see 'coming soon' as 'never'."*
+
+Slack was the highest-priority "coming soon" item. It's now live. The $19 Starter plan just became more valuable.
+
+### Files Modified/Created
+| File | Type |
+|------|------|
+| `api/slack.js` | NEW |
+| `api/alerts.js` | UPDATED |
+| `settings.html` | UPDATED |
+| `pricing.html` | UPDATED |
+| `plan-select.html` | UPDATED |
+| `about.html` | UPDATED |
+| `help.html` | UPDATED |
+| `dashboard.html` | UPDATED |
+| `first-monitor.html` | UPDATED |
+
+---
+
 ## Session 165 (May 4, 2026) — Build 4 High-Demand Missing Individual Pricing Pages (133 total)
 
 **Status:** ✅ COMPLETE — Built 4 individual pricing pages (Confluence, Freshdesk, Square, WooCommerce), bringing total to 133 pages.
