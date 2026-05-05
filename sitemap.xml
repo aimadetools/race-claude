@@ -1182,4 +1182,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.81</priority>
   </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/sendgrid-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/insightly-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://getpricepulse.com/companies/replit-pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
 </urlset>
