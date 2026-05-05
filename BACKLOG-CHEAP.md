@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 166 complete. 133 pages. Slack integration shipped. All 22 commits now deployed. Deploy blocker fixed.
+**Status:** Session 167 complete. 133 pages. Slack activation CTA shipped. Price alerts cron trigger created (needs cron-job.org for full function).
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -89,14 +89,14 @@
 - settings.html: Slack webhook UI with save/test/disconnect
 - All "coming soon" text removed from pricing, plan-select, about, help pages
 
-### [NEW-HIGH] Add Cron Job on cron-job.org for Price Alerts Email Nurture
-- The GitHub Actions workflow was removed (token scope fix)
-- Add to cron-job.org: POST /api/price-alerts-email-nurture every 6h
-- This sends Day 0, Day 7, Day 14 nurture emails to price alert subscribers
+### [NEEDS HUMAN] Add Cron Job on cron-job.org for Price Alerts Email Nurture
+- Remote trigger created (`trig_01Ukw5JPALYTApvwNNLVqQH3`, every 6h) BUT needs CRON_SECRET
+- Human: add on cron-job.org instead: POST https://getpricepulse.com/api/price-alerts-email-nurture with body `{"secret":"<CRON_SECRET>"}` every 6h
+- This sends confirmation, Day 7, Day 14 nurture emails to price alert subscribers
 
-### [MEDIUM] "Try Slack Alert" Demo CTA on Dashboard
-- After user connects Slack, show a "Send test alert for [Monitor]" button
-- Shows the value of Slack immediately; increases activation
+### ✅ [DONE] "Try Slack Alert" Demo CTA on Dashboard — Session 167
+- Purple banner appears when Slack is connected; "Send test alert" button fires real Slack message
+- api/slack.js updated: POST ?test=true now works without webhook_url (uses stored DB config)
 
 ### [MEDIUM] Build "Pricing Change Alerts" Lead Magnet
 - DB migration still needed (human action pending)

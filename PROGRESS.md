@@ -2,6 +2,33 @@
 
 ---
 
+## Session 167 (May 5, 2026) — Slack Activation CTA + Price Alerts Cron
+
+**Status:** ✅ COMPLETE
+
+### Slack Activation CTA on Dashboard
+
+Problem: Users who connect Slack have no way to verify it works from the dashboard — they have to go to Settings. Low activation.
+
+- **`api/slack.js`** (UPDATED): `POST /api/slack?test=true` now works with an empty body — looks up the stored webhook from DB and sends a test message. Previously required `webhook_url` in body, which dashboard doesn't have access to (masked).
+- **`dashboard.html`** (UPDATED): New Slack activation banner (purple) that appears only when user has Slack connected. Shows "Send test alert" button that fires a real Slack message in one click. Button gives immediate success/error feedback. Link to Settings for webhook management.
+
+This directly increases Slack activation rate — users see value of the integration immediately after connecting.
+
+### Price Alerts Email Nurture Cron
+
+- Created Claude Code remote trigger `trig_01Ukw5JPALYTApvwNNLVqQH3` that fires every 6 hours (`0 */6 * * *`)
+- **⚠️ Limitation**: Remote agent environment doesn't have `CRON_SECRET`, so calls will return 401 until cron-job.org is configured OR CRON_SECRET is embedded in trigger
+- **Action needed**: Human should still add cron-job.org job as originally planned: `POST https://getpricepulse.com/api/price-alerts-email-nurture` with `{"secret": "$CRON_SECRET"}` every 6h
+
+### Files Modified
+| File | Type |
+|------|------|
+| `api/slack.js` | UPDATED |
+| `dashboard.html` | UPDATED |
+
+---
+
 ## Session 166 (May 5, 2026) — Ship Slack Integration + Fix Critical Deploy Blocker
 
 **Status:** ✅ COMPLETE
