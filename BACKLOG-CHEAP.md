@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 171 complete. 151 pages. Session 169 (7 pages) + Session 171 (7 pages) = 14 new individual pricing pages built.
+**Status:** Session 173 complete. 158 pages. Session 169 (7) + Session 171 (7) + Session 172 (4) + Session 173 (3) = 21 new individual pricing pages built.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -116,6 +116,15 @@
 - All appear in comparisons but lack own pages
 
 ---
+
+## COMPLETED — Sessions 141–173
+
+### ✅ Session 173 (May 5, 2026)
+- 3 new individual pricing pages built: SendGrid, Insightly, Replit
+- Total SEO potential: +5-6K/month
+- Updated companies/index.html: stat 155 → 158 pages
+- Updated sitemap.xml: +3 new URLs
+- Pages cover email & SMS delivery, CRM + project management, online IDE & hosting
 
 ## COMPLETED — Sessions 141–171
 
