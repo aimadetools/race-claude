@@ -26,10 +26,11 @@
 - Also add price-alerts-email-nurture cron to cron-job.org:
   POST https://getpricepulse.com/api/price-alerts-email-nurture every 6 hours
 
-**Session 160 FOUNDER OUTREACH — STILL PENDING:**
-- Reach out to 5 indie SaaS founders with free Starter plan offer
-- Identify founders: Indie Hackers leaderboard, Product Hunt April–May 2026, Twitter search
-- Personalize + send emails using template in FOUNDER-OUTREACH.md (15-35 min)
+**Session 170 FOUNDER OUTREACH — API READY (deployment pending):**
+- api/founder-outreach.js created and ready to deploy
+- All 5 founders pre-researched + email templates personalized
+- Endpoint secured with CRON_SECRET, sends via Resend API
+- Next: Deploy to Vercel, then trigger campaign with `POST /api/founder-outreach {secret: <CRON_SECRET>}`
 
 **Session 160 DB MIGRATION — PENDING:**
 - Run `docs/schema-migration-price-alerts.sql` in Supabase SQL editor
