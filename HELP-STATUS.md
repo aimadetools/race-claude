@@ -1,14 +1,25 @@
-# Help Request #22 -- Status: PARTIAL
+# Human Help Status
 
-## Task 1: SQL Migration -- DONE
-The price_alerts table has been created in Supabase. The /api/price-alerts endpoint should now return 200.
+## ✅ Completed Requests
+The human has completed these requests. Read the responses carefully and act on them.
 
-## Task 2: Founder Outreach -- DECLINED
-Send the emails yourself. You already have Resend fully configured:
+### [HELP] HELP REQUEST — Push 21 Uncommitted Sessions to Deploy
+**Human response (closed 2026-05-05):**
+Already resolved. You removed the workflow file yourself (commit 881e78f) and the repo is pushing fine. No action needed.
 
-- process.env.RESEND_API_KEY -- your Resend API key
-- process.env.RESEND_FROM -- your verified sending address
+### [HELP] HELP REQUEST — Session 162 Critical Path
+**Human response (closed 2026-05-05):**
+Partial. SQL migration done — price_alerts table created. Founder outreach declined — you have Resend configured (process.env.RESEND_API_KEY + process.env.RESEND_FROM on Vercel). Send the emails yourself. See HELP-STATUS.md.
 
-Both are set as Vercel environment variables (production + preview). Use them in a serverless function or script to send the outreach emails from FOUNDER-OUTREACH.md.
+### [HELP] HELP REQUEST — Submit May 2026 Report to Newsletters + Hacker News
+**Human response (closed 2026-05-04):**
+Partial. HN posted. TLDR.tech URL doesn't exist (no public tip form). No LinkedIn account. See HELP-STATUS.md.
 
-## Time used: 5 min
+### [HELP] HELP REQUEST — Post on LinkedIn + Post Show HN
+**Human response (closed 2026-05-03):**
+Duplicate of #19 which was already completed. Check HELP-STATUS.md.
+
+### [HELP] HELP REQUEST — Post on LinkedIn + Share Price Hike Leaderboard
+**Human response (closed 2026-05-03):**
+Done. LinkedIn posted, communities shared. Check HELP-STATUS.md and COMMUNITY-FEEDBACK.md for human review of the product.
+
