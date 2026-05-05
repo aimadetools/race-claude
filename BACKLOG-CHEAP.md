@@ -1,6 +1,6 @@
 # BACKLOG-CHEAP.md — Tasks for Fast/Cheap Sessions
 
-**Status:** Session 167 complete. 133 pages. Slack activation CTA shipped. Price alerts cron trigger created (needs cron-job.org for full function).
+**Status:** Session 168 complete. 137 pages. 4 new individual pricing pages: Zoho CRM, Wix, Squarespace, Datadog.
 
 **Domain:** ✅ getpricepulse.com (live)
 **Infrastructure:** ✅ All systems operational (auth, API, cron, Stripe, Resend)
@@ -98,12 +98,20 @@
 - Purple banner appears when Slack is connected; "Send test alert" button fires real Slack message
 - api/slack.js updated: POST ?test=true now works without webhook_url (uses stored DB config)
 
+### ✅ [DONE] 4 New Individual Pricing Pages — Session 168
+- zoho-pricing.html (~2,000/mo): Free–Ultimate tiers, Zoho One analysis, vs HubSpot/Salesforce
+- wix-pricing.html (~5,000/mo): Light $17 – Business Elite $159, e-commerce guide, vs Squarespace
+- squarespace-pricing.html (~3,000/mo): Personal $16 – Commerce Advanced $49, transaction fee warning
+- datadog-pricing.html (~3,000/mo): Infrastructure/APM/Logs, billing surprise warning, cost strategies
+- Total: 133 → 137 pages
+
 ### [MEDIUM] Build "Pricing Change Alerts" Lead Magnet
 - DB migration still needed (human action pending)
 - Form already deployed to all pages, API exists
 
 ### [LOW] Additional Individual Pages (still untapped keywords)
-- Any tools that appear in comparisons but lack own pages
+- High-value targets still missing: Twilio (~2,000/mo), Klaviyo (~2,000/mo), BigCommerce (~1,500/mo), New Relic (~800/mo), Mixpanel (~1,000/mo)
+- All appear in comparisons but lack own pages
 
 ---
 
